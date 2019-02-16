@@ -4,20 +4,25 @@ import com.janhen.structures.heapAndpriorityQueue.IHeap;
 
 import java.util.NoSuchElementException;
 
-public class Heap<E extends Comparable<E>> implements IHeap<E> {
+public class MaxHeap<E extends Comparable> implements IHeap<E> {
 
-    private E[] data;  // ★ [1] begin storage element
-    private int N;
-    private int capacity;
+    // [ ,1,2,3,4,5,6]
+    //    k
+    // parent: k/2
+    // left child: 2*k
+    // right child: 2*k+1
+    protected E[] data;  // [1] begin storage element
+    protected int N;
+    protected int capacity;
 
-    public Heap(int capacity) {
-        data = (E[]) new Comparable[capacity + 1];  // ★
+    public MaxHeap(int capacity) {
+        data = (E[]) new Comparable[capacity + 1];  // store
         this.capacity = capacity;
         N = 0;
     }
 
     // time:O(n)
-    public Heap(E[] arr) {
+    public MaxHeap(E[] arr) {
         data = (E[]) new Comparable[arr.length + 1];
         capacity = arr.length;
         for (int i = 0; i < arr.length; i ++)
@@ -46,7 +51,7 @@ public class Heap<E extends Comparable<E>> implements IHeap<E> {
     }
 
     @Override
-    public E delMax() {
+    public E extractMax() {
         if (isEmpty())
             throw new IllegalArgumentException();
 
@@ -65,6 +70,9 @@ public class Heap<E extends Comparable<E>> implements IHeap<E> {
         return data[1];
     }
 
+    // compare(cur, max{left,right})
+    //    - P1: <   swap(cur,max{left,right})
+    //    - P2: >=  over
     private void sink(int k) {
         while (k*2 <= N) {
             int j = k*2;
@@ -73,11 +81,12 @@ public class Heap<E extends Comparable<E>> implements IHeap<E> {
             if (data[k].compareTo(data[j]) >= 0)
                 break;
             swap(k, j);
+            k = j;
         }
     }
 
     private void swim(int k) {
-        while (k > 1 && data[k].compareTo(data[k/2]) > 0) {
+        while (k/2 > 0 && data[k].compareTo(data[k/2]) > 0) {
             swap(k, k/2);
             k = k/2;
         }
@@ -88,5 +97,4 @@ public class Heap<E extends Comparable<E>> implements IHeap<E> {
         data[i] = data[j];
         data[j] = t;
     }
-
 }

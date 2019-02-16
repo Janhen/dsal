@@ -17,7 +17,6 @@ public class LinkedList<E> implements ILinkedList<E> {
     public LinkedList(List<E> list) {
         first = new Node(null, null);
         N = 0;
-
         for (E val : list) {
             addLast(val);
         }
@@ -117,30 +116,34 @@ public class LinkedList<E> implements ILinkedList<E> {
 
     }
 
+    // delete all equal key
     public void removeElement(E key) {
-        Node prev = first;
-        while (prev != null && prev.next != null) {
-            if (prev.next.val.equals(key)) {
-                Node cur = prev.next;
-                prev.next = cur.next;
+        Node pre = first;
+        Node cur = first.next;
+        while (cur != null) {
+            if (pre.next.val.equals(key)) {
+                Node next = cur.next;
+                pre.next = cur.next;
                 cur.next = null;
-                N --;
-                return;
+                pre = cur;
+                cur = next;
             }
-            prev = prev.next;
+            else {
+                pre = cur;
+                cur = cur.next;
+            }
         }
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-
-        Node cur = first.next;  // dummy
+        Node cur = first.next;
         while (cur != null) {
-            sb.append(cur.next == null ? cur.val : cur.val + "->");
+            sb.append(cur.val + "->");
             cur = cur.next;
         }
-        sb.append("->NULL");
+        sb.append("NULL");
          return sb.toString();
     }
 
@@ -159,16 +162,7 @@ public class LinkedList<E> implements ILinkedList<E> {
 
         @Override
         public String toString() {
-            Node cur = this;
-            StringBuilder sb = new StringBuilder();
-
-            while (cur != null) {
-                sb.append(cur.next == null ? cur.val : cur.val + "->");
-                cur = cur.next;
-            }
-            sb.append("->NULL");
-            return sb.toString();
+            return val.toString();
         }
     }
-
 }

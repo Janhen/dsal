@@ -1,41 +1,42 @@
 package com.janhen.structures.queue.twoStackImpl;
 
+import java.util.NoSuchElementException;
 import java.util.Stack;
 
 public class Queue<E> {
 
-    private Stack<E> s1;
-    private Stack<E> s2;
+    private Stack<E> pushStack;
+    private Stack<E> popStack;
 
     public Queue() {
-        s1 = new Stack<>();
-        s2 = new Stack<>();
+        pushStack = new Stack<>();
+        popStack = new Stack<>();
     }
 
     public void enqueue(E e) {
-        s1.push(e);
+        pushStack.push(e);
     }
 
     public E dequeue() {
-        if (s2.isEmpty()) {
-            while (!s1.isEmpty())
-                s2.push(s1.pop());
+        if (popStack.isEmpty()) {
+            while (!pushStack.isEmpty())
+                popStack.push(pushStack.pop());
         }
 
-        if (s2.isEmpty())
-            throw new IllegalArgumentException("Queue is empty");
-        return s2.pop();
+        if (popStack.isEmpty())
+            throw new NoSuchElementException("Queue is empty");
+        return popStack.pop();
     }
 
     public E peek() {
-        if (s2.isEmpty()) {
-            while (!s1.isEmpty())
-                s2.push(s1.pop());
+        if (popStack.isEmpty()) {
+            while (!pushStack.isEmpty())
+                popStack.push(pushStack.pop());
         }
 
-        if (s2.isEmpty())
-            throw new IllegalArgumentException("Queue is empty");
-        return s2.peek();
+        if (popStack.isEmpty())
+            throw new NoSuchElementException("Queue is empty");
+        return popStack.peek();
     }
 
 }

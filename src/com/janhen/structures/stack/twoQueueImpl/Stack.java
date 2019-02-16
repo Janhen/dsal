@@ -22,8 +22,9 @@ public class Stack<E> {
 
         while (data.size() > 1)
             help.add(data.poll());
+        E oldTop = data.poll();
         swap();
-        return data.poll();
+        return oldTop;
     }
 
     public E peek() {
@@ -32,11 +33,10 @@ public class Stack<E> {
 
         while (data.size() > 1)
             help.add(data.poll());
-
-        E res = data.poll();
-        help.add(res);
-        swap();
-        return res;
+        E oldTop = data.poll();
+        help.add(oldTop);
+        swap();          // reset
+        return oldTop;
     }
 
     private void swap() {

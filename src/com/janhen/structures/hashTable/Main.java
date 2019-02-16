@@ -4,10 +4,10 @@ import com.janhen.FileUtils;
 import com.janhen.structures.hashTable.resizeOptimize.HashTable;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Main {
-
 
     @Test
     public void testHashCode() {
@@ -33,7 +33,7 @@ public class Main {
         System.out.println("pride-and-prejudice");
 
         HashTable<String, Integer> map = new com.janhen.structures.hashTable.resizeOptimize.HashTable<>();
-        List<String> words = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt");
+        List<String> words = FileUtils.readFile("src//pride-and-prejudice.txt");
         System.out.println("Total words : " + words.size());
 
         for (String word : words) {
@@ -43,6 +43,25 @@ public class Main {
                 map.add(word, 1);
         }
 
+        System.out.println("Total different words : " + map.size());
+        System.out.println("Frequency of PRIDE : " + map.get("pride"));
+        System.out.println("Frequency of PREJUDICE : " + map.get("prejudice"));
+    }
+
+    @Test
+    public void hashTable() {
+        System.out.println("pride-and-prejudice");
+
+        HashMap<String, Integer> map = new HashMap<>();
+        List<String> words = FileUtils.readFile("src//pride-and-prejudice.txt");
+        System.out.println("Total words : " + words.size());
+
+        for (String word : words) {
+            if (map.containsKey(word))
+                map.replace(word, map.get(word) + 1);
+            else
+                map.put(word, 1);
+        }
         System.out.println("Total different words : " + map.size());
         System.out.println("Frequency of PRIDE : " + map.get("pride"));
         System.out.println("Frequency of PREJUDICE : " + map.get("prejudice"));

@@ -120,7 +120,6 @@ public class Array<E> implements IArray<E> {
             data[i - 1] = data[i];
         }
         N --;
-        // reference to null for gc
         data[N] = null;
         if (N == data.length / 4 && data.length != 0) {
             resize(data.length / 2);

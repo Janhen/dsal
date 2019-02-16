@@ -16,15 +16,13 @@ public class IndexMaxHeap<E extends Comparable<E>> implements IIndexHeap<E> {
         this.capacity = capacity;
     }
 
+    // index - element
     public void insert (int i, E item) {
-
         assert (N + 1 <= capacity);
         assert (i + 1 >= 1 && i + 1 <= capacity);
 
-        i += 1;  // ★ from one to storage
-        data[i] = item;
-        indexs[N + 1] = i;
-        N ++;
+        data[++ i] = item;   // ★ from one to storage
+        indexs[++ N] = i;
         swim(N);
     }
 
@@ -44,8 +42,7 @@ public class IndexMaxHeap<E extends Comparable<E>> implements IIndexHeap<E> {
 
     // ★★
     public void change(int i, E newItem) {
-        i += 1;
-        data[i] = newItem;
+        data[++ i] = newItem;    // assign value
 
         // indexs[j] = i, j 为  data[i] 在 heap 中的位置
 

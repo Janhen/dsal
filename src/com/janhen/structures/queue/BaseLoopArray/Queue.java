@@ -30,32 +30,29 @@ public class Queue<E> implements IQueue<E> {
     }
 
     public int getCapacity() {
-        // ★
+        // ★logic can store element count
         return data.length - 1;
     }
 
     @Override
     public void enqueue(E item) {
-        // ★
         if ((tail + 1) % data.length == front)
             resize(getCapacity() * 2);
 
         data[tail] = item;
         tail = (tail + 1) % data.length;
-        N++;
+        N ++;
     }
 
     @Override
     public E dequeue() {
-        if (isEmpty())
-            throw new IllegalArgumentException();
+        if (isEmpty()) throw new IllegalArgumentException();
 
         E oldV = data[front];
         data[front] = null;
         front = (front + 1) % data.length;
-        N--;
+        N --;
 
-        // ★
         if (N == getCapacity() / 4 && getCapacity() / 2 != 0)
             resize(getCapacity() / 2);
         return oldV;
@@ -63,25 +60,14 @@ public class Queue<E> implements IQueue<E> {
 
     @Override
     public E peek() {
-        if (isEmpty())
-            throw new IllegalArgumentException();
+        if (isEmpty()) throw new IllegalArgumentException();
 
         return data[front];
     }
 
-    //
-    private void checkSize() {
-        if (N >= DEFAULT_CAPACITY && (tail + 1) % data.length == front) {
-            resize(getCapacity() * 2);
-        } else if (N >= DEFAULT_CAPACITY && N <= getCapacity() / 4) {
-            resize(getCapacity() / 2);
-        }
-    }
-
-    // ★★
+    // ★★  [front]..[len-1]..[tail]  ⇒  [0]...[N-1]
     private void resize(int newCapacity) {
         E[] aux = (E[]) new Object[newCapacity + 1];
-        // note: traverse and add offset
         for (int i = 0; i < size(); i++) {
             aux[i] = data[(i + front) % data.length];  // from front to tail
         }
@@ -91,15 +77,27 @@ public class Queue<E> implements IQueue<E> {
     }
 
 
-    @Override
-    // ★
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append(String.format("Queue : size = %d, capacity = %d \n", size(), getCapacity()));
+//        sb.append("front [");
+//        // traverse from index front to tail
+//        for (int i = front; i != tail; i = (i + 1) % data.length) {
+//            sb.append((i + 1) % data.length == tail ? data[i] : data[i] + ", ");
+//        }
+//        sb.append("] tail");
+//        return sb.toString();
+//    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("Queue : size = %d, capacity = %d \n", size(), getCapacity()));
         sb.append("front [");
         // traverse from index front to tail
-        for (int i = front; i != tail; i = (i + 1) % data.length) {
-            sb.append((i + 1) % data.length == tail ? data[i] : data[i] + ", ");
+        for (int i = 0; i < size(); i ++) {
+            int curIndex = (i+front) % data.length;
+            sb.append(curIndex != tail - 1 ? data[curIndex] + ", ": data[curIndex]);
         }
         sb.append("] tail");
         return sb.toString();

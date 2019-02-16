@@ -2,6 +2,9 @@ package com.janhen.structures.hashTable.resizeOptimize;
 
 import java.util.TreeMap;
 
+/**
+ * 指定容量表控制扩容的容量
+ */
 public class HashTable<K, V> {
 
     private final int[] capacity = {53, 97, 193, 389, 769, 1543, 3079, 6151, 12289,
@@ -26,8 +29,9 @@ public class HashTable<K, V> {
             hashtable[i] = new TreeMap<>();
     }
 
-
     private int hash(K key) {
+//        int h;
+//        return key == null ? 0 : (((h = key.hashCode()) ^ (h >>> 16)) & 0x7fffffff) % M;
         return (key.hashCode() & 0x7fffffff) % M;
     }
 
@@ -44,8 +48,8 @@ public class HashTable<K, V> {
             map.put(key, val);
             N ++;
 
-            if (N >= upperTol * M && capacityIndex + 1 < capacity.length) {
-                capacityIndex ++;   // ★★ 扩容策略
+            if (N >= upperTol * M && capacityIndex + 1 < capacity.length) {   // 扩容时机: 桶平均链表长度超过阈值, 且定义的容量控制表在范围内
+                capacityIndex ++;
                 resize(capacity[capacityIndex]);
             }
         }
@@ -61,7 +65,6 @@ public class HashTable<K, V> {
                 capacityIndex ++;
                 resize(capacity[capacityIndex]);
             }
-                resize(M / 2);
         }
         return ret;
     }
@@ -88,11 +91,12 @@ public class HashTable<K, V> {
         for (int i = 0; i < newHashTable.length; i ++)
             newHashTable[i] = new TreeMap<>();
 
-        for (int i = 0; i < M; i ++)
-            for (K key: hashtable[i].keySet())
-                newHashTable[hash(key)].put(key, hashtable[i].get(key));   // ★ rehash
-
+        int oldM = M;
         this.M = newM;
+        for (int i = 0; i < oldM; i ++)
+            for (K key: hashtable[i].keySet())
+                newHashTable[hash(key)].put(key, hashtable[i].get(key));   // rehash
+
         this.hashtable = newHashTable;
     }
 }

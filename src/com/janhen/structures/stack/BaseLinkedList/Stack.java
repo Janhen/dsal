@@ -19,8 +19,8 @@ public class Stack<E> implements IStack<E> {
         return list.isEmpty();
     }
 
+    // lpush + lpop
     public void push(E e) {
-        // O(1)
         list.addFirst(e);
     }
 
@@ -34,8 +34,7 @@ public class Stack<E> implements IStack<E> {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-
-        sb.append("GetMinStack: top ");
+        sb.append("Stack: top ");
         sb.append(list);
         return sb.toString();
     }

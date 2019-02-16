@@ -12,6 +12,7 @@ public class GetMinStack2<E extends Comparable<E>> {
         min = new Stack<>();
     }
 
+    // push e when e=min{e,peek}
     public void push(E e) {
         if (min.isEmpty())
             min.push(e);
@@ -25,19 +26,15 @@ public class GetMinStack2<E extends Comparable<E>> {
         if (data.isEmpty())
             throw new IllegalArgumentException("Stack is empty");
 
-        E val = data.pop();
-
-        if (val.equals(min.peek()))
+        E oldTop = data.pop();
+        if (oldTop.equals(min.peek()))
           min.pop();
-        return val;
+        return oldTop;
     }
-
 
     public E getMin() {
         if (min.isEmpty())
             return null;
-
         return min.peek();
     }
-
 }

@@ -15,19 +15,13 @@ public class Student {
     }
 
     @Override
-    /*
-    字符串大小写
-     */
     public int hashCode() {
-        // carry
         int B = 31;
-
         int hash = 0;
         hash = hash * B + grade;
         hash = hash * B + cls;
+        hash = hash * B + firstName.toLowerCase().hashCode();            /* 手动控制大小写不敏感 */
         hash = hash * B + firstName.toLowerCase().hashCode();
-        hash = hash * B + firstName.toLowerCase().hashCode();
-
         return hash;
     }
 

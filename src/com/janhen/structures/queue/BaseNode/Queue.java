@@ -26,31 +26,32 @@ public class Queue<E> implements IQueue<E>, Iterable<E> {
     }
     
 
-    /* ---------------------------Core-------------------------- */
-    // maintain member variables
-    public void enqueue(E item) { 
-        // temporary storage truncate element
-    	Node<E> oldLast = last;
-    	last = new Node<>(item, null);
-
-    	// first init
-    	if (isEmpty()) first = last;
-    	else oldLast.next = last;
-    	N++;
+    // rpush + lpop
+    public void enqueue(E item) {
+    	Node node = new Node<>(item, null);
+    	if (isEmpty()) {
+    	    first = node;
+    	    last = first;
+        } else {
+    	    last.next = node;
+    	    last = last.next;
+        }
+    	N ++;
     }
 
+    // lpop
     public E dequeue() {
     	if(isEmpty()) throw new NoSuchElementException();
 
-    	E item = first.item;
+    	Node oldFront = first;
     	first = first.next;
-    	N--;
+    	oldFront.next = null;
+    	N --;
 
     	if (isEmpty()) last = null;
-    	return item;
+    	return (E) oldFront.item;
     }
 
-    /* ---------------------------AUX--------------------------- */
     public String toString() {
         StringBuilder s = new StringBuilder();
         for (E item : this) {
@@ -65,6 +66,7 @@ public class Queue<E> implements IQueue<E>, Iterable<E> {
 	public Iterator<E> iterator() {
         return new ListIterator();
 	}
+
     private class ListIterator<E> implements Iterator<E> {
         private Node cur = first;
 
@@ -74,7 +76,6 @@ public class Queue<E> implements IQueue<E>, Iterable<E> {
 
         public E next() {
             if (!hasNext()) throw new NoSuchElementException();
-            // traversal
             E item = (E) cur.item;
             cur = cur.next; 
             return item;

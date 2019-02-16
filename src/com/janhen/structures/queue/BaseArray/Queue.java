@@ -24,6 +24,7 @@ public class Queue<E> implements IQueue<E> {
         return arr.isEmpty();
     }
 
+    // rpush+lpop
     public void enqueue(E item) {
         arr.addLast(item);
     }

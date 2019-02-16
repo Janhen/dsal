@@ -2,6 +2,9 @@ package com.janhen.structures.hashTable.dynamic;
 
 import java.util.TreeMap;
 
+/**
+ * 界限扩容
+ */
 public class HashTable<K, V> {
 
     private static final int upperTol = 10;
@@ -41,16 +44,9 @@ public class HashTable<K, V> {
         else {
             map.put(key, val);
             N ++;
-
-            if (N >= upperTol * M)  // ★ 扩容策略
+            if (N >= upperTol * M)       // 扩容时机: 每个桶中平均含有的节点个数查过 upperTol
                 resize(2 * M);
         }
-        /*if (hashtable[hash(key)].containsKey(key))
-            hashtable[hash(key)].put(key, val);
-        else {
-            hashtable[hash(key)].put(key, val);
-            N ++;
-        }*/
     }
 
     public V remove(K key) {
@@ -59,7 +55,7 @@ public class HashTable<K, V> {
         if (map.containsKey(key)) {
             ret = map.remove(key);
             N --;
-            if (N < lowerTol * M && M / 2 >= INIT_CAPACITY)
+            if (N < lowerTol * M && M / 2 >= INIT_CAPACITY)   /* 缩减桶时机: 桶中平均节点数小于 lowerTol, 且保证最小容量 */
                 resize(M / 2);
         }
         return ret;
@@ -81,8 +77,6 @@ public class HashTable<K, V> {
         return hashtable[hash(key)].get(key);
     }
 
-
-    // ★★★
     private void resize(int newM) {
         TreeMap<K, V>[] newHashTable = new TreeMap[newM];
         for (int i = 0; i < newHashTable.length; i ++)
@@ -93,7 +87,7 @@ public class HashTable<K, V> {
         for (int i = 0; i < oldM; i ++) {
             TreeMap<K, V> map = hashtable[i];
             for (K key : map.keySet()) {
-                newHashTable[hash(key)].put(key, map.get(key));  // ★ rehash
+                newHashTable[hash(key)].put(key, map.get(key));  // 自动 rehash
             }
         }
         this.hashtable = newHashTable;

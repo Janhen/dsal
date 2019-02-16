@@ -17,7 +17,6 @@ public class LinkedList<E> implements ILinkedList<E> {
     public LinkedList(List<E> list) {
         first = new Node(null, null);
         N = 0;
-
         for (E val : list) {
             addLast(val);
         }
@@ -123,21 +122,13 @@ public class LinkedList<E> implements ILinkedList<E> {
     }
 
     public void removeElement(E key) {
-        /*Node prev = first;
-        while (prev != null && prev.next != null) {
-            if (prev.next.val.equals(key)) {
-                prev.next = prev.next.next;
-            }
-            prev = prev.next;
-        }*/
         Node cur = first.next;
         Node prev = first;
         while (cur != null) {
             Node next = cur.next;
-
             if (cur.val.equals(key)) {
                 prev.next = next;
-                cur.next = null;
+                cur.next = null;  // eliminate unnessary reference
                 break;
             }
             prev = cur;
@@ -148,14 +139,13 @@ public class LinkedList<E> implements ILinkedList<E> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-
-        Node cur = first.next;  // dummy
+        Node cur = first.next;
         while (cur != null) {
-            sb.append(cur.next == null ? cur.val : cur.val + "->");
+            sb.append(cur.val + "->");
             cur = cur.next;
         }
-        sb.append("->NULL");
-         return sb.toString();
+        sb.append("NULL");
+        return sb.toString();
     }
 
     private class Node {
@@ -173,16 +163,7 @@ public class LinkedList<E> implements ILinkedList<E> {
 
         @Override
         public String toString() {
-            Node cur = this;
-            StringBuilder sb = new StringBuilder();
-
-            while (cur != null) {
-                sb.append(cur.next == null ? cur.val : cur.val + "->");
-                cur = cur.next;
-            }
-            sb.append("->NULL");
-            return sb.toString();
+            return val.toString();
         }
     }
-
 }

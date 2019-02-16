@@ -1,12 +1,11 @@
 package com.janhen.structures.heapAndpriorityQueue;
 
-public interface IHeap<E extends Comparable<E>> {
+public interface IHeap<E extends Comparable> {
 
     int size();
     boolean isEmpty();
 
     void insert(E val);
-    E delMax();
+    E extractMax();
     E getMax();
-
 }

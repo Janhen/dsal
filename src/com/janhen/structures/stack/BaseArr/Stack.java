@@ -18,21 +18,22 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
     }
 
     public void push(E item) {
-        ensureCapacity();
-
+        if (N == arr.length) {
+            resize(2*arr.length);
+        }
         arr[N] = item;
         N ++;
     }
 
+    // "rpush + rpop"
     public E pop() {
         if (isEmpty()) throw new NoSuchElementException();
 
-        // N - 1: current last element
         E oldTop = arr[N - 1];
         arr[N - 1] = null;
         N  --;
-
-        ensureCapacity();
+        if (N == arr.length/4 && arr.length != 0)
+            resize(arr.length/2);
         return oldTop;
     }
 
@@ -40,15 +41,6 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
         if (isEmpty()) throw new NoSuchElementException();
 
         return arr[N - 1];
-    }
-
-    private void ensureCapacity() {
-        if (N == arr.length) {
-            resize(N > 64 ? arr.length * 2 : (int) (arr.length * 1.5));
-        } else if (N > 0 && N == arr.length / 4) {
-            //Oscillation of complexity
-            resize(arr.length / 2);
-        }
     }
 
     private void resize(int capacity) {
@@ -65,10 +57,9 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
         sb.append(String.format("Stack : size = %d, capacity=%d\n", N, arr.length));
         sb.append("[");
         for (int i = 0;i < N; i++) {
-            sb.append(arr[i]).append(", ");
+            sb.append(i != N-1 ? arr[i] + ", " : arr[i]);
         }
-        // must have one
-        sb.delete(sb.length() - 2, sb.length()).append("]");
+        sb.append("]");
         return sb.toString();
     }
 
@@ -77,6 +68,7 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
         return new ReverseArrayIterator();
     }
 
+    // stack traversal and not modify element
     private class ReverseArrayIterator implements Iterator<E> {
         int i = N - 1;
 

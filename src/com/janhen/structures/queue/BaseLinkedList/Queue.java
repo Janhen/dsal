@@ -4,6 +4,7 @@ import com.janhen.structures.queue.IQueue;
 
 public class Queue<E> implements IQueue<E> {
 
+    // list with tail node
     private Node head;
     private Node tail;
     private int N;
@@ -22,7 +23,7 @@ public class Queue<E> implements IQueue<E> {
         return N == 0;
     }
 
-    // not use dummyHead, need to init and common logic handle
+    // "rpush + lpop"   need init
     public void enqueue(E e) {
         Node node = new Node(e);
         if (head == null) {
@@ -32,20 +33,20 @@ public class Queue<E> implements IQueue<E> {
             tail.next = node;
             tail = tail.next;
         }
-
         N ++;
     }
 
+    // P1:0
+    // P2:1
+    // P3:..
     public E dequeue() {
         if (isEmpty())
             throw new IllegalArgumentException();
-
         Node oldHead = head;
         head = head.next;
         oldHead.next = null;
         if (head == null)   // only one node
             tail = null;
-
         N --;
         return oldHead.val;
     }
@@ -62,7 +63,6 @@ public class Queue<E> implements IQueue<E> {
         sb.append(String.format("Queue : size = %d ", size()));
         sb.append("front ");
 
-        // traverse from head to tail
         Node cur = head;
         while (cur != tail) {
             sb.append(cur.val + "->");
@@ -84,6 +84,5 @@ public class Queue<E> implements IQueue<E> {
         public Node(E e) {
             this(e, null);
         }
-
     }
 }

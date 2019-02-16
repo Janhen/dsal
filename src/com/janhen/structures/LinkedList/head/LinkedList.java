@@ -1,6 +1,5 @@
 package com.janhen.structures.LinkedList.head;
 
-
 public class LinkedList<E> {
 
     private Node head;
@@ -57,16 +56,34 @@ public class LinkedList<E> {
         }
     }
 
+    public void remove(E key) {
+        while (head != null && head.val == key) {
+            Node delNode = head;
+            head = head.next;
+            delNode.next = null;
+        }
+        if (head == null)   // have no non head.val
+            return ;
+        Node prev = head;    // now head ⇔  first
+        while (prev != null && prev.next != null) {
+            if (prev.next.val.equals(key)) {
+                Node cur = prev.next;
+                prev.next = cur.next;
+                cur.next = null;
+            } else
+                prev = prev.next;
+        }
+    }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-
         Node cur = head;
         while (cur != null) {
-            sb.append(cur.next == null ? cur.val : cur.val + "->");
+            sb.append(cur.val + "->");
             cur = cur.next;
         }
+        sb.append("NULL");
         return sb.toString();
     }
 
@@ -85,18 +102,7 @@ public class LinkedList<E> {
 
         @Override
         public String toString() {
-            /*Node cur = next;
-            StringBuilder sb = new StringBuilder();
-            sb.append("[");
-            sb.append(val);
-            while (cur != null) {
-                sb.append(cur.next == null ? val : val + ", ");
-                cur = cur.next;
-            }
-            sb.append("]");
-            return sb.toString();*/
             return val.toString();
         }
-
     }
 }

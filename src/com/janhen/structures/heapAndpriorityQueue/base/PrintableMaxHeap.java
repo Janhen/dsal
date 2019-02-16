@@ -1,4 +1,4 @@
-package com.janhen.structures.heapAndpriorityQueue.fromOne;
+package com.janhen.structures.heapAndpriorityQueue.base;
 
 // 我们的PrintableMaxHeap只能处理整数信息，所以继承的是MaxHeap<Comparable<Integer>>
 public class PrintableMaxHeap extends MaxHeap<Comparable<Integer>> {
@@ -41,7 +41,7 @@ public class PrintableMaxHeap extends MaxHeap<Comparable<Integer>> {
 
             String line1 = new String(new char[maxLevelNumber*3-1]).replace('\0', ' ');
 
-            int curLevelNumber = Math.min(count-(int)Math.pow(2,level)+1,(int)Math.pow(2,level));
+            int curLevelNumber = Math.min(N-(int)Math.pow(2,level)+1,(int)Math.pow(2,level));
             boolean isLeft = true;
             for( int indexCurLevel = 0 ; indexCurLevel < curLevelNumber ; index ++ , indexCurLevel ++ ){
                 line1 = putNumberInLine( (Integer)data[index] , line1 , indexCurLevel , curTreeMaxLevelNumber*3-1 , isLeft );

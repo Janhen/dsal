@@ -2,7 +2,6 @@ package com.janhen.structures.heapAndpriorityQueue.compositeArray;
 
 import com.janhen.structures.queue.IQueue;
 
-
 public class PriorityQueue<E extends Comparable<E>> implements IQueue<E> {
 
     private MaxHeap<E> heap;
@@ -39,25 +38,6 @@ public class PriorityQueue<E extends Comparable<E>> implements IQueue<E> {
     public E peek() {
         return heap.findMax();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     private static final int DEFAULT_CAPACITY = 10;
 }

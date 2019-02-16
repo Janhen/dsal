@@ -14,8 +14,12 @@ public class Stack<E> implements IStack<E>,Iterable<E> {
 		E item;
 		Node<E> next;
 
-		Node(E element, Node next) {
-			this.item = element;
+		Node(E item) {
+			this.item = item;
+		}
+
+		Node(E item, Node next) {
+			this.item = item;
 			this.next = next;
 		}
 	}
@@ -28,20 +32,26 @@ public class Stack<E> implements IStack<E>,Iterable<E> {
 		return N;
 	}
 
-	// first interpolation
+	// lpush + lpop
+	// first interpolation: new element as head
 	public void push(E item) {
-		Node<E> oldFirst = first;
-		first = new Node<>(item, oldFirst);
+//		Node<E> oldFirst = first;
+//		first = new Node<>(item, oldFirst);
+
+		Node node = new Node(item);
+		node.next = first;
+		first = node;
 		N ++;
 	}
 	
 	public E pop() {
 		if(isEmpty()) throw new NoSuchElementException();
 		
-		E item = first.item;
+		Node oldTop = first;
 		first = first.next;
+		oldTop.next = null;
 		N --;
-		return item;
+		return (E) oldTop.item;
 	}
 	
 	public E peek() {
@@ -53,13 +63,11 @@ public class Stack<E> implements IStack<E>,Iterable<E> {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(String.format("GetMinStack: size = %d\n", size()));
-		sb.append("[");
+		sb.append(String.format("Stack: size = %d\n", size()));
 		for(E item: this) {
-			sb.append(item).append(", ");
+			sb.append(item).append("->");
 		}
-		// must have one element
-		sb.delete(sb.length() - 2,sb.length()).append("]");
+		sb.delete(sb.length() - 2,sb.length());
 		return sb.toString();
 	}
 	
@@ -86,8 +94,6 @@ public class Stack<E> implements IStack<E>,Iterable<E> {
 			return item;
 		}
 	}
-
-
 }
 
 

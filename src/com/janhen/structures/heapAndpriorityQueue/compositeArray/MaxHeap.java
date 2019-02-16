@@ -6,6 +6,10 @@ public class MaxHeap<E extends Comparable<E>> {
 
     private Array<E> data;
 
+    // [0] store element
+    // parent: (k-1)/2
+    // left:   k*2+1;
+    // right:  k*2+2
     public MaxHeap(int capacity) {
         data = new Array<>(capacity);
     }
@@ -39,7 +43,6 @@ public class MaxHeap<E extends Comparable<E>> {
     // swim     sign up
     public void add(E e) {
         data.add(e);
-
         swim(size() - 1);
     }
 
@@ -58,7 +61,6 @@ public class MaxHeap<E extends Comparable<E>> {
         swap(0, size() - 1);
         data.removeLast();
         sink(0);
-
         return ret;
     }
 
@@ -82,7 +84,6 @@ public class MaxHeap<E extends Comparable<E>> {
 
     // only compare parent
     private void swim(int k) {
-
         while (k > 0 && data.get(parent(k)).compareTo(data.get(k)) < 0) {
             swap(k, parent(k));
             k = parent(k);
