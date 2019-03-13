@@ -10,23 +10,19 @@ public class Main {
     @Test
     public void testDiffQueue() {
         /* loopQueue : 均摊 O(1) */
-        IQueue<Integer> arrayQueue = new com.janhen.structures.queue.BaseArray.Queue<>();
-        IQueue<Integer> loopQueue = new com.janhen.structures.queue.BaseLoopArray.Queue<>();
-        IQueue<Integer> linkedListQueue = new com.janhen.structures.queue.BaseLinkedList.Queue<>();
+        IQueue<Integer> loopQueue = new com.janhen.structures.queue.baseLoopArray.Queue<>();
+        IQueue<Integer> linkedListQueue = new com.janhen.structures.queue.baseLinkedList.Queue<>();
         int count = 100000;
 
-        double t1 = testQueue(arrayQueue, count);
         double t2 = testQueue(loopQueue, count);
         double t3 = testQueue(linkedListQueue, count);
-        System.out.printf("arrrayQueue run : %f s\nloopQueue run : %f s\nlinkedListQueue run : %f s",t1, t2, t3);
-        TestUtil.rate(t1, t2, t3);
     }
 
     @Test
     public void testLinkedListAndLoop() {
 
-        IQueue<Integer> linkedListQueue = new com.janhen.structures.queue.BaseLinkedList.Queue<>();
-        IQueue<Integer> loopQueue = new com.janhen.structures.queue.BaseLoopArray.Queue<>();
+        IQueue<Integer> linkedListQueue = new com.janhen.structures.queue.baseLinkedList.Queue<>();
+        IQueue<Integer> loopQueue = new com.janhen.structures.queue.baseLoopArray.Queue<>();
         int count = 100000;
 
         double t1 = testQueue(linkedListQueue, count);
@@ -36,18 +32,6 @@ public class Main {
         System.out.printf("linkedListQueue run : %f s\nloopQueue run : %f s\nratio : %s", t1, t2);
         TestUtil.rate(t1, t2);
     }
-
-    @Test
-    public void testLoopAndArray() {
-        IQueue<Integer> arrayQueue = new com.janhen.structures.queue.BaseArray.Queue<>();
-        IQueue<Integer> loopQueue = new com.janhen.structures.queue.BaseLoopArray.Queue<>();
-        int count = 100000;
-        System.out.printf("arrrayQueue run : %f s\nloopQueue run : %f s",
-                testQueue(arrayQueue, count),
-                testQueue(loopQueue, count));
-    }
-
-
 
     private static double testQueue(IQueue<Integer> queue, int count) {
         long start = System.nanoTime();

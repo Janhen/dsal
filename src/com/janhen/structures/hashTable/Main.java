@@ -1,7 +1,7 @@
-package com.janhen.structures.hashTable;
+package com.janhen.structures.hashtable;
 
 import com.janhen.FileUtils;
-import com.janhen.structures.hashTable.resizeOptimize.HashTable;
+import com.janhen.structures.hashtable.resizeOptimize.HashTable;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -32,7 +32,7 @@ public class Main {
     public void testHashTable() {
         System.out.println("pride-and-prejudice");
 
-        HashTable<String, Integer> map = new com.janhen.structures.hashTable.resizeOptimize.HashTable<>();
+        HashTable<String, Integer> map = new com.janhen.structures.hashtable.resizeOptimize.HashTable<>();
         List<String> words = FileUtils.readFile("src//pride-and-prejudice.txt");
         System.out.println("Total words : " + words.size());
 
@@ -40,7 +40,7 @@ public class Main {
             if (map.contains(word))
                 map.set(word, map.get(word) + 1);
             else
-                map.add(word, 1);
+                map.put(word, 1);
         }
 
         System.out.println("Total different words : " + map.size());

@@ -8,6 +8,7 @@ import com.janhen.structures.BST.IBST;
 public class BST<E extends Comparable<E>> implements IBST<E>  {
 
     private Node root;
+
     private int  N;
 
     public int size() {
@@ -18,12 +19,10 @@ public class BST<E extends Comparable<E>> implements IBST<E>  {
         return N == 0;
     }
 
-    // update root reference
     public void add(E e) {
         root = add(root, e);
     }
 
-    // 返回插入新节点后 BST 的根
     private Node add(Node node, E e) {
         if (node == null) {
             node = new Node(e);
@@ -69,14 +68,12 @@ public class BST<E extends Comparable<E>> implements IBST<E>  {
     public E maximum() {
         if (root == null)
             throw new IllegalArgumentException();
-
         return minimum(root).val;
     }
 
     private Node maximum(Node root) {
         if (root.right == null)
             return root;
-
         return minimum(root.right);
     }
 

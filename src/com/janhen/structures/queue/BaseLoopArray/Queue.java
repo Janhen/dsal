@@ -1,11 +1,11 @@
-package com.janhen.structures.queue.BaseLoopArray;
+package com.janhen.structures.queue.baseLoopArray;
 
 import com.janhen.structures.queue.IQueue;
 
 public class Queue<E> implements IQueue<E> {
 
     private E[] data;
-    private int front, tail;
+    private int front, tail;  // tail->lastElement
     private int N;
 
     public Queue(int capacity) {
@@ -19,26 +19,22 @@ public class Queue<E> implements IQueue<E> {
         this(DEFAULT_CAPACITY);
     }
 
-    @Override
     public int size() {
         return N;
     }
 
-    @Override
     public boolean isEmpty() {
         return front == tail;
     }
 
-    public int getCapacity() {
-        // ★logic can store element count
+    public int capacity() {
         return data.length - 1;
     }
 
     @Override
     public void enqueue(E item) {
-        if ((tail + 1) % data.length == front)
-            resize(getCapacity() * 2);
-
+        if ((tail + 1) % data.length == front)      // full condition: front and tail ...
+            resize(capacity() * 2);
         data[tail] = item;
         tail = (tail + 1) % data.length;
         N ++;
@@ -48,14 +44,14 @@ public class Queue<E> implements IQueue<E> {
     public E dequeue() {
         if (isEmpty()) throw new IllegalArgumentException();
 
-        E oldV = data[front];
+        E oldFront = data[front];
         data[front] = null;
         front = (front + 1) % data.length;
         N --;
 
-        if (N == getCapacity() / 4 && getCapacity() / 2 != 0)
-            resize(getCapacity() / 2);
-        return oldV;
+        if (N == capacity() / 4 && capacity() / 2 != 0)
+            resize(capacity() / 2);
+        return oldFront;
     }
 
     @Override
@@ -65,34 +61,19 @@ public class Queue<E> implements IQueue<E> {
         return data[front];
     }
 
-    // ★★  [front]..[len-1]..[tail]  ⇒  [0]...[N-1]
     private void resize(int newCapacity) {
         E[] aux = (E[]) new Object[newCapacity + 1];
         for (int i = 0; i < size(); i++) {
-            aux[i] = data[(i + front) % data.length];  // from front to tail
+            aux[i] = data[(i + front) % data.length];  // from front to tail AND need offset
         }
         data = aux;
         front = 0;
-        tail = N;
+        tail = N;                    // reset front, tail;
     }
-
-
-//    @Override
-//    public String toString() {
-//        StringBuilder sb = new StringBuilder();
-//        sb.append(String.format("Queue : size = %d, capacity = %d \n", size(), getCapacity()));
-//        sb.append("front [");
-//        // traverse from index front to tail
-//        for (int i = front; i != tail; i = (i + 1) % data.length) {
-//            sb.append((i + 1) % data.length == tail ? data[i] : data[i] + ", ");
-//        }
-//        sb.append("] tail");
-//        return sb.toString();
-//    }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Queue : size = %d, capacity = %d \n", size(), getCapacity()));
+        sb.append(String.format("Queue : size = %d, capacity = %d \n", size(), capacity()));
         sb.append("front [");
         // traverse from index front to tail
         for (int i = 0; i < size(); i ++) {

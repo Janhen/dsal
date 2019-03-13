@@ -1,4 +1,4 @@
-package com.janhen.structures.hashTable.base;
+package com.janhen.structures.hashtable.base;
 
 import java.util.TreeMap;
 
@@ -7,9 +7,9 @@ import java.util.TreeMap;
  */
 public class HashTable<K, V> {
 
-    private TreeMap<K, V>[] hashtable;  // 元素必须 `implements Comparable<>`
-    private int M;         /* 可供存放的桶位 */
-    private int N;         /* 当前元素个数 */
+    private TreeMap<K, V>[] hashtable;
+    private int M;
+    private int N;
 
     public HashTable(int M) {
         this.M = M;
@@ -24,7 +24,11 @@ public class HashTable<K, V> {
     }
 
     private int hash(K key) {
-        return (key.hashCode() & 0x7fffffff) % M;  // 去除符号位取余, 确定桶位置      hashMap, 高低位异或
+        return (key.hashCode() & 0x7fffffff) % M;
+    }
+
+    private int indexFor(int h, int length) {
+        return h & (length-1);
     }
 
     public int size() {

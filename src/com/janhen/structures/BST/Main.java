@@ -1,6 +1,5 @@
 package com.janhen.structures.BST;
 
-
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -8,7 +7,6 @@ import java.util.List;
 import java.util.Random;
 
 public class Main {
-
 
     @Test
     public void testDeldMin() {

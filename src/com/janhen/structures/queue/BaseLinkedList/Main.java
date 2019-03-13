@@ -1,4 +1,4 @@
-package com.janhen.structures.queue.BaseLinkedList;
+package com.janhen.structures.queue.baseLinkedList;
 
 public class Main {
 

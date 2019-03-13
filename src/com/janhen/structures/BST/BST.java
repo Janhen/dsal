@@ -1,7 +1,5 @@
 package com.janhen.structures.BST;
 
-import java.util.List;
-
 public class BST<E extends Comparable<E>> implements IBST<E> {
 
     private Node root;
@@ -19,13 +17,6 @@ public class BST<E extends Comparable<E>> implements IBST<E> {
             add(arr[i]);
     }
 
-    public BST(List<E> list) {
-        root = null;
-        N = 0;
-        for (E val : list)
-            add(val);
-    }
-
     public int size() {
         return N;
     }
@@ -34,29 +25,26 @@ public class BST<E extends Comparable<E>> implements IBST<E> {
         return N == 0;
     }
 
+    // add
 
-    // update root reference
     public void add(E e) {
         root = add(root, e);
     }
 
     private Node add(Node node, E e) {
-        // null also is a binary search tree
         if (node == null) {
-            node = new Node(e);
             N ++;
-            return node;
+            return new Node(e);
         }
-
         int cmp = e.compareTo(node.val);
         if (cmp > 0)
-            // handle the change
             node.right = add(node.right, e);
         else if (cmp < 0)
             node.left = add(node.left, e);
-
         return node;
     }
+
+    // query
 
     public boolean contains(E e) {
         return getNode(root, e) != null;
@@ -74,6 +62,8 @@ public class BST<E extends Comparable<E>> implements IBST<E> {
         else
             return getNode(node.right, e);
     }
+
+    // order related
 
     public E minimum() {
         if (root == null)
@@ -102,21 +92,19 @@ public class BST<E extends Comparable<E>> implements IBST<E> {
 
     public E removeMin() {
         E oldMin = minimum();
-        root = removeMin(root);
+        root = removeMin(root);       // find node for return then delete node
         return oldMin;
     }
 
-    // delete node that is root min
-    // and return new root
     private Node removeMin(Node node) {
         if (node.left == null) {
-            Node rightNode = node.right;
-            node.right = null;
+            Node rightNode = node.right;    // take right sub tree as original position
+            node.right = null;           // help to gc
             N --;
             return rightNode;
         }
 
-        node.left = removeMin(node.left);
+        node.left = removeMin(node.left);  // alway is left
         return node;
     }
 
@@ -138,15 +126,16 @@ public class BST<E extends Comparable<E>> implements IBST<E> {
         return node;
     }
 
+    // remove
+
     public void remove(E e) {
-        Node deleteNode = getNode(root, e);
+        Node deleteNode = getNode(root, e);    // find deleteNode, insure BST have this node
         if (deleteNode != null) {
             root = remove(root, e);
         }
     }
 
     private Node remove(Node node, E e) {
-
         if (node == null)
             return null;
 
@@ -161,22 +150,20 @@ public class BST<E extends Comparable<E>> implements IBST<E> {
         }
         else {
             if (node.left == null) {
-                Node rightNode = node.right;
+                Node rightNode = node.right;    // take right sub tree to join
                 node.right = null;
                 N --;
                 return rightNode;
             }
-
             if (node.right == null) {
-                Node leftNode = node.left;
+                Node leftNode = node.left;      // take left sub tree to join
                 node.left = null;
                 N --;
                 return leftNode;
             }
-
-            Node successor = minimum(node.right);
+            Node successor = minimum(node.right);    // take successor to join
             node.val = successor.val;
-            node.right = remove(node.right, successor.val);     /* 根据递归语义判断删除 */
+            node.right = remove(node.right, successor.val);   // reuse function
             return node;
         }
     }

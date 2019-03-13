@@ -21,10 +21,6 @@ public class AVLTreeTest<K extends Comparable<K>, V> extends AVLTree<K, V> {
         return isBalanced(root);
     }
 
-    /*
-    getBalanceFactor
-    getHeight
-     */
     private boolean isBalanced(Node node) {
         if (node == null)
             return true;

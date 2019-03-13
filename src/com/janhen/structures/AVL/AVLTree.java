@@ -39,120 +39,130 @@ public class AVLTree<K extends Comparable<K>, V> implements IBSTMap<K, V> {
         root = add(root, key, val);
     }
 
-    // maintain height and balanceFactor
-    // 返回平衡的二叉树根节点
     private Node add(Node node, K key, V val) {
-
         if (node == null) {
-            Node newNode = new Node(key, val);
             N ++;
-            return newNode;
+            return new Node(key, val);
         }
 
         int cmp = key.compareTo(node.key);
-        if (cmp == 0) {
+        if (cmp == 0)               // cover
             node.val = val;
-        }
-        else if (cmp < 0) {
+        else if (cmp < 0)
             node.left = add(node.left, key, val);
-        }
-        else {
+        else
             node.right = add(node.right, key, val);
-        }
 
         recomputeHeight(node);
-        return rebalance(node);
+        return reBalance(node);
     }
 
-    // 处理 LL
-    // 对节点y进行向右旋转操作，返回旋转后新的根节点x    维护 height to calculate balance factor
-    //        y                              x
-    //       / \                           /   \
-    //      x   T4     向右旋转 (y)        z     y
-    //     / \       - - - - - - - ->    / \   / \
-    //    z   T3                       T1  T2 T3 T4
-    //   / \
-    // T1   T2
-    // ★ satisfy BST and balanced
-    private Node rightRotate(Node y) {
+    // ordered AND balanced adjust
 
+    /**
+     *  处理 LL -> right rotate
+     *  对节点y进行向右旋转操作，返回旋转后新的根节点x    维护 height to calculate balance factor
+     *         y                              x
+     *        / \                           /   \
+     *       x   T4     向右旋转 (y)        z     y
+     *      / \       - - - - - - - ->    / \   / \
+     *     z   T3                       T1  T2 T3 T4
+     *    / \
+     *  T1   T2
+     *  satisfy BST and balanced
+     */
+    private Node rightRotate(Node y) {
         Node x = y.left;
         Node T3 = x.right;
-
         x.right = y;
-        y.left = T3;
-
-        // end BST satisfy
-
-        // ★ maintain height, first calculate y → second x
+        y.left = T3;      // ordered
+        // maintain height, sub tree -> big tree ⇒ first calculate y → second x
         y.height = 1 + Math.max(getHeight(T3), getHeight(y.right));
-        x.height = 1 + Math.max(getHeight(x.left), getHeight(y));
-
-        // end balanced satisfy
+        x.height = 1 + Math.max(getHeight(x.left), getHeight(y));              // balanced
         return x;
     }
 
-    // 处理 RR
-    // 对节点y进行向左旋转操作，返回旋转后新的根节点x
-    //    y                             x
-    //  /  \                          /   \
-    // T1   x      向左旋转 (y)       y     z
-    //     / \   - - - - - - - ->   / \   / \
-    //   T2  z                     T1 T2 T3 T4
-    //      / \
-    //     T3 T4
+    /**
+     * 处理 RR
+     * 对节点y进行向左旋转操作，返回旋转后新的根节点x
+     *    y                             x
+     *  /  \                          /   \
+     * T1   x      向左旋转 (y)       y     z
+     *     / \   - - - - - - - ->   / \   / \
+     *   T2  z                     T1 T2 T3 T4
+     *      / \
+     *     T3 T4
+     */
     private Node leftRotate(Node y) {
-
         Node x = y.right;
         Node T2 = x.left;
-
         x.left = y;
-        y.right = T2;
+        y.right = T2;        // ordered
 
         y.height = 1 + Math.max(getHeight(T2), getHeight(y.left));
-        x.height = 1 + Math.max(getHeight(y), getHeight(x.right)) ;
+        x.height = 1 + Math.max(getHeight(y), getHeight(x.right));           // balanced
         return x;
     }
 
-    //      y                             y
-    //     / \                           / \                             z
-    //    x   T4  向左旋转 (x)           z   T4   向左旋转 (y)          /   \
-    //   / \     - - - - - - - ->      / \      - - - - - - - ->      x     y
-    // T1   z                        x   T3                          / \   / \
-    //     / \                      / \                            T1  T2 T3 T4
-    //   T2   T3                  T1   T2
+    /**
+     *       y                             y
+     *      / \                           / \                             z
+     *     x   T4  向左旋转 (x)           z   T4   向左旋转 (y)          /   \
+     *    / \     - - - - - - - ->      / \      - - - - - - - ->      x     y
+     *  T1   z                        x   T3                          / \   / \
+     *      / \                      / \                            T1  T2 T3 T4
+     *    T2   T3                  T1   T2
+     */
     private Node LR(Node y) {
         Node x = y.left;
         y.left = leftRotate(x);
         return rightRotate(y);
     }
 
-    //    y                          y                                    x
-    //  /  \                       /  \                                 /   \
-    // T1   x      向右旋转 (x)    T1   z        向右旋转 (y)            y     z
-    //     / \   - - - - - - - ->     / \     - - - - - - - ->        / \   / \
-    //    z  T4                     T2  x                            T1 T2 T3 T4
-    //   / \                           / \
-    //  T2 T3                         T3 T4
+    /**
+    *    y                          y                                    x
+    *  /  \                       /  \                                 /   \
+    * T1   x      向右旋转 (x)    T1   z        向右旋转 (y)            y     z
+    *     / \   - - - - - - - ->     / \     - - - - - - - ->        / \   / \
+    *    z  T4                     T2  x                            T1 T2 T3 T4
+    *   / \                           / \
+    *  T2 T3                         T3 T4
+    */
     private Node RL(Node y) {
         Node x = y.right;
         y.right = rightRotate(x);
         return leftRotate(y);
     }
 
-    private Node getNode(Node node, K key) {
+    private void recomputeHeight(Node node) {
+        if (node == null)
+            return;
+        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
+    }
 
+    /**
+     * 判断当前平衡性
+     * LL: cur.balanceFactor >=2, cur.left.balanceFactor>=0  ⇒ left tree more height,
+     * RR:
+     * LR:
+     * RL:
+     */
+    private Node reBalance(Node node) {
         if (node == null)
             return null;
-
-        int cmp = key.compareTo(node.key);
-        if (cmp < 0)
-            return getNode(node.left, key);
-        else if (cmp > 0)
-            return getNode(node.right, key);
-        else // cmp
-            return node;
+        int balanceFactor = getBalanceFactor(node);
+        if (balanceFactor > 1 && getBalanceFactor(node.left) >= 0)
+            return rightRotate(node);
+        if (balanceFactor < -1 && getBalanceFactor(node.right) <= 0)
+            return leftRotate(node);
+        if (balanceFactor > 1 && getBalanceFactor(node.left) < 0)
+            return LR(node);
+        if (balanceFactor < -1 && getBalanceFactor(node.right) > 0)
+            return RL(node);
+        return node;       // balanced
     }
+
+    // query
 
     public boolean contains(K key) {
         return getNode(root, key) != null;
@@ -162,6 +172,21 @@ public class AVLTree<K extends Comparable<K>, V> implements IBSTMap<K, V> {
         Node node = getNode(root, key);
         return node == null ? null : node.val;
     }
+
+    private Node getNode(Node node, K key) {
+        if (node == null)
+            return null;
+
+        int cmp = key.compareTo(node.key);
+        if (cmp < 0)
+            return getNode(node.left, key);
+        else if (cmp > 0)
+            return getNode(node.right, key);
+        else
+            return node;
+    }
+
+    // modify
 
     public void set(K key, V val) {
         Node node = getNode(root, key);
@@ -196,11 +221,7 @@ public class AVLTree<K extends Comparable<K>, V> implements IBSTMap<K, V> {
             node.right = remove(node.right, key);
             retNode = node;
         }
-        else { // cmp == 0
-            // include leaf
-            // have left and right node
-            // - mutex execute : becatus use retNode to receive result
-            // - modify removeMin
+        else {
             if (node.left == null) {
                 Node rightNode = node.right;
                 node.right = null;
@@ -224,29 +245,10 @@ public class AVLTree<K extends Comparable<K>, V> implements IBSTMap<K, V> {
         }
 
         recomputeHeight(retNode);
-        return rebalance(retNode);
+        return reBalance(retNode);
     }
 
-    private void recomputeHeight(Node node) {
-        if (node == null)
-            return;
-        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
-    }
-
-    private Node rebalance(Node node) {
-        if (node == null)
-            return null;
-        int balanceFactor = getBalanceFactor(node);
-        if (balanceFactor > 1 && getBalanceFactor(node.left) >= 0)
-            return rightRotate(node);
-        if (balanceFactor < -1 && getBalanceFactor(node.right) <= 0)
-            return leftRotate(node);
-        if (balanceFactor > 1 && getBalanceFactor(node.left) < 0)
-            return LR(node);
-        if (balanceFactor < -1 && getBalanceFactor(node.right) > 0)
-            return RL(node);
-        return node;  // balance
-    }
+    // ordered
 
     public V minimum() {
         if (isEmpty())
@@ -260,16 +262,26 @@ public class AVLTree<K extends Comparable<K>, V> implements IBSTMap<K, V> {
         return minimum(node.left);
     }
 
-    private Node removeMin(Node node) {
-        if (node.left == null) {
-            Node rightNode = node.right;
-            node.right = null;
-            N --;
-            return rightNode;
-        }
+    public V maximum() {
+        return maximum(root).val;
+    }
 
-        node.left = removeMin(node.left);
+    private Node maximum(Node node) {
+        while (node.right != null)
+            node = node.right;
         return node;
+    }
+
+   private Node removeMin(Node node) {
+    if (node.left == null) {
+        Node rightNode = node.right;
+        node.right = null;
+        N --;
+        return rightNode;
+    }
+
+    node.left = removeMin(node.left);
+    return node;
     }
 
     public V removeMin() {
@@ -279,16 +291,6 @@ public class AVLTree<K extends Comparable<K>, V> implements IBSTMap<K, V> {
             return oldMinNode.val;
         }
         return null;
-    }
-
-    public V maximum() {
-        return maximum(root).val;
-    }
-
-    private Node maximum(Node node) {
-        while (node.right != null)
-            node = node.right;
-        return node;
     }
 
     public V removeMax() {
@@ -307,7 +309,7 @@ public class AVLTree<K extends Comparable<K>, V> implements IBSTMap<K, V> {
             N --;
             return leftNode;
         }
-        node.right = removeMin(node.right);
+        node.right = removeMax(node.right);
         return node;
     }
 
@@ -315,7 +317,7 @@ public class AVLTree<K extends Comparable<K>, V> implements IBSTMap<K, V> {
         public K    key;
         public V    val;
         public Node left, right;
-        public int height;
+        public int height;            // height to maintain balanced, every add OR delete to change
 
         public Node(K key, V val) {
             this.key = key;

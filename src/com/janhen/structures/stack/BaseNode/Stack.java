@@ -1,4 +1,4 @@
-package com.janhen.structures.stack.BaseNode;
+package com.janhen.structures.stack.baseNode;
 
 import com.janhen.structures.stack.IStack;
 
@@ -32,12 +32,7 @@ public class Stack<E> implements IStack<E>,Iterable<E> {
 		return N;
 	}
 
-	// lpush + lpop
-	// first interpolation: new element as head
 	public void push(E item) {
-//		Node<E> oldFirst = first;
-//		first = new Node<>(item, oldFirst);
-
 		Node node = new Node(item);
 		node.next = first;
 		first = node;

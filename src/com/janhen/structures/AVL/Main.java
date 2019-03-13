@@ -2,9 +2,9 @@ package com.janhen.structures.AVL;
 
 import com.janhen.FileUtils;
 import com.janhen.TestUtil;
-import com.janhen.structures.setAndmap.map.BSTMap;
-import com.janhen.structures.setAndmap.map.LinkedListMap;
-import com.janhen.structures.setAndmap.map.Map;
+import com.janhen.structures.set_map.map.BSTMap;
+import com.janhen.structures.set_map.map.LinkedListMap;
+import com.janhen.structures.set_map.map.Map;
 import org.junit.Test;
 
 import java.util.Collections;
@@ -33,7 +33,7 @@ public class Main {
             if (map.contains(word))
                 map.set(word, map.get(word) + 1);
             else
-                map.add(word, 1);
+                map.put(word, 1);
         }
 
 
@@ -52,10 +52,7 @@ public class Main {
 
     @Test
     public void testAVLTree() {
-
-//        System.out.println("pride-and-prejudice");
-
-        List<String> words = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt");
+        List<String> words = FileUtils.readFile("src//pride-and-prejudice.txt");
         System.out.println("Total words : " + words.size());
         Collections.sort(words);
 
@@ -93,7 +90,7 @@ public class Main {
     public void testBSTMap() {
 //        System.out.println("pride-and-prejudice");
 
-        List<String> words = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt");
+        List<String> words = FileUtils.readFile("src//pride-and-prejudice.txt");
         System.out.println("Total words : " + words.size());
         Collections.sort(words);
 
@@ -103,7 +100,7 @@ public class Main {
             if (map.contains(word))
                 map.set(word, map.get(word) + 1);
             else
-                map.add(word, 1);
+                map.put(word, 1);
         }
         for (String word : words)
             map.contains(word);
@@ -126,7 +123,7 @@ public class Main {
             if (map.contains(word))
                 map.set(word, map.get(word) + 1);
             else
-                map.add(word, 1);
+                map.put(word, 1);
         }
 
         System.out.println("Total different words : " + map.size());

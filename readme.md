@@ -1,56 +1,220 @@
-常见数据结构的代码实现  
-以 [《玩转数据结构 从入门到进阶》](https://coding.imooc.com/class/207.html) 课程为基础进行增加和修改
-
+常见数据结构的代码实现    
 
 ```
-# 基本结构
-array
---- dynamic              // 动态数组
-linkedList
---- dummyHead            // 带虚拟结点的链表
-queue
---- baseArray             
---- baseLinkedList
---- baseLoopArray        // 基于循环数组实现的队列
---- twoStackImpl
-stack
---- baseArray
---- baseLinkedList
---- withMin
---- twoQueueImpl
-
-# 顺序性结构
-BST
---- base                   // 普通节点的BST
---- withParent             // 含 parent 的节点的BST
-AVL
---- AVLTree                 // 平衡树
-redBlack
---- RBTree                  // 红黑树
-skipList
---- SkipList                // 跳表
-
-# 特殊的树形结构
-heapAndpriotiryQueue
---- base                     // 堆
---- indexHeap                // 索引堆
------- reverseIndex          // 相反索引数组优化查找
-trie
---- Trie                      // 字典树
-------withPathAndEnd          // 带有节点个数, 截止节点单词个数的节点
-unionFind
---- quickFind                 // 快速搜索
---- quickUnion                
---- sizeOptimize              // 记录节点个数优化
---- rankOptimize              // 记录节点 rank 优化
---- pathCompression           // 路径压缩优化
---- pathCompressionRecursion  
-segmentTree
---- SegmentTree               // 线段树
-
-# 其他结构
-hashTable
---- base                       
---- dynamic                    // 倍率动态调整容量
---- resizeOptimize             // 经验表映射调整容量
-```
+│  FileUtils.java
+│  Main.java
+│  TestUtil.java
+│
+├─design                         // 一些数据结构设计
+│  ├─arrayAsQueueAndStack
+│  │  │  IQueue.java
+│  │  │  IStack.java
+│  │  │  Queue.java
+│  │  │  Stack.java
+│  │  │
+│  │  └─loopArray
+│  │          Queue.java
+│  │
+│  ├─firstNotDuplicationInStream
+│  │      Solution.java
+│  │
+│  ├─lru
+│  │      LRUBaseLinkedHashMap.java
+│  │      LRUCache.java
+│  │      LRUCache1.java
+│  │
+│  ├─medianInStream
+│  │      Solution.java
+│  │
+│  ├─queueByTwoQueue
+│  │      Queue.java
+│  │
+│  ├─queueStoreCatDog
+│  │      Cat.java
+│  │      CatDogQueue.java
+│  │      Dog.java
+│  │      Main.java
+│  │      Pet.java
+│  │
+│  ├─queueWithMax
+│  │      Main.java
+│  │      MaxQueue.java
+│  │      MaxQueue2.java
+│  │      MaxQueue3.java
+│  │
+│  ├─stackByTwoQueue
+│  │      Main.java
+│  │      Stack.java
+│  │
+│  └─stackWithMin
+│          GetMinStack.java
+│          GetMinStack2.java
+│          Main.java
+│
+└─structures
+    ├─array
+    │      Array.java
+    │      Main.java
+    │
+    ├─AVL                       // 平衡树
+    │  │  AVLTree.java
+    │  │  AVLTreeTest.java
+    │  │  Main.java
+    │  │
+    │  └─other
+    │          AVLMap.java
+    │          AVLSet.java
+    │          AVLTree2.java
+    │
+    ├─BST                       // 二叉树
+    │  │  BST.java
+    │  │  IBST.java
+    │  │  IBSTMap.java
+    │  │  Main.java
+    │  │
+    │  ├─base
+    │  │      BST.java
+    │  │      BST2.java
+    │  │      Main.java
+    │  │
+    │  ├─order
+    │  │      BinarySearchOrderedST.java
+    │  │      BST.java
+    │  │      OrderedST.java
+    │  │      OrderedSTTest.java
+    │  │      RedBlackBST.java
+    │  │
+    │  └─withParent
+    │          AbstractBinarySearchTree.java
+    │          BinarySearchTree.java
+    │
+    ├─hashtable                 // 哈希表
+    │  │  Main.java
+    │  │  Student.java
+    │  │
+    │  ├─base
+    │  │      HashTable.java
+    │  │      Main.java
+    │  │
+    │  ├─dynamic
+    │  │      HashTable.java
+    │  │      Main.java
+    │  │
+    │  └─resizeOptimize
+    │          HashTable.java
+    │          Main.java
+    │
+    ├─heap_priorityQueue            // 堆|优先队列
+    │  │  HeapSort.java
+    │  │  IHeap.java
+    │  │  IIndexHeap.java
+    │  │  MaxHeap.java
+    │  │
+    │  ├─base
+    │  │      HeapSort.java
+    │  │      HeapSort2.java
+    │  │      Main.java
+    │  │      MaxHeap.java
+    │  │      PrintableMaxHeap.java
+    │  │
+    │  ├─compositeArray
+    │  │      Main.java
+    │  │      MaxHeap.java
+    │  │      PriorityQueue.java
+    │  │
+    │  └─indexHeap
+    │      │  IndexMaxHeap.java
+    │      │
+    │      └─reverseIndex
+    │              IndexMaxHeap.java
+    │
+    ├─linkedList                        // 链表
+    │      LinkedList.java
+    │      Main.java
+    │
+    ├─queue                             // 队列
+    │  │  IQueue.java
+    │  │  Main.java
+    │  │
+    │  ├─baseLinkedList
+    │  │      Main.java
+    │  │      Queue.java
+    │  │
+    │  └─baseLoopArray
+    │          Main.java
+    │          Queue.java
+    │          Queue2.java
+    │
+    ├─redBlack                          // 红黑树
+    │      Main.java
+    │      RBTree.java
+    │
+    ├─segmentTree
+    │      ISegmentTree.java
+    │      Main.java
+    │      Merger.java
+    │      SegmentTree.java
+    │
+    ├─set_map                           // 集合和映射
+    │  ├─map
+    │  │      BSTMap.java
+    │  │      LinkedListMap.java
+    │  │      Main.java
+    │  │      Map.java
+    │  │
+    │  └─set
+    │          BST.java
+    │          BSTSet.java
+    │          LinkedListSet.java
+    │          Main.java
+    │          Set.java
+    │
+    ├─skipList                          // 跳表
+    │      SkipList.java
+    │
+    ├─stack                             // 栈
+    │  │  IStack.java
+    │  │  Main.java
+    │  │
+    │  ├─baseArray
+    │  │      Main.java
+    │  │      Stack.java
+    │  │
+    │  └─baseNode
+    │          Main.java
+    │          Stack.java
+    │
+    ├─trie                              // 字典树
+    │  │  ITrie.java
+    │  │  Main.java
+    │  │  Trie.java
+    │  │
+    │  └─withPathAndEnd
+    │          Trie.java
+    │          Trie2.java
+    │
+    └─unionFind                         // 并查集
+        │  Main.java
+        │  UF.java
+        │  UnionFind.java
+        │
+        ├─baseNode
+        │      UnionFind.java
+        │
+        ├─pathCompression
+        │      UnionFind.java
+        │
+        ├─pathCompressionRecursion
+        │      UnionFind.java
+        │
+        ├─quickFind
+        │      UnionFind.java
+        │
+        ├─quickUnion
+        │      UnionFind.java
+        │
+        ├─rankOptimize
+        │      UnionFind.java
+        │
+        └─sizeOptimize
+                UnionFind.java

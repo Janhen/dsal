@@ -1,4 +1,4 @@
-package com.janhen.structures.hashTable.base;
+package com.janhen.structures.hashtable.base;
 
 import com.janhen.FileUtils;
 import org.junit.Test;

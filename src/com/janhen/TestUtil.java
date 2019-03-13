@@ -1,7 +1,5 @@
 package com.janhen;
 
-import com.janhen.leetcode.structures.TreeNode;
-
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
@@ -78,12 +76,6 @@ public class TestUtil {
         }
     }
 
-    public static void printTree(TreeNode head) {
-        System.out.println("Binary Tree:");
-        printInOrder(head, 0, "H", 17);
-        System.out.println();
-    }
-
     public static void printArr(int[] nums) {
         for (int num : nums)
             System.out.print(num + " ");
@@ -107,21 +99,6 @@ public class TestUtil {
 
 
 
-    // RDL
-    private static void printInOrder(TreeNode head, int height, String to, int len) {
-        if (head == null)
-            return;
-
-        printInOrder(head.right, height + 1, "v", len);
-        String val = to + head.val + to;
-        int lenM = val.length();
-        int lenL = (len - lenM) / 2;
-        int lenR = len - lenM - lenL;
-        val = getSpace(lenL) + val + getSpace(lenR);
-
-        System.out.println(getSpace(height * len) + val);
-        printInOrder(head.left, height + 1, "^", len);
-    }
 
     private static String getSpace(int num) {
         String space = " ";

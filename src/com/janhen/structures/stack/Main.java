@@ -9,8 +9,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        IStack<Integer> arrayStack = new com.janhen.structures.stack.BaseArray.Stack<>();
-        IStack<Integer> linkedListStack = new com.janhen.structures.stack.BaseLinkedList.Stack<>();
+        IStack<Integer> arrayStack = new com.janhen.structures.stack.baseArray.Stack<>();
+        IStack<Integer> linkedListStack = new com.janhen.structures.stack.baseNode.Stack<>();
         int count = 10000000;
         double t1 = testStack(arrayStack, count);
         double t2 = testStack(linkedListStack, count);

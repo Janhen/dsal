@@ -1,4 +1,4 @@
-package com.janhen.structures.hashTable;
+package com.janhen.structures.hashtable;
 
 public class Student {
 

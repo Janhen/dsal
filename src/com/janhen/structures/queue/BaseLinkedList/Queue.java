@@ -1,10 +1,12 @@
-package com.janhen.structures.queue.BaseLinkedList;
+package com.janhen.structures.queue.baseLinkedList;
 
 import com.janhen.structures.queue.IQueue;
 
-public class Queue<E> implements IQueue<E> {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-    // list with tail node
+public class Queue<E> implements IQueue<E>, Iterable<E> {
+
     private Node head;
     private Node tail;
     private int N;
@@ -23,7 +25,6 @@ public class Queue<E> implements IQueue<E> {
         return N == 0;
     }
 
-    // "rpush + lpop"   need init
     public void enqueue(E e) {
         Node node = new Node(e);
         if (head == null) {
@@ -36,9 +37,6 @@ public class Queue<E> implements IQueue<E> {
         N ++;
     }
 
-    // P1:0
-    // P2:1
-    // P3:..
     public E dequeue() {
         if (isEmpty())
             throw new IllegalArgumentException();
@@ -83,6 +81,26 @@ public class Queue<E> implements IQueue<E> {
 
         public Node(E e) {
             this(e, null);
+        }
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new ListIterator();
+    }
+
+    private class ListIterator<E> implements Iterator<E> {
+        private Node cur = head;
+
+        public boolean hasNext()  {
+            return cur != null;
+        }
+
+        public E next() {
+            if (!hasNext()) throw new NoSuchElementException();
+            E item = (E) cur.val;
+            cur = cur.next;
+            return item;
         }
     }
 }

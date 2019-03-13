@@ -1,4 +1,4 @@
-package com.janhen.structures.hashTable.dynamic;
+package com.janhen.structures.hashtable.dynamic;
 
 import java.util.TreeMap;
 
@@ -7,21 +7,20 @@ import java.util.TreeMap;
  */
 public class HashTable<K, V> {
 
-    private static final int upperTol = 10;
-    private static final int lowerTol = 2;
-
+    private static final int UPPER_TOL = 10;
+    private static final int LOWER_TOL = 2;
     private static final int INIT_CAPACITY = 7;
 
-    private TreeMap<K, V>[] hashtable;
+    private TreeMap<K, V>[] table;
     private int M;
     private int N;
 
     public HashTable(int M) {
         this.M = M;
         N = 0;
-        hashtable = new TreeMap[M];
-        for (int i = 0; i < hashtable.length; i ++)
-            hashtable[i] = new TreeMap<>();
+        table = new TreeMap[M];
+        for (int i = 0; i < table.length; i ++)
+            table[i] = new TreeMap<>();
     }
 
     public HashTable() {
@@ -36,33 +35,33 @@ public class HashTable<K, V> {
         return N;
     }
 
-    public void add(K key, V val) {
-        TreeMap<K, V> map = hashtable[hash(key)];
-        if (map.containsKey(key)) {
-            map.replace(key, val);
+    public void put(K key, V val) {
+        TreeMap<K, V> node = table[hash(key)];
+        if (node.containsKey(key)) {             // repeated
+            node.replace(key, val);
         }
         else {
-            map.put(key, val);
+            node.put(key, val);
             N ++;
-            if (N >= upperTol * M)       // 扩容时机: 每个桶中平均含有的节点个数查过 upperTol
+            if (N >= UPPER_TOL * M)    // grow
                 resize(2 * M);
         }
     }
 
     public V remove(K key) {
-        TreeMap<K, V> map = hashtable[hash(key)];
-        V ret = null;
-        if (map.containsKey(key)) {
-            ret = map.remove(key);
+        TreeMap<K, V> node = table[hash(key)];
+        V oldVal = null;
+        if (node.containsKey(key)) {
+            oldVal = node.remove(key);
             N --;
-            if (N < lowerTol * M && M / 2 >= INIT_CAPACITY)   /* 缩减桶时机: 桶中平均节点数小于 lowerTol, 且保证最小容量 */
+            if (N < LOWER_TOL * M && M / 2 >= INIT_CAPACITY)    // narrow
                 resize(M / 2);
         }
-        return ret;
+        return oldVal;
     }
 
     public void set(K key, V val) {
-        TreeMap<K, V> map = hashtable[hash(key)];
+        TreeMap<K, V> map = table[hash(key)];
         if (!map.containsKey(key))
             throw new IllegalArgumentException();
 
@@ -70,26 +69,26 @@ public class HashTable<K, V> {
     }
 
     public boolean contains(K key) {
-        return hashtable[hash(key)].containsKey(key);
+        return table[hash(key)].containsKey(key);
     }
 
     public V get(K key) {
-        return hashtable[hash(key)].get(key);
+        return table[hash(key)].get(key);
     }
 
     private void resize(int newM) {
-        TreeMap<K, V>[] newHashTable = new TreeMap[newM];
-        for (int i = 0; i < newHashTable.length; i ++)
-            newHashTable[i] = new TreeMap<>();
+        TreeMap<K, V>[] newTable = new TreeMap[newM];
+        for (int i = 0; i < newTable.length; i ++)
+            newTable[i] = new TreeMap<>();
 
         int oldM = M;
         this.M = newM;
         for (int i = 0; i < oldM; i ++) {
-            TreeMap<K, V> map = hashtable[i];
+            TreeMap<K, V> map = table[i];
             for (K key : map.keySet()) {
-                newHashTable[hash(key)].put(key, map.get(key));  // 自动 rehash
+                newTable[hash(key)].put(key, map.get(key));  // 自动 rehash
             }
         }
-        this.hashtable = newHashTable;
+        this.table = newTable;
     }
 }

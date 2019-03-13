@@ -1,4 +1,4 @@
-package com.janhen.structures.queue.BaseLoopArray;
+package com.janhen.structures.queue.baseLoopArray;
 
 import org.junit.Test;
 

@@ -1,14 +1,33 @@
-package com.janhen.structures.stack.BaseArray;
+package com.janhen.structures.stack.baseArray;
+
 
 public class Main {
-    public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
 
-        for(int i = 0 ; i < 5 ; i ++){
-            stack.push(i);
-            System.out.println(stack);
+    public static void main(String[] args) {
+        Stack<String> stack = new Stack();
+        stack.push("ddd");
+        System.out.println(stack);
+        stack.push("eee");
+        System.out.println(stack);
+        stack.push("fff");
+        System.out.println(stack);
+        stack.push("hhh");
+        System.out.println(stack);
+        stack.push("AAA");
+        System.out.println(stack);
+        stack.push("BBB");
+        System.out.println(stack);
+        stack.push("CCC");
+        System.out.println(stack);
+
+        for(String s: stack) {
+            System.out.println(s + " ");
         }
 
+        stack.pop();
+        System.out.println(stack);
+        stack.pop();
+        System.out.println(stack);
         stack.pop();
         System.out.println(stack);
     }

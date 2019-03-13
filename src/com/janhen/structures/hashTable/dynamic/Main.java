@@ -1,4 +1,4 @@
-package com.janhen.structures.hashTable.dynamic;
+package com.janhen.structures.hashtable.dynamic;
 
 import com.janhen.FileUtils;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class Main {
             if (map.contains(word))
                 map.set(word, map.get(word) + 1);
             else
-                map.add(word, 1);
+                map.put(word, 1);
         }
 
         System.out.println("Total different words : " + map.size());

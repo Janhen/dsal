@@ -1,4 +1,4 @@
-package com.janhen.structures.stack.BaseNode;
+package com.janhen.structures.stack.baseNode;
 
 public class Main {
 

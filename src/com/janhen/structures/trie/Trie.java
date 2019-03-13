@@ -36,17 +36,14 @@ public class Trie implements ITrie {
             char c = word.charAt(i);
             if (cur.next.get(c) == null)
                 cur.next.put(c, new Node());
-
             cur = cur.next.get(c);
         }
-        // tail and cur not word that mean not in trie
         if (!cur.isWord) {
             cur.isWord = true;
             N ++;
         }
     }
 
-    // panda  , search pan
     public boolean contains(String word) {
         Node cur = root;
         for (int i = 0; i < word.length(); i++) {
@@ -56,11 +53,9 @@ public class Trie implements ITrie {
             cur = cur.next.get(c);
         }
         return cur.isWord;
-        // return true;
     }
 
     public boolean isPrefix(String prefix) {
-
         Node cur = root;
         for (int i = 0; i < prefix.length(); i ++) {
             char c = prefix.charAt(i);
