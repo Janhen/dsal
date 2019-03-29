@@ -2,7 +2,6 @@ package com.janhen.design.stackWithMin;
 
 import com.janhen.structures.stack.baseNode.Stack;
 
-// size equal
 public class GetMinStack<E extends Comparable<E>> {
 
     private Stack<E> data;
@@ -12,7 +11,6 @@ public class GetMinStack<E extends Comparable<E>> {
         data = new Stack<>();
         min = new Stack<>();
     }
-
 
     // min push:   min{e,peek},  peek∈{null,xxx}
     public void push(E e) {

@@ -1,4 +1,4 @@
-package com.janhen.design.queueByTwoQueue;
+package com.janhen.design.queueByStack;
 
 import java.util.NoSuchElementException;
 import java.util.Stack;

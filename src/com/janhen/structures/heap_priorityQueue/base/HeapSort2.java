@@ -43,7 +43,7 @@ public class HeapSort2<E extends Comparable<E>> {
 
         int N = 1000000;
         Integer[] arr = TestUtil.generateRandomArray(N, 0, 100000);
-        TestUtil.testSort("com.janhen.structures.heap_priorityQueue.base.HeapSort2", arr);
+        TestUtil.testSort("com.janhen.structures.heap_priorityQueue.binarySearch.HeapSort2", arr);
 
         return;
     }

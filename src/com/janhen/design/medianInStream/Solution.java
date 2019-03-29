@@ -27,7 +27,7 @@ public class Solution {
         if (isEmpty())
             throw new NoSuchElementException();
         if (N % 2 == 0)
-            return (leftSmall.peek() + rightBig.peek()) / 2.0;    // int -> double, when have double to calculate
+            return (leftSmall.peek() + rightBig.peek()) / 2.0;
         else
             return (double) rightBig.peek();
     }

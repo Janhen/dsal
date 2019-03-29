@@ -59,7 +59,7 @@ public class IndexMaxHeap<E extends Comparable<E>> implements IIndexHeap<E> {
     public int extractMaxIndex() {
         assert (N > 0);
 
-        int ret = indexs[1] - 1;   // ★ base-1
+        int ret = indexs[1] - 1;   // ★ binarySearch-1
         swap(indexs, 1, N);
         N --;
         sink(1);

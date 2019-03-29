@@ -1,4 +1,4 @@
-package com.janhen.design.stackByTwoQueue;
+package com.janhen.design.stackByQueue;
 
 public class Main {
 

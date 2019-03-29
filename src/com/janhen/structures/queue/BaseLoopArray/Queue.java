@@ -62,11 +62,11 @@ public class Queue<E> implements IQueue<E> {
     }
 
     private void resize(int newCapacity) {
-        E[] aux = (E[]) new Object[newCapacity + 1];
+        E[] newData = (E[]) new Object[newCapacity + 1];
         for (int i = 0; i < size(); i++) {
-            aux[i] = data[(i + front) % data.length];  // from front to tail AND need offset
+            newData[i] = data[(i + front) % data.length];  // from front to tail AND need offset
         }
-        data = aux;
+        data = newData;
         front = 0;
         tail = N;                    // reset front, tail;
     }
