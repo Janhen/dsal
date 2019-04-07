@@ -1,220 +1,44 @@
-常见数据结构的代码实现    
+主要内容:  
+常见数据结构的代码实现  
+一些数据结构设计题  
+基本的算法  
 
-```
-│  FileUtils.java
-│  Main.java
-│  TestUtil.java
-│
-├─design                         // 一些数据结构设计
-│  ├─arrayAsQueueAndStack
-│  │  │  IQueue.java
-│  │  │  IStack.java
-│  │  │  Queue.java
-│  │  │  Stack.java
-│  │  │
-│  │  └─loopArray
-│  │          Queue.java
-│  │
-│  ├─firstNotDuplicationInStream
-│  │      Solution.java
-│  │
-│  ├─lru
-│  │      LRUBaseLinkedHashMap.java
-│  │      LRUCache.java
-│  │      LRUCache1.java
-│  │
-│  ├─medianInStream
-│  │      Solution.java
-│  │
-│  ├─queueByTwoQueue
-│  │      Queue.java
-│  │
-│  ├─queueStoreCatDog
-│  │      Cat.java
-│  │      CatDogQueue.java
-│  │      Dog.java
-│  │      Main.java
-│  │      Pet.java
-│  │
-│  ├─queueWithMax
-│  │      Main.java
-│  │      MaxQueue.java
-│  │      MaxQueue2.java
-│  │      MaxQueue3.java
-│  │
-│  ├─stackByTwoQueue
-│  │      Main.java
-│  │      Stack.java
-│  │
-│  └─stackWithMin
-│          GetMinStack.java
-│          GetMinStack2.java
-│          Main.java
-│
-└─structures
-    ├─array
-    │      Array.java
-    │      Main.java
-    │
-    ├─AVL                       // 平衡树
-    │  │  AVLTree.java
-    │  │  AVLTreeTest.java
-    │  │  Main.java
-    │  │
-    │  └─other
-    │          AVLMap.java
-    │          AVLSet.java
-    │          AVLTree2.java
-    │
-    ├─BST                       // 二叉树
-    │  │  BST.java
-    │  │  IBST.java
-    │  │  IBSTMap.java
-    │  │  Main.java
-    │  │
-    │  ├─base
-    │  │      BST.java
-    │  │      BST2.java
-    │  │      Main.java
-    │  │
-    │  ├─order
-    │  │      BinarySearchOrderedST.java
-    │  │      BST.java
-    │  │      OrderedST.java
-    │  │      OrderedSTTest.java
-    │  │      RedBlackBST.java
-    │  │
-    │  └─withParent
-    │          AbstractBinarySearchTree.java
-    │          BinarySearchTree.java
-    │
-    ├─hashtable                 // 哈希表
-    │  │  Main.java
-    │  │  Student.java
-    │  │
-    │  ├─base
-    │  │      HashTable.java
-    │  │      Main.java
-    │  │
-    │  ├─dynamic
-    │  │      HashTable.java
-    │  │      Main.java
-    │  │
-    │  └─resizeOptimize
-    │          HashTable.java
-    │          Main.java
-    │
-    ├─heap_priorityQueue            // 堆|优先队列
-    │  │  HeapSort.java
-    │  │  IHeap.java
-    │  │  IIndexHeap.java
-    │  │  MaxHeap.java
-    │  │
-    │  ├─base
-    │  │      HeapSort.java
-    │  │      HeapSort2.java
-    │  │      Main.java
-    │  │      MaxHeap.java
-    │  │      PrintableMaxHeap.java
-    │  │
-    │  ├─compositeArray
-    │  │      Main.java
-    │  │      MaxHeap.java
-    │  │      PriorityQueue.java
-    │  │
-    │  └─indexHeap
-    │      │  IndexMaxHeap.java
-    │      │
-    │      └─reverseIndex
-    │              IndexMaxHeap.java
-    │
-    ├─linkedList                        // 链表
-    │      LinkedList.java
-    │      Main.java
-    │
-    ├─queue                             // 队列
-    │  │  IQueue.java
-    │  │  Main.java
-    │  │
-    │  ├─baseLinkedList
-    │  │      Main.java
-    │  │      Queue.java
-    │  │
-    │  └─baseLoopArray
-    │          Main.java
-    │          Queue.java
-    │          Queue2.java
-    │
-    ├─redBlack                          // 红黑树
-    │      Main.java
-    │      RBTree.java
-    │
-    ├─segmentTree
-    │      ISegmentTree.java
-    │      Main.java
-    │      Merger.java
-    │      SegmentTree.java
-    │
-    ├─set_map                           // 集合和映射
-    │  ├─map
-    │  │      BSTMap.java
-    │  │      LinkedListMap.java
-    │  │      Main.java
-    │  │      Map.java
-    │  │
-    │  └─set
-    │          BST.java
-    │          BSTSet.java
-    │          LinkedListSet.java
-    │          Main.java
-    │          Set.java
-    │
-    ├─skipList                          // 跳表
-    │      SkipList.java
-    │
-    ├─stack                             // 栈
-    │  │  IStack.java
-    │  │  Main.java
-    │  │
-    │  ├─baseArray
-    │  │      Main.java
-    │  │      Stack.java
-    │  │
-    │  └─baseNode
-    │          Main.java
-    │          Stack.java
-    │
-    ├─trie                              // 字典树
-    │  │  ITrie.java
-    │  │  Main.java
-    │  │  Trie.java
-    │  │
-    │  └─withPathAndEnd
-    │          Trie.java
-    │          Trie2.java
-    │
-    └─unionFind                         // 并查集
-        │  Main.java
-        │  UF.java
-        │  UnionFind.java
-        │
-        ├─baseNode
-        │      UnionFind.java
-        │
-        ├─pathCompression
-        │      UnionFind.java
-        │
-        ├─pathCompressionRecursion
-        │      UnionFind.java
-        │
-        ├─quickFind
-        │      UnionFind.java
-        │
-        ├─quickUnion
-        │      UnionFind.java
-        │
-        ├─rankOptimize
-        │      UnionFind.java
-        │
-        └─sizeOptimize
-                UnionFind.java
+    
+- [基础数据结构](doc/DS-基础数据结构.md)
+队列  
+栈  
+集合  
+哈希表  
+堆  
+Trie  
+二分查找树  
+平衡树  
+红黑树  
+跳表  
+线段树  
+并查集  
+
+- [基础算法](doc/A-基础算法.md)  
+常见查找排序及各种变种:  
+快速排序: 随机枢纽元快排、三路快排、三数中值快排  
+归并排序: 自顶向下归并、自底向上归并  
+堆排序:  下沉构建堆、赋值确定位置下沉  
+二分查找: 查找第一次后最后一次出现位置、查找大于小于给定值最近的位置、带偏移的位置  
+
+- [Java 集合源码](doc/Java-Java%20集合源码.md) 
+基本 List, Set, Queue, Map   
+
+
+- [数据结构设计](doc/DS-数据结构设计.md)  
+常见的数据结构设计  
+LRU:   
+LFU: 
+最大队列:  
+数据流中位数:  
+数据流第一个不重复元素  
+用数组实现队列和栈  
+用栈实现队列  
+用队列实现栈  
+猫狗队列  
+最小栈  
+...
