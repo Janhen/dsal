@@ -3,6 +3,10 @@ package com.janhen.design.lru;
 import java.util.HashMap;
 
 // leetcode-146
+
+/**
+ * 链表 + hash 表
+ */
 public class LRUCache {
 
     static class Node {
@@ -15,9 +19,6 @@ public class LRUCache {
         }
     }
 
-    /**
-     * 封装访问节点的所有操作
-     */
     static class LinkedDeque {
         Node head;
         Node tail;
@@ -51,7 +52,6 @@ public class LRUCache {
             tail = node;
         }
 
-        // capacity limit AND use for map delete
         public Node removeHead() {
             Node oldHead = head;
             if (head == null)
@@ -68,9 +68,7 @@ public class LRUCache {
         }
     }
 
-    /** 用于维护访问的顺序. */
     private LinkedDeque linkedDeque;
-    /** 用于快速获得 key 对应的节点. */
     private HashMap<Integer, Node> keyNodeMap;
     private int capacity;
 

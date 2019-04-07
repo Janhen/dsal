@@ -1,10 +1,7 @@
 package com.janhen.design.queueWithMax;
 
-//
-
 import java.util.*;
 
-// 21ms
 public class MaxQueue2 {
 
     Queue<Integer>         data = new LinkedList<>();

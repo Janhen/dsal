@@ -11,14 +11,13 @@ public class LRUBaseLinkedHashMap<K, V> {
     private int capacity;
     private LinkedHashMap<K,V> cache;
 
-    public LRUBaseLinkedHashMap(int cacheSize) {
-        this.capacity = cacheSize;
-        int capacity = (int) Math.ceil(cacheSize/DEFAULT_LOAD_FACTOR) + 1;
-        cache = new LinkedHashMap(capacity, DEFAULT_LOAD_FACTOR, true){
+    public LRUBaseLinkedHashMap(int capacity) {
+        this.capacity = capacity;
+        cache = new LinkedHashMap((int) Math.ceil(capacity/DEFAULT_LOAD_FACTOR) + 1, DEFAULT_LOAD_FACTOR, true){
             private static final long serialVersionUID = 223232L;
             @Override
             protected boolean removeEldestEntry(Map.Entry eldest) {
-                return cache.size() >= cacheSize;
+                return cache.size() >= capacity;
             }
         };
     }
@@ -51,13 +50,4 @@ public class LRUBaseLinkedHashMap<K, V> {
         return cache.entrySet();
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        for (Map.Entry<K,V> entry : cache.entrySet()) {
-            sb.append(String.format("%s:%s", entry.getKey(),entry.getValue()));
-        }
-        return sb.toString();
-    }
 }

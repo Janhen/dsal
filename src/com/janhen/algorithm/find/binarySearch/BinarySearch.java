@@ -14,4 +14,20 @@ public class BinarySearch {
         }
         return -1;
     }
+
+    public static int binarySearch2(int[] arr, int k) {
+        int l = 0;
+        int r = arr.length;
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (k < arr[m]) {
+                r = m;
+            } else if (k > arr[m]) {
+                l = m + 1;
+            } else {
+                return m;
+            }
+        }
+        return -1;
+    }
 }
