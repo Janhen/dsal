@@ -2540,6 +2540,148 @@ private static Object maskNull(Object key) {
 
 
 
+## Redis-Dict
+
+**&& 1、底层结构|INIT**
+
+![1551943084702](../../../%E5%9D%9A%E6%9E%9C%E4%BA%91/%E6%88%91%E7%9A%84%E5%9D%9A%E6%9E%9C%E4%BA%91/%E7%AC%94%E8%AE%B0/assets/1551943084702.png)
+
+（1） 字典整体结构： 
+
+```c
+typedef struct dict {
+    dictType *type;
+    void *privdata;            // ↑ 2 个用于多态字典实现
+    dictht ht[2];               // ht[1] 用于 grow
+    long rehashidx;            /* -1 表示当前未在 rehash 状态, 用于渐进式 rehash 处理 */
+    unsigned long iterators; /* 当前number of iterators currently running */
+} dict;
+```
+
+```c
+typedef struct dictht {          // 单个表
+    dictEntry **table;
+    unsigned long size;
+    unsigned long sizemask;
+    unsigned long used;     // use for growing
+} dictht;
+```
+
+```c
+typedef struct dictEntry {    // 链表节点
+    void *key;
+    union {
+        void *val;
+        uint64_t u64;
+        int64_t s64;
+        double d;               // 多态的 Val {int,string...}, hincr 命令基于 int
+    } v;
+    struct dictEntry *next;
+} dictEntry;
+```
+
+（2） 初始情况
+
+初始时设置大小为 4 的容量
+
+
+
+**&& 2、操作**
+
+**&&& hash 函数**
+
+正常情况： 取模实现；
+
+```java
+
+```
+
+
+
+rehash 情况： 映射到辅助表对应的桶中
+
+```java
+
+```
+
+
+
+
+
+**&&& Key 冲突**
+
+链地址法解决，与 JDK1.7 相同使用 头插法
+
+
+
+**&& 3、rehash & grow**
+可能遇到 BGSAVE, BGREWRITEAOF 形成类多线程情况，在多线程情况下负载因子到达一定程度再进行扩容。
+
+（1） rehash 时机
+
+扩容时机：
+
+- 正常情况下 ， loadFactor >=1 
+
+- `BGSAVE` OR `BGREWRITEAOF` 命令下 loadFactor >= 5
+
+  
+
+缩容时机：  `loadFactor <0.1`
+
+
+
+**（2） 渐进式 rehash** 
+
+**原理：**   在 dict 中维护着对应的结构
+
+① dict.rehashidx 
+
+- 控制当前是否是在 rehash 状态
+- 代表当前 rehash 到何处
+
+② dictht[2]
+
+保证与原始数据不分割
+
+
+
+**（3） 执行流程：**
+
+阶段1： 未在 rehash 阶段，`rehashidx = -1`
+
+
+
+阶段2： 处在 rehash 阶段
+
+进行 CRUD
+
+在 rehash 期间，对 dict 进行 CRUD，都会执行一次 rehash
+
+
+
+阶段3： rehash 完毕
+
+全部从 ht[0] -> ht[1] 完成后，回收原来 ht[0] 的空间，交换引用
+
+
+
+**&& 4、其他**
+
+（1） 多态类型支持
+
+命令 hincrby
+
+
+
+（2） 与 HashMap 比较
+
+rehash 特殊
+
+多态支持
+
+
+
 # Util
 
 ## Arrays
