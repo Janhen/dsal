@@ -10,7 +10,6 @@ class OneToOneMap<K, V> {
         return map.get(key);
     }
 
-    // is unique
     public boolean put(K key, V val) {
         if (map.containsKey(key)) {
             if (!map.get(key).equals(val))

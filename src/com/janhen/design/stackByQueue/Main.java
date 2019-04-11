@@ -1,18 +1,35 @@
 package com.janhen.design.stackByQueue;
 
+import org.junit.Test;
+
 public class Main {
 
-    public static void main(String[] args) {
-        Stack<String> stack = new Stack();
-        stack.push("ddd");
-        stack.push("eee");
-        stack.push("fff");
-        stack.push("hhh");
+    @Test
+    public void testStack() {
+        MyStack stack = new MyStack();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
         System.out.println(stack);
 
-        String pop1 = stack.pop();
-        String pop2 = stack.pop();
-        String peek = stack.peek();
-        System.out.printf("%s %s %s", pop1, pop2, peek);
+        int pop1 = stack.pop();
+        int pop2 = stack.pop();
+        int peek = stack.top();
+        System.out.printf("%d %d %d", pop1, pop2, peek);
+    }
+    @Test
+    public void testStack2() {
+        MyStack2 stack = new MyStack2();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        System.out.println(stack);
+
+        int pop1 = stack.pop();
+        int pop2 = stack.pop();
+        int peek = stack.top();
+        System.out.printf("%d %d %d", pop1, pop2, peek);
     }
 }

@@ -3,13 +3,14 @@ package com.janhen.design.queueWithMax;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.Queue;
 
 /**
  * 基于单调双向队列实现
  */
 public class MaxQueue {
 
-    private Deque<Tuple> data = new LinkedList<>();
+    private Queue<Tuple> data = new LinkedList<>();
 
     private Deque<Tuple> qmax = new LinkedList<>();
 
@@ -28,10 +29,10 @@ public class MaxQueue {
         if (data.isEmpty())
             throw new NoSuchElementException();
 
-        if (qmax.peekFirst().index == data.peekFirst().index)   // index as unique identify
+        if (qmax.peekFirst().idx == data.peek().idx)   // index as unique identify
             qmax.pollFirst();
 
-        return data.pollFirst().val;
+        return data.peek().val;
     }
 
     public int max() {
@@ -40,14 +41,13 @@ public class MaxQueue {
         return qmax.peekFirst().val;
     }
 
-
     static class Tuple {
         int val;
-        int index;
+        int idx;
 
-        Tuple(int val, int index) {
+        Tuple(int val, int idx) {
             this.val = val;
-            this.index = index;
+            this.idx = idx;
         }
     }
 }

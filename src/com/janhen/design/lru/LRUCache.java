@@ -2,11 +2,6 @@ package com.janhen.design.lru;
 
 import java.util.HashMap;
 
-// leetcode-146
-
-/**
- * 链表 + hash 表
- */
 public class LRUCache {
 
     static class Node {
@@ -23,8 +18,7 @@ public class LRUCache {
         Node head;
         Node tail;
 
-        // put is new one
-        public void addNodeToTail(Node node) {
+        public void offerLast(Node node) {
             if (head == null) {
                 head = node;
                 tail = node;
@@ -35,7 +29,21 @@ public class LRUCache {
             }
         }
 
-        // access
+        public Node pollFirst() {
+            Node oldHead = head;
+            if (head == null)
+                return oldHead;
+            if (head == tail) {
+                head = null;
+                tail = null;
+            } else {
+                head = head.next;
+                head.prev = null;
+                oldHead.next = null;
+            }
+            return oldHead;
+        }
+
         public void moveNodeToTail(Node node) {
             if (node == tail)
                 return;
@@ -48,23 +56,8 @@ public class LRUCache {
             }
             tail.next = node;
             node.prev = tail;
-            node.next = null;  // as tail
+            node.next = null;
             tail = node;
-        }
-
-        public Node removeHead() {
-            Node oldHead = head;
-            if (head == null)
-                return oldHead;
-            if (head == tail) {
-                head = null;
-                tail = null;
-            } else {
-                head = head.next;
-                head.prev = null;   // as head
-                oldHead.next = null;
-            }
-            return oldHead;
         }
     }
 
@@ -87,23 +80,22 @@ public class LRUCache {
         return -1;
     }
 
-    // update OR add one
     public void put(int key, int value) {
         if (keyNodeMap.containsKey(key)) {
             Node valNode = keyNodeMap.get(key);
             valNode.val = value;
-            linkedDeque.moveNodeToTail(valNode);     // like access
+            linkedDeque.moveNodeToTail(valNode);
         } else {
             Node valNode = new Node(key, value);
-            keyNodeMap.put(key, valNode);             // linkedList + hashTable
-            linkedDeque.addNodeToTail(valNode);
+            keyNodeMap.put(key, valNode);
+            linkedDeque.offerLast(valNode);
             modifyIfNecessary();
         }
     }
 
     private void modifyIfNecessary() {
         if (keyNodeMap.size() == capacity + 1) {
-            Node oldHead = linkedDeque.removeHead();
+            Node oldHead = linkedDeque.pollFirst();
             keyNodeMap.remove(oldHead.key);
         }
     }

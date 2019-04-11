@@ -17,8 +17,7 @@ public class LRUCache1 {
         Node head;
         Node tail;
 
-        // put
-        public void addNodeToTail(Node node) {
+        public void offerLast(Node node) {
             if (head == null) {
                 head = node;
                 tail = node;
@@ -29,7 +28,6 @@ public class LRUCache1 {
             }
         }
 
-        // access
         public void moveToTail(Node node) {
             if (node == tail)
                 return ;
@@ -46,8 +44,7 @@ public class LRUCache1 {
             tail = node;
         }
 
-        // return old head
-        public Node removeHead() {
+        public Node pollFirst() {
             if (head == null)
                 return null;
             Node oldHead = head;
@@ -84,8 +81,6 @@ public class LRUCache1 {
         return -1;
     }
 
-    // P1: update
-    // P2: new one
     public void put(int key, int value) {
         if (dataMap.containsKey(key)) {
             Node valNode = dataMap.get(key);
@@ -95,15 +90,14 @@ public class LRUCache1 {
             Node valNode = new Node(value);
             dataMap.put(key, valNode);
             nodeMap.put(valNode, key);
-            linkedDeque.addNodeToTail(valNode);
+            linkedDeque.offerLast(valNode);
             modifyIfNecessary();
         }
-
     }
 
     private void modifyIfNecessary() {
         if (dataMap.size() == capacity + 1) {
-            Node oldHeadNode = linkedDeque.removeHead();
+            Node oldHeadNode = linkedDeque.pollFirst();
             Integer oldHeadKey = nodeMap.get(oldHeadNode);
             dataMap.remove(oldHeadKey);
             nodeMap.remove(oldHeadNode);

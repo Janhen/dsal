@@ -1,4 +1,4 @@
-package com.janhen.design.lru;
+package com.janhen.design.lru.gene;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

@@ -460,7 +460,7 @@ oos.writeObject(list);
 
 都是线程不安全的容器，都实现了 List 接口具备 List 的特性；
 
-① 底层实现： ArrayList 基于索引的数据结接口，底层是动态数组实现，LinkedList 以元素列表的形式存储数据，是双向链表实现；
+① 底层实现： ArrayList 基于索引的数据接口，底层是动态数组实现，LinkedList 以元素列表的形式存储数据，是双向链表实现；
 
 ② 一些操作的性质： 
 
@@ -518,6 +518,7 @@ class Node<E> {
 
 不支持初始情况下给定对应的容量；
 
+基于链表都为无界队列；
 ```java
 public LinkedList() {
 }
@@ -526,7 +527,6 @@ public LinkedList(Collection<? extends E> c) {
     addAll(c);
 }
 ```
-
 
 
 **&& 2、操作**
@@ -826,7 +826,7 @@ CopyOnWriteArrayList 在写操作的同时允许读操作，大大提高了读�
 
 **&& 与 HashSet 的区别**
 
-① 底层结构：HashSet 基于 hash 表实现，元素无需， 一些方法 add(), remove(), contains() 复杂度为 O(1)；
+① 底层结构：HashSet 基于 hash 表实现，元素无序， 一些方法 add(), remove(), contains() 复杂度为 O(1)；
 
 ② 有序性： TreeSet 基于红黑树实现，元素有序， add(), remove(), contains() 复杂度为 O(logN)；
 
@@ -889,15 +889,15 @@ PriorityQueue(int initialCapacity, Comparator<? super E> comparator);
 
 （1） offer
 
-先讲元素放到二叉树的尾节点
+先将元素放到完全二叉树的尾节点
 
-之后不断上浮调整结构
+之后不断上浮调整结构使其符合堆特性
 
 
 
 （2） shiftUp
 
-上浮函数，用于维护整个堆结构，实现的是最小堆
+上浮函数，用于维护整个堆结构，实现的是最小堆；
 
 赋值替换交换优化；
 
@@ -917,7 +917,6 @@ PriorityQueue(int initialCapacity, Comparator<? super E> comparator);
     queue[k] = key;
 }
 ```
-
 
 
 **&&& poll | siftDown**
@@ -963,7 +962,6 @@ void siftDownComparable(int k, E x) {
 **&&& remove**
 
 remove(o) 删除一个对象，需要先进行向下调整后进行向上调整；
-
 
 
 代码逻辑： 
@@ -1020,7 +1018,7 @@ void heapify() {
 
 小数据量快速 2 倍增容，
 
-一定容量下 50% 增容；
+一定大容量下 50% 增容；
 
 ```java
 void grow(int minCapacity) {
@@ -1035,7 +1033,6 @@ void grow(int minCapacity) {
     queue = Arrays.copyOf(queue, newCapacity);
 }
 ```
-
 
 
 **&& 4、迭代**
@@ -1179,8 +1176,7 @@ static int indexFor(int h, int length) {
 查找需要分成两步进行：
 
 - 计算键值对所在的桶；
-- 在链表上顺序查找，时间复杂度显然和链表的长度成正比。
-
+- 在链表上顺序查找，时间复杂度和链表的长度成正比
 
 
 
@@ -1324,7 +1320,7 @@ void addEntry(int hash, K key, V value, int bucketIndex) {
 
 （3） 扩容与 rehash 的实现
 
-扩容使用 resize() 实现，需要注意的是，扩容操作同样需要把 oldTable 的所有键值对重新插入 newTable 中，因此这一步是很费时的。
+扩容使用 resize() 实现，扩容操作同样需要把 oldTable 的所有键值对重新插入 newTable 中，因此这一步是很费时的。
 
 
 
@@ -1334,10 +1330,10 @@ void addEntry(int hash, K key, V value, int bucketIndex) {
 
 
 
-根据 hash 值在当前的高位上是否为 0，进行不同的处理
+根据 hash 值在当前的高位上是否为 0，进行不同的处理。
 
 - 为0： 不需要移动
-- 为 1： 移动偏移到 原来容量上；
+- 为 1： 移动偏移 原来容量对应的桶上；
 
 ```java
 void resize(int newCapacity) {
@@ -1443,6 +1439,7 @@ class Node<K,V> implements Map.Entry<K,V> {
 ```
 
 ③ 红黑树节点结构： 
+继承 LinkedHashMap.Entry，便于从 tree 回退到 listNode
 
 ```java
 static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
@@ -1495,7 +1492,6 @@ for (int binCount = 0; ; ++binCount) {                // binCount 记录链表�
     p = e;
 }
 ```
-
 
 
 **&&& put 操作**
@@ -1588,8 +1584,6 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
 （1） 链表拆分
 
 将原来的一条链表拆成两条链表，低位链表的数据将会到新数组的当前下标位置（原来下标多少，新下标就是多少），高位链表的数据将会到新数组的当前下标+当前数组长度的位置（原来下标多少，新下标就是多少+当前数组长度）；
-
-与原来 JDK7 不同??；
 
 ```java
 Node<K,V> loHead = null, loTail = null;
@@ -1697,7 +1691,7 @@ if (hiHead != null) {
 
 ## HashTable
 
-JDK7 与 HashMap 基本一致；
+与 JDK7 的 HashMap 基本一致；
 
 线程安全的同步容器；
 
@@ -1921,7 +1915,7 @@ public synchronized V put(K key, V val) {
 
 （2） 借助多态将 HashMap 中的数据按照一定的规则进行排序
 
-如 HashMap 存放的是词频，可以根据词频进行排序，之后迭代访问时就是词频序列；
+如 HashMap 存放的是词频，可以根据词频进行排序，之后迭代访问时就是词频从高到低的序列；
 
 
 
@@ -2038,7 +2032,7 @@ final Segment<K,V> segmentFor(int hash) {
 ```
 
 定位到 Entry，定位Segment使用的是元素的
-hashcode通过再散列后得到的值的高位，而定位HashEntry直接使用的是再散列后的值。其目的是避免两次散列后的值一样，虽然元素在Segment里散列开了，但是却没有在HashEntry里散列开。
+hashcode通过再散列后得到的值的高位，而定位HashEntry直接使用的是再散列后的值。其目的是避免两次散列后的值一样，虽然元素在Segment里散列开了，但是却没有 HashEntry里散列开。
 
 ```java
 hash >>> segmentShift) & segmentMask　　 // 定位Segment所使用的hash算法
@@ -2097,7 +2091,7 @@ public int size() {
     int size;
     boolean overflow; // true if size overflows 32 bits
     long sum;         // sum of modCounts
-    long last = 0L;   // previous sum
+        long last = 0L;   // previous sum
     int retries = -1; // first iteration isn't retry
     try {
         for (;;) {
@@ -2190,7 +2184,7 @@ transient volatile CounterCell[] counterCells;
 4、如果 f != null 则使用 synchronized 锁住 f 元素（链表/红黑二叉树的头元素）
   4.1如果是Node（链表结构）则执行链表的添加操作。
   4.2如果是TreeNode（树型结构）则执行树添加操作。
-5、 判断链表长度已经达到临界值 8，当然这个 8 是默认值，大家也可以做调整，当节点数超过这个值就需要将链表转换为树结构。
+5、 判断链表长度已经达到临界值 8 (default)节点数超过这个值就需要将链表转换为树结构。
 
 ```java
 final V putVal(K key, V value, boolean onlyIfAbsent) {
@@ -2272,8 +2266,7 @@ addCount(1L, binCount);
 
 对于 ThreadLocal： 
 
-当使用 ThreadLocal 维护变量时，ThreadLocal 为每个使用该变量的线程提供独立的变量副本，
-所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本；
+当使用 ThreadLocal 维护变量时，ThreadLocal 为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本；
 
 是一种无锁同步方案；
 
