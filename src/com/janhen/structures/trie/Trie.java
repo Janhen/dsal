@@ -2,7 +2,7 @@ package com.janhen.structures.trie;
 
 import java.util.TreeMap;
 
-public class Trie implements ITrie {
+public class Trie {
 
     private class Node {
         public boolean isWord;

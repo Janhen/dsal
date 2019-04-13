@@ -1,14 +1,5 @@
 package com.janhen.design.queueStoreCatDog;
 
-// 实现一种狗猫队列的结构，要求如下： 用户可以调用
-// add        方法，将cat类或dog类的实例放入队列中； 用户可以调用
-// pollAll    方法，将队列中所有的实例按照进队列的先后顺序依次弹出； 用户可以调用
-// pollDog    方法，将队列中dog类的实例按照进队列的先后顺序依次弹出； 用户可以调用
-// pollCat    方法，将队列中cat类的实例按照进队列的先后顺序依次弹出； 用户可以调用
-// isEmpty    方法，检查队列中是否还有dog或cat的实例； 用户可以调用
-// isDogEmpty 方法，检查队列中是否有dog类的实例； 用户可以调用
-// isCatEmpty 方法，检查队列中是否有cat类的实例。
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -16,7 +7,7 @@ public class CatDogQueue  {
 
     private Queue<WrappedPet> dogs = new LinkedList<>();
     private Queue<WrappedPet> cats = new LinkedList<>();
-    private int               count;
+    private int               count;    // as index
 
     public boolean isEmpty() {
         return dogs.isEmpty() && cats.isEmpty();
@@ -44,7 +35,7 @@ public class CatDogQueue  {
         if (dogs.isEmpty() && cats.isEmpty())
             throw new IllegalArgumentException("queue is empty");
 
-        if (dogs.isEmpty())     // dogs OR cats is empty
+        if (dogs.isEmpty())
             return cats.poll().getPet();
         if (cats.isEmpty())
             return dogs.poll().getPet();
@@ -68,7 +59,6 @@ public class CatDogQueue  {
     }
 
     class WrappedPet {
-
         private Pet pet;
         private int count;
 

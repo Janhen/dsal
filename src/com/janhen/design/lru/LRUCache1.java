@@ -2,105 +2,81 @@ package com.janhen.design.lru;
 
 import java.util.HashMap;
 
-public class LRUCache1 {
+class LRUCache1 {
 
-    static class Node {
-        int val;
-        Node prev, next;
+    private Node             head;
+    private Node             tail;
+    private HashMap<Integer, Node> map;
+    private int              capacity;
 
-        Node(int val) {
-            this.val = val;
+    private class Node {
+        Node prev;
+        Node next;
+        Integer    key;
+        Integer    val;
+        public Node(Integer k, Integer v) {
+            this.key = k;
+            this.val = v;
         }
     }
-
-    static class LinkedDeque {
-        Node head;
-        Node tail;
-
-        public void offerLast(Node node) {
-            if (head == null) {
-                head = node;
-                tail = node;
-            } else {
-                tail.next = node;
-                node.prev = tail;
-                tail = node;
-            }
-        }
-
-        public void moveToTail(Node node) {
-            if (node == tail)
-                return ;
-            if (node == head) {
-                head = head.next;
-                node.next = null;
-            } else {
-                node.prev.next = node.next;
-                node.next.prev = node.prev;
-            }
-            tail.next = node;
-            node.prev = tail;
-            node.next = null;  // as tail
-            tail = node;
-        }
-
-        public Node pollFirst() {
-            if (head == null)
-                return null;
-            Node oldHead = head;
-            if (head == tail) {
-                head = null;
-                tail = null;
-            } else {
-                head = head.next;
-                head.prev = null;
-                oldHead.next = null;
-            }
-            return oldHead;
-        }
-    }
-
-    private LinkedDeque linkedDeque;
-    private HashMap<Integer, Node> dataMap;
-    private HashMap<Node, Integer> nodeMap;
-    private int capacity;
 
     public LRUCache1(int capacity) {
-        linkedDeque = new LinkedDeque();
-        dataMap = new HashMap<>();
-        nodeMap = new HashMap<>();
         this.capacity = capacity;
+        this.map = new HashMap<>(capacity * 4 / 3);
+        head = new Node(null, null);
+        tail = new Node(null, null);  // two dummy
+        head.next = tail;
+        tail.prev = head;
     }
 
     public int get(int key) {
-        if (dataMap.containsKey(key)) {
-            Node valNode = dataMap.get(key);
-            linkedDeque.moveToTail(valNode);
-            return valNode.val;
+        if (!map.containsKey(key)) {
+            return -1;
         }
-        return -1;
+        Node node = map.get(key);
+        unlink(node);
+        appendHead(node);
+        return node.val;
     }
 
     public void put(int key, int value) {
-        if (dataMap.containsKey(key)) {
-            Node valNode = dataMap.get(key);
-            valNode.val = value;
-            linkedDeque.moveToTail(valNode);
-        } else {
-            Node valNode = new Node(value);
-            dataMap.put(key, valNode);
-            nodeMap.put(valNode, key);
-            linkedDeque.offerLast(valNode);
-            modifyIfNecessary();
+        if (map.containsKey(key)) {
+            Node node = map.get(key);
+            unlink(node);
+        }
+        Node node = new Node(key, value);
+        map.put(key, node);
+        appendHead(node);
+        if (map.size() > capacity) {
+            Node toRemove = removeTail();
+            map.remove(toRemove.key);
         }
     }
 
-    private void modifyIfNecessary() {
-        if (dataMap.size() == capacity + 1) {
-            Node oldHeadNode = linkedDeque.pollFirst();
-            Integer oldHeadKey = nodeMap.get(oldHeadNode);
-            dataMap.remove(oldHeadKey);
-            nodeMap.remove(oldHeadNode);
-        }
+    private void unlink(Node node) {
+        Node pre = node.prev;
+        Node next = node.next;
+        pre.next = next;
+        next.prev = pre;
+        node.prev = null;
+        node.next = null;
+    }
+
+    private void appendHead(Node node) {
+        Node next = head.next;
+        node.next = next;
+        next.prev = node;
+        node.prev = head;
+        head.next = node;
+    }
+
+    private Node removeTail() {
+        Node node = tail.prev;
+        Node pre = node.prev;
+        tail.prev = pre;
+        pre.next = tail;
+        node.prev = null;
+        node.next = null;
+        return node;
     }
 }

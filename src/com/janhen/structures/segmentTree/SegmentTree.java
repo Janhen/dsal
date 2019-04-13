@@ -4,16 +4,13 @@ public class SegmentTree<E> {
 
     private E[] data;
     private E[] tree;
-    Merger<E> merger;
+    private Merger<E> merger;
 
     public SegmentTree(E[] arr, Merger<E> merger) {
-
         this.merger = merger;
-
         data = (E[]) new Object[arr.length];
         for (int i = 0; i < data.length; i ++)
             data[i] = arr[i];
-
         tree = (E[]) new Object[data.length * 4];
         buildSegmentTree(0, 0, data.length - 1);
     }
@@ -44,13 +41,10 @@ public class SegmentTree<E> {
 
     // Macro sematic : 在以 treeIndex 为 根的线段树中 [l...r] 的范围内，搜索区间 [queryL, queryR] 的值
     // also can encapsulation a obj that treeIndex, data right and left index
-     /*
-        - 完全落入右孩子
-        - 完全落入左孩子
-        - 一部分在左孩子，一部分在右孩子 : 分隔 ， 融合
-         */
+    // - 完全落入右孩子
+    // - 完全落入左孩子
+    // - 一部分在左孩子，一部分在右孩子 : 分隔 ， 融合
     private E query(int treeIndex, int l, int r, int queryL, int queryR) {
-
         if (l == queryL && r == queryR) {
             return tree[treeIndex];
         }
@@ -79,7 +73,6 @@ public class SegmentTree<E> {
     }
 
 
-    // ★ 更新部分值
     // 每一层更新一个值
     // time:O(logN)
     private void set(int treeIndex, int l, int r, int index, E e) {

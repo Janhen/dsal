@@ -41,14 +41,10 @@ void selectSort(int[] arr) {
 （1） 算法: 从左到右不断交换相邻逆序的元素, 经过一次循环确定最后一个元素到达最右侧
 存在传入数组已经有序的情况
 
-
-
 （2） 复杂度分析:
   最坏: O(n²)
   最好: O(n), 集合有序, 需要进行一次冒泡
   平均: O(n²)
-
-
 
 （3） 性质：
 
@@ -64,7 +60,7 @@ void selectSort(int[] arr) {
 
 ```java
 void bubbleSort(int[] arr) {
-    // check
+    if (arr == null || arr.length < 2) return;
     for (int i = arr.length - 1; i > 0; i --)  // insure N-1~1 position, 0 must in correct position
         for (int j = 0; j < i; j ++)
             if (arr[j] > arr[j + 1])
@@ -74,11 +70,11 @@ void bubbleSort(int[] arr) {
 
 
 
-**2、 通过判定之后是否有序来进行优化**
+**2、 有序性优化**
 
 ```java
 void bubbleSort(int[] arr) {
-    // check
+    if (arr == null || arr.length < 2) return;
     boolean hasSorted = false;
     for (int i = arr.length - 1; i > 0 && !hasSorted; i --) {  // except bad condtion
         hasSorted = true;
@@ -98,16 +94,10 @@ void bubbleSort(int[] arr) {
 
 （1）算法: 将数组分为两部分，将后部分元素逐一与前部分元素比较，如果前部分元素比array[i]小，就将前部分元素往后移动。当没有比array[i]小的元素，即是合理位置，在此位置插入array[i]。
 
-
-
-
-
 （2） 复杂度分析
 最坏: O(n²), 数组逆序, 需要 N²/2 比较  N²/2 交换
 最好: O(n), 正序, 需要     N-1  比较    0  次交换
 平均:   O(n^2)  N²/4  比较  N²/4 交换
-
-
 
 （3） 性质:
 
@@ -119,7 +109,7 @@ void bubbleSort(int[] arr) {
 
   
 
-**1、基础插入排序**
+**1、基础插入**
 
 ```java
 public static void insertSortB(int[] arr) {
@@ -133,13 +123,13 @@ public static void insertSortB(int[] arr) {
 
 
 
-**2、 使用赋值操作替换交换操作优化**
+**2、 赋值优化**
 
 ```java
 void insertSort(int[] arr) {
     if (arr == null || arr.length < 2) return;
     for (int i = 1; i < arr.length; i ++) {
-        int e = arr[i], j;                // e current element, j should put position
+        int e = arr[i], j;   // e current element, j should put position
         for (j = i; j > 0; j --) {
             if (e < arr[j-1])
             	arr[j] = arr[j-1];
@@ -185,97 +175,14 @@ void shellSort(int[] arr) {
 
 
 
-## 桶 | 基数 | 计数排序
-
-**&& 桶排序**
-
- 桶排序   O(n)
-     使用桶排序来有10GB的订单数据，我们希望按订单金额（假设金额都是正整数）进行排序，但是我们的内存有限，只有几百MB，没办法一次性把10GB的数据都加
-    载到内存中。这个时候该怎么办呢？
-
-
-
-
-
-金额∈ [1, 10W]
-
-```
-针对这些划分之后还是比较大的文件，我们可以继续划分，比如，订单金额在1元到1000元之间的比较多，我们就将这个区间继续划分为10个小区间，1元
-```
-
-到100元，101元到200元，201元到300元…901元到1000元。如果划分之后，101元到200元之间的订单还是太多，无法一次性读入内存，那就继续再划分，直到所
-有的文件都能读入内存为止
-
-
-
-
-
-**&& 基数排序**
-
- O(dn)   d 是维度
-假设我们有10万个手机号码，希望将这10万个手机号码从小到大排序，你有什么比较快速的排序方法呢？
-    先按照最后一位来排序手机号码，然后，再按照倒数第二位重新排序，以此类推，最后按照第一位重新排序。经过11次排序之后，手机号码就都有序了。
-
-我们可以把所有的单词补齐到相同长度，位数不够的可以在后面补“0”，因为根据ASCII值，所有字母都大于“0”，所以补“0”不会影响到原有的大小顺
-序。这样就可以继续用基数排序了。
-
-基数排序对要排序的数据是有要求的，
-需要可以分割出独立的“位”来比较，而且位之间有递进的关系，如果a数据的高位比b数据大，那剩下的低位就不用比较了。
-除此之外，每一位的数据范围不能太大，要可以用线性排序算法来排序，否则，基数排序的时间复杂度就无法做到O(n)了。
-
-
-
-
-
-**&& 计数排序**
-
-计数排序：
-    我个人觉得，计数排序其实是桶排序的一种特殊情况。当要排序的n个数据，所处的范围并不大的时候，比如最大值是k，我们就可以把数据划分成k个桶。每个桶
-    内的数据值都是相同的，省掉了桶内排序的时间。
-    我们都经历过高考，高考查分数系统你还记得吗？我们查分数的时候，系统会显示我们的成绩以及所在省的排名。如果你所在的省有50万考生，如何通过成绩快
-    速排序得出名次呢？
-    考生的满分是900分，最小是0分，这个数据的范围很小，所以我们可以分成901个桶，对应分数从0分到900分。根据考生的成绩，我们将这50万考生划分到
-    这901个桶里。桶内的数据都是分数相同的考生，所以并不需要再
-
-
-
-
-
-
-
- 计数排序，a是数组，n是数组大小。假设数组中存储的都是非负整数。
-     O(n+k)    k 是数据范围
-
-
-
- 查找数组中数据的范围
-// 申请一个计数数组c，下标大小[0,max]
- 计算每个元素的个数，放入c中
- 依次累加
- 临时数组r，存储排序之后的结果
- 计算排序的关键步骤，有点难理解
- 将结果拷贝给a数组
-
-
-
-
-
-
-
-
-
 ## 快速排序
 
 （1） 思想: 分治, 分区
-
-
 
 （2） 复杂度:
 由每次选取的分割点控制
 最好: 每次分割点都为中间的元素， O(logN)
 最坏: 每次分割点都为最后元素   O(n²)
-
-
 
 （3） 性质:
 
@@ -285,10 +192,6 @@ void shellSort(int[] arr) {
 
 - 原地排序
 
-
-
-
-
 （4） 归并 VS 快排:
 归并由下到上, 先处理子问题之后合并，快排由上到下, 先进行分区然后处理子问题；
 
@@ -296,17 +199,13 @@ void shellSort(int[] arr) {
 
 归并排序为稳定的排序，保留原来相同值的顺序；
 
-
-
 （5） 优化:
  三数取中法
  随机选取法
 
 
 
-
-
-**1、Random & Insert**
+**1、随机枢纽元**
 
 ```java
 void quickSort(int[] arr) {
@@ -387,7 +286,7 @@ int medianOf3(int[] arr, int lo, int hi) {
     if (arr[lo] > arr[hi]) swap(arr, lo, hi);
     if (arr[mid] > arr[hi]) swap(arr, mid, hi);
     swap(arr, mid, hi - 1);
-    return arr[hi - 1];              // pivot is mid value, and position is hi-1
+    return arr[hi - 1];        // pivot is mid value, and position is hi-1
 }
 ```
 
@@ -425,10 +324,6 @@ void quickSort(int[] arr, int lo, int hi) {
 
 （1） 算法
 
-
-
-
-
 （2） 复杂度
 
 大部分为 O(NlogN)
@@ -440,8 +335,6 @@ void quickSort(int[] arr, int lo, int hi) {
 >     ......
 >     = 2^k * T(n/2^k) + k * n
 
-
-
 （3） 性质
 
 - 大数据量情况下出现无法分配空间情况；
@@ -452,9 +345,7 @@ void quickSort(int[] arr, int lo, int hi) {
 
 
 
-
-
-**1、普通归并排序**
+**1、一般归并**
 
 ① 对排序的两个子数组 [lo,mid], [mid+1, hi]，在 [mid] >= [mid+1] 数组整体有序情况下跳过合并；
 
@@ -469,7 +360,7 @@ void mergeSort(int[] arr, int lo, int hi) {
     int mid = lo + (hi - lo) / 2;
     mergeSort(arr, lo, mid);
     mergeSort(arr, mid + 1, hi);
-    if (arr[mid] > arr[mid + 1])    // optimize for ordered array
+    if (arr[mid] > arr[mid + 1])    queue
     	merge(arr, lo, mid, hi);
 }
 ```
@@ -507,7 +398,7 @@ void mergeSort(int[] arr) {
     if (arr == null || arr.length < 2) return;
     int N = arr.length;
     for (int sz = 1; sz < N;  sz += sz) {
-        for (int i = 0; i + sz < N; i += sz + sz) {  // two array begin
+        for (int i = 0; i + sz < N; i += sz + sz) {  queue
             merge(arr, i, i + sz - 1, Math.min(i + sz + sz - 1, N-1));
         }
     }
@@ -520,13 +411,9 @@ void mergeSort(int[] arr) {
 
 （1） 算法
 
-
-
 （2） 复杂度
 
 O(logN)
-
-
 
 （3） 性质
 
@@ -535,8 +422,6 @@ O(logN)
 - 不稳定；
 
 - 原地排序，适用于嵌入式系统中内存小的情况；
-
-
 
 
 
@@ -624,8 +509,6 @@ void sink(int[] arr, int k, int N) {
 
 
 
-
-
 ## 总结
 
 （1）各个排序比较
@@ -647,15 +530,11 @@ void sink(int[] arr, int k, int N) {
 
 
 
-
-
 # 查找
 
 ## 二分查找
 
 （1） 算法
-
-
 
 （2） 复杂度
 

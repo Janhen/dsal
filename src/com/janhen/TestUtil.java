@@ -88,18 +88,6 @@ public class TestUtil {
         System.out.println();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     private static String getSpace(int num) {
         String space = " ";
         StringBuffer buf = new StringBuffer();

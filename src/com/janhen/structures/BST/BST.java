@@ -1,6 +1,6 @@
 package com.janhen.structures.BST;
 
-public class BST<E extends Comparable<E>> implements IBST<E> {
+public class BST<E extends Comparable<E>>  {
 
     private Node root;
     private int  N;

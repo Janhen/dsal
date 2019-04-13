@@ -12,7 +12,7 @@ public class QuickSortThreeWay2 {
         if (hi <= lo)
             return;
 
-        // partition array
+        // partition queue
         int[] p = partition(arr, lo, hi);
         quickSort(arr, lo, p[0] - 1);
         quickSort(arr, p[1] + 1, hi);

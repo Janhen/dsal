@@ -2,7 +2,7 @@ package com.janhen.algorithm.sort.quickSort.base;
 
 public class QuickSortShuffle {
 
-    // shuffle all array
+    // shuffle all queue
     public static void quickSort(int[] arr) {
         if (arr == null || arr.length < 2)
             return ;

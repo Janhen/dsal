@@ -1,12 +1,9 @@
-package com.janhen.structures.heap_priorityQueue.indexHeap.reverseIndex;
+package com.janhen.structures.heap_priorityQueue;
 
-import com.janhen.structures.heap_priorityQueue.IIndexHeap;
-
-import java.util.*;
-import java.lang.*;
+import java.util.Arrays;
 
 // 最大索引堆
-public class IndexMaxHeap<E extends Comparable<E>> implements IIndexHeap<E> {
+public class IndexMaxHeap<E extends Comparable<E>>  {
 
     protected E[] data;      // 最大索引堆中的数据
     protected int[] indexes;    // 最大索引堆中的索引, indexes[x] = i 表示索引i在x的位置

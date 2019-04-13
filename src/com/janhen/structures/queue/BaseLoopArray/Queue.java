@@ -73,7 +73,7 @@ public class Queue<E> implements IQueue<E> {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Queue : size = %d, capacity = %d \n", size(), capacity()));
+        sb.append(String.format("Queue2 : size = %d, capacity = %d \n", size(), capacity()));
         sb.append("front [");
         // traverse from index front to tail
         for (int i = 0; i < size(); i ++) {

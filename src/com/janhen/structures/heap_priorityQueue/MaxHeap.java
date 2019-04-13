@@ -3,7 +3,7 @@ package com.janhen.structures.heap_priorityQueue;
 /**
  * @see java.util.PriorityQueue
  */
-public class MaxHeap<E extends Comparable<E>> implements IHeap<E> {
+public class MaxHeap<E extends Comparable<E>>  {
 
     private E[] data;
     private int N;

@@ -497,7 +497,7 @@ private void readObject(java.io.ObjectInputStream s)
     s.readInt(); // ignored
 
     if (size > 0) {
-        // be like clone(), allocate array based upon size not capacity
+        queue
         ensureCapacityInternal(size);
 
         Object[] a = elementData;
@@ -2908,13 +2908,10 @@ static void sort(int[] a, int left, int right,
     }
     int[] run = new int[MAX_RUN_COUNT + 1];   /* aux space to merge */
     int count = 0; run[0] = left;
-	// Check if the array is nearly sorted
+	queue
     for (int k = left; k < right; run[count] = k) {
         // ...
-       /*
-        * The array is not highly structured,
-        * use Quicksort instead of merge sort.
-        */
+       queue
         if (++count == MAX_RUN_COUNT) {
             sort(a, left, right, true);
             return;

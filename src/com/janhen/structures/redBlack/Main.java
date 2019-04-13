@@ -12,15 +12,8 @@ import java.util.List;
 
 public class Main {
 
-
     private double t1;
     private double t2;
-
-    public static void main(String[] args) {
-//        double t1 = testMap(new AVLTree<String, Integer>(), "E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt");
-//        double t2 = testMap(new LinkedListMap<String, Integer>(), "E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt");
-//        System.out.printf("AVLTree run : %f s\nLinkedListMap run : %f s\n", t1, t2);
-    }
 
     private static double testMap(Map<String, Integer> map, String filename) {
         long start = System.nanoTime();
@@ -36,7 +29,6 @@ public class Main {
                 map.put(word, 1);
         }
 
-
         System.out.println("Total different words : " + map.size());
         System.out.println("Frequency of PRIDE : " + map.get("pride"));
         System.out.println("Frequency of PREJUDICE : " + map.get("prejudice"));
@@ -46,7 +38,6 @@ public class Main {
     @Test
     public void test() {
         testBSTMap();
-        // testAVLTree();
         System.out.println("rate :   " + TestUtil.rate(t1, t2));
     }
 
@@ -141,7 +132,7 @@ public class Main {
         System.out.println("pride-and-prejudice");
 
         Map<String, Integer> map = new LinkedListMap<>();
-        List<String> words = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt");
+        List<String> words = FileUtils.readFile("src\\pride-and-prejudice.txt");
         System.out.println("Total words : " + words.size());
 
         for (String word : words) {

@@ -1,9 +1,9 @@
-package com.janhen.structures.trie.withPathAndEnd;
+package com.janhen.structures.trie;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Trie {
+public class Trie2 {
 
     public class Node {
         public int                  path;
@@ -20,7 +20,7 @@ public class Trie {
     private Node root;
     private int N;
 
-    public Trie() {
+    public Trie2() {
         root = new Node();
         N = 0;
     }
@@ -78,7 +78,7 @@ public class Trie {
     }
 
     public static void main(String[] args) {
-        Trie trie = new Trie();
+        Trie2 trie = new Trie2();
         System.out.println(trie.search("zuo"));  // F
         trie.insert("zuo");
         System.out.println(trie.search("zuo"));  // T

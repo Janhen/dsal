@@ -67,7 +67,7 @@ public class LRUCache {
 
     public LRUCache(int capacity) {
         linkedDeque = new LinkedDeque();
-        keyNodeMap = new HashMap<>();
+        keyNodeMap = new HashMap<>(capacity * 4 / 3);
         this.capacity = capacity;
     }
 

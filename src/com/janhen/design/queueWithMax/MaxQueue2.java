@@ -4,18 +4,18 @@ import java.util.*;
 
 public class MaxQueue2 {
 
-    Queue<Integer>         data = new LinkedList<>();
+    Queue<Integer>         queue = new LinkedList<>();
     PriorityQueue<Integer> heap = new PriorityQueue<>((o1, o2)->o2-o1);
 
     public void offer(int e) {
-        data.offer(e);
+        queue.offer(e);
         heap.offer(e);
     }
 
     public int poll() {
         if (isEmpty())
             throw new NoSuchElementException();
-        int oldFront = data.poll();
+        int oldFront = queue.poll();
         if (oldFront == heap.peek())
             heap.poll();
         return oldFront;
@@ -24,7 +24,7 @@ public class MaxQueue2 {
     public int peek() {
         if (isEmpty())
             throw new NoSuchElementException();
-        return data.peek();
+        return queue.peek();
     }
 
     // O(1) 获取队列中的最大值
@@ -35,10 +35,10 @@ public class MaxQueue2 {
     }
 
     public boolean isEmpty() {
-        return data.isEmpty();
+        return queue.isEmpty();
     }
 
     public int size() {
-        return data.size();
+        return queue.size();
     }
 }

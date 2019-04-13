@@ -2,6 +2,8 @@ package com.janhen.structures.stack;
 
 
 import com.janhen.TestUtil;
+import com.janhen.structures.stack.baseArray.Stack;
+import org.junit.Test;
 
 import java.util.Random;
 
@@ -29,5 +31,50 @@ public class Main {
             queue.pop();
         }
         return (System.nanoTime() - start) / 1000000000.0;
+    }
+
+
+    @Test
+    public void testArrayImpl() {
+        Stack<String> stack = new Stack();
+        stack.push("ddd");
+        System.out.println(stack);
+        stack.push("eee");
+        System.out.println(stack);
+        stack.push("fff");
+        System.out.println(stack);
+        stack.push("hhh");
+        System.out.println(stack);
+        stack.push("AAA");
+        System.out.println(stack);
+        stack.push("BBB");
+        System.out.println(stack);
+        stack.push("CCC");
+        System.out.println(stack);
+
+        for(String s: stack) {
+            System.out.println(s + " ");
+        }
+
+        stack.pop();
+        System.out.println(stack);
+        stack.pop();
+        System.out.println(stack);
+        stack.pop();
+        System.out.println(stack);
+    }
+
+    @Test
+    public void testNodeImpl() {
+        com.janhen.structures.stack.baseNode.Stack<String> stack = new com.janhen.structures.stack.baseNode.Stack();
+        stack.push("ddd");
+        stack.push("eee");
+        stack.push("fff");
+        stack.push("hhh");
+        System.out.println(stack);
+
+        stack.pop();
+        stack.pop();
+        System.out.println(stack);
     }
 }

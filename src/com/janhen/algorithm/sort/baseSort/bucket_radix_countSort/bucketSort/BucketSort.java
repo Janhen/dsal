@@ -16,7 +16,7 @@ public class BucketSort {
         }
 
         // ST2: insure data range and data offset
-        // ST3: array assign
+        // ST3: queue assign
         int[] bucket = new int[max - min + 1];
         for (int num : nums)
             bucket[num - min] ++;

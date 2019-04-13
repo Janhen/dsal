@@ -2,26 +2,6 @@ package com.janhen.design.lfu;
 
 import java.util.HashMap;
 
-// 根据 频度进行 elimination strategy
-// 次数的双端链表,    链表元素也为一个双端链表,  进行
-// 头处无元素, 进行大的链表中元素删除
-// 选中某个大链表下的小链表的元素, 进行添加到大连表的的位置, 之后添加到小链表除对应位置
-// 二维的双向链表
-// headList
-//   1  <->  3  <->  4  <->  7
-//   F       G       H       I
-//   ^       ^       ^       ^
-//   |       |       |       |
-//   v       v       v       v
-//   A       D
-//   ^
-//   |
-//   v
-//   C
-//   ^
-//   |
-//   v
-//   E
 public class LFUCache {
 
 	// 挂在大链表下的链表的节点

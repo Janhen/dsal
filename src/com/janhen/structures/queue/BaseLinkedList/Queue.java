@@ -58,7 +58,7 @@ public class Queue<E> implements IQueue<E>, Iterable<E> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Queue : size = %d ", size()));
+        sb.append(String.format("Queue2 : size = %d ", size()));
         sb.append("front ");
 
         Node cur = head;

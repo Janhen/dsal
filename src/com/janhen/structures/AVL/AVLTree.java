@@ -1,10 +1,8 @@
 package com.janhen.structures.AVL;
 
-import com.janhen.structures.BST.IBSTMap;
-
 import java.util.NoSuchElementException;
 
-public class AVLTree<K extends Comparable<K>, V> implements IBSTMap<K, V> {
+public class AVLTree<K extends Comparable<K>, V>  {
 
     protected Node root;
     protected int N;

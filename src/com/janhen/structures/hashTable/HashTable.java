@@ -1,34 +1,36 @@
-package com.janhen.structures.hashtable.dynamic;
+package com.janhen.structures.hashtable;
 
 import java.util.TreeMap;
 
 /**
- * 界限扩容
+ * Prime number control size
+ * http://planetmath.org/goodhashtableprimes
  */
 public class HashTable<K, V> {
+    private final int[] capacity = {53, 97, 193, 389, 769, 1543, 3079, 6151, 12289, 24593, 49157, 98317, 196613, 393241, 786433, 1572869, 3145739, 6291469, 12582917, 25165843, 50331653, 100663319, 201326611, 402653189, 805306457, 1610612741};
+    private static int capIdx = 0;
 
     private static final int UPPER_TOL = 10;
     private static final int LOWER_TOL = 2;
-    private static final int INIT_CAPACITY = 7;
 
     private TreeMap<K, V>[] table;
     private int M;
     private int N;
 
-    public HashTable(int M) {
-        this.M = M;
+    public HashTable() {
+        this.M = capacity[capIdx];
         N = 0;
         table = new TreeMap[M];
         for (int i = 0; i < table.length; i ++)
             table[i] = new TreeMap<>();
     }
 
-    public HashTable() {
-        this(INIT_CAPACITY);
-    }
-
     private int hash(K key) {
         return (key.hashCode() & 0x7fffffff) % M;
+    }
+
+    public boolean isEmpty() {
+        return N == 0;
     }
 
     public int size() {
@@ -36,28 +38,32 @@ public class HashTable<K, V> {
     }
 
     public void put(K key, V val) {
-        TreeMap<K, V> node = table[hash(key)];
-        if (node.containsKey(key)) {             // repeated
-            node.replace(key, val);
+        TreeMap<K, V> map = table[hash(key)];
+        if (map.containsKey(key)) {
+            map.replace(key, val);
         }
         else {
-            node.put(key, val);
+            map.put(key, val);
             N ++;
-            if (N >= UPPER_TOL * M)    // grow
-                resize(2 * M);
+            if (N >= UPPER_TOL * M && capIdx + 1 < capacity.length) {   // 扩容时机: 桶平均链表长度超过阈值, 且定义的容量控制表在范围内
+                capIdx ++;
+                resize(capacity[capIdx]);
+            }
         }
     }
 
     public V remove(K key) {
         TreeMap<K, V> node = table[hash(key)];
-        V oldVal = null;
+        V deleteVal = null;
         if (node.containsKey(key)) {
-            oldVal = node.remove(key);
+            deleteVal = node.remove(key);
             N --;
-            if (N < LOWER_TOL * M && M / 2 >= INIT_CAPACITY)    // narrow
-                resize(M / 2);
+            if (N < LOWER_TOL * M && capIdx - 1 >= 0) {
+                capIdx ++;
+                resize(capacity[capIdx]);
+            }
         }
-        return oldVal;
+        return deleteVal;
     }
 
     public void set(K key, V val) {
@@ -80,15 +86,11 @@ public class HashTable<K, V> {
         TreeMap<K, V>[] newTable = new TreeMap[newM];
         for (int i = 0; i < newTable.length; i ++)
             newTable[i] = new TreeMap<>();
-
         int oldM = M;
         this.M = newM;
-        for (int i = 0; i < oldM; i ++) {
-            TreeMap<K, V> map = table[i];
-            for (K key : map.keySet()) {
-                newTable[hash(key)].put(key, map.get(key));  // 自动 rehash
-            }
-        }
+        for (int i = 0; i < oldM; i ++)
+            for (K key: table[i].keySet())
+                newTable[hash(key)].put(key, table[i].get(key));   // rehash
         this.table = newTable;
     }
 }

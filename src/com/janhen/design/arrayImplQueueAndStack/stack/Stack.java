@@ -1,6 +1,8 @@
-package com.janhen.design.arrayAsQueueAndStack;
+package com.janhen.design.arrayImplQueueAndStack.stack;
 
-public class Stack<E> implements IStack<E> {
+import java.util.NoSuchElementException;
+
+public class Stack<E> {
 
     private E[] data;
     private int N;
@@ -10,42 +12,33 @@ public class Stack<E> implements IStack<E> {
         N = 0;
     }
 
-    @Override
     public boolean isEmpty() {
         return N == 0;
     }
 
-    @Override
     public int size() {
         return N;
     }
 
-    @Override
     public void push(E e) {
         if (N == data.length)
-            throw new IllegalArgumentException("Stack is empty.");
-
+            throw new NoSuchElementException("Stack is empty.");
         data[N] = e;
         N ++;
     }
 
-    @Override
     public E pop() {
         if (isEmpty())
-            throw new IllegalArgumentException("Stack is empty.");
-
-        E res = data[N - 1];
-
+            throw new NoSuchElementException("Stack is empty.");
+        E oldTop = data[N - 1];
         data[N -1] = null;
         N --;
-        return res;
+        return oldTop;
     }
 
-    @Override
     public E peek() {
         if (isEmpty())
-            throw new IllegalArgumentException("Stack is empty.");
-
+            throw new NoSuchElementException("Stack is empty.");
         return data[N - 1];
     }
 }
