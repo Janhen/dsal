@@ -26,15 +26,15 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum
  */
 
 class SolutionRef {
-    //    Idea is to work backwards from the last index.
-    // Keep track of the smallest index that can "jump" to the last index.
-    // Check whether the current index can jump to this smallest index.
-    public boolean canJump(int[] nums) {
+  //    Idea is to work backwards from the last index.
+  // Keep track of the smallest index that can "jump" to the last index.
+  // Check whether the current index can jump to this smallest index.
+  public boolean canJump(int[] nums) {
 
-        int last = nums.length - 1;
-        for (int i = nums.length - 1; i >=0; i --) {
-            if (i + nums[i] >= last) last = i;
-        }
-        return last <= 0;
+    int last = nums.length - 1;
+    for (int i = nums.length - 1; i >= 0; i--) {
+      if (i + nums[i] >= last) last = i;
     }
+    return last <= 0;
+  }
 }
