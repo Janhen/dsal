@@ -1,5 +1,8 @@
 package com.janhen.structures.array;
 
+/**
+ * 动态数组
+ */
 public class Array<E> {
 
   private E[] data;
@@ -43,7 +46,7 @@ public class Array<E> {
 
   public void add(int index, E val) {
     if (index < 0 || index > N)
-      throw new IllegalArgumentException();
+      throw new IndexOutOfBoundsException();
     if (N == data.length) {    // >= 2^x    every time adjust
       resize(data.length * 2);
     }
@@ -101,7 +104,7 @@ public class Array<E> {
 
   public E remove(int index) {
     if (index < 0 || index > N) {
-      throw new IllegalArgumentException();
+      throw new IndexOutOfBoundsException();
     }
 
     E ret = data[index];

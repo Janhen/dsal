@@ -360,7 +360,7 @@ void mergeSort(int[] arr, int lo, int hi) {
     int mid = lo + (hi - lo) / 2;
     mergeSort(arr, lo, mid);
     mergeSort(arr, mid + 1, hi);
-    if (arr[mid] > arr[mid + 1])    queue
+    if (arr[mid] > arr[mid + 1])    loopArrQueue
     	merge(arr, lo, mid, hi);
 }
 ```
@@ -398,7 +398,7 @@ void mergeSort(int[] arr) {
     if (arr == null || arr.length < 2) return;
     int N = arr.length;
     for (int sz = 1; sz < N;  sz += sz) {
-        for (int i = 0; i + sz < N; i += sz + sz) {  queue
+        for (int i = 0; i + sz < N; i += sz + sz) {  loopArrQueue
             merge(arr, i, i + sz - 1, Math.min(i + sz + sz - 1, N-1));
         }
     }

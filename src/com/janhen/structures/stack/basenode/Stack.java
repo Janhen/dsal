@@ -1,4 +1,4 @@
-package com.janhen.structures.stack.baseNode;
+package com.janhen.structures.stack.basenode;
 
 import com.janhen.structures.stack.IStack;
 
@@ -24,14 +24,17 @@ public class Stack<E> implements IStack<E>,Iterable<E> {
 		}
 	}
 	
+	@Override
 	public boolean isEmpty() {
 		return first == null;
 	}
 	
+	@Override
 	public int size() {
 		return N;
 	}
 
+	@Override
 	public void push(E item) {
 		Node node = new Node(item);
 		node.next = first;
@@ -39,6 +42,7 @@ public class Stack<E> implements IStack<E>,Iterable<E> {
 		N ++;
 	}
 	
+	@Override
 	public E pop() {
 		if(isEmpty()) throw new NoSuchElementException();
 		
@@ -49,6 +53,7 @@ public class Stack<E> implements IStack<E>,Iterable<E> {
 		return (E) oldTop.item;
 	}
 	
+	@Override
 	public E peek() {
 		if(isEmpty()) throw new NoSuchElementException();
 

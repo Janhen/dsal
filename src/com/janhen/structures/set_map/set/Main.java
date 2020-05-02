@@ -1,6 +1,6 @@
 package com.janhen.structures.set_map.set;
 
-import com.janhen.structures.AVL.other.AVLSet;
+import com.janhen.structures.avl.other.AVLSet;
 import com.janhen.FileUtils;
 import com.janhen.TestUtil;
 import org.junit.Test;

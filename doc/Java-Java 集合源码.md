@@ -497,7 +497,7 @@ private void readObject(java.io.ObjectInputStream s)
     s.readInt(); // ignored
 
     if (size > 0) {
-        queue
+        loopArrQueue
         ensureCapacityInternal(size);
 
         Object[] a = elementData;
@@ -1024,7 +1024,7 @@ CopyOnWriteArrayList 在写操作的同时允许读操作，大大提高了读�
 comparator： 默认自定义比较器优先于存入对象的自然排序进行比较
 
 ```java
-transient Object[] queue; 
+transient Object[] loopArrQueue; 
 int size = 0;
 final Comparator<? super E> comparator;
 transient int modCount = 0;
@@ -1073,13 +1073,13 @@ PriorityQueue(int initialCapacity, Comparator<? super E> comparator);
     Comparable<? super E> key = (Comparable<? super E>) x;
     while (k > 0) {
         int parent = (k - 1) >>> 1;
-        Object e = queue[parent];
+        Object e = loopArrQueue[parent];
         if (key.compareTo((E) e) >= 0)
             break;
-        queue[k] = e;
+        loopArrQueue[k] = e;
         k = parent;
     }
-    queue[k] = key;
+    loopArrQueue[k] = key;
 }
 ```
 
@@ -1113,17 +1113,17 @@ void siftDownComparable(int k, E x) {
     int half = size >>> 1;        // loop while a non-leaf
     while (k < half) {
         int child = (k << 1) + 1; // assume left child is least
-        Object c = queue[child];
+        Object c = loopArrQueue[child];
         int right = child + 1;
         if (right < size &&
-            ((Comparable<? super E>) c).compareTo((E) queue[right]) > 0)
-            c = queue[child = right];
+            ((Comparable<? super E>) c).compareTo((E) loopArrQueue[right]) > 0)
+            c = loopArrQueue[child = right];
         if (key.compareTo((E) c) <= 0)
             break;
-        queue[k] = c;
+        loopArrQueue[k] = c;
         k = child;
     }
-    queue[k] = key;
+    loopArrQueue[k] = key;
 }
 ```
 
@@ -1148,14 +1148,14 @@ E removeAt(int i) {
     modCount++;
     int s = --size;
     if (s == i) // removed last element
-        queue[i] = null;
+        loopArrQueue[i] = null;
     else {
-        E moved = (E) queue[s];       /* 最末叶子节点赋值到当前删除的位置 */
-        queue[s] = null;
+        E moved = (E) loopArrQueue[s];       /* 最末叶子节点赋值到当前删除的位置 */
+        loopArrQueue[s] = null;
         siftDown(i, moved);             /* 让原来的最末叶子节点向下调整 */
-        if (queue[i] == moved) {      /* 结构不合法向上调整 */
+        if (loopArrQueue[i] == moved) {      /* 结构不合法向上调整 */
             siftUp(i, moved);
-            if (queue[i] != moved)
+            if (loopArrQueue[i] != moved)
                 return moved;
         }
     }
@@ -1178,7 +1178,7 @@ void initFromCollection(Collection<? extends E> c) {
 }
 void heapify() {
     for (int i = (size >>> 1) - 1; i >= 0; i--)  /* 完全二叉树从上层节点不断向下调整实习 */
-        siftDown(i, (E) queue[i]);
+        siftDown(i, (E) loopArrQueue[i]);
 }
 ```
 
@@ -1190,7 +1190,7 @@ void heapify() {
 
 ```java
 void grow(int minCapacity) {
-    int oldCapacity = queue.length;
+    int oldCapacity = loopArrQueue.length;
     // Double size if small; else grow by 50%
     int newCapacity = oldCapacity + ((oldCapacity < 64) ?
                                      (oldCapacity + 2) :
@@ -1198,7 +1198,7 @@ void grow(int minCapacity) {
     // overflow-conscious code
     if (newCapacity - MAX_ARRAY_SIZE > 0)
         newCapacity = hugeCapacity(minCapacity);
-    queue = Arrays.copyOf(queue, newCapacity);
+    loopArrQueue = Arrays.copyOf(loopArrQueue, newCapacity);
 }
 ```
 
@@ -2656,7 +2656,7 @@ void resize() {
 
 ```java
 // 成员
-ReferenceQueue<Object> queue = new ReferenceQueue<>();
+ReferenceQueue<Object> loopArrQueue = new ReferenceQueue<>();
 // 单独的 Entry
 private static class Entry<K,V> extends WeakReference<Object> implements Map.Entry<K,V> {
         V value;
@@ -2664,9 +2664,9 @@ private static class Entry<K,V> extends WeakReference<Object> implements Map.Ent
         Entry<K,V> next;
 
         Entry(Object key, V value,
-              ReferenceQueue<Object> queue,
-              int hash, Entry<K,V> next) {    /* must use reference queue */
-            super(key, queue);
+              ReferenceQueue<Object> loopArrQueue,
+              int hash, Entry<K,V> next) {    /* must use reference loopArrQueue */
+            super(key, loopArrQueue);
             this.value = value;
             this.hash  = hash;
             this.next  = next;
@@ -2908,10 +2908,10 @@ static void sort(int[] a, int left, int right,
     }
     int[] run = new int[MAX_RUN_COUNT + 1];   /* aux space to merge */
     int count = 0; run[0] = left;
-	queue
+	loopArrQueue
     for (int k = left; k < right; run[count] = k) {
         // ...
-       queue
+       loopArrQueue
         if (++count == MAX_RUN_COUNT) {
             sort(a, left, right, true);
             return;

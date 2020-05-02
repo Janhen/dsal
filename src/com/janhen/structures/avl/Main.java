@@ -1,4 +1,4 @@
-package com.janhen.structures.AVL;
+package com.janhen.structures.avl;
 
 import com.janhen.FileUtils;
 import com.janhen.TestUtil;

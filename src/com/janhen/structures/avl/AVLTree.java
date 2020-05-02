@@ -1,4 +1,4 @@
-package com.janhen.structures.AVL;
+package com.janhen.structures.avl;
 
 import java.util.NoSuchElementException;
 
@@ -58,16 +58,16 @@ public class AVLTree<K extends Comparable<K>, V> {
   // ordered AND balanced adjust
 
   /**
-   * 处理 LL -> right rotate
-   * 对节点y进行向右旋转操作，返回旋转后新的根节点x    维护 height to calculate balance factor
-   * y                              x
-   * / \                           /   \
-   * x   T4     向右旋转 (y)        z     y
-   * / \       - - - - - - - ->    / \   / \
-   * z   T3                       T1  T2 T3 T4
-   * / \
-   * T1   T2
-   * satisfy BST and balanced
+   *  处理 LL -> right rotate
+   *  对节点y进行向右旋转操作，返回旋转后新的根节点x    维护 height to calculate balance factor
+   *         y                              x
+   *        / \                           /   \
+   *       x   T4     向右旋转 (y)        z     y
+   *      / \       - - - - - - - ->    / \   / \
+   *     z   T3                       T1  T2 T3 T4
+   *    / \
+   *  T1   T2
+   *  satisfy BST and balanced
    */
   private Node rightRotate(Node y) {
     Node x = y.left;
@@ -83,13 +83,13 @@ public class AVLTree<K extends Comparable<K>, V> {
   /**
    * 处理 RR
    * 对节点y进行向左旋转操作，返回旋转后新的根节点x
-   * y                             x
-   * /  \                          /   \
+   *    y                             x
+   *  /  \                          /   \
    * T1   x      向左旋转 (y)       y     z
-   * / \   - - - - - - - ->   / \   / \
-   * T2  z                     T1 T2 T3 T4
-   * / \
-   * T3 T4
+   *     / \   - - - - - - - ->   / \   / \
+   *   T2  z                     T1 T2 T3 T4
+   *      / \
+   *     T3 T4
    */
   private Node leftRotate(Node y) {
     Node x = y.right;
@@ -103,13 +103,13 @@ public class AVLTree<K extends Comparable<K>, V> {
   }
 
   /**
-   * y                             y
-   * / \                           / \                             z
-   * x   T4  向左旋转 (x)           z   T4   向左旋转 (y)          /   \
-   * / \     - - - - - - - ->      / \      - - - - - - - ->      x     y
-   * T1   z                        x   T3                          / \   / \
-   * / \                      / \                            T1  T2 T3 T4
-   * T2   T3                  T1   T2
+   *       y                             y
+   *      / \                           / \                             z
+   *     x   T4  向左旋转 (x)           z   T4   向左旋转 (y)          /   \
+   *    / \     - - - - - - - ->      / \      - - - - - - - ->      x     y
+   *  T1   z                        x   T3                          / \   / \
+   *      / \                      / \                            T1  T2 T3 T4
+   *    T2   T3                  T1   T2
    */
   private Node LR(Node y) {
     Node x = y.left;
@@ -118,14 +118,14 @@ public class AVLTree<K extends Comparable<K>, V> {
   }
 
   /**
-   * y                          y                                    x
-   * /  \                       /  \                                 /   \
-   * T1   x      向右旋转 (x)    T1   z        向右旋转 (y)            y     z
-   * / \   - - - - - - - ->     / \     - - - - - - - ->        / \   / \
-   * z  T4                     T2  x                            T1 T2 T3 T4
-   * / \                           / \
-   * T2 T3                         T3 T4
-   */
+  *    y                          y                                    x
+  *  /  \                       /  \                                 /   \
+  * T1   x      向右旋转 (x)    T1   z        向右旋转 (y)            y     z
+  *     / \   - - - - - - - ->     / \     - - - - - - - ->        / \   / \
+  *    z  T4                     T2  x                            T1 T2 T3 T4
+  *   / \                           / \
+  *  T2 T3                         T3 T4
+  */
   private Node RL(Node y) {
     Node x = y.right;
     y.right = rightRotate(x);

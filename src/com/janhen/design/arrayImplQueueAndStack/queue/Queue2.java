@@ -27,7 +27,7 @@ public class Queue2<E> implements IQueue<E> {
     @Override
     public void enqueue(E e) {
         if (N == data.length)
-            throw new NoSuchElementException("Queue is full");
+            throw new NoSuchElementException("LinkedQueue is full");
         data[N] = e;
         N ++;
     }
@@ -35,7 +35,7 @@ public class Queue2<E> implements IQueue<E> {
     @Override
     public E dequeue() {
         if (isEmpty())
-            throw new NoSuchElementException("Queue is empty.");
+            throw new NoSuchElementException("LinkedQueue is empty.");
         E oldFront = data[0];
         for (int i = 1; i < N; i ++)  // shift left
             data[i - 1] = data[i];

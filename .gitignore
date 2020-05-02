@@ -34,11 +34,11 @@ hs_err_pid*
 /lib/
 /com/janhen/leetcode/solutions/leetcode/
 /src/com/janhen/design/lru/genericity/
-/src/com/janhen/structures/BST/withParentNode/
-/src/com/janhen/structures/BST/orderTree/
-/src/com/janhen/structures/BST/baseV/
+/src/com/janhen/structures/bst/withParentNode/
+/src/com/janhen/structures/bst/orderTree/
+/src/com/janhen/structures/bst/baseV/
 /src/com/janhen/structures/hashtable/other/
 /src/com/janhen/structures/heap_priorityQueue/other/
-/src/com/janhen/structures/queue/other/
+/src/com/janhen/structures/loopArrQueue/other/
 /src/com/janhen/structures/trie/other/
-/src/com/janhen/structures/AVL/other/
+/src/com/janhen/structures/avl/other/

@@ -74,7 +74,7 @@ public class SolutionS1 {
             in.push(e);
         }
 
-        // 比 PriorityQueue+Queue 更具优势, O(1), Stack 约束多
+        // 比 PriorityQueue+LinkedQueue 更具优势, O(1), Stack 约束多
         public int poll() {
             if (isEmpty())
                 throw new NoSuchElementException();

@@ -23,7 +23,7 @@ public class Solution1 {
                 queue.offer(cur.left);
                 queue.offer(cur.right);
             }
-            if (!list.isEmpty())                  // Note: Queue 中可存放 null 的处理, 循环中跳过 null; 可能在树的最后一行没有任意一个元素放入到队列中.
+            if (!list.isEmpty())                  // Note: LinkedQueue 中可存放 null 的处理, 循环中跳过 null; 可能在树的最后一行没有任意一个元素放入到队列中.
                 res.add(list);
         }
         return res;

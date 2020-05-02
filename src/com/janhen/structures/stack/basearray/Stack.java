@@ -1,4 +1,4 @@
-package com.janhen.structures.stack.baseArray;
+package com.janhen.structures.stack.basearray;
 
 import com.janhen.structures.stack.IStack;
 
@@ -9,14 +9,17 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
     private E[] arr = (E[]) new Object[2];
     private int N;
 
+    @Override
     public int size() {
         return N;
     }
 
+    @Override
     public boolean isEmpty() {
         return N == 0;
     }
 
+    @Override
     public void push(E item) {
         if (N == arr.length) {
             resize(2*arr.length);
@@ -26,6 +29,7 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
     }
 
     // "rpush + rpop"
+    @Override
     public E pop() {
         if (isEmpty()) throw new NoSuchElementException();
 
@@ -37,6 +41,7 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
         return oldTop;
     }
 
+    @Override
     public E peek() {
         if (isEmpty()) throw new NoSuchElementException();
 
@@ -64,6 +69,7 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
     }
 
 
+    @Override
     public Iterator<E> iterator() {
         return new ReverseArrayIterator();
     }
@@ -72,10 +78,12 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
     private class ReverseArrayIterator implements Iterator<E> {
         int i = N - 1;
 
+        @Override
         public boolean hasNext() {
             return i >= 0;
         }
 
+        @Override
         public E next() {
             if (!hasNext()) throw new NoSuchElementException();
             return arr[i --];

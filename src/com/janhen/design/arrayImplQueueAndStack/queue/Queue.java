@@ -25,7 +25,7 @@ public class Queue<E>  {
 
     public void enqueue(E e) {
         if (N == data.length)
-            throw new IllegalArgumentException("Queue is full.");
+            throw new IllegalArgumentException("LinkedQueue is full.");
         data[tailIdx] = e;
         tailIdx = (tailIdx + 1) % data.length;
         N ++;
@@ -33,7 +33,7 @@ public class Queue<E>  {
 
     public E dequeue() {
         if (isEmpty())
-            throw new NoSuchElementException("Queue is empty.");
+            throw new NoSuchElementException("LinkedQueue is empty.");
         E oldFront = data[frontIdx];
         data[frontIdx] = null;
         frontIdx = (frontIdx + 1) % data.length;
@@ -43,7 +43,7 @@ public class Queue<E>  {
 
     public E peek() {
         if (isEmpty())
-            throw new NoSuchElementException("Queue is empty.");
+            throw new NoSuchElementException("LinkedQueue is empty.");
         return data[frontIdx];
     }
 }
