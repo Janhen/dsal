@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.practice.solution63;
+package com.janhen.coding.leetcode.dp.practice.solution63;
 
 class Solution {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {

@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.recursiont_dp.problem48;
+package com.janhen.coding.swordoffer.recursiont_dp.problem48;
 
 public class Solution_my {
     public int lengthOfLongestSubstring(String str) {

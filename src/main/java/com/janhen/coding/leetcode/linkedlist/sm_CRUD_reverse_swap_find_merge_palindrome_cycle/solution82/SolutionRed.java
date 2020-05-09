@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.linkedlist.sm_CRUD_reverse_swap_find_merge_palindrome_cycle.solution82;
+package com.janhen.coding.leetcode.linkedlist.sm_CRUD_reverse_swap_find_merge_palindrome_cycle.solution82;
 
 // 82. Remove Duplicates from Sorted List II
 //https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
@@ -15,7 +15,7 @@ Input: 1->1->1->2->3
 Output: 2->3
  */
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 class SolutionRed {
     // 0 ms, faster than 100.00%

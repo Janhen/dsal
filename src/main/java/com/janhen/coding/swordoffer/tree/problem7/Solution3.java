@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.tree.problem7;
+package com.janhen.coding.swordoffer.tree.problem7;
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 public class Solution3 {
     public TreeNode reConstructBinaryTree(int[] pre, int[] in) {

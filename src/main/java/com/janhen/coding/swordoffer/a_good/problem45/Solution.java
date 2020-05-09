@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_good.problem45;
+package com.janhen.coding.swordoffer.a_good.problem45;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

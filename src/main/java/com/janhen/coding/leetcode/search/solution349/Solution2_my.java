@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.solution349;
+package com.janhen.coding.leetcode.search.solution349;
 
 import java.util.HashSet;
 import java.util.Set;

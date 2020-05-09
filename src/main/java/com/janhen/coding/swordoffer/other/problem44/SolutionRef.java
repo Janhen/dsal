@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.other.problem44;
+package com.janhen.coding.swordoffer.other.problem44;
 
 // 44 数字序列中某一位的数字
 

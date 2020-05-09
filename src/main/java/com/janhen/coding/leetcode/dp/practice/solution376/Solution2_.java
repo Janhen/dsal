@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.practice.solution376;
+package com.janhen.coding.leetcode.dp.practice.solution376;
 
 class Solution2_ {
 

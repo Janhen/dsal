@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.stack_queue.problem31;
+package com.janhen.coding.swordoffer.stack_queue.problem31;
 
 import java.util.Stack;
 

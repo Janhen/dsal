@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.a_base.problem18__;
+package com.janhen.coding.swordoffer.a_base.problem18__;
 
-import main.java.janhen.swordoffer.structures.ListNode;
+import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class Solution1 {
 

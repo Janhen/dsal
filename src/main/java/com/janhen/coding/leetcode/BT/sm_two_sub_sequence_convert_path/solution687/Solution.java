@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.BT.sm_two_sub_sequence_convert_path.solution687;
+package com.janhen.coding.leetcode.BT.sm_two_sub_sequence_convert_path.solution687;
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 class Solution {
 int maxPathLen = 0;

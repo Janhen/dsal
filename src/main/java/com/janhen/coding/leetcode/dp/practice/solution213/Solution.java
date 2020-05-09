@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.practice.solution213;
+package com.janhen.coding.leetcode.dp.practice.solution213;
 
 class Solution {
     // 因环产生两个子问题:  抢劫 [0,n-2] 处的房子,  抢劫 [1, n-1] 处的房子

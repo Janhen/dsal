@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.greedy.solution455;
+package com.janhen.coding.leetcode.greedy.solution455;
 
 import java.util.Arrays;
 

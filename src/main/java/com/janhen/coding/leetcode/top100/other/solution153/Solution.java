@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.other.solution153;
+package com.janhen.coding.leetcode.top100.other.solution153;
 
 class Solution {
     public int findMin(int[] nums) {

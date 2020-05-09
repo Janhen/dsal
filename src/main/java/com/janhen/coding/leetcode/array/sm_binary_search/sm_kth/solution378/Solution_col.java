@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.sm_kth.solution378;
+package com.janhen.coding.leetcode.array.sm_binary_search.sm_kth.solution378;
 
 // 378. Kth Smallest Element in a Sorted Matrix
 //https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/

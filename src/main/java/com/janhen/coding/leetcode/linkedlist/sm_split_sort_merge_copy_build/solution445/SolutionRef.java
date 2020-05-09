@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution445;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution445;
 
 // 445. Add Two Numbers II
 // https://leetcode.com/problems/add-two-numbers-ii/
@@ -18,7 +18,7 @@ Input: (7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
 Output: 7 -> 8 -> 0 -> 7
  */
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 class SolutionRef {
 

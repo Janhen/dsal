@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.solution72;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution72;
 
 public class Solution {
     // 题目描述：修改一个字符串成为另一个字符串，使得修改次数最少。一次修改操作包括：插入一个字符、删除一个字符、替换一个字符。

@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.tree.problem68_2;
+package com.janhen.coding.swordoffer.tree.problem68_2;
 
 // 236. Lowest Common Ancestor of a Binary Tree
 //https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
@@ -41,7 +41,7 @@ All of the nodes' values will be 【unique】.
 p and q are different and both values will exist in the binary tree.
  */
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 import java.util.*;
 

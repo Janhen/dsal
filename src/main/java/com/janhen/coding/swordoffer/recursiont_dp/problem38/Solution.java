@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.recursiont_dp.problem38;
+package com.janhen.coding.swordoffer.recursiont_dp.problem38;
 
 import java.util.ArrayList;
 import java.util.Arrays;

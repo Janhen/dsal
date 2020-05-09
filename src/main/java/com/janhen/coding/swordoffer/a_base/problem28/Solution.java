@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.a_base.problem28;
+package com.janhen.coding.swordoffer.a_base.problem28;
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 public class Solution {
     boolean isSymmetrical(TreeNode pRoot) {

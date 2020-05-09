@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.solution287;
+package com.janhen.coding.leetcode.array.sm_binary_search.solution287;
 
 // O(nlogn) O(1)
 // 3 ms, faster than 49.67%

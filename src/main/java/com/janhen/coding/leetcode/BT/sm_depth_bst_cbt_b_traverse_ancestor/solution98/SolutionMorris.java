@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution98;
+package com.janhen.coding.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution98;
 
 // 98. Validate Binary Search Tree
 //https://leetcode.com/problems/validate-binary-search-tree/
@@ -40,7 +40,7 @@ Explanation: The input is: [5,1,4,null,null,3,6]. The root node's value
              is 5 but its right child's value is 4.
  */
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 class SolutionMorris {
     //  1 ms, faster than 38.24%

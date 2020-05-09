@@ -1,10 +1,10 @@
-package main.java.janhen.leetcode.leetcode.solution203;
+package com.janhen.coding.leetcode.leetcode.solution203;
 
 //203. Remove Linked List Elements
 //        https://leetcode.com/problems/remove-linked-list-elements/description/
 
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 public class Solution {
 

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.practice.solution18;
+package com.janhen.coding.leetcode.search.practice.solution18;
 
 // 18. 4Sum
 // https://leetcode.com/problems/4sum/

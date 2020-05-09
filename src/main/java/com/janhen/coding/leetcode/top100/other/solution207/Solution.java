@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.other.solution207;
+package com.janhen.coding.leetcode.top100.other.solution207;
 
 import java.util.ArrayList;
 import java.util.List;

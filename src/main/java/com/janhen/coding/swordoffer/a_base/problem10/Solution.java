@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_base.problem10;
+package com.janhen.coding.swordoffer.a_base.problem10;
 
 public class Solution {
     private int[] fib = new int[40];

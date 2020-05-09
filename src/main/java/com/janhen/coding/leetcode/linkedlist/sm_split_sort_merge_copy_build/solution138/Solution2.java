@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution138;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution138;
 
-import main.java.janhen.leetcode.structures.RandomListNode;
+import com.janhen.coding.leetcode.structures.RandomListNode;
 
 public class Solution2 {
     // step1. insert to cur and cur.next

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.other.solution139;
+package com.janhen.coding.leetcode.top100.other.solution139;
 
 // 139. Word Break
 //https://leetcode.com/problems/word-break/

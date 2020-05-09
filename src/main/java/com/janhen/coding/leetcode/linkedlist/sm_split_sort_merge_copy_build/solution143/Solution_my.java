@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution143;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution143;
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution_my {
     public void reorderList(ListNode head) {

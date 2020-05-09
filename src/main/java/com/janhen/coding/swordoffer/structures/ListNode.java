@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.structures;
+package com.janhen.coding.swordoffer.structures;
 
 public class ListNode {
     public int      val;

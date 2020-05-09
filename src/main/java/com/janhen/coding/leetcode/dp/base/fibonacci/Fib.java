@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.base.fibonacci;
+package com.janhen.coding.leetcode.dp.base.fibonacci;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.practice.solution202;
+package com.janhen.coding.leetcode.search.practice.solution202;
 
 // 202. Happy Number
 // https://leetcode.com/problems/happy-number/

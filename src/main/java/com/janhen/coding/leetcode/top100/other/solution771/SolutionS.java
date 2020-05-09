@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.other.solution771;
+package com.janhen.coding.leetcode.top100.other.solution771;
 
 class SolutionS {
     public int numJewelsInStones(String J, String S) {

@@ -27,4 +27,4 @@
  * Return "student a am I"
  * 将每个单词翻转，然后将整个字符串翻转。
  */
-package main.java.janhen.leetcode.string;
+package com.janhen.coding.leetcode.string;

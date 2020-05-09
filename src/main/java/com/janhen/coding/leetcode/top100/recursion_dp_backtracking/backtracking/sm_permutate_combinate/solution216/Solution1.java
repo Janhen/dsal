@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.backtracking.sm_permutate_combinate.solution216;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.backtracking.sm_permutate_combinate.solution216;
 
 // 216. Combination Sum III
 //https://leetcode.com/problems/combination-sum-iii/

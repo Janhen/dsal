@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_base_two_search_sort_matrix.solution26;
+package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution26;
 
 class Solution_N {
     // todo 使用Stream过滤

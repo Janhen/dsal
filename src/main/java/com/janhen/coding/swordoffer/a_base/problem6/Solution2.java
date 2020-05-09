@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.a_base.problem6;
+package com.janhen.coding.swordoffer.a_base.problem6;
 
-import main.java.janhen.swordoffer.structures.ListNode;
+import com.janhen.coding.swordoffer.structures.ListNode;
 
 import java.util.ArrayList;
 import java.util.Stack;

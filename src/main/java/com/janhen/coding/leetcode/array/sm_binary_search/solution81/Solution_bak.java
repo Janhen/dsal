@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.solution81;
+package com.janhen.coding.leetcode.array.sm_binary_search.solution81;
 
 // 81. Search in Rotated Sorted Array II
 // https://leetcode.com/problems/search-in-rotated-sorted-array-ii/

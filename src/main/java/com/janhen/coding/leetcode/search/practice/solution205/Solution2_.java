@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.practice.solution205;
+package com.janhen.coding.leetcode.search.practice.solution205;
 
 //  205. Isomorphic Strings
 // https://leetcode.com/problems/isomorphic-strings/

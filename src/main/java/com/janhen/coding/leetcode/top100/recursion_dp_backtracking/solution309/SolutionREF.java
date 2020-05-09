@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.solution309;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution309;
 
 
 //https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75927/Share-my-thinking-process

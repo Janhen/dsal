@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.backtracking.solution17;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.backtracking.solution17;
 
 //17. Letter Combinations of a Phone Number
 //        https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/

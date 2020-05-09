@@ -1,9 +1,9 @@
-package main.java.janhen.leetcode.linkedlist.sm_CRUD_reverse_swap_find_merge_palindrome_cycle.solution19;
+package com.janhen.coding.leetcode.linkedlist.sm_CRUD_reverse_swap_find_merge_palindrome_cycle.solution19;
 
 //19. Remove Nth Node From End of List
 //        https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 class SolutionRef {
 

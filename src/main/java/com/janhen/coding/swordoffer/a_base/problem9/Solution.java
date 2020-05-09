@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_base.problem9;
+package com.janhen.coding.swordoffer.a_base.problem9;
 
 import java.util.NoSuchElementException;
 import java.util.Stack;

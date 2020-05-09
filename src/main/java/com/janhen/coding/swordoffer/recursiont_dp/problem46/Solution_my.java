@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.recursiont_dp.problem46;
+package com.janhen.coding.swordoffer.recursiont_dp.problem46;
 
 public class Solution_my {
     public int numDecodings(String s) {

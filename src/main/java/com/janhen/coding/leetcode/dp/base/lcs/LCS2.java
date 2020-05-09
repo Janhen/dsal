@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.base.lcs;
+package com.janhen.coding.leetcode.dp.base.lcs;
 
 /// LCS问题
 /// 动态规划

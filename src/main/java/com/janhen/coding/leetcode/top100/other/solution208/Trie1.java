@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.other.solution208;
+package com.janhen.coding.leetcode.top100.other.solution208;
 
 import java.util.*;
 

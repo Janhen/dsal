@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.leetcode.solution211;
+package com.janhen.coding.leetcode.leetcode.solution211;
 
 // 211. Add and Search Word - Data structures design
 // https://leetcode.com/problems/add-and-search-word-data-structure-design/description/

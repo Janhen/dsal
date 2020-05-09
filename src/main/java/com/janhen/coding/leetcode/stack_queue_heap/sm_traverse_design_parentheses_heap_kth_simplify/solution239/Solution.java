@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.stack_queue_heap.sm_traverse_design_parentheses_heap_kth_simplify.solution239;
+package com.janhen.coding.leetcode.stack_queue_heap.sm_traverse_design_parentheses_heap_kth_simplify.solution239;
 
 import java.util.Deque;
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.practice.solution16;
+package com.janhen.coding.leetcode.search.practice.solution16;
 
 // 16. 3Sum Closest
 // https://leetcode.com/problems/3sum-closest/

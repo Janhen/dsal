@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.sm_kth.solution378;
+package com.janhen.coding.leetcode.array.sm_binary_search.sm_kth.solution378;
 
 /*
  * 3 ms, faster than 71.63%

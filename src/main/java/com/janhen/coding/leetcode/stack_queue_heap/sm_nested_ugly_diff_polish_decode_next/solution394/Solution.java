@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_decode_next.solution394;
+package com.janhen.coding.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_decode_next.solution394;
 
 import java.util.Stack;
 

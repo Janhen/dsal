@@ -1,11 +1,11 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution109;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution109;
 
 // 109. Convert Sorted List to Binary Search Tree
 //https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
 // medium  787:58
 
-import main.java.janhen.leetcode.structures.ListNode;
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 // 1 ms, faster than 99.17%
 class SolutionRef {

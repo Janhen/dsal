@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.tree.problem8;
+package com.janhen.coding.swordoffer.tree.problem8;
 
-import main.java.janhen.swordoffer.structures.TreeLinkNode;
+import com.janhen.coding.swordoffer.structures.TreeLinkNode;
 
 /**
  * java.util.TreeMap.successor

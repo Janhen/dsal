@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.recursiont_dp.problem19;
+package com.janhen.coding.swordoffer.recursiont_dp.problem19;
 
 public class Solution {
 

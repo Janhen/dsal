@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_base_two_search_sort_matrix.solution80;
+package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution80;
 
 //80. Remove Duplicates from Sorted Array II
 //https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/

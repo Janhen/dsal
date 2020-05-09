@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution104;
+package com.janhen.coding.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution104;
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 import javafx.util.Pair;
 
 import java.util.Stack;

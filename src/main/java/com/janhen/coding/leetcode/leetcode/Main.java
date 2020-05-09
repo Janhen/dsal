@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.leetcode;
+package com.janhen.coding.leetcode.leetcode;
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 import org.junit.Test;
 
 public class Main {

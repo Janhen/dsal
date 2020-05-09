@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.practice.solution290;
+package com.janhen.coding.leetcode.search.practice.solution290;
 
 //  290. Word Pattern
 // https://leetcode.com/problems/word-pattern/

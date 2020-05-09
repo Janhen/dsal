@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.leetcode.solution350;
+package com.janhen.coding.leetcode.leetcode.solution350;
 
 import java.util.ArrayList;
 import java.util.HashMap;

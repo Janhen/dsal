@@ -1,7 +1,7 @@
-package main.java.janhen.leetcode.leetcode.solution203;
+package com.janhen.coding.leetcode.leetcode.solution203;
 
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 public class Solution2 {
 

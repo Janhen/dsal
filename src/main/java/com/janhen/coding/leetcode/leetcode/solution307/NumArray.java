@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.leetcode.solution307;
+package com.janhen.coding.leetcode.leetcode.solution307;
 
 // 307. Range Sum Query - Mutable
 // https://leetcode.com/problems/range-sum-query-mutable/description/

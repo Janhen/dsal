@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.string.solution344;
+package com.janhen.coding.leetcode.string.solution344;
 
 // 344. Reverse String
 // https://leetcode.com/problems/reverse-string/description/

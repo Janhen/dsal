@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.stack_queue_heap;
+package com.janhen.coding.leetcode.stack_queue_heap;
 
 import java.util.PriorityQueue;
 

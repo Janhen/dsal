@@ -1,9 +1,9 @@
-package main.java.janhen.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution236;
+package com.janhen.coding.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution236;
 
 // 236. Lowest Common Ancestor of a Binary Tree
 //https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 // 6 ms, faster than 99.84%
 class SolutionRef {

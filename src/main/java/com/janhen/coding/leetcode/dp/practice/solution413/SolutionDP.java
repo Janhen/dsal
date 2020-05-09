@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.practice.solution413;
+package com.janhen.coding.leetcode.dp.practice.solution413;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.solutions2.solution524;
+package com.janhen.coding.leetcode.solutions2.solution524;
 
 // 524. Longest Word in Dictionary through Deleting
 //https://leetcode.com/problems/longest-word-in-dictionary-through-deleting/description/

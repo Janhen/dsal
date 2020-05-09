@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.other.problem62;
+package com.janhen.coding.swordoffer.other.problem62;
 
 // 15ms
 public class Solution3 {

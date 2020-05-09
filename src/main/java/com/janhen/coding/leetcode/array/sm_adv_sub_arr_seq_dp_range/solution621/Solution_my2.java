@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution621;
+package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution621;
 
 import java.util.*;
 

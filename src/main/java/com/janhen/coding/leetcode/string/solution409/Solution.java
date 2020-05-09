@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.string.solution409;
+package com.janhen.coding.leetcode.string.solution409;
 
 // 409. Longest Palindrome
 //https://leetcode.com/problems/longest-palindrome/description/

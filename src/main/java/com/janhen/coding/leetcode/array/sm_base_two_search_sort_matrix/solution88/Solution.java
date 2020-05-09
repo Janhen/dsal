@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_base_two_search_sort_matrix.solution88;
+package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution88;
 
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {

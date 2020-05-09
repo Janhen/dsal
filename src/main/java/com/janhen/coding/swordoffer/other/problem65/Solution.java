@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.other.problem65;
+package com.janhen.coding.swordoffer.other.problem65;
 
 public class Solution {
     public int Add(int a, int b) {

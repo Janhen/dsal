@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.greedy.solution435;
+package com.janhen.coding.leetcode.greedy.solution435;
 
 import java.util.Arrays;
 import java.util.Comparator;

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.solution416;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution416;
 
 // 416. Partition Equal Subset Sum
 //https://leetcode.com/problems/partition-equal-subset-sum/description/

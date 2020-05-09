@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.solution442;
+package com.janhen.coding.leetcode.array.sm_binary_search.solution442;
 
 import java.util.ArrayList;
 import java.util.List;

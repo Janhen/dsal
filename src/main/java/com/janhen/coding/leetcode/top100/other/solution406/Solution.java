@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.other.solution406;
+package com.janhen.coding.leetcode.top100.other.solution406;
 
 import java.util.ArrayList;
 import java.util.Comparator;

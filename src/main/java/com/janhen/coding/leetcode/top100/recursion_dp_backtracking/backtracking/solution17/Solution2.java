@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.backtracking.solution17;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.backtracking.solution17;
 
 import java.util.ArrayList;
 import java.util.List;

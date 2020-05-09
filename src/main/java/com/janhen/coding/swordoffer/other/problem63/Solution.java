@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.other.problem63;
+package com.janhen.coding.swordoffer.other.problem63;
 
 public class Solution {
     public int maxProfit(int[] prices) {

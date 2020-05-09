@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.other.problem64;
+package com.janhen.coding.swordoffer.other.problem64;
 
 // 64 求1+2+...+n
 

@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_base.problem4;
+package com.janhen.coding.swordoffer.a_base.problem4;
 
 public class Solution {
     public boolean Find(int target, int [][] matrix) {

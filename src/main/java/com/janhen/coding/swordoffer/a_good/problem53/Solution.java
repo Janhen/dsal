@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_good.problem53;
+package com.janhen.coding.swordoffer.a_good.problem53;
 
 // 53 在排序数组中查找数字
 

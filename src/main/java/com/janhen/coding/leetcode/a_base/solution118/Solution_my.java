@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.a_base.solution118;
+package com.janhen.coding.leetcode.a_base.solution118;
 
 import com.janhen.TestUtil;
 

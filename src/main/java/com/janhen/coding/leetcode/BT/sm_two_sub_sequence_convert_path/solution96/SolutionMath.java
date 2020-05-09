@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.BT.sm_two_sub_sequence_convert_path.solution96;
+package com.janhen.coding.leetcode.BT.sm_two_sub_sequence_convert_path.solution96;
 
 // 96. Unique Binary Search Trees
 //https://leetcode.com/problems/unique-binary-search-trees/

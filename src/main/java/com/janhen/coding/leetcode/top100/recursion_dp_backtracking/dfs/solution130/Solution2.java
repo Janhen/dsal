@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.dfs.solution130;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.dfs.solution130;
 
 // 标记处那些从边界处开始为 O, 但是不能替换成 X 的元素
 // 扫描整个矩阵，将 O 替换成 X

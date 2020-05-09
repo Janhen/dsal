@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_base.problem11;
+package com.janhen.coding.swordoffer.a_base.problem11;
 
 // 11 旋转数组的最小数字
 

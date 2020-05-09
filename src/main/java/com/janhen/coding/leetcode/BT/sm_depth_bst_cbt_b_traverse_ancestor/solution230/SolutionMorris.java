@@ -1,9 +1,9 @@
-package main.java.janhen.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution230;
+package com.janhen.coding.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution230;
 
 // 230. Kth Smallest Element in a BST
 //https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 class SolutionMorris {
     public int kthSmallest(TreeNode root, int k) {

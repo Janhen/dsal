@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.recursionANDbacktracking.practice.solution37;
+package com.janhen.coding.leetcode.recursionANDbacktracking.practice.solution37;
 
 // 37. Sudoku Solver
 //https://leetcode.com/problems/sudoku-solver/

@@ -1,10 +1,10 @@
-package main.java.janhen.swordoffer.tree.problem68_2;
+package com.janhen.coding.swordoffer.tree.problem68_2;
 
 // 普通二叉树的最近公共祖先
 // Leetcode : 236. Lowest Common Ancestor of a Binary Tree
 // https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.recursionANDbacktracking.practice.solution131;
+package com.janhen.coding.leetcode.recursionANDbacktracking.practice.solution131;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.solutions2.other.solution367;
+package com.janhen.coding.leetcode.solutions2.other.solution367;
 
 // 367. Valid Perfect Square
 //https://leetcode.com/problems/valid-perfect-square/description/

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.leetcode.solution303;
+package com.janhen.coding.leetcode.leetcode.solution303;
 
 public class NumArray2 {
 

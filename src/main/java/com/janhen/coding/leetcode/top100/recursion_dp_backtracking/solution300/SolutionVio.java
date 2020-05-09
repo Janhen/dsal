@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.solution300;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution300;
 
 // 300. Longest Increasing Subsequence
 // https://leetcode.com/problems/longest-increasing-subsequence/description/

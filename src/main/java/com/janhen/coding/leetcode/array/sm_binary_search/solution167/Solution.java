@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.solution167;
+package com.janhen.coding.leetcode.array.sm_binary_search.solution167;
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {

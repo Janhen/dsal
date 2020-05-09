@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution86;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution86;
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 class SolutionB {
     public ListNode partition(ListNode head, int x) {

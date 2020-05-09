@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.a_base.problem2;
+package com.janhen.coding.swordoffer.a_base.problem2;
 
-import main.java.janhen.swordoffer.a_base.problem2.v.ThreadLocalSingleton;
+import com.janhen.coding.swordoffer.a_base.problem2.v.ThreadLocalSingleton;
 import org.junit.Test;
 
 import java.io.*;

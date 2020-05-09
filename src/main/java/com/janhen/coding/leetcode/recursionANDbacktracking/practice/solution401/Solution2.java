@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.recursionANDbacktracking.practice.solution401;
+package com.janhen.coding.leetcode.recursionANDbacktracking.practice.solution401;
 
 // 401. Binary Watch
 //https://leetcode.com/problems/binary-watch/

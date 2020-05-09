@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.leetcode.solution349;
+package com.janhen.coding.leetcode.leetcode.solution349;
 
 // 349. Intersection of Two Arrays
 // https://leetcode.com/problems/intersection-of-two-arrays/description/

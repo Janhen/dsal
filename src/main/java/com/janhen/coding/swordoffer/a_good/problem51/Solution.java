@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_good.problem51;
+package com.janhen.coding.swordoffer.a_good.problem51;
 
 public class Solution {
     private long cnt = 0;

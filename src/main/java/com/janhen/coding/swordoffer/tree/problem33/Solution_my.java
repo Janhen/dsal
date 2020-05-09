@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.tree.problem33;
+package com.janhen.coding.swordoffer.tree.problem33;
 
 public class Solution_my {
     public boolean VerifySquenceOfBST(int [] sequence) {

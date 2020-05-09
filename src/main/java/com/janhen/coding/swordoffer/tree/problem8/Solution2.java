@@ -1,8 +1,8 @@
-package main.java.janhen.swordoffer.tree.problem8;
+package com.janhen.coding.swordoffer.tree.problem8;
 
 // 08 二叉树的下一个节点
 
-import main.java.janhen.swordoffer.structures.TreeLinkNode;
+import com.janhen.coding.swordoffer.structures.TreeLinkNode;
 
 public class Solution2 {
 

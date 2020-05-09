@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.practice.solution149;
+package com.janhen.coding.leetcode.search.practice.solution149;
 
 // 149. Max Points on a Line
 //https://leetcode.com/problems/max-points-on-a-line/

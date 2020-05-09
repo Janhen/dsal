@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution143;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution143;
 
 // 143. Reorder List
 // https://leetcode.com/problems/reorder-list/
@@ -18,7 +18,7 @@ Example 2:
 Given 1->2->3->4->5, reorder it to 1->5->2->4->3.
  */
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solutiondfd {
     // O(N) time, O(1) space in total

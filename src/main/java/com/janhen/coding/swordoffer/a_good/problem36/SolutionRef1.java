@@ -1,8 +1,8 @@
-package main.java.janhen.swordoffer.a_good.problem36;
+package com.janhen.coding.swordoffer.a_good.problem36;
 
 // 36 二叉搜索树与双向链表
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 public class SolutionRef1 {
 

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.structures;
+package com.janhen.coding.leetcode.structures;
 
 import java.util.List;
 

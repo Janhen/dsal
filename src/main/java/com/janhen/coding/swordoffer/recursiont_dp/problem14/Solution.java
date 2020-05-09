@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.recursiont_dp.problem14;
+package com.janhen.coding.swordoffer.recursiont_dp.problem14;
 
 public class Solution {
     public int integerBreak(int n) {

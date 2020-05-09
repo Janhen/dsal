@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.recursionANDbacktracking.practice.solution52;
+package com.janhen.coding.leetcode.recursionANDbacktracking.practice.solution52;
 
 //
 

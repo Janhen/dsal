@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_base_two_search_sort_matrix.solution59;
+package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution59;
 
 class Solution {
     private int sequencer;

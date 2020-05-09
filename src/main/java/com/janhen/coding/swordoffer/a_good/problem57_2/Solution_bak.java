@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_good.problem57_2;
+package com.janhen.coding.swordoffer.a_good.problem57_2;
 
 import java.util.ArrayList;
 

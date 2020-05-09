@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.solution198;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution198;
 
 // 可以优化一下
 //

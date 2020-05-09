@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.string.solution696;
+package com.janhen.coding.leetcode.string.solution696;
 
 // 696. Count Binary Substrings
 //https://leetcode.com/problems/count-binary-substrings/description/

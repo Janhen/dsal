@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.other.solution771;
+package com.janhen.coding.leetcode.top100.other.solution771;
 
 import java.util.Set;
 import java.util.stream.Collectors;

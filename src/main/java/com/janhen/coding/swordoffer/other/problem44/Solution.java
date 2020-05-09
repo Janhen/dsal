@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.other.problem44;
+package com.janhen.coding.swordoffer.other.problem44;
 
 public class Solution {
     public int getDigitAtIndex(int index) {

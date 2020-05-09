@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.solution322;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution322;
 
 // 322. Coin Change
 //https://leetcode.com/problems/coin-change/

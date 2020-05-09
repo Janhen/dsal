@@ -1,9 +1,9 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution328;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution328;
 
 // 328. Odd Even Linked List
 //https://leetcode.com/problems/odd-even-linked-list/
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 class SolutionBa {
 

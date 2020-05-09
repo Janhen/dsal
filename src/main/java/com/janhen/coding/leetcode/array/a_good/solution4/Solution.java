@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.a_good.solution4;
+package com.janhen.coding.leetcode.array.a_good.solution4;
 
 class Solution {
     // todo QQ

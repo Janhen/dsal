@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.other.problem43;
+package com.janhen.coding.swordoffer.other.problem43;
 
 public class Solution {
     public int NumberOf1Between1AndN_Solution(int n) {

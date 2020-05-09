@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution147;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution147;
 
 // 147. Insertion Sort List
 // https://leetcode.com/problems/insertion-sort-list/

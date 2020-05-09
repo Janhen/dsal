@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.practice.solution474;
+package com.janhen.coding.leetcode.dp.practice.solution474;
 
 class SolutionDp {
     // 这是一个多维费用的 0-1 背包问题，有两个背包大小，0 的数量和 1 的数量。

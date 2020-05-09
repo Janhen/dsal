@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer;
+package com.janhen.coding.swordoffer;
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

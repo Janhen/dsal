@@ -1,9 +1,9 @@
-package main.java.janhen.leetcode.BT.sm_two_sub_sequence_convert_path.solution111;
+package com.janhen.coding.leetcode.BT.sm_two_sub_sequence_convert_path.solution111;
 
 // 111. Minimum Depth of Binary Tree
 //https://leetcode.com/problems/minimum-depth-of-binary-tree/
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

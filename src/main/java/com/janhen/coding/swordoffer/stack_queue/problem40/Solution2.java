@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.stack_queue.problem40;
+package com.janhen.coding.swordoffer.stack_queue.problem40;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;

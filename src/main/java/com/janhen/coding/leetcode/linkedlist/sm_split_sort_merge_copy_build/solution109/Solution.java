@@ -1,7 +1,7 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution109;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution109;
 
-import main.java.janhen.leetcode.structures.ListNode;
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 class Solution {
     // 截断两个链表递归拼接

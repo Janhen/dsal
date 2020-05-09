@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.base.knapsack01.other;
+package com.janhen.coding.leetcode.dp.base.knapsack01.other;
 
 
 // check??

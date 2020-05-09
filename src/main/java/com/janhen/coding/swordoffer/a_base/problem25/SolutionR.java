@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.a_base.problem25;
+package com.janhen.coding.swordoffer.a_base.problem25;
 
-import main.java.janhen.swordoffer.structures.ListNode;
+import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class SolutionR {
 

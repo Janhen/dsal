@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.solution454;
+package com.janhen.coding.leetcode.search.solution454;
 
 //454. 4Sum II
 //        https://leetcode.com/problems/4sum-ii/description/

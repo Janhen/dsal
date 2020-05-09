@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.solutions2.solution69;
+package com.janhen.coding.leetcode.solutions2.solution69;
 
 // 69. Sqrt(x)
 //https://leetcode.com/problems/sqrtx/

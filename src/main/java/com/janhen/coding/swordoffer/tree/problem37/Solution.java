@@ -1,7 +1,7 @@
-package main.java.janhen.swordoffer.tree.problem37;
+package com.janhen.coding.swordoffer.tree.problem37;
 
-import main.java.janhen.swordoffer.TestUtil;
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.TestUtil;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 import org.junit.Test;
 
 import java.util.LinkedList;

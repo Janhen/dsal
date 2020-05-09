@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution450;
+package com.janhen.coding.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution450;
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 class SolutionB {
     public TreeNode deleteNode(TreeNode root, int key) {

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_adv_sub_arr_seq_dp_range.sm_matrix_search.solution64;
+package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.sm_matrix_search.solution64;
 
 public class Solution_my2 {
     public int minPathSum(int[][] grid) {

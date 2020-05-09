@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.solution343;
+package com.janhen.coding.leetcode.dp.solution343;
 
 //343. Integer Break
 //        https://leetcode.com/problems/integer-break/description/

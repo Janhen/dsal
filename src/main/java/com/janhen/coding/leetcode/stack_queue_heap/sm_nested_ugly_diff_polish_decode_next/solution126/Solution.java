@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_decode_next.solution126;
+package com.janhen.coding.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_decode_next.solution126;
 
 // 126. Word Ladder II
 //https://leetcode.com/problems/word-ladder-ii/

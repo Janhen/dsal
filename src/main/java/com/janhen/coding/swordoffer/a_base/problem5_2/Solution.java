@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_base.problem5_2;
+package com.janhen.coding.swordoffer.a_base.problem5_2;
 
 public class Solution {
     public void merge(int[] A, int[] B, int lastA, int lastB) {

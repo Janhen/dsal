@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_decode_next.solution150;
+package com.janhen.coding.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_decode_next.solution150;
 
 // 150. Evaluate Reverse Polish Notation
 //https://leetcode.com/problems/evaluate-reverse-polish-notation/

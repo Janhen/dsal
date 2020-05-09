@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_base_two_search_sort_matrix.solution15;
+package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution15;
 
 // 15. 3Sum
 //https://leetcode.com/problems/3sum/

@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer;
+package com.janhen.coding.swordoffer;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 

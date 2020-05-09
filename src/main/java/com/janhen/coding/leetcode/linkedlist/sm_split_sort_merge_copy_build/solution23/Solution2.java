@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution23;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution23;
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 /*
  * 类归并排序

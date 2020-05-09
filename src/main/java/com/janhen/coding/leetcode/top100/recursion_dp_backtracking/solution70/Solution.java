@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.solution70;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution70;
 
 class Solution {
     /* f(n) = f(n-1) + f(n-2) */

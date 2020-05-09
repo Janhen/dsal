@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.string.solution6;
+package com.janhen.coding.leetcode.string.solution6;
 
 // 6. ZigZag Conversion
 //https://leetcode.com/problems/zigzag-conversion/

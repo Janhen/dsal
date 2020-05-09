@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.solution219;
+package com.janhen.coding.leetcode.search.solution219;
 
 //219. Contains Duplicate II
 //        https://leetcode.com/problems/contains-duplicate-ii/description/

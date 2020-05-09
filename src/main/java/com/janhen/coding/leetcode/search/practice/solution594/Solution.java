@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.practice.solution594;
+package com.janhen.coding.leetcode.search.practice.solution594;
 
 // 594. Longest Harmonious Subsequence
 //https://leetcode.com/problems/longest-harmonious-subsequence/

@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.stack_queue.problem41;
+package com.janhen.coding.swordoffer.stack_queue.problem41;
 
 public class SolutionPer99 {
 

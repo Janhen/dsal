@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.leetcode.solution804;
+package com.janhen.coding.leetcode.leetcode.solution804;
 
 //804. Unique Morse Code Words
 //        https://leetcode.com/problems/unique-morse-code-words/description/

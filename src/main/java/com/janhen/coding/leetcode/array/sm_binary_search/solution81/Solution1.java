@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.solution81;
+package com.janhen.coding.leetcode.array.sm_binary_search.solution81;
 
 // 0 ms, faster than 100.00%
 class Solution1 {

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.other.solution76;
+package com.janhen.coding.leetcode.top100.other.solution76;
 
 // 76. Minimum Window Substring
 // https://leetcode.com/problems/minimum-window-substring/

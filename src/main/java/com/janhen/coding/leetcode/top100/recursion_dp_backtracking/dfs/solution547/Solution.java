@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.dfs.solution547;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.dfs.solution547;
 
 //547. Friend Circles
 //        https://leetcode.com/problems/friend-circles/description/

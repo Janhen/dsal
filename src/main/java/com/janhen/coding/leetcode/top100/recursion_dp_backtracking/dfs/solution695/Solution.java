@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.dfs.solution695;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.dfs.solution695;
 
 public class Solution {
     private int m, n;

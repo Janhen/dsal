@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution152;
+package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution152;
 
 // sub recursiont_dp: 以[i]为结束的子数组
 // 负数相乘的两种极端情况  ⇒ max, min record to find

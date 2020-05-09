@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution152;
+package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution152;
 
 public class Solution_my {
     public int maxProduct(int[] nums) {

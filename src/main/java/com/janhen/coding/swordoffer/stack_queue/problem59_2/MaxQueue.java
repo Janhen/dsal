@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.stack_queue.problem59_2;
+package com.janhen.coding.swordoffer.stack_queue.problem59_2;
 
 import java.util.Deque;
 import java.util.LinkedList;

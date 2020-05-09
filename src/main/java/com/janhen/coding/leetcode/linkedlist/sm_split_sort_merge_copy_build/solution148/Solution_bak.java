@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution148;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution148;
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 // 自底向上的归并排序
 // 无需递归，只需迭代

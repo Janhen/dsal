@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.practice.solution213;
+package com.janhen.coding.leetcode.dp.practice.solution213;
 
 class Solution2 {
     public int rob(int[] nums) {

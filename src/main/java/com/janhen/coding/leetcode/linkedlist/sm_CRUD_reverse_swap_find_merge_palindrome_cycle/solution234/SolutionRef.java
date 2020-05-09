@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.linkedlist.sm_CRUD_reverse_swap_find_merge_palindrome_cycle.solution234;
+package com.janhen.coding.leetcode.linkedlist.sm_CRUD_reverse_swap_find_merge_palindrome_cycle.solution234;
 
 // 234. Palindrome Linked List
 // https://leetcode.com/problems/palindrome-linked-list/
@@ -8,7 +8,7 @@ Follow up:
 Could you do it in O(n) time and O(1) space?
  */
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 /*
  * 1 ms, faster than 96.60%

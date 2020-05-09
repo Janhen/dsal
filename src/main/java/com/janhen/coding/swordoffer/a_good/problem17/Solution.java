@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_good.problem17;
+package com.janhen.coding.swordoffer.a_good.problem17;
 
 public class Solution {
 

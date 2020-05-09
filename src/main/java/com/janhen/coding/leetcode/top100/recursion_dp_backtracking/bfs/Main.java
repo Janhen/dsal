@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.bfs;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.bfs;
 
 import javafx.util.Pair;
 

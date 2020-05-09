@@ -1,16 +1,19 @@
-package main.java.janhen.leetcode.a_base.solution56;
+package com.janhen.coding.leetcode.a_base.solution56;
 
-import main.java.janhen.leetcode.structures.Interval;
+import com.janhen.coding.leetcode.structures.Interval;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 class Solution {
   public List<Interval> merge(List<Interval> intervals) {
-    if (intervals.size() < 2) return intervals;
+    if (intervals.size() < 2)
+      return intervals;
 
-    List<Interval> res = new ArrayList<>();                            // Use defined structure
-    intervals.sort((o1, o2) -> Integer.compare(o1.start, o2.start));
+    List<Interval> res = new ArrayList<>();
+    // Use defined structure attribute to sort
+    intervals.sort(Comparator.comparingInt(o -> o.start));
 
     int start = intervals.get(0).start;                   // record recent
     int end = intervals.get(0).end;
@@ -24,7 +27,8 @@ class Solution {
         end = item.end;             // reset
       }
     }
-    res.add(new Interval(start, end));      // NOTE: must handle last element
+    // handle last element
+    res.add(new Interval(start, end));
     return res;
   }
 }

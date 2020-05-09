@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_base_two_search_sort_matrix.solution73;
+package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution73;
 
 class Solution_b {
     // 遍历过程中修改将要遍历元素的值

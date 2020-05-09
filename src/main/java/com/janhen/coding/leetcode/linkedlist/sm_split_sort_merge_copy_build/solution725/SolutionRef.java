@@ -1,9 +1,9 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution725;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution725;
 
 // 725. Split Linked List in Parts
 // https://leetcode.com/problems/split-linked-list-in-parts/
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 class SolutionRef {
     public ListNode[] splitListToParts(ListNode root, int k) {

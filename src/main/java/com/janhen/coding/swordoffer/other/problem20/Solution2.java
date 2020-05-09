@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.other.problem20;
+package com.janhen.coding.swordoffer.other.problem20;
 
 // 20 表示数值的字符串
 

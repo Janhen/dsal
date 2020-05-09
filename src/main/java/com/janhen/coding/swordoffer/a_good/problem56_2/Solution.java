@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_good.problem56_2;
+package com.janhen.coding.swordoffer.a_good.problem56_2;
 
 public class Solution {
     public int findNumberAppearingOnce(int[] nums) {

@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.other.problem60;
+package com.janhen.coding.swordoffer.other.problem60;
 
 // 60 n个骰子的点数
 

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.solutions2.solution680;
+package com.janhen.coding.leetcode.solutions2.solution680;
 
 // 680. Valid Palindrome II
 //https://leetcode.com/problems/valid-palindrome-ii/

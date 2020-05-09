@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_good.problem53;
+package com.janhen.coding.swordoffer.a_good.problem53;
 
 // 53 在排序数组中查找数字
 // https://www.nowcoder.com/practice/70610bf967994b22bb1c26f9ae901fa2?tpId=13&tqId=11190&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking

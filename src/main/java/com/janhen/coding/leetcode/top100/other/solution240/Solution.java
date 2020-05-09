@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.other.solution240;
+package com.janhen.coding.leetcode.top100.other.solution240;
 
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {

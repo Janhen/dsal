@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.other.problem61;
+package com.janhen.coding.swordoffer.other.problem61;
 
 import java.util.Arrays;
 

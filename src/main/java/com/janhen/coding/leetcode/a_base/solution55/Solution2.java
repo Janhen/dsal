@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.a_base.solution55;
+package com.janhen.coding.leetcode.a_base.solution55;
 
 /*
  * 限定数组值 >= 0, 若每个数组值 > 0 一定可达

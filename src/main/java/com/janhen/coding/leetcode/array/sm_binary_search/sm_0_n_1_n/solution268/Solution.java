@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.sm_0_n_1_n.solution268;
+package com.janhen.coding.leetcode.array.sm_binary_search.sm_0_n_1_n.solution268;
 
 class Solution {
 

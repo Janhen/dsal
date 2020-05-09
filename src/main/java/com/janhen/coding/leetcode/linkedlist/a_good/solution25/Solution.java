@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.linkedlist.a_good.solution25;
+package com.janhen.coding.leetcode.linkedlist.a_good.solution25;
 
 // todo ListNode
 /*******- 时间复杂度: O(N)******- 空间复杂度: O(1)******

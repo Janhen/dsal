@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.tree.problem68_2;
+package com.janhen.coding.swordoffer.tree.problem68_2;
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 public class Solution_my {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {

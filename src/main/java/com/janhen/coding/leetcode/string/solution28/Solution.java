@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.string.solution28;
+package com.janhen.coding.leetcode.string.solution28;
 
 // 28. Implement strStr()
 //https://leetcode.com/problems/implement-strstr/

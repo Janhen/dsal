@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.tree.problem33;
+package com.janhen.coding.swordoffer.tree.problem33;
 
 // 33. 二叉搜索树的后续遍历序列
 

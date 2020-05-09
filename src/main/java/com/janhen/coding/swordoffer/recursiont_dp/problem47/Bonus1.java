@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.recursiont_dp.problem47;
+package com.janhen.coding.swordoffer.recursiont_dp.problem47;
 
 public class Bonus1 {
 

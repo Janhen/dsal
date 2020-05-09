@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.a_base.problem52;
+package com.janhen.coding.swordoffer.a_base.problem52;
 
-import main.java.janhen.swordoffer.structures.ListNode;
+import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class Solution2 {
     // Same length, From left to Right visit

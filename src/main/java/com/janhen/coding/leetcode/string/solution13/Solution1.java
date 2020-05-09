@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.string.solution13;
+package com.janhen.coding.leetcode.string.solution13;
 
 // 13. Roman to Integer
 //https://leetcode.com/problems/roman-to-integer/

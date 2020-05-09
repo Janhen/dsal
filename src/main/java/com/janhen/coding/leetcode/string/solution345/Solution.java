@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.string.solution345;
+package com.janhen.coding.leetcode.string.solution345;
 
 //345. Reverse Vowels of a String
 //        https://leetcode.com/problems/reverse-vowels-of-a-string/description/

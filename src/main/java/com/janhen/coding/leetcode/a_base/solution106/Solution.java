@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.a_base.solution106;
+package com.janhen.coding.leetcode.a_base.solution106;
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;

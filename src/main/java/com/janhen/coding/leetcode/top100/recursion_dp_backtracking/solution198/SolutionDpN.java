@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.solution198;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution198;
 
 // > 思路 1
 //******- 时间复杂度: O(N)******- 空间复杂度: O(N)******

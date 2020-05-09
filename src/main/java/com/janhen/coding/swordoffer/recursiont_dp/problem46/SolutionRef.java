@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.recursiont_dp.problem46;
+package com.janhen.coding.swordoffer.recursiont_dp.problem46;
 
 // 46 把数字翻译成字符串
 //https://leetcode.com/problems/decode-ways/description/

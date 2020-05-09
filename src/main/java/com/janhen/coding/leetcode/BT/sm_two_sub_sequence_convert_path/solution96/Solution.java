@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.BT.sm_two_sub_sequence_convert_path.solution96;
+package com.janhen.coding.leetcode.BT.sm_two_sub_sequence_convert_path.solution96;
 
 class Solution {
     //  h(n) = h(0)*h(n-1) + h(1)*h(n-2) + ... + h(n-1)h(0) (其中n>=2) ，

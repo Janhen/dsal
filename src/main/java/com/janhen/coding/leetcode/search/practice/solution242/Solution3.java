@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.practice.solution242;
+package com.janhen.coding.leetcode.search.practice.solution242;
 
 import java.util.Arrays;
 

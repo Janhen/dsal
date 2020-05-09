@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.solution220;
+package com.janhen.coding.leetcode.search.solution220;
 
 import java.util.TreeSet;
 

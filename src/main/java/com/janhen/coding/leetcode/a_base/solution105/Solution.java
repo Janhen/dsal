@@ -1,16 +1,18 @@
-package main.java.janhen.leetcode.a_base.solution105;
+package com.janhen.coding.leetcode.a_base.solution105;
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;
 
 class Solution {
 
-  Map<Integer, Integer> inorderNumIndex = new HashMap<>();
+  // inOrderNum -> index
+  private Map<Integer, Integer> inorderNumIndex = new HashMap<>();
 
   public TreeNode buildTree(int[] preorder, int[] inorder) {
-    if (preorder == null || preorder.length == 0 || inorder == null || inorder.length == 0) return null;
+    if (preorder == null || preorder.length == 0 || inorder == null || inorder.length == 0)
+      return null;
 
     for (int i = 0; i < inorder.length; i++)
       inorderNumIndex.put(inorder[i], i);
@@ -18,7 +20,8 @@ class Solution {
   }
 
   private TreeNode buildTree(int[] preorder, int preL, int preR, int inL) {
-    if (preL > preR) return null;
+    if (preL > preR)
+      return null;
 
     TreeNode root = new TreeNode(preorder[preL]);
     int index = inorderNumIndex.get(root.val);

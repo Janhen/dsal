@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.solution494;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution494;
 
 import java.util.HashMap;
 import java.util.Map;

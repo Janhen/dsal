@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.structures.test;
+package com.janhen.coding.leetcode.structures.test;
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 import org.junit.Test;
 
 public class Main {

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution581;
+package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution581;
 
 // 581. Shortest Unsorted Continuous Subarray
 //https://leetcode.com/problems/shortest-unsorted-continuous-subarray/

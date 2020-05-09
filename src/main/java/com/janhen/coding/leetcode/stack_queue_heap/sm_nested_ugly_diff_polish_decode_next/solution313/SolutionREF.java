@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_decode_next.solution313;
+package com.janhen.coding.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_decode_next.solution313;
 
 // 313. Super Ugly Number
 //https://leetcode.com/problems/super-ugly-number/

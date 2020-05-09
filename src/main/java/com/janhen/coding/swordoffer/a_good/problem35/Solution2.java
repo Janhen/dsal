@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.a_good.problem35;
+package com.janhen.coding.swordoffer.a_good.problem35;
 
-import main.java.janhen.swordoffer.structures.RandomListNode;
+import com.janhen.coding.swordoffer.structures.RandomListNode;
 
 public class Solution2 {
 

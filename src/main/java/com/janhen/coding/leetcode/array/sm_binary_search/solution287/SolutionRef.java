@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.solution287;
+package com.janhen.coding.leetcode.array.sm_binary_search.solution287;
 
 /*
  * 双指针解法，类似于有环链表中找出环的入口：

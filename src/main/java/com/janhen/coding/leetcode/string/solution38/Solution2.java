@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.string.solution38;
+package com.janhen.coding.leetcode.string.solution38;
 
 // 38. Count and Say
 //https://leetcode.com/problems/count-and-say/

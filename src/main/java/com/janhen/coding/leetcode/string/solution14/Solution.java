@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.string.solution14;
+package com.janhen.coding.leetcode.string.solution14;
 
 // 14. Longest Common Prefix
 //https://leetcode.com/problems/longest-common-prefix/

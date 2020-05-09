@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.solutions2.solution540;
+package com.janhen.coding.leetcode.solutions2.solution540;
 
 // 540. Single Element in a Sorted Array
 //https://leetcode.com/problems/single-element-in-a-sorted-array/description/

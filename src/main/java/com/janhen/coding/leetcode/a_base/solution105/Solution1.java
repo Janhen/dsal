@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.a_base.solution105;
+package com.janhen.coding.leetcode.a_base.solution105;
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 class Solution1 {
   public TreeNode buildTree(int[] preorder, int[] inorder) {

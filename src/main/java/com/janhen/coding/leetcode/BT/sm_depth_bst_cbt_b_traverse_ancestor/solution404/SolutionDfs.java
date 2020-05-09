@@ -1,9 +1,9 @@
-package main.java.janhen.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution404;
+package com.janhen.coding.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution404;
 
 // 404. Sum of Left Leaves
 //https://leetcode.com/problems/sum-of-left-leaves/
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 import java.util.Deque;
 import java.util.LinkedList;

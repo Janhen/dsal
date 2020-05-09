@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.recursiont_dp.problem42;
+package com.janhen.coding.swordoffer.recursiont_dp.problem42;
 
 public class Solution1 {
     public int FindGreatestSumOfSubArray(int[] arr) {

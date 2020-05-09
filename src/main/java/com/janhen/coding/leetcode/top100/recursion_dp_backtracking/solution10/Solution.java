@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.solution10;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution10;
 
 public class Solution {
     public boolean isMatch(String str, String pattern) {

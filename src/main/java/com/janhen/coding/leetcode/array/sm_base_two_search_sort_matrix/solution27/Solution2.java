@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_base_two_search_sort_matrix.solution27;
+package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution27;
 
 class Solution2 {
     // 对极端情况处理: 都是相同元素

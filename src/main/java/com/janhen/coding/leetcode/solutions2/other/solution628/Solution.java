@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.solutions2.other.solution628;
+package com.janhen.coding.leetcode.solutions2.other.solution628;
 
 // 628. Maximum Product of Three Numbers
 //https://leetcode.com/problems/maximum-product-of-three-numbers/description/

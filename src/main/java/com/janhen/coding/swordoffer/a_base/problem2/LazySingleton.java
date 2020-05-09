@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_base.problem2;
+package com.janhen.coding.swordoffer.a_base.problem2;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.solutions2.solution744;
+package com.janhen.coding.leetcode.solutions2.solution744;
 
 // 744. Find Smallest Letter Greater Than Target
 //https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/

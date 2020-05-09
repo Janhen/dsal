@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.tree.problem54;
+package com.janhen.coding.swordoffer.tree.problem54;
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 public class SolutionR {
 

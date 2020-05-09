@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.practice.solution120;
+package com.janhen.coding.leetcode.dp.practice.solution120;
 
 import java.util.List;
 

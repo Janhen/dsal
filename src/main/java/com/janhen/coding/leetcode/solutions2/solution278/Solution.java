@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.solutions2.solution278;
+package com.janhen.coding.leetcode.solutions2.solution278;
 
 // 278. First Bad Version
 //https://leetcode.com/problems/first-bad-version/description/
@@ -34,7 +34,7 @@ Then 4 is the first bad version.
 /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
 
-import main.java.janhen.leetcode.structures.VersionControl;
+import com.janhen.coding.leetcode.structures.VersionControl;
 
 // 12 ms, faster than 99.28%
 public class Solution extends VersionControl {

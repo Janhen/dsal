@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.recursiont_dp.problem13;
+package com.janhen.coding.swordoffer.recursiont_dp.problem13;
 
 public class Solution2 {
     private static final int[][] next = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.BT.sm_two_sub_sequence_convert_path.solution113;
+package com.janhen.coding.leetcode.BT.sm_two_sub_sequence_convert_path.solution113;
 
 // 113. Path Sum II
 // https://leetcode.com/problems/path-sum-ii/
@@ -40,7 +40,7 @@ Return:
 ]
  */
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

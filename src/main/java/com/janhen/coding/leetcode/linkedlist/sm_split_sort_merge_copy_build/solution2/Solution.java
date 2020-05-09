@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution2;
+package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.solution2;
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

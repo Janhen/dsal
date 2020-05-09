@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.stack_queue.problem41_2;
+package com.janhen.coding.swordoffer.stack_queue.problem41_2;
 
 import java.util.HashMap;
 import java.util.LinkedList;

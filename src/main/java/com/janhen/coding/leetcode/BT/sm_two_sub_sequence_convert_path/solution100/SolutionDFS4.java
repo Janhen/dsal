@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.BT.sm_two_sub_sequence_convert_path.solution100;
+package com.janhen.coding.leetcode.BT.sm_two_sub_sequence_convert_path.solution100;
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 import javafx.util.Pair;
 
 import java.util.Stack;

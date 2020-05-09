@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.tree.problem68_2;
+package com.janhen.coding.swordoffer.tree.problem68_2;
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.leetcode.solution303;
+package com.janhen.coding.leetcode.leetcode.solution303;
 
 // 303. Range Sum Query - Immutable
 // https://leetcode.com/problems/range-sum-query-immutable/description/

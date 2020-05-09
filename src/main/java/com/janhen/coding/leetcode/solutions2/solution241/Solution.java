@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.solutions2.solution241;
+package com.janhen.coding.leetcode.solutions2.solution241;
 
 // 241. Different Ways to Add Parentheses
 //https://leetcode.com/problems/different-ways-to-add-parentheses/description/

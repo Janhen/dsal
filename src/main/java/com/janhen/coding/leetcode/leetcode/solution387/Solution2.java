@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.leetcode.solution387;
+package com.janhen.coding.leetcode.leetcode.solution387;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;

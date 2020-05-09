@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.a_base.problem32_2;
+package com.janhen.coding.swordoffer.a_base.problem32_2;
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

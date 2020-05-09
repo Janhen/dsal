@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.a_base.problem27;
+package com.janhen.coding.swordoffer.a_base.problem27;
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 public class Solution {
     public void Mirror(TreeNode root) {

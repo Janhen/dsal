@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.backtracking.solution257;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.backtracking.solution257;
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.recursiont_dp.problem49;
+package com.janhen.coding.swordoffer.recursiont_dp.problem49;
 
 public class Solution {
     public int GetUglyNumber_Solution(int N) {

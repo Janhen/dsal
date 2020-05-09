@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.a_good.problem36;
+package com.janhen.coding.swordoffer.a_good.problem36;
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 import java.util.Stack;
 

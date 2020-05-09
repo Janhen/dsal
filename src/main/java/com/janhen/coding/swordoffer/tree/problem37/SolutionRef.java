@@ -1,8 +1,8 @@
-package main.java.janhen.swordoffer.tree.problem37;
+package com.janhen.coding.swordoffer.tree.problem37;
 
 // 37 序列化二叉树
 
-import main.java.janhen.swordoffer.structures.TreeNode;
+import com.janhen.coding.swordoffer.structures.TreeNode;
 
 public class SolutionRef {
     private String deserializeStr;

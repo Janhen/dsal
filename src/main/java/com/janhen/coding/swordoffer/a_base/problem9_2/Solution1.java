@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_base.problem9_2;
+package com.janhen.coding.swordoffer.a_base.problem9_2;
 
 import java.util.LinkedList;
 import java.util.NoSuchElementException;

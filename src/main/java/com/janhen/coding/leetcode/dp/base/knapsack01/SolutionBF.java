@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.base.knapsack01;
+package com.janhen.coding.leetcode.dp.base.knapsack01;
 
 /*
 有一个背包，它的容量为C(Capacity)，。现在有n种不同的品，

@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_base.problem11;
+package com.janhen.coding.swordoffer.a_base.problem11;
 
 /**
  * 关联问题: 数组中不含有重复元素的旋转数组最小数字

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.solution287;
+package com.janhen.coding.leetcode.array.sm_binary_search.solution287;
 
 /*
  * 找出数组中重复的数，数组值在 [1, n] 之间

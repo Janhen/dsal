@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.solution35;
+package com.janhen.coding.leetcode.array.sm_binary_search.solution35;
 
 class Solution {
     public int searchInsert(int[] nums, int target) {

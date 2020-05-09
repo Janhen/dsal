@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.top100.recursion_dp_backtracking.solution300;
+package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution300;
 
 // 以上解法的时间复杂度为 O(N2)，
 

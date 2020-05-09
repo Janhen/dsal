@@ -1,6 +1,6 @@
-package main.java.janhen.leetcode.leetcode;
+package com.janhen.coding.leetcode.leetcode;
 
-import main.java.janhen.leetcode.structures.ListNode;
+import com.janhen.coding.leetcode.structures.ListNode;
 
 public class SolutionDebug {
 

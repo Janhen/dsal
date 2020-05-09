@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.practice.solution279;
+package com.janhen.coding.leetcode.dp.practice.solution279;
 
 import java.util.ArrayList;
 import java.util.List;

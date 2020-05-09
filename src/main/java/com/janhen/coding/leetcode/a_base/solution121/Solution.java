@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.a_base.solution121;
+package com.janhen.coding.leetcode.a_base.solution121;
 
 public class Solution {
   public int maxProfit(int[] prices) {

@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.a_base.problem11;
+package com.janhen.coding.swordoffer.a_base.problem11;
 
 // time:O(logN) space:O(1)
 public class Solution2 {

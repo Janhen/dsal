@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.solutions2.solution633;
+package com.janhen.coding.leetcode.solutions2.solution633;
 
 // 633. Sum of Square Numbers
 //https://leetcode.com/problems/sum-of-square-numbers/description/

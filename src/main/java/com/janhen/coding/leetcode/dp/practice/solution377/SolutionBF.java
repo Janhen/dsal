@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.dp.practice.solution377;
+package com.janhen.coding.leetcode.dp.practice.solution377;
 
 class SolutionBF {
     public int combinationSum4(int[] nums, int target) {

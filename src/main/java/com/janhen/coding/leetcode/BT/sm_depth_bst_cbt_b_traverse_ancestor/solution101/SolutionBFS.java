@@ -1,9 +1,9 @@
-package main.java.janhen.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution101;
+package com.janhen.coding.leetcode.BT.sm_depth_bst_cbt_b_traverse_ancestor.solution101;
 
 //101. Symmetric Tree
 //        https://leetcode.com/problems/symmetric-tree/description/
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

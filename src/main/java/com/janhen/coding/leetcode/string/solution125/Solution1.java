@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.string.solution125;
+package com.janhen.coding.leetcode.string.solution125;
 
 // 125. Valid Palindrome
 // https://leetcode.com/problems/valid-palindrome/description/

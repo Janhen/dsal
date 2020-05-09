@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_decode_next.solution341;
+package com.janhen.coding.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_decode_next.solution341;
 
 // 341. Flatten Nested List Iterator
 //https://leetcode.com/problems/flatten-nested-list-iterator/
@@ -34,7 +34,7 @@ Explanation: By calling next repeatedly until hasNext returns false,
              the order of elements returned by next should be: [1,4,6].
  */
 
-import main.java.janhen.leetcode.structures.NestedInteger;
+import com.janhen.coding.leetcode.structures.NestedInteger;
 
 import java.util.Iterator;
 import java.util.List;

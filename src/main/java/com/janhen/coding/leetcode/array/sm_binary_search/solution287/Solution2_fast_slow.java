@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.array.sm_binary_search.solution287;
+package com.janhen.coding.leetcode.array.sm_binary_search.solution287;
 
 // 287. Find the Duplicate Number
 //https://leetcode.com/problems/find-the-duplicate-number/

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.string.solution58;
+package com.janhen.coding.leetcode.string.solution58;
 
 // 58. Length of Last Word
 //https://leetcode.com/problems/length-of-last-word/

@@ -1,4 +1,4 @@
-package main.java.janhen.leetcode.search.solution447;
+package com.janhen.coding.leetcode.search.solution447;
 
 // 447. Number of Boomerangs
 // https://leetcode.com/problems/number-of-boomerangs/description/

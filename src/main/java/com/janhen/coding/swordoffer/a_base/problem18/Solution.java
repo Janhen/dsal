@@ -1,6 +1,6 @@
-package main.java.janhen.swordoffer.a_base.problem18;
+package com.janhen.coding.swordoffer.a_base.problem18;
 
-import main.java.janhen.swordoffer.structures.ListNode;
+import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class Solution {
     public ListNode deleteNode(ListNode head, ListNode tobeDelete) {

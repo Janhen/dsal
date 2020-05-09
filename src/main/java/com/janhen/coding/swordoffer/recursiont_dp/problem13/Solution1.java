@@ -1,4 +1,4 @@
-package main.java.janhen.swordoffer.recursiont_dp.problem13;
+package com.janhen.coding.swordoffer.recursiont_dp.problem13;
 
 public class Solution1 {
     public int movingCount(int threshold, int rows, int cols) {
