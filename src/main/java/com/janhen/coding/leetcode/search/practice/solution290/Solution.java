@@ -39,17 +39,33 @@ class Solution {
         String[] words = str.split(" ");
         if (pattern.length() != words.length)
             return false;
-        Map<Character, String> map = new HashMap<>();
+        BiMap<Character, String> map = new BiMap();
         for (int i = 0; i < pattern.length(); i ++) {
-            if (map.containsKey(pattern.charAt(i))) {
-                if (!map.get(pattern.charAt(i)).equals(words[i]))    // x, y    have x, then y must y
-                    return false;
-            } else {
-                if (map.containsValue(words[i]))       // not have x, then not have y
-                    return false;
-                map.put(pattern.charAt(i), words[i]);
-            }
+            if (!map.put(pattern.charAt(i), words[i]))
+                return false;
         }
         return true;
+    }
+
+
+    class BiMap<K, V> {
+        private Map<K, V> map = new HashMap<>();
+
+        public V get(K key) {
+            return map.get(key);
+        }
+
+        // is unique
+        public boolean put(K key, V val) {
+            if (map.containsKey(key)) {
+                if (!map.get(key).equals(val))
+                    return false;
+            } else {
+                if (map.containsValue(val))
+                    return false;
+                map.put(key, val);
+            }
+            return true;
+        }
     }
 }

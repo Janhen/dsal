@@ -33,7 +33,7 @@ class Solution1_ {
 
         Set<Integer> record = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
-            if (!record.add(nums[i]))  // contains and add composite operation
+            if (!record.add(nums[i]))  // contains and add,  contains and add composite operation
                 return true;
             if (record.size() == k + 1)
                 record.remove(nums[i - k]);

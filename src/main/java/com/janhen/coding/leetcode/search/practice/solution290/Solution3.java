@@ -32,40 +32,24 @@ Output: false
 import java.util.HashMap;
 import java.util.Map;
 
-class Solution_my {
+class Solution3 {
 
     // 1 ms, faster than 99.28%
     public boolean wordPattern(String pattern, String str) {
         String[] words = str.split(" ");
         if (pattern.length() != words.length)
             return false;
-        OneToOneMap<Character, String> map = new OneToOneMap();
+        Map<Character, String> map = new HashMap<>();
         for (int i = 0; i < pattern.length(); i ++) {
-            if (!map.put(pattern.charAt(i), words[i]))
-                return false;
-        }
-        return true;
-    }
-
-
-    class OneToOneMap<K, V> {
-        private Map<K, V> map = new HashMap<>();
-
-        public V get(K key) {
-            return map.get(key);
-        }
-
-        // is unique
-        public boolean put(K key, V val) {
-            if (map.containsKey(key)) {
-                if (!map.get(key).equals(val))
+            if (map.containsKey(pattern.charAt(i))) {
+                if (!map.get(pattern.charAt(i)).equals(words[i]))    // x, y    have x, then y must y
                     return false;
             } else {
-                if (map.containsValue(val))
+                if (map.containsValue(words[i]))       // not have x, then not have y
                     return false;
-                map.put(key, val);
+                map.put(pattern.charAt(i), words[i]);
             }
-            return true;
         }
+        return true;
     }
 }

@@ -25,34 +25,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Solution1 {
-    // clear
-    // not new Object in loop
-    // 155 ms, faster than 39.14%
-    // time : O(N^2)
-    // space : O(N)      每次创建之后便释放,  all n(n-1)
-    public int numberOfBoomerangs(int[][] points) {
+  // clear
+  // not new Object in loop
+  // 155 ms, faster than 39.14%
+  // time : O(N^2)
+  // space : O(N) 每次创建之后便释放, all n(n-1)
+  public int numberOfBoomerangs(int[][] points) {
 
-        int res = 0;
-        Map<Integer, Integer> record = new HashMap<>();
-        for (int i = 0; i < points.length; i ++) {
-            int[] point = points[i];
-            for (int j = 0; j < points.length; j ++) {
-                if (j != i) {
-                    int dis = distance(point, points[j]);
-                    record.put(dis, record.getOrDefault(dis, 0) + 1);
-                }
-            }
-            for (int dis : record.keySet()) {
-                if (record.get(dis) >= 2) {
-                    res += record.get(dis) * (record.get(dis) - 1);
-                }
-            }
-            record.clear();
+    int res = 0;
+    Map<Integer, Integer> record = new HashMap<>();
+    for (int i = 0; i < points.length; i++) {
+      int[] point = points[i];
+      for (int j = 0; j < points.length; j++) {
+        if (j != i) {
+          int dis = distance(point, points[j]);
+          record.put(dis, record.getOrDefault(dis, 0) + 1);
         }
-        return res;
+      }
+      for (int dis : record.keySet()) {
+        if (record.get(dis) >= 2) {
+          res += record.get(dis) * (record.get(dis) - 1);
+        }
+      }
+      record.clear();
     }
+    return res;
+  }
 
-    private int distance(int[] A, int[] B) {
-        return (A[0] - B[0]) * (A[0] - B[0]) + (A[1] - B[1]) * (A[1] - B[1]);
-    }
+  private int distance(int[] A, int[] B) {
+    return (A[0] - B[0]) * (A[0] - B[0]) + (A[1] - B[1]) * (A[1] - B[1]);
+  }
 }

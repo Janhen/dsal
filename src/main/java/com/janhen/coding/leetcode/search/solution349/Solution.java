@@ -6,7 +6,7 @@ package com.janhen.coding.leetcode.search.solution349;
 // Hash Table, Two Pointers, Binary Search, Sort
 
 /*
-找出两个数组中重合的数
+找出两个数组中重合的元素
 Given two arrays, write a function to compute their intersection.
 
 Example 1:
@@ -29,31 +29,26 @@ import java.util.Set;
 
 public class Solution {
 
-    // sort + double index
-    // 3 ms, faster than 78.87%
-    // time : O(nlogn), space : O(n)
-    public int[] intersection(int[] nums1, int[] nums2) {
-        Set<Integer> set = new HashSet<>();
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
-        int i = 0, j = 0;
-        while (i < nums1.length && j < nums2.length) {
-            if (nums1[i] == nums2[j]) {
-                set.add(nums1[i]);                 // handle duplicated element
-                i ++;
-                j ++;
-            }
-            else if (nums1[i] < nums2[j])
-                i ++;
-            else
-                j ++;
-        }
-        int[] res = new int[set.size()];
-        int k = 0;
-        for (Integer val : set)
-            res[k ++] = val;
-        return res;
+  // sort + double index
+  // 3 ms, faster than 78.87%
+  // time : O(nlogn), space : O(n)
+  public int[] intersection(int[] nums1, int[] nums2) {
+    Set<Integer> set = new HashSet<>();
+    Arrays.sort(nums1);
+    Arrays.sort(nums2);
+    int i = 0, j = 0;
+    while (i < nums1.length && j < nums2.length) {
+      if (nums1[i] == nums2[j]) {
+        set.add(nums1[i]); // handle duplicated element
+        i++;
+        j++;
+      } else if (nums1[i] < nums2[j])
+        i++;
+      else
+        j++;
     }
+
+    int[] res = set.stream().mapToInt(Integer::intValue).toArray();
+    return res;
+  }
 }
-
-

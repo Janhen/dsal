@@ -1,12 +1,16 @@
 package com.janhen.coding.leetcode.search.solution350;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 //350. Intersection of Two Arrays II
 //        https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
 // easy
 // Hash Table, Two Pointers, Binary Search, Sort
 
 /*
-两个数组相同的数，可重复
+找出两个数组相同的数，可重复
 Given two arrays, write a function to compute their intersection.
 
 Example 1:
@@ -40,24 +44,24 @@ sort them individually (external sort),
 then read 2 elements from each array at a time in memory, record intersections.
  */
 
-import java.util.ArrayList;
-import java.util.List;
+public class Solution {
 
-public class Solution_my {
-    // two list add + remove
-    // 9 ms, faster than 17.56%
+    // 7 ms, faster than 27.02% 
     public int[] intersect(int[] nums1, int[] nums2) {
-        List<Integer> record = new ArrayList<>();    // every element record
-        List<Integer> res = new ArrayList<>();
-        for (int num : nums1)  // init record list
-            record.add(num);
 
-        for (int num : nums2) {             // ∃, remove
-            if (record.contains(num)) {
+        Map<Integer, Integer> freqs = new HashMap<>();
+        for (int num : nums1)
+            freqs.put(num, freqs.getOrDefault(num, 0) + 1);
+
+        List<Integer> res = new ArrayList<>();
+        for (int num : nums2) {                // ∃,remove or --
+            if (freqs.containsKey(num)) {
                 res.add(num);
-                record.remove(Integer.valueOf(num));  // convert to value to remove
+                freqs.put(num, freqs.get(num) - 1);
+                if (freqs.get(num) == 0)
+                    freqs.remove(num);   // this element not have in all
             }
         }
-        return res.stream().mapToInt(Integer::valueOf).toArray();
+        return res.stream().mapToInt(Integer::intValue).toArray();
     }
 }

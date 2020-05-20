@@ -31,24 +31,24 @@ import java.util.Map;
 
 class Solution2 {
 
-    // 151 ms, faster than 36.32%
-    // time : O(n^2)
-    // space : O(n^2)
-    public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
-        Map<Integer, Integer> mapCD = new HashMap<>();    // len(C) * len(D)
-        for (int i = 0; i < C.length; i ++)
-            for (int j = 0; j < D.length; j ++)
-                mapCD.put(C[i] + D[j], mapCD.getOrDefault(C[i] + D[j], 0) + 1);    // frequency record
-        Map<Integer, Integer> mapAB = new HashMap<>();
-        for (int i = 0; i < A.length; i ++)
-            for (int j = 0; j < B.length; j ++)
-                mapAB.put(A[i] + B[j], mapAB.getOrDefault(A[i] + B[j], 0) + 1);
+  // 151 ms, faster than 36.32%
+  // time : O(n^2)
+  // space : O(n^2)
+  public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
+    Map<Integer, Integer> mapCD = new HashMap<>(); // len(C) * len(D)
+    for (int i = 0; i < C.length; i++)
+      for (int j = 0; j < D.length; j++)
+        mapCD.put(C[i] + D[j], mapCD.getOrDefault(C[i] + D[j], 0) + 1); // frequency record
+    Map<Integer, Integer> mapAB = new HashMap<>();
+    for (int i = 0; i < A.length; i++)
+      for (int j = 0; j < B.length; j++)
+        mapAB.put(A[i] + B[j], mapAB.getOrDefault(A[i] + B[j], 0) + 1);
 
-        int res = 0;
-        for (Integer sumAB : mapAB.keySet())
-            if (mapCD.containsKey(-sumAB))
-                res += mapAB.get(sumAB) * mapCD.get(-sumAB);
+    int res = 0;
+    for (Integer sumAB : mapAB.keySet())
+      if (mapCD.containsKey(-sumAB))
+        res += mapAB.get(sumAB) * mapCD.get(-sumAB);
 
-        return res;
-    }
+    return res;
+  }
 }
