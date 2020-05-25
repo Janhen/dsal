@@ -13,7 +13,7 @@ package com.janhen.coding.leetcode.array.sm_binary_search.sm_0_n_1_n.solution448
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution_freq {
+class Solution2 {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         int[] freqs = new int[nums.length + 1];
         List<Integer> res = new ArrayList<>();

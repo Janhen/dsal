@@ -2,6 +2,7 @@ package com.janhen.coding.leetcode.array.sm_binary_search.sm_0_n_1_n.solution268
 
 class Solution {
 
+    // 数字亦或实现
     // 题目描述：数组元素在 0-n 之间，但是有一个数是缺失的，要求找到这个缺失的数。
     // A ^ A = 0
     // 0 1 2 3 4 5 6    7 6 3 4 5 2    ...

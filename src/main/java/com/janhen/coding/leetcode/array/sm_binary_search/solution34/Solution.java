@@ -12,15 +12,17 @@ class Solution {
     private int binarySearchFirst(int[] nums, int L, int R, int key) {
         while (L <= R) {
             int mid = L + (R - L) / 2;
+            // first index in duplication array that equal specify the number
             if (nums[mid] == key) {
                 if (mid == 0 || (mid > 0 && nums[mid-1] != nums[mid]))
                     return mid;
                 else
                     R = mid - 1;
-            } else if (nums[mid] < key)
+            } else if (nums[mid] < key) {
                 L = mid + 1;
-            else
+            } else {
                 R = mid - 1;
+            }
         }
         return -1;
     }
@@ -35,10 +37,11 @@ class Solution {
                     return mid;
                 else
                     L = mid + 1;
-            } else if (nums[mid] < key)
+            } else if (nums[mid] < key) {
                 L = mid + 1;
-            else
+            } else {
                 R = mid - 1;
+            }
         }
         return - 1;
     }

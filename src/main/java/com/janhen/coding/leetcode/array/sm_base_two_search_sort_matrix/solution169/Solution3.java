@@ -2,7 +2,7 @@ package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution
 
 import java.util.Arrays;
 
-class Solution_sort {
+class Solution3 {
     public int majorityElement(int[] nums) {
         Arrays.sort(nums);
         return nums[nums.length / 2];

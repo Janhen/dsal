@@ -2,7 +2,9 @@ package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution
 
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
+        // record array border
         int i = m - 1, j = n - 1;
+        // set element value from big to small, prevent cover element
         for (int merge = m + n - 1; merge >= 0; merge--) {
             if (i < 0) nums1[merge] = nums2[j--];
             else if (j < 0) nums1[merge] = nums1[i--];

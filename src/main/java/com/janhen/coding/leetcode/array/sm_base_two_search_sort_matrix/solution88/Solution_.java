@@ -1,6 +1,6 @@
 package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution88;
 
-class SolutionRef {
+class Solution_ {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = m - 1, j = n - 1;
         int merge = m + n - 1;

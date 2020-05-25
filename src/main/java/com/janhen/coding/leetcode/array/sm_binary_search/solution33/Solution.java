@@ -1,7 +1,7 @@
 package com.janhen.coding.leetcode.array.sm_binary_search.solution33;
 
 class Solution {
-    // todo
+    // TOWHY
     public int search(int[] nums, int target) {
         int smallestIndex = -1;
         int lo = 0, hi = nums.length - 1;

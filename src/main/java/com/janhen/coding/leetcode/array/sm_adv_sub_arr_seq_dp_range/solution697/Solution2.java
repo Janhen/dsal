@@ -3,7 +3,8 @@ package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution697
 import java.util.HashMap;
 import java.util.Map;
 
-class Solution {
+class Solution2 {
+    // TODO Use priority queue to find and pop max frequency
     public int findShortestSubArray(int[] nums) {
         // step1: collect necessary information
         Map<Integer, Integer> freqs = new HashMap<>();

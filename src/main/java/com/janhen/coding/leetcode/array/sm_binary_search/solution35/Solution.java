@@ -1,6 +1,7 @@
 package com.janhen.coding.leetcode.array.sm_binary_search.solution35;
 
 class Solution {
+    // TODO
     public int searchInsert(int[] nums, int target) {
         int lo = 0, hi = nums.length - 1;
         while (lo <= hi) {

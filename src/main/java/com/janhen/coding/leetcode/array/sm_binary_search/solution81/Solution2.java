@@ -1,7 +1,7 @@
 package com.janhen.coding.leetcode.array.sm_binary_search.solution81;
 
 // 0 ms, faster than 100.00%
-class Solution1 {
+class Solution2 {
     public boolean search(int[] nums, int target) {
         if (nums == null || nums.length == 0) return false;
 

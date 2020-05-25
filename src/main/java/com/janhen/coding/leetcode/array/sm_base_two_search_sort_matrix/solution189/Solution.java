@@ -16,6 +16,7 @@ class Solution {
             swap(nums, i++, j--);
     }
 
+    // int to swap
     private void swap(int[] a, int i, int j) {
         a[i] = a[i] ^ a[j];
         a[j] = a[i] ^ a[j];

@@ -5,9 +5,10 @@ class Solution {
         if (nums == null || nums.length == 0) return 0;
         if (nums.length == 1) return 1;
 
+        // sequential coverage
         int k = 0;
         for (int i = 0; i < nums.length; i ++) {
-            if (i == 0 || nums[i] != nums[i - 1])   // init AND condition
+            if (i == 0 || nums[i] != nums[i - 1])   // init and condition
                 nums[k ++] = nums[i];
         }
         return k;

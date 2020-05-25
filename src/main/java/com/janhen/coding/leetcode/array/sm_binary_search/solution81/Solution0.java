@@ -31,7 +31,7 @@ Would this affect the run-time complexity? How and why?
 
 import com.janhen.TestUtil;
 
-class Solution_bak {
+class Solution0 {
     public boolean search(int[] nums, int target) {
         if (nums == null || nums.length == 0) return false;
 
@@ -77,6 +77,7 @@ class Solution_bak {
         return lo;
     }
 
+    // find element from lo to hi
     private int binarySearch(int[] nums, int lo, int hi, int target) {
         if (lo > hi)
             return -1;

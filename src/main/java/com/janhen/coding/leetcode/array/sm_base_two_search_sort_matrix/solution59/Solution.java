@@ -13,12 +13,13 @@ class Solution {
     }
 
     // note: direction  {--, ++}
-//       extreme condition
+    // extreme condition
     private void fillEdge(int[][] matrix, int left, int up, int right, int down) {
         if (left == right) {
             matrix[left][up] = sequencer++;
             return;
         }
+
         for (int i = left; i < right; i++)
             matrix[up][i] = sequencer++;
         for (int i = up; i < down; i++)

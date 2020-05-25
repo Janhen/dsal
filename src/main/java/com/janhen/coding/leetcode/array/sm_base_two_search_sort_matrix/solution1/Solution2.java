@@ -2,7 +2,7 @@ package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution
 
 import java.util.HashMap;
 
-public class Solution1 {
+public class Solution2 {
 
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> record = new HashMap<>();          // key last occur position

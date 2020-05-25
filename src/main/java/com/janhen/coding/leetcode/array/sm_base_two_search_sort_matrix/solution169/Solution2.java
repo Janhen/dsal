@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-class Solution_freq {
+class Solution2 {
     public int majorityElement(int[] nums) {
         Map<Integer, Integer> freqs = new HashMap<>();
         for (int num : nums)

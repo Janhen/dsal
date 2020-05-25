@@ -3,7 +3,6 @@ package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution
 // bucket sort : element value sure in one area
 // time : O(N)， space : O(k)
 class Solution2 {
-
     public void sortColors(int[] nums) {
         int[] count = new int[3];
         for (int num : nums)

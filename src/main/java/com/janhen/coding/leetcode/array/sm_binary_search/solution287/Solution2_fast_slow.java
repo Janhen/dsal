@@ -4,7 +4,7 @@ package com.janhen.coding.leetcode.array.sm_binary_search.solution287;
 //https://leetcode.com/problems/find-the-duplicate-number/
 
 /*
- * 快慢指针，先快慢轮询一遍，再慢慢轮询一遍，就找到了
+ * 快慢指针，先快慢轮询一遍，再慢慢轮询一遍
  * time:O(N) space:O(1)
  * 0 ms, faster than 100.00%
  */

@@ -14,6 +14,7 @@ class Solution {
                 swap(nums, i, nums[i] - 1);
         }
         for (int i = 0; i < nums.length; i ++)
+            // not in element where it should be
             if (nums[i] != i + 1)
                 res.add(nums[i]);
         return res;

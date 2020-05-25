@@ -10,13 +10,13 @@ class Solution {
 
     // four point to rotate
     private void rotateEdge(int[][] matrix, int up, int left, int bottom, int right) {
-        int time = right - left;                 // rotate times
+        int time = right - left;                 // need to rotate times
         for (int i = 0; i < time; i ++) {
-            int t = matrix[up][left+i];
+            int tmp = matrix[up][left+i];
             matrix[up][left+i] = matrix[bottom-i][left];
             matrix[bottom-i][left] = matrix[bottom][right - i];
             matrix[bottom][right - i] = matrix[up+i][right];
-            matrix[up+i][right] = t;
+            matrix[up+i][right] = tmp;
         }
     }
 }

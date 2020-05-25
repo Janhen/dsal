@@ -1,6 +1,6 @@
 package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution73;
 
-class Solution_b {
+class SolutionB {
     // 遍历过程中修改将要遍历元素的值
     // 类似集合中新建...
     // space: O(MN)
@@ -17,6 +17,7 @@ class Solution_b {
                 }
             }
         }
+
         for (int i = 0; i < m; i ++) {
             for (int j = 0; j < n; j ++) {
                 if (record[i][j])

@@ -12,8 +12,7 @@ range -- https://leetcode.com/problems/find-the-duplicate-number/ (Unsorted Arra
 The reason why we did not use index as "search space" for this recursiont_dp is the matrix is sorted in two directions, we can not find a linear way to map the number and its index.
  *
  */
-class Solution_my2 {
-    // 二分查找用于范围查询，相当于为每个数添加一个属性，小于等于该数的总个数
+class Solution2 {
     public int kthSmallest(int[][] matrix, int k) {
         int m = matrix.length, n = matrix[0].length;
         int lo = matrix[0][0], hi = matrix[m-1][n-1];   // [lo,hi]
@@ -29,13 +28,13 @@ class Solution_my2 {
     // <=mid
     private int countOfLessEqual(int[][] matrix, int key) {
         int cnt = 0;
+        // iterate from left to right and then from top to bottom
         for (int i = 0; i < matrix.length; i ++) {
             for (int j = 0; j < matrix[0].length; j ++) {
                 if (matrix[i][j] <= key) cnt ++;
-                else break;      // NOTE: use sorted property
+                else break;      // note: use sorted property
             }
         }
         return cnt;
     }
-
 }

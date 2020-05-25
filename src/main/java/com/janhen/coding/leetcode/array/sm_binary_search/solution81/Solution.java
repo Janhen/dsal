@@ -3,6 +3,7 @@ package com.janhen.coding.leetcode.array.sm_binary_search.solution81;
 import java.util.Arrays;
 
 class Solution {
+    // TODO
     public boolean search(int[] nums, int target) {
         if (nums == null || nums.length == 0) return false;
 
@@ -16,6 +17,7 @@ class Solution {
         }
     }
 
+    // find rotated first element index
     private int getFirstIndex(int[] nums) {
         int lo = 0, hi = nums.length - 1;
         while (lo < hi) {
