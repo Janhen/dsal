@@ -4,11 +4,17 @@ package com.janhen.coding.leetcode.array.a_good.solution4;
  * 先归并一半的数组，之后取出中位数
  * 26 ms, faster than 89.58%
  */
-class SolutionS {
+class Solution2 {
+    /*
+    mock sort half elements use array and compare
+    time: O(log(m + n))
+    space: O(n)
+     */
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int len1 = nums1.length, len2 = nums2.length;
         int len = len1 + len2;
-        int[] nums = new int[len/2+1];
+        int[] nums = new int[len / 2 + 1];
+        // i,j as iterate point,  k to find
         int i = 0, j = 0, k = 0;
         for (; k < len && k < len/2+1; k ++) {
             if (i >= len1)

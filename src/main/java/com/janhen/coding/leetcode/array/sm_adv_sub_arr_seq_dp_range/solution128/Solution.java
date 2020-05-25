@@ -8,11 +8,13 @@ import static java.util.stream.Collectors.*;
 class Solution {
     public int longestConsecutive(int[] nums) {
         int max = 0;
+        // copy and duplicate removal
         Set<Integer> set = IntStream.of(nums).boxed().collect(toSet());
 
         for (int n : nums) {
             int cnt = 1;
             int num = n;
+            // not sorted
             while (set.contains(++ num)) {          // delete from left to rigth
                 cnt ++;
                 set.remove(num);

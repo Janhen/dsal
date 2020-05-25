@@ -9,22 +9,26 @@ public class Solution {
         if (nums.length == 0)  {
             return res;
         }
+
+        // maintain boundary
         int begin = nums[0], end = nums[0];
         for (int i = 1; i < nums.length; i ++) {
+            // continuous
             if (nums[i] == nums[i - 1] + 1) {
                 end = nums[i];
             } else {
-                res.add(geneRange(nums, begin, end));          // need to collect result
+                res.add(geneRange(begin, end));          // need to collect result
+                // reset boundary continue to find other segment
                 begin = nums[i];
                 end = nums[i];
             }
         }
-        res.add(geneRange(nums, begin, end));     // need to handle tail
+        res.add(geneRange(begin, end));     // need to handle tail
         return res;
     }
 
     // can handle
-    private String geneRange(int[] nums, int begin, int end) {
+    private String geneRange(int begin, int end) {
         if (begin == end) {
             return "" + begin;
         }

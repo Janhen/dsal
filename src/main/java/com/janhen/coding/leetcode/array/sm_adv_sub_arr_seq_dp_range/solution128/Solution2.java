@@ -1,5 +1,6 @@
 package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution128;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,7 +16,8 @@ class Solution2 {
     }
 
     private int forward(Map<Integer, Integer> countForNum, int num) {
-        if (!countForNum.containsKey(num)) return 0;
+        if (!countForNum.containsKey(num))
+            return 0;
         int cnt = countForNum.get(num);
         if (cnt > 1) return cnt;                         // unsorted may calculate
         cnt = 1 + forward(countForNum, num + 1);
@@ -24,9 +26,10 @@ class Solution2 {
     }
 
     private int maxCount(Map<Integer, Integer> map) {
-        int max = 0;
-        for (Integer num : map.keySet())
-            max = Math.max(max, map.get(num));
-        return max;
+        return map.values().stream().max(Comparator.naturalOrder()).get();
+//        int max = 0;
+//        for (Integer num : map.keySet())
+//            max = Math.max(max, map.get(num));
+//        return max;
     }
 }

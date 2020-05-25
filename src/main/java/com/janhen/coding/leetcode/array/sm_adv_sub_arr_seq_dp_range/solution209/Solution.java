@@ -9,12 +9,15 @@ class Solution {
     public int minSubArrayLen(int s, int[] nums) {
         int minLen = Integer.MAX_VALUE;             // 0 can collect
         int sum = 0;              // sliding window attribute
-        int L = 0, R = -1;
+        int L = 0, R = -1;        // find max sliding window size
         while (L < nums.length) {
-            if (R + 1 < nums.length && sum < s)
-                sum += nums[++ R];   // expand window, put [R] in
+            // handle sliding window size
+            if (R  < nums.length - 1 && sum < s)
+                sum += nums[++ R];    // expand window, put [R] in
             else
                 sum -= nums[L ++];    // narrow window, take [L] out
+
+            // current sliding window meet the conditions
             if (sum >= s)
                 minLen = Math.min(minLen, R - L + 1);
         }

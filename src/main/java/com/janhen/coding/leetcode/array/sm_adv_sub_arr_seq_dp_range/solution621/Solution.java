@@ -12,6 +12,7 @@ class Solution {
         PriorityQueue<Map.Entry<Character, Integer>> pq = new PriorityQueue<>(((o1, o2) -> o1.getValue() != o2.getValue() ?
                 Integer.compare(o2.getValue(), o1.getValue()) :
                 Integer.compare(o1.getKey(), o2.getKey())));
+//         sort map by entry    frequency reversed order, character positive order
         pq.addAll(freqs.entrySet());
 
         int count = 0;

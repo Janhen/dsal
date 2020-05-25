@@ -10,6 +10,7 @@ public class SolutionBF {
 
         for (int i = 0; i < nums.length; i ++) {
             for (int j = i; j < nums.length; j ++) {
+                // [i],[i+1]...[j]
                 if (sum[j+1] - sum[i] == k)
                     res += 1;
             }

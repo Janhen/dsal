@@ -16,6 +16,7 @@ class Solution1 {
 
         int l = 0, r = -1;
         int sum = 0;
+        // skip unnecessary index to speed up
         while (r + 1 < N) {         // 窗口的右边界无法继续扩展了, 则循环继续; 基于 r 不断扩大实现
             while (r + 1 < N && sum < s)
                 sum += nums[++ r];
