@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.array.sm_binary_search.sm_kth.solution378;
+package com.janhen.coding.leetcode.array.sm_binary_search.solution378;
 
 import java.util.PriorityQueue;
 

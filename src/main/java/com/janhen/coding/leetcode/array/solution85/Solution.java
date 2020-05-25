@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.array.a_good.solution85;
+package com.janhen.coding.leetcode.array.solution85;
 
 import java.util.Stack;
 

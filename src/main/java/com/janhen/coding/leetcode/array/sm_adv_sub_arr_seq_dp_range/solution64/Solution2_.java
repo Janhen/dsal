@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.sm_matrix_search.solution64;
+package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution64;
 
 // time:O(N^2), space:O(1)
 class Solution2_ {

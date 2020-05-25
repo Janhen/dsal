@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.array.a_good.solution4;
+package com.janhen.coding.leetcode.array.solution4;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.array.sm_binary_search.sm_0_n_1_n.solution448;
+package com.janhen.coding.leetcode.array.sm_binary_search.solution448;
 
 // 448. Find All Numbers Disappeared in an Array
 //https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/

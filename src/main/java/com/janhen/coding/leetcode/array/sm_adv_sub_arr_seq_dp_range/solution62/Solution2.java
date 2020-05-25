@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.sm_matrix_search.solution62;
+package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution62;
 
 class Solution2 {
     public int uniquePaths(int m, int n) {

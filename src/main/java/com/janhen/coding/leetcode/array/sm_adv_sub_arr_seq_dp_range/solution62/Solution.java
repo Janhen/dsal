@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.sm_matrix_search.solution62;
+package com.janhen.coding.leetcode.array.sm_adv_sub_arr_seq_dp_range.solution62;
 
 import java.util.Arrays;
 
