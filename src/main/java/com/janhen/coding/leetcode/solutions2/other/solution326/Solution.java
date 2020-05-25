@@ -4,7 +4,6 @@ package com.janhen.coding.leetcode.solutions2.other.solution326;
 //https://leetcode.com/problems/power-of-three/description/
 
 /*
-
 Easy
 
 236

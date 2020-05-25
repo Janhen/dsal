@@ -4,7 +4,6 @@ package com.janhen.coding.leetcode.solutions2.solution69;
 //https://leetcode.com/problems/sqrtx/
 
 /*
-
 Easy
 
 648

@@ -9,15 +9,19 @@ public class Solution {
   public int threeSumClosest(int[] nums, int target) {
     // check
     int res = nums[0] + nums[1] + nums[nums.length - 1]; // initialization
+    // ordered can two point to ++ --
     Arrays.sort(nums);
     for (int i = 0; i < nums.length - 2; i++) { // note: not N, is N-2
-      int p = i + 1, q = nums.length - 1;
-      while (p < q) {
-        int sum = nums[i] + nums[p] + nums[q];  // init
+      int L = i + 1, R = nums.length - 1;
+      // L and R not equals
+      while (L < R) {
+        // condition to adjust L,R
+        int sum = nums[i] + nums[L] + nums[R];  // init
         if (sum > target)
-          q--;
+          R--;
         else
-          p++;
+          L++;
+
         if (Math.abs(sum - target) < Math.abs(res - target)) // compare{cur diff, min diff}
           res = sum;
       }
