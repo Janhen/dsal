@@ -17,7 +17,9 @@ class Solution {
         ListNode first = new ListNode(-1);
         first.next = head;
         ListNode pre = first;
-        while (fast != null) {         // find nthFromEnd previous node
+
+        // find nthFromEnd previous node
+        while (fast != null) {
             pre = pre.next;
             fast = fast.next;
         }
