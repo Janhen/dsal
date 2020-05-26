@@ -6,6 +6,7 @@ package com.janhen.coding.leetcode.linkedlist.sm_CRUD_reverse_swap_find_merge_pa
 import com.janhen.coding.leetcode.structures.ListNode;
 
 class SolutionR {
+    // TODO
     public ListNode swapPairs(ListNode head) {
         if (head == null || head.next == null)
             return head;

@@ -13,8 +13,9 @@ import com.janhen.coding.leetcode.structures.ListNode;
 /*
  * 1 ms, faster than 96.60%
  */
-class SolutionRef {
-
+class Solution2 {
+    // need to modify original list
+    // time: O(n), space: O(1)
     public boolean isPalindrome(ListNode head) {
         if (head == null || head.next == null) return true;
         ListNode slow = head, fast = head.next;

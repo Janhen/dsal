@@ -3,10 +3,7 @@ package com.janhen.coding.leetcode.linkedlist.sm_CRUD_reverse_swap_find_merge_pa
 import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution {
-
-    // like find nthFromEnd before node
-    // 定位到底 n 个节点，记录前指针
-    // 两个指针同时走到底，前指针指向的是倒数第 n 个节点的前一个节点
+    // dummy node + fast slow pointer
     public ListNode removeNthFromEnd(ListNode head, int n) {
         // iteration to find nth node
         ListNode fast = head;

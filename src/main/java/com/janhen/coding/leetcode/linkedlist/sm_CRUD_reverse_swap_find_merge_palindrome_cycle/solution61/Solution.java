@@ -2,26 +2,42 @@ package com.janhen.coding.leetcode.linkedlist.sm_CRUD_reverse_swap_find_merge_pa
 
 import com.janhen.coding.leetcode.structures.ListNode;
 
+// 7 ms, faster than 97.84%
 class Solution {
-    // 找到倒数第 n 个节点的前一个节点，以及 tail 节点
+    // find pre AND tail
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null || head.next == null) return head;
-        ListNode first = new ListNode(-1);
-        first.next = head;
-        ListNode slow = first, fast = first;    // slow point to pre,  fast point to tail
-        int N = 0;
-        while (fast.next != null) {
-            N ++;
-            fast = fast.next;    // stat count AND now fast is tail
-        }
-        int step = N - k % N;   // need to step from dummy
-        while (step -- > 0)
-            slow = slow.next;
+        if (head == null || head.next == null)
+            return head;
 
-        // split and join
-        fast.next = first.next;
-        first.next = slow.next;
-        slow.next = null;
-        return first.next;
+        int len = length(head);
+        k = k % len;                        // preHandle
+        if (k == 0)
+            return head;
+
+        // n1 -> n2 -> .... -> nk -> nk+1 -> ... -> tail -> NULL
+        // recode len-k node
+        ListNode pre = null;
+        ListNode cur = head;
+        int cnt = 0;
+        while (cur.next != null) {    // find pre node nthNodeFromEnd AND tail node
+            cnt ++;
+            if (cnt == len - k)       // count to calculate pre
+                pre = cur;
+            cur = cur.next;
+        }
+        ListNode newHead = pre.next;        // as head
+        cur.next = head;
+        pre.next = null;                  // as tail
+        return newHead;
+    }
+
+    private int length(ListNode head) {
+        ListNode cur = head;
+        int len = 0;
+        while (cur != null) {
+            len ++;
+            cur = cur.next;
+        }
+        return len;
     }
 }

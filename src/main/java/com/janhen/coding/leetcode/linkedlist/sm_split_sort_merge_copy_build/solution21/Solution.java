@@ -4,23 +4,27 @@ import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        // record sorted list first node
         ListNode first = new ListNode(-1);
-        ListNode tail = first;
+        // list act as a go-between
+        ListNode cur = first;
+        // iterate two list
         while (l1 != null && l2 != null) {
             if (l1.val <= l2.val) {
-                tail.next = l1;
-                tail = l1;
+                cur.next = l1;
+                cur = l1;
                 l1 = l1.next;
             } else {
-                tail.next = l2;
-                tail = l2;
+                cur.next = l2;
+                cur = l2;
                 l2 = l2.next;
             }
         }
+        // handle one list is null
         if (l1 == null)
-            tail.next = l2;
+            cur.next = l2;
         if (l2 == null)
-            tail.next = l1;
+            cur.next = l1;
         return first.next;
     }
 }

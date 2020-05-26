@@ -6,10 +6,6 @@ package com.janhen.coding.leetcode.linkedlist.sm_CRUD_reverse_swap_find_merge_pa
 
 import com.janhen.coding.leetcode.structures.ListNode;
 
-/*
-
- */
-
 class Solution1 {
 
     public ListNode deleteDuplicates(ListNode head) {

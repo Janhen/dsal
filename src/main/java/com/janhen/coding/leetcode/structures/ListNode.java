@@ -1,7 +1,12 @@
 package com.janhen.coding.leetcode.structures;
 
 import java.util.List;
+import java.util.Stack;
 
+/**
+ * 基本的链表结构
+ * 带有常用的辅助函数
+ */
 public class ListNode implements Cloneable {
 
     public int      val;
@@ -60,23 +65,23 @@ public class ListNode implements Cloneable {
         return first.next;
     }
 
-    /* -------------------------- QUERY --------------------------- */
-
-    public static ListNode FindKthToTail(ListNode head, int k) {
-        if (head == null || k <= 0)
-            return null;
-        ListNode fast = head;
-        while (fast != null && k-- > 0)
-            fast = fast.next;
-        if (k > 0)               // fast == null OR k ==0,    k invalid
-            return null;
-
-        ListNode slow = head;
-        while (fast != null) {
-            fast = fast.next;
-            slow = slow.next;
+    // judge two list is or not identically equal
+    public static boolean isEqual(ListNode l1, ListNode l2) {
+        while (l1 != null && l2 != null) {
+            if (l1.val != l2.val) return false;
+            l1 = l1.next;
+            l2 = l2.next;
         }
-        return slow;
+        return l1 == null && l2 == null;
+    }
+
+    public static boolean isEqual2(ListNode l1, ListNode l2) {
+        while (l1 != null && l2 != null) {
+            if (l1.val != l2.val) return false;
+            l1 = l1.next;
+            l2 = l2.next;
+        }
+        return true;
     }
 
     public static boolean hasCycle(ListNode head) {
@@ -88,6 +93,30 @@ public class ListNode implements Cloneable {
                 return true;             // 新赋值, 后比较
         }
         return false;
+    }
+
+    // time: O(n), space: O(n)
+    public boolean isPalindrome(ListNode head) {
+        // store left half nodes
+        Stack<Integer> s = new Stack<>();
+        ListNode fast = head, slow = head;
+        while (fast != null && fast.next != null) {
+            s.push(slow.val);
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // handle odd count condition, now Count([slow, tail]) = N/2+1
+        if (fast != null)
+            slow = slow.next;
+
+        // use slow to iterate right half nodes
+        while (slow != null) {    // also can !s.isEmpty();   slow from left to right, stack from right to left;
+            if (s.pop() != slow.val)
+                return false;
+            slow = slow.next;
+        }
+        return true;
     }
 
     public static int length(ListNode head) {
@@ -123,16 +152,25 @@ public class ListNode implements Cloneable {
         return first.next;
     }
 
-    public static boolean isEqual(ListNode l1, ListNode l2) {
-        while (l1 != null && l2 != null) {
-            if (l1.val != l2.val) return false;
-            l1 = l1.next;
-            l2 = l2.next;
+    public static ListNode FindKthToTail(ListNode head, int k) {
+        if (head == null || k <= 0)
+            return null;
+        ListNode fast = head;
+        while (fast != null && k-- > 0)
+            fast = fast.next;
+        if (k > 0)               // fast == null OR k ==0,    k invalid
+            return null;
+
+        ListNode slow = head;
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
         }
-        return l1 == null && l2 == null;
+        return slow;
     }
 
-    private ListNode preMid(ListNode head) {
+    // find before node in mid node
+    public ListNode preMid(ListNode head) {
         ListNode fast = head, slow = head, pre = null;
         while (fast != null && fast.next != null) {
             pre = slow;
@@ -141,9 +179,6 @@ public class ListNode implements Cloneable {
         }
         return pre;
     }
-    // todo 中间节点
-
-    /* ------------------------------- MODIFY ---------------------- */
 
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode first = new ListNode(-1);
@@ -190,11 +225,12 @@ public class ListNode implements Cloneable {
 
     /**
      * 反转从 head 开始的 n 个节点
+     * <pre>
      * 1->2->3->4->5->6->7->8
      * head 4, n = 3
-     * 6->5->4->7->8
-     *        ^
-     *        point to original
+     * 1->2->3->6->5->4->7->8
+     *
+     * </pre>
      *
      * @param head
      * @param n
@@ -214,25 +250,6 @@ public class ListNode implements Cloneable {
         reversedTail.next = next;
         return pre;
     }
-
-    // 修改相关
-
-
-    // todo 反转链表
-
-    // todo 删除指定元素
-
-    /* ------------------------------ TWO LISTNODE -------------------- */
-
-//    public static boolean hasIntersectionNode(ListNode list1, ListNode list2) {
-//        // 把第一个链表的结尾连接到第二个链表的开头，看第二个链表是否存在环；
-//        // OR 查看最后一个节点是否相同
-//        while (list1.next != null || list2.next != null) {
-//            list1 = list1.next != null ? list1.next : list1;
-//            list2 = list2.next != null ? list2.next : list2;
-//        }
-//        return list1 == list2;
-//    }
 
     /**
      * 获取两个链表的交点

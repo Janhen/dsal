@@ -5,16 +5,22 @@ import com.janhen.coding.leetcode.structures.ListNode;
 import java.util.Stack;
 
 class Solution {
+    // time: O(n), space: O(n)
     public boolean isPalindrome(ListNode head) {
-        Stack<Integer> s = new Stack<>();           // store half node
+        // store left half nodes
+        Stack<Integer> s = new Stack<>();
         ListNode fast = head, slow = head;
         while (fast != null && fast.next != null) {
             s.push(slow.val);
             slow = slow.next;
             fast = fast.next.next;
         }
+
+        // handle odd count condition, now Count([slow, tail]) = N/2+1
         if (fast != null)
-            slow = slow.next;     // odd count, [slow, tail] N/2+1, now slow point to middle node
+            slow = slow.next;
+
+        // use slow to iterate right half nodes
         while (slow != null) {    // also can !s.isEmpty();   slow from left to right, stack from right to left;
             if (s.pop() != slow.val)
                 return false;
