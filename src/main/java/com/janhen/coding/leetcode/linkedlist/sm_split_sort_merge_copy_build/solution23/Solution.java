@@ -2,21 +2,29 @@ package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.sol
 
 import com.janhen.coding.leetcode.structures.ListNode;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 class Solution {
+    /*
+    Like from many data stream collect data, and then find top
+     */
     public ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode> pq = new PriorityQueue<>(lists.length, (l1, l2)->l1.val-l2.val);   // list like each data flow
-        for (ListNode list : lists)     // load all data flow
+        PriorityQueue<ListNode> pq = new PriorityQueue<>(lists.length, Comparator.comparingInt(l -> l.val));   // list like each data flow
+        // load all data stream first element to heap
+        for (ListNode list : lists)
             if (list != null)
                pq.offer(list);
 
+        // iterate heap to continue to find next sorted element
         ListNode first = new ListNode(-1);     // use for join together
-        ListNode tail = first;
+        ListNode cur = first;
         while (!pq.isEmpty()) {
-            tail.next = pq.poll();
-            tail = tail.next;            // sort node
-            if (tail.next != null) pq.offer(tail.next);      // iterate list next element , load next node if have in this data flow
+            cur.next = pq.poll();
+            cur = cur.next;            // sort node
+            if (cur.next != null) {
+                pq.offer(cur.next);      // iterate list next element , load next node if have in this data flow
+            }
         }
         return first.next;
     }

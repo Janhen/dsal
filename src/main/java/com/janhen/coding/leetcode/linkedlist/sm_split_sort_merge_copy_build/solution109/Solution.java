@@ -12,17 +12,21 @@ class Solution {
         if (head.next == null)
             return new TreeNode(head.val);
 
-        ListNode preMid = preMid(head);           // not need precise odd OR even count
+        // find previous middle node
+        // cut ⇒ two list
+        ListNode preMid = findPreMidNode(head);           // not need precise odd OR even count
         ListNode mid = preMid.next;
-        preMid.next = null;                       // cut ⇒ two list
+        preMid.next = null;
 
+        // convert to half sub problem
         TreeNode root = new TreeNode(mid.val);   // head... preMid
         root.left = sortedListToBST(head);
         root.right = sortedListToBST(mid.next);   // Note: mid.next ... tail
         return root;
     }
 
-    private ListNode preMid(ListNode head) {
+    private ListNode findPreMidNode(ListNode head) {
+        // use fast, slow pointer must from head to tail
         ListNode slow = head, fast = head;
         ListNode pre = null;
         while (fast != null && fast.next != null) {

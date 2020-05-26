@@ -22,6 +22,8 @@ class SolutionRef {
         if (l > r) return null;
         if (l == r) return new TreeNode(head.val);
 
+        // use count to find mid node, not need to cur list
+        // not need to cut list to find mid element
         int mid = l + (r - l) / 2;
         ListNode midNode = head;
         for (int i = l; i < mid; i ++)

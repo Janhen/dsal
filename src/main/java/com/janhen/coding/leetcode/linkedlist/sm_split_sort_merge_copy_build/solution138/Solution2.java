@@ -15,12 +15,14 @@ public class Solution2 {
             cur.next = copy;
             cur = copy.next;
         }
+
         cur = head;    // traverse original list
         while (cur != null) {
             RandomListNode clone = cur.next;
             if (cur.random != null) clone.random = cur.random.next;     // random not every node have
             cur = clone.next;
         }
+
         cur = head;     // traverse combined list and split it
         RandomListNode copyHead = cur.next;
         while (cur.next != null) {

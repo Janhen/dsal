@@ -2,11 +2,11 @@ package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.sol
 
 import com.janhen.coding.leetcode.structures.ListNode;
 
-/*
- * 类归并排序
- * 5 ms, faster than 100.00%
- */
 class Solution2 {
+    /*
+     类归并排序
+     5 ms, faster than 100.00%
+     */
     public ListNode mergeKLists(ListNode[] lists) {
         return mergeSortList(lists, 0, lists.length - 1);
     }
