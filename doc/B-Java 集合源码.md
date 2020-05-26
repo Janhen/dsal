@@ -270,11 +270,6 @@ final class Itr implements Iterator<E> {
 ② stream 中提供对于容器的内部迭代
 
 
-
-
-
-
-
 ## 适配器模式
 
 （1） 将数组转换成 List 类型
@@ -286,8 +281,6 @@ public static <T> List<T> asList(T... a)
 （2） stream 进行内部迭代进行各种转换
 
 // todo Q
-
-
 
 
 
@@ -561,7 +554,6 @@ oos.writeObject(list);
 - 数据增长： Vector 每次扩容请求其大小的 2 倍空间，而 ArrayList 是 1.5 倍。且 Vector 可以设置增长空间的大小。
 
 
-
 ## LinkedList
 
 基本性质：
@@ -686,124 +678,6 @@ E unlink(Node<E> x) {
     return element;
 }
 ```
-
-
-
-## Vector
-
-基本性质： 
-
-底层基于数组保存元素；
-
-随机查询快，增删慢；
-
-线程安全；
-
-Java 中的 Stack 通过继承 Vector 实现的；
-
-
-
-**1、底层 | INIT**
-
-（1） 结构
-
-① elementCount：初始容量为 10，非懒加载实现；
-
-② capacityIncrement；可以设置每次容量的增长数量；
-
-③ 无 modCount： 同步容器
-
-```java
-Object[] elementData;
-int elementCount;
-int capacityIncrement;
-```
-
-（2） 初始化
-
-支持 ArrayList 的各种初始化；
-
-支持设置每次的扩容时的容量增长；
-
-```java
-public Vector() {
-    this(10);
-}
-public Vector(int initialCapacity, int capacityIncrement) {
-    super();
-    if (initialCapacity < 0)
-        throw new IllegalArgumentException("Illegal Capacity: "+
-                                           initialCapacity);
-    this.elementData = new Object[initialCapacity];
-    this.capacityIncrement = capacityIncrement;
-}
-```
-
-
-
-
-
-**2、操作**
-
-对修改底层结构的函数进行加锁同步访问。
-
-```java
-public synchronized boolean add(E e) {
-    modCount++;
-    ensureCapacityHelper(elementCount + 1);
-    elementData[elementCount++] = e;
-    return true;
-}
-
-public synchronized E get(int index) {
-    if (index >= elementCount)
-        throw new ArrayIndexOutOfBoundsException(index);
-
-    return elementData(index);
-}
-```
-
-
-
-**3、扩容机制**
-
-扩容为 `oldN*2`；
-
-可以通过用户设置的正常数量进行控制扩容大小；
-
-```java
-void grow(int minCapacity) {
-    // overflow-conscious code
-    int oldCapacity = elementData.length;
-    int newCapacity = oldCapacity + ((capacityIncrement > 0) ?                 /* 默认扩容 1 倍 */
-                                     capacityIncrement : oldCapacity);
-    if (newCapacity - minCapacity < 0)
-        newCapacity = minCapacity;
-    if (newCapacity - MAX_ARRAY_SIZE > 0)
-        newCapacity = hugeCapacity(minCapacity);
-    elementData = Arrays.copyOf(elementData, newCapacity);
-}
-```
-
-
-
-**4、替代方案**
-
-因为 Vector 通过加锁实现，粒度大效率低。
-
-（1） 获得对应线程不安全容器的同步容器
-
-```java
-List<String> list = new ArrayList<>();
-List<String> synList = Collections.synchronizedList(list);
-```
-
-（2） 使用并发容器，如 CopyOnWriteArrayList
-
-```java
-List<String> list = new CopyOnWriteArrayList<>();
-```
-
 
 
 ## CopyOnWriteArrayList
@@ -962,6 +836,122 @@ CopyOnWriteArrayList 在写操作的同时允许读操作，大大提高了读�
 - 数据不一致：读操作不能读取实时性的数据，因为部分写操作的数据还未同步到读数组中。
 
 所以 CopyOnWriteArrayList 不适合内存敏感以及对实时性要求很高的场景。
+
+
+## Vector
+
+基本性质： 
+
+底层基于数组保存元素；
+
+随机查询快，增删慢；
+
+线程安全；
+
+Java 中的 Stack 通过继承 Vector 实现的；
+
+
+
+**1、底层 | INIT**
+
+（1） 结构
+
+① elementCount：初始容量为 10，非懒加载实现；
+
+② capacityIncrement；可以设置每次容量的增长数量；
+
+③ 无 modCount： 同步容器
+
+```java
+Object[] elementData;
+int elementCount;
+int capacityIncrement;
+```
+
+（2） 初始化
+
+支持 ArrayList 的各种初始化；
+
+支持设置每次的扩容时的容量增长；
+
+```java
+public Vector() {
+    this(10);
+}
+public Vector(int initialCapacity, int capacityIncrement) {
+    super();
+    if (initialCapacity < 0)
+        throw new IllegalArgumentException("Illegal Capacity: "+
+                                           initialCapacity);
+    this.elementData = new Object[initialCapacity];
+    this.capacityIncrement = capacityIncrement;
+}
+```
+
+
+
+
+
+**2、操作**
+
+对修改底层结构的函数进行加锁同步访问。
+
+```java
+public synchronized boolean add(E e) {
+    modCount++;
+    ensureCapacityHelper(elementCount + 1);
+    elementData[elementCount++] = e;
+    return true;
+}
+
+public synchronized E get(int index) {
+    if (index >= elementCount)
+        throw new ArrayIndexOutOfBoundsException(index);
+
+    return elementData(index);
+}
+```
+
+
+
+**3、扩容机制**
+
+扩容为 `oldN*2`；
+
+可以通过用户设置的正常数量进行控制扩容大小；
+
+```java
+void grow(int minCapacity) {
+    // overflow-conscious code
+    int oldCapacity = elementData.length;
+    int newCapacity = oldCapacity + ((capacityIncrement > 0) ?                 /* 默认扩容 1 倍 */
+                                     capacityIncrement : oldCapacity);
+    if (newCapacity - minCapacity < 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE > 0)
+        newCapacity = hugeCapacity(minCapacity);
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}
+```
+
+
+
+**4、替代方案**
+
+因为 Vector 通过加锁实现，粒度大效率低。
+
+（1） 获得对应线程不安全容器的同步容器
+
+```java
+List<String> list = new ArrayList<>();
+List<String> synList = Collections.synchronizedList(list);
+```
+
+（2） 使用并发容器，如 CopyOnWriteArrayList
+
+```java
+List<String> list = new CopyOnWriteArrayList<>();
+```
 
 
 
@@ -1229,7 +1219,6 @@ class Itr implements Iterator<E> {
 实现 哈夫曼树等结构；
 
 
-
 ## ArrayDeque
 
 基于数组实现的双向队列；
@@ -1238,9 +1227,8 @@ class Itr implements Iterator<E> {
 
 
 
-
-
 # Map
+> 比较不同的实现，以及不同 JDK 版本下的实现  
 
 Map 总览： 
 
@@ -1554,7 +1542,6 @@ void transfer(Entry[] newTable) {
 put 操作可能造成丢失修改；
 
 
-
 ## HashMap(8)
 
 **1、底层结构 | INIT**
@@ -1835,7 +1822,6 @@ if (hiHead != null) {
 ```
 
 
-
 ## HashTable
 
 与 JDK7 的 HashMap 基本一致；
@@ -1917,9 +1903,6 @@ int newCapacity = (oldCapacity << 1) + 1;
 ③ init 及 hash 定位： HashTable 初始容量为 11，通过 % 的方式进行定位；
 
 ④ 迭代访问上： 两者实现的迭代不同，一个基于 Iterator，一个基于 Enumerator；
-
-
-
 
 
 ## LinkedHashMap
@@ -2071,7 +2054,6 @@ public synchronized V put(K key, V val) {
 ④ 在扩容操作上，虽然 LinkedHashMap 完全继承了 HashMap 的 resize 操作，但是鉴于性能和 LinkedHashMap 自身特点的考量，  LinkedHashMap 对其中的重哈希过程(transfer 方法)进行了重写。
 
 
-
 ## TreeMap
 
 红黑树的实现
@@ -2087,7 +2069,6 @@ public synchronized V put(K key, V val) {
 ① 顺序性
 
 ② 存取效率上： O(1) VS O(logN)
-
 
 
 ## ConcurrentHashMap(7)
@@ -2268,7 +2249,6 @@ public int size() {
 - 在 CAS 失败时通过内置锁 `synchronized` 锁住链表 | 红黑树的头结点；
 
 
-
 ## ConcurrentHashMap(8)
 
 五十几个内部类，Guava 中的 Cache 基于此实现。
@@ -2428,9 +2408,6 @@ addCount(1L, binCount);
 3、扩容
 
 // todo
-
-
-
 
 
 ## ThreadLocalMap
@@ -3052,20 +3029,11 @@ if (length < INSERTION_SORT_THRESHOLD) {
 **&& binarySearch**
 
 
-
-
-
-
-
 ## Collections
 
 **&& sort**
 
 JDK8 中借助 List 中自带的 sort() 函数调用实现；
-
-
-
-
 
 
 
@@ -3079,6 +3047,3 @@ JDK8 中借助 List 中自带的 sort() 函数调用实现；
 
 ② 链表：  接着 ListIterator 实现二分查找
 
-
-
-**&& stream()**
