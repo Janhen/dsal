@@ -14,3 +14,9 @@ LFU 淘汰策略的缓存
 LRU 淘汰策略的缓存  
 
 
+  
+  
+  
+  
+获取一个值，若这个数据结构经常变化，这个值也会对应频繁变化，使用的较为频繁  
+https://leetcode.com/problems/kth-smallest-element-in-a-bst/  

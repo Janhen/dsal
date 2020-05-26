@@ -1,7 +1,9 @@
-package com.janhen.coding.leetcode.binarytree.sm_depth_bst_cbt_b_traverse_ancestor.solution222;
-
-class SolutionRef {
-    // todo Q
+//package com.janhen.coding.leetcode.binarytree.sm_depth_bst_cbt_b_traverse_ancestor.solution222;
+//
+//import com.janhen.coding.leetcode.structures.TreeNode;
+//
+//class SolutionRef {
+//    // todo Q
 //    public int countNodes(TreeNode root) {
 //        int h = height(root);
 //
@@ -18,4 +20,4 @@ class SolutionRef {
 //            return 0;
 //        return 1 + height(node.left);
 //    }
-}
+//}

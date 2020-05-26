@@ -12,7 +12,8 @@ class SolutionBFS {
     public boolean isSymmetric(TreeNode root) {
         if (root == null)
             return true;
-        Queue<TreeNode> q1 = new LinkedList<>(), q2 = new LinkedList<>();
+        Queue<TreeNode> q1 = new LinkedList<>();
+        Queue<TreeNode> q2 = new LinkedList<>();
         q1.offer(root.left);
         q2.offer(root.right);     // like two tree to traverse
         TreeNode left, right;
@@ -22,6 +23,7 @@ class SolutionBFS {
             if (left == null && right == null) continue;
             else if (left == null || right == null) return false;
             else if (left.val != right.val) return false;
+
             q1.offer(left.left);
             q2.offer(right.right);
             q1.offer(left.right);

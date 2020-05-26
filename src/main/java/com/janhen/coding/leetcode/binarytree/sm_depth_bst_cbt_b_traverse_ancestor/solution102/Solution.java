@@ -10,11 +10,14 @@ import java.util.Queue;
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
-        if (root == null) return res;
+        if (root == null)
+            return res;
+
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
         while (!q.isEmpty()) {
             int cnt = q.size();
+            // collect current layer left and right node
             List<Integer> layer = new ArrayList<>();
             while (cnt -- > 0) {
                 TreeNode cur = q.poll();

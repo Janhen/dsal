@@ -2,7 +2,7 @@ package com.janhen.coding.leetcode.binarytree.sm_depth_bst_cbt_b_traverse_ancest
 
 import com.janhen.coding.leetcode.structures.TreeNode;
 
-class Solution {
+class SolutionR {
     public boolean isSymmetric(TreeNode root) {
         if (root == null) return true;
         return isSymmetric(root.left, root.right);
@@ -15,6 +15,7 @@ class Solution {
             return false;
         if (t1.val != t2.val)
             return false;
-        return isSymmetric(t1.left, t2.right) && isSymmetric(t1.right, t2.left);   // Strong constraint
+
+        return isSymmetric(t1.left, t2.right) && isSymmetric(t1.right, t2.left);
     }
 }

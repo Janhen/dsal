@@ -14,7 +14,8 @@ class Solution {
                 cur = cur.left;
             }
             cur = stack.pop();
-            if (-- k == 0) return cur.val;
+            if (-- k == 0)
+                return cur.val;
             cur = cur.right;
         }
         throw new IllegalArgumentException();

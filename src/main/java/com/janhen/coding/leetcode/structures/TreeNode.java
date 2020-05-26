@@ -36,6 +36,24 @@ public class TreeNode {
         return new TreeNode(val);
     }
 
+    public int leftSideDepth(TreeNode node) {
+        int depth = 0;
+        while (node != null) {
+            depth ++;
+            node = node.left;
+        }
+        return depth;
+    }
+
+    public int rightSideDepth(TreeNode node) {
+        int depth = 0;
+        while (node != null) {
+            depth ++;
+            node = node.right;
+        }
+        return depth;
+    }
+
     // traverse
     public void preOrder() {
         TreeNode cur = this;
@@ -268,8 +286,10 @@ public class TreeNode {
 
     // query
 
+    // node all count
     public static int count(TreeNode node) {
-        if (node == null) return 0;
+        if (node == null)
+            return 0;
         return 1 + count(node.left) + count(node.right);
     }
 

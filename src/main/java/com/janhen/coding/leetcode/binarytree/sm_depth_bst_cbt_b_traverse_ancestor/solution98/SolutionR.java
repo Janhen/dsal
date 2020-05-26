@@ -40,7 +40,7 @@ import com.janhen.coding.leetcode.structures.TreeNode;
  * 0 ms, faster than 100.00%
  */
 // todo Q
-class Solution2 {
+class SolutionR {
     public boolean isValidBST(TreeNode root) {
         return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);     // init value is max AND min
     }

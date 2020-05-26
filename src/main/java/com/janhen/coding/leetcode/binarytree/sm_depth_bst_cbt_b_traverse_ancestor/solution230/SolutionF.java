@@ -3,6 +3,7 @@ package com.janhen.coding.leetcode.binarytree.sm_depth_bst_cbt_b_traverse_ancest
 import com.janhen.coding.leetcode.structures.TreeNode;
 
 class SolutionF {
+    // continue to narrow tree scale
     public int kthSmallest(TreeNode root, int k) {
         int leftSize = count(root.left);
         if (leftSize == k-1)

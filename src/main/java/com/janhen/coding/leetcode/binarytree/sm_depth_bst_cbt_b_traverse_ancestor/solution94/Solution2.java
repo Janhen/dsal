@@ -10,6 +10,7 @@ class Solution2 {
 
     public static final boolean GO = false;
     public static final boolean PRINT = true;
+
     class Command {
         boolean op;
         TreeNode node;
@@ -23,6 +24,7 @@ class Solution2 {
         List<Integer> res = new ArrayList<>();
         if (root == null)
             return res;
+
         Stack<Command> stack = new Stack<>();
         stack.push(new Command(GO, root));
         while (!stack.isEmpty()) {

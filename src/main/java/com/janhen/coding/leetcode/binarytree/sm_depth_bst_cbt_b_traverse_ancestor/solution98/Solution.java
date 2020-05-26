@@ -6,7 +6,9 @@ import java.util.Stack;
 
 class Solution {
     public boolean isValidBST(TreeNode root) {
-        if (root == null) return true;
+        if (root == null)
+            return true;
+
         Stack<TreeNode> stack = new Stack<>();
         TreeNode cur = root;
         TreeNode pre = null;      // record to compare
@@ -16,7 +18,8 @@ class Solution {
                 cur = cur.left;
             }
             cur = stack.pop();
-            if (pre != null && cur.val < pre.val) return false;   // compare
+            if (pre != null && cur.val < pre.val)
+                return false;
             pre = cur;
             cur = cur.right;
         }

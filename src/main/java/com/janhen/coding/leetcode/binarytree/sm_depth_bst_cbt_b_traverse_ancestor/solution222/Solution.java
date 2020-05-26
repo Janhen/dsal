@@ -3,6 +3,7 @@ package com.janhen.coding.leetcode.binarytree.sm_depth_bst_cbt_b_traverse_ancest
 import com.janhen.coding.leetcode.structures.TreeNode;
 
 class Solution {
+    // the properties of a complete binary tree
     public int countNodes(TreeNode root) {
         int leftDepth = leftDepth(root);
         int rightDepth = rightDepth(root);

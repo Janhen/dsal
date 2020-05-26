@@ -8,7 +8,10 @@ import java.util.Queue;
 public class Codec {
 
     private static final String SEPARATOR = " ";
+
     private static final String NULL = "#";
+
+    // level traverse
     public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         Queue<TreeNode> q = new LinkedList<>();
@@ -16,10 +19,10 @@ public class Codec {
         while (!q.isEmpty()) {
             TreeNode cur = q.poll();
             if (cur == null) {
-                sb.append(NULL + SEPARATOR);
+                sb.append(NULL).append(SEPARATOR);
                 continue;
             }
-            sb.append(cur.val + SEPARATOR);
+            sb.append(cur.val).append(SEPARATOR);
             q.offer(cur.left);
             q.offer(cur.right);
         }

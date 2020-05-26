@@ -12,6 +12,7 @@ class SolutionDFS {
     public boolean isSymmetric(TreeNode root) {
         if (root == null)
             return true;
+
         Stack<Pair> s = new Stack<>();
         s.push(new Pair(root.left, root.right));
         TreeNode left, right;

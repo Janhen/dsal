@@ -6,6 +6,8 @@ import java.util.*;
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        // Step1: pre order traverse and collect result
+        // tree node -> parent tree node
         Map<TreeNode, TreeNode> parent = new HashMap<>();
         parent.put(root, null);
 
@@ -23,6 +25,7 @@ class Solution {
             }
         }
 
+        // Step2: collect p tree all ancestor from newer to older and compare q tree ancestor
         Set<TreeNode> pAncestors = new HashSet<>();
         while (p != null) {
             pAncestors.add(p);
