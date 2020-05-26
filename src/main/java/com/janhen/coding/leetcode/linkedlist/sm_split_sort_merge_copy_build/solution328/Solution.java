@@ -5,7 +5,9 @@ import com.janhen.coding.leetcode.structures.ListNode;
 class Solution {
     public ListNode oddEvenList(ListNode head) {
         if (head == null) return null;
-        ListNode odd = head, even = head.next, evenHead = even;    // 保存用于最后直接链接
+
+        // odd, even to iterate list, evenHead to record even list head
+        ListNode odd = head, even = head.next, evenHead = even;
         while (odd.next != null && even.next != null) {          // even is fast than odd one step ⇔ odd.next != null && even.next != null
             odd.next = odd.next.next;
             odd = odd.next;

@@ -6,7 +6,8 @@ class Solution {
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) return head;
 
-        ListNode preMid = preMid(head);
+        // find mid node to sort half size
+        ListNode preMid = findPreMidNode(head);
         ListNode mid = preMid.next;
         preMid.next = null;
 
@@ -15,7 +16,7 @@ class Solution {
         return merge(l1, l2);
     }
 
-    private ListNode preMid(ListNode head) {
+    private ListNode findPreMidNode(ListNode head) {
         ListNode pre = null, fast = head, slow = head;
         while (fast != null && fast.next != null) {
             pre = slow;

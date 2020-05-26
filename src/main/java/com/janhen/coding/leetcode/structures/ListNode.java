@@ -16,6 +16,11 @@ public class ListNode implements Cloneable {
         this.val = val;
     }
 
+    public ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
+    }
+
     public ListNode(int[] nums) {
         if (nums == null || nums.length == 0)
             throw new IllegalArgumentException();

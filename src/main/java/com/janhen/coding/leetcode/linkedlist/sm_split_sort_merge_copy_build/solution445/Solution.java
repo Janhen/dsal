@@ -3,7 +3,6 @@ package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.sol
 import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution {
-    // 反转进行求和
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         l1 = reverse(l1);
         l2 = reverse(l2);

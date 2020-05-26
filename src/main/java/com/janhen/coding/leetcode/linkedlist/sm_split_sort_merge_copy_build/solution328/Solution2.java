@@ -5,10 +5,11 @@ package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.sol
 
 import com.janhen.coding.leetcode.structures.ListNode;
 
-class SolutionBa {
+class Solution2 {
 
     // COMMON handle
     public ListNode oddEvenList(ListNode head) {
+        // define four pointer to joint, one pointer to iteration
         ListNode oddTail = null, oddHead = null;
         ListNode evenHead = null, evenTail = null;
         ListNode cur = head;

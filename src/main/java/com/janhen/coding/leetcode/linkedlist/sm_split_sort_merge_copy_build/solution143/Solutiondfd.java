@@ -4,7 +4,6 @@ package com.janhen.coding.leetcode.linkedlist.sm_split_sort_merge_copy_build.sol
 // https://leetcode.com/problems/reorder-list/
 //Medium  693:55
 
-
 import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solutiondfd {
