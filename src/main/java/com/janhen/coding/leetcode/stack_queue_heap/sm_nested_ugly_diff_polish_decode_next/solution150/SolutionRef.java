@@ -4,7 +4,6 @@ package com.janhen.coding.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_d
 //https://leetcode.com/problems/evaluate-reverse-polish-notation/
 
 /*
-
 Medium
 
 425
@@ -46,49 +45,50 @@ Explanation:
 = 22
  */
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
-class Solution_my {
-
-    // stack storage is reversed
+class SolutionRef {
+    // 类似 Dijkstra 双栈表达式算法
+    // 7 ms, faster than 75.62%
     public int evalRPN(String[] tokens) {
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> s = new LinkedList<>();
         int num1 = 0, num2 = 0, val = 0;
         for (String str : tokens) {
             switch (str) {
                 case "+":
-                    num1 = stack.pop();
-                    num2 = stack.pop();
+                    num1 = s.pop();
+                    num2 = s.pop();
                     val = num2 + num1;
-                    stack.push(val);
+                    s.push(val);
                     break;
                 case "-":
-                    num1 = stack.pop();
-                    num2 = stack.pop();
+                    num1 = s.pop();
+                    num2 = s.pop();
                     val = num2 - num1;
-                    stack.push(val);
+                    s.push(val);
                     break;
                 case "*":
-                    num1 = stack.pop();
-                    num2 = stack.pop();
+                    num1 = s.pop();
+                    num2 = s.pop();
                     val = num2 * num1;
-                    stack.push(val);
+                    s.push(val);
                     break;
                 case "/":
-                    num1 = stack.pop();
-                    num2 = stack.pop();
-                    val = num2 / num1;        // first nums2 then nums1
-                    stack.push(val);
+                    num1 = s.pop();
+                    num2 = s.pop();
+                    val = num2 / num1;
+                    s.push(val);
                     break;
                 default:
-                    stack.push(Integer.parseInt(str));
+                    s.push(Integer.parseInt(str));
                     break;
             }
         }
-        if (stack.isEmpty())
+        if (s.isEmpty())
             return val;
-        else if (stack.size() == 1)
-            return stack.pop();
+        else if (s.size() == 1)
+            return s.pop();
         else
             throw new IllegalArgumentException();
     }

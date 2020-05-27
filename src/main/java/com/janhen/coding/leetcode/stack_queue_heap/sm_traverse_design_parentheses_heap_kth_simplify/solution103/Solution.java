@@ -11,6 +11,7 @@ class Solution {
 
         Queue<TreeNode> q  = new LinkedList<>();
         q.offer(root);
+        // use for record reversed order element
         boolean isRight = true;
         while (!q.isEmpty()) {
             int cnt = q.size();

@@ -23,9 +23,9 @@ class Solution {
     }
 
     class MaxQueue {
-        Deque<Tuple> qmax      = new LinkedList<>();   // Monotone decreasing queue(from head to tail)
-        Queue<Tuple> queue         = new LinkedList<>();
-        int          sequencer = 0;
+        Deque<Tuple> qmax       = new LinkedList<>();   // Monotone decreasing queue(from head to tail)
+        Queue<Tuple> queue      = new LinkedList<>();
+        int          sequencer  = 0;
 
         public void offer(int val) {
             while (!qmax.isEmpty() && val >= qmax.peekLast().val)  // maintain structure

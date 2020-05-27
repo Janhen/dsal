@@ -3,7 +3,7 @@ package com.janhen.coding.leetcode.stack_queue_heap.sm_traverse_design_parenthes
 import java.util.*;
 
 public class SolutionPQ {
-    public List<Integer> topKFrequent(int[] nums, int k) {
+    public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> freqs = new HashMap<>();
         for (int num : nums)
             freqs.put(num, freqs.getOrDefault(num, 0) + 1);
@@ -14,9 +14,7 @@ public class SolutionPQ {
             if (pq.size() == k + 1)
                 pq.poll();
         }
-        List<Integer> res = new ArrayList<>();
-        while (!pq.isEmpty())
-            res.add(pq.poll().getKey());
-        return res;
+
+        return pq.stream().map(Map.Entry::getKey).mapToInt(Integer::valueOf).toArray();
     }
 }

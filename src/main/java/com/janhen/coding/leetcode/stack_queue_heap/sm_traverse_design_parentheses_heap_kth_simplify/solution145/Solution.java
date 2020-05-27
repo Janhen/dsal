@@ -9,7 +9,9 @@ import java.util.Stack;
 class Solution {
 
     public static final boolean GO = false;
+
     public static final boolean PRINT = true;
+
     private class Command {
         boolean op;
         TreeNode node;

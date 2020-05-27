@@ -17,7 +17,7 @@ class Solution {
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             res.add(node.val);
-            if (node.right != null)  // note: right then left
+            if (node.right != null)
                 stack.push(node.right);
             if (node.left != null)
                 stack.push(node.left);

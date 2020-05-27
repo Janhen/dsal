@@ -46,51 +46,49 @@ Explanation:
 = 22
  */
 
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.Stack;
 
 class Solution {
 
-    // 类似 Dijkstra 双栈表达式算法
-    // 7 ms, faster than 75.62%
+    // stack storage is reversed
     public int evalRPN(String[] tokens) {
-        Deque<Integer> s = new LinkedList<>();
+        Stack<Integer> stack = new Stack<>();
         int num1 = 0, num2 = 0, val = 0;
         for (String str : tokens) {
             switch (str) {
                 case "+":
-                    num1 = s.pop();
-                    num2 = s.pop();
+                    num1 = stack.pop();
+                    num2 = stack.pop();
                     val = num2 + num1;
-                    s.push(val);
+                    stack.push(val);
                     break;
                 case "-":
-                    num1 = s.pop();
-                    num2 = s.pop();
+                    num1 = stack.pop();
+                    num2 = stack.pop();
                     val = num2 - num1;
-                    s.push(val);
+                    stack.push(val);
                     break;
                 case "*":
-                    num1 = s.pop();
-                    num2 = s.pop();
+                    num1 = stack.pop();
+                    num2 = stack.pop();
                     val = num2 * num1;
-                    s.push(val);
+                    stack.push(val);
                     break;
                 case "/":
-                    num1 = s.pop();
-                    num2 = s.pop();
-                    val = num2 / num1;
-                    s.push(val);
+                    num1 = stack.pop();
+                    num2 = stack.pop();
+                    val = num2 / num1;        // first nums2 then nums1
+                    stack.push(val);
                     break;
                 default:
-                    s.push(Integer.parseInt(str));
+                    stack.push(Integer.parseInt(str));
                     break;
             }
         }
-        if (s.isEmpty())
+        if (stack.isEmpty())
             return val;
-        else if (s.size() == 1)
-            return s.pop();
+        else if (stack.size() == 1)
+            return stack.pop();
         else
             throw new IllegalArgumentException();
     }

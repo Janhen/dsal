@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class SolutionRR {
+public class SolutionRefRR {
     // 8 6 6 6 6 6 # 6 # # # # # # #
     // 最后一层节点使用 #
     // 8 6 6 6 6 6 # 6 # # # # # # #

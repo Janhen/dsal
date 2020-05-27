@@ -19,9 +19,9 @@ class Solution {
         if (s.isEmpty())
             return "/";
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         while (!s.isEmpty())
-            sb.insert(0, "/"+s.pop());
-        return sb.toString();
+            builder.insert(0, "/"+s.pop());
+        return builder.toString();
     }
 }

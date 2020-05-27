@@ -4,6 +4,7 @@ import java.util.*;
 class Solution {
     public int[] nextGreaterElements(int[] nums) {
         int N = nums.length;
+        // record array index
         Stack<Integer> idxStack = new Stack<>();    // index
         int[] nexts = new int[N];    // next
         Arrays.fill(nexts, -1);

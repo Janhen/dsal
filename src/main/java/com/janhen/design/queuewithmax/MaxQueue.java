@@ -5,6 +5,10 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 
+/**
+ * 处理 滑动窗口问题
+ * https://leetcode.com/problems/sliding-window-maximum/
+ */
 public class MaxQueue {
   /** keep original enqueue order. */
   private Queue<Tuple> queue = new LinkedList<>();

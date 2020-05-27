@@ -117,6 +117,18 @@ public static Student readStudentObject(String s) {
 
 
 
+## 数据迭代
+
+
+
+
+
+相关问题:
+
+ 341. Flatten Nested List Iterator. 
+https://leetcode.com/problems/flatten-nested-list-iterator/
+
+
 # 设计模式
 
 ## Iterator 模式
@@ -127,9 +139,9 @@ public static Student readStudentObject(String s) {
 
 **1、 失败模式**
 
-（1） 快速失败 ：尽最大努力抛出 ConcurrentModificationException。
+（1） 快速失败 ：尽最大努力抛出 `ConcurrentModificationException`。
 
-仅用于检测 bug，是一种错误检测机制，发生在多个线程对集合进行机构上的改变时。
+仅用于检测 bug，是一种错误检测机制，发生在多线程对集合结构上的改变时。
 
 通过容器内持有 modCount，在迭代中比较迭代前的 exceptedModCount 实现。
 
@@ -172,8 +184,6 @@ interface Iterator<E> {
 }
 ```
 
-
-
 （2）双向迭代器
 
 ListIterator 实现，可向两个方向进行遍历操作。
@@ -197,7 +207,7 @@ interface ListIterator<E> extends Iterator<E> {
 
 （3） 安全失败的迭代器
 
-CopyOnWriteArrayList 中用于安全迭代使用的，内部持有当前底层容器的一个快照；
+`CopyOnWriteArrayList` 中用于安全迭代使用的，内部持有当前底层容器的一个快照；
 
 ```java
 class COWIterator<E> implements ListIterator<E> {
@@ -247,7 +257,7 @@ class Enumerator<T> implements Enumeration<T>, Iterator<T> {
 
 
 
-补充：
+(5) 其他
 
 ①   “特殊" 的迭代器
 
@@ -268,6 +278,10 @@ final class Itr implements Iterator<E> {
 
 
 ② stream 中提供对于容器的内部迭代
+
+
+
+
 
 
 ## 适配器模式
