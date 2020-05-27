@@ -3,9 +3,9 @@ package com.janhen.structures.redblacktree;
 import com.janhen.FileUtils;
 import com.janhen.TestUtil;
 import com.janhen.structures.avl.AVLTreeTest;
-import com.janhen.structures.set_map.map.BSTMap;
-import com.janhen.structures.set_map.map.LinkedListMap;
-import com.janhen.structures.set_map.map.Map;
+import com.janhen.structures.setandmap.map.BSTMap;
+import com.janhen.structures.setandmap.map.LinkedListMap;
+import com.janhen.structures.setandmap.map.Map;
 import org.junit.Test;
 
 import java.util.List;

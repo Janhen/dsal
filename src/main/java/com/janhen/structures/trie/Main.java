@@ -3,7 +3,7 @@ package com.janhen.structures.trie;
 // /// Leetcode 211. Add and Search Word - Data structures design
 ///// https://leetcode.com/problems/add-and-search-word-data-structure-design/description/
 
-import com.janhen.structures.set_map.set.BSTSet;
+import com.janhen.structures.setandmap.set.BSTSet;
 import com.janhen.FileUtils;
 
 import java.util.List;
