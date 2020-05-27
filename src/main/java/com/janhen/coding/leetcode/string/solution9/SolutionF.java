@@ -20,8 +20,11 @@ class SolutionF {
             return true;
         if (x < 0 || x % 10 == 0)
             return false;
+
+        // record original value to compare
         int origin = x;
         int right = 0;
+        // x to high bit multiple
         while (x != 0) {
             right = right * 10 + x % 10;
             x /= 10;

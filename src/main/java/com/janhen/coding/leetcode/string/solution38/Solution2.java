@@ -42,6 +42,7 @@ class Solution2 {
     public String countAndSay(int n) {
         if (n == 1)
             return "1";
+
         String res = "";
         String pre = "1";
         for (int i = 2; i <= n; i ++) {

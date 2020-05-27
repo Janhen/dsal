@@ -38,10 +38,10 @@ import java.util.List;
 
 class Solution {
 
+    // use for record all possible value
     private String[] memo;
 
     public Solution() {
-
         memo =  new String[30 + 1];
         memo[1] = "1";
         for (int i = 2; i <= 30; i ++) {
@@ -51,6 +51,7 @@ class Solution {
 
     // 1211
     // original order and frequency record, can have duplicated element   ⇒  List
+    // todo
     private String genStrByPre(String str) {
         List<Pari> freqs = new ArrayList<>();
         freqs.add(new Pari(str.charAt(0), 1));

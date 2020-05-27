@@ -20,6 +20,7 @@ public class Solution {
         int[] cnts = new int[256];
         for (char c : s.toCharArray())
             cnts[c] ++;
+
         int maxLen = 0;
         for (int cnt : cnts)
             maxLen += (cnt / 2) * 2;    // select even
