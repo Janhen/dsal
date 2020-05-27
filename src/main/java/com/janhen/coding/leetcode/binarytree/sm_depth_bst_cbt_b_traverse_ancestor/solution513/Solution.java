@@ -7,10 +7,12 @@ import java.util.*;
 class Solution {
     public int findBottomLeftValue(TreeNode root) {
         TreeNode cur = null;
+        // like level traverse
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
             cur = queue.poll();
+            // offer right and then left
             if (cur.right != null)
                 queue.offer(cur.right);
             if (cur.left != null)

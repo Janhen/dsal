@@ -2,7 +2,10 @@ package com.janhen.coding.leetcode.binarytree.sm_depth_bst_cbt_b_traverse_ancest
 
 import com.janhen.coding.leetcode.structures.TreeNode;
 
-class SolutionB {
+class Solution2 {
+    /*
+    find minimum and delete min to maintain bst order
+     */
     public TreeNode deleteNode(TreeNode root, int key) {
         if (root == null)
             return null;
@@ -25,11 +28,11 @@ class SolutionB {
                 root.left = null;
                 return leftNode;
             }
-             TreeNode succ = minimum(root.right);
-             succ.right = deleteMin(root.right);
-             succ.left = root.left;
+             TreeNode successor = minimum(root.right);
+             successor.right = deleteMin(root.right);
+             successor.left = root.left;
              root.left = root.right = null;  // truncate to gc
-             return succ;
+             return successor;
         }
     }
 

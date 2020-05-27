@@ -4,6 +4,7 @@ import com.janhen.coding.leetcode.structures.TreeNode;
 
 class Solution {
     private int minDiff = Integer.MAX_VALUE;
+
     private TreeNode pre = null;
 
     public int getMinimumDifference(TreeNode root) {
@@ -12,11 +13,15 @@ class Solution {
     }
 
     private void inOrder(TreeNode node) {
-        if (node == null) return;
+        if (node == null)
+            return;
+
         inOrder(node.left);
+
         if (pre != null)
             minDiff = Math.min(minDiff, node.val - pre.val);   // compare minDiff AND cur diff
         pre = node;
+
         inOrder(node.right);
     }
 }

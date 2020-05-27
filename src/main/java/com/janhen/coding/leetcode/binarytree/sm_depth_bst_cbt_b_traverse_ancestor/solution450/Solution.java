@@ -6,6 +6,7 @@ class Solution {
     public TreeNode deleteNode(TreeNode root, int key) {
         if (root == null)
             return null;
+
         if (key < root.val)
             root.left = deleteNode(root.left, key);
         else if (key > root.val)
@@ -15,8 +16,9 @@ class Solution {
                 return root.right;
             if (root.right == null)
                 return root.left;
-            TreeNode succ = minimum(root.right);
-            root.val = succ.val;
+            TreeNode successor = minimum(root.right);
+            root.val = successor.val;
+            // reuse
             root.right = deleteNode(root.right, root.val);
         }
         return root;

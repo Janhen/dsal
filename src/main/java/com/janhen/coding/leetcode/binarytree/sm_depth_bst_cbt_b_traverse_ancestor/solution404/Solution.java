@@ -3,6 +3,7 @@ package com.janhen.coding.leetcode.binarytree.sm_depth_bst_cbt_b_traverse_ancest
 import com.janhen.coding.leetcode.structures.TreeNode;
 
 class Solution {
+    // DLR, pre order traverse to collect left leave
     public int sumOfLeftLeaves(TreeNode root) {
         if (root == null)
             return 0;

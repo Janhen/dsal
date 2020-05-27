@@ -14,6 +14,7 @@ public class Codec {
     // level traverse
     public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
+        // queue can storage null node
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
         while (!q.isEmpty()) {
@@ -33,11 +34,13 @@ public class Codec {
         String[] vals = data.split(SEPARATOR);
         int index = 0;
         TreeNode root = geneTreeNode(vals[index ++]);
+
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
         while (!q.isEmpty()) {
             TreeNode cur = q.poll();      // now only one node not have link
-            if (cur == null) continue;
+            if (cur == null)
+                continue;
             cur.left = geneTreeNode(vals[index ++]);
             cur.right = geneTreeNode(vals[index ++]);             // link
             q.offer(cur.left);

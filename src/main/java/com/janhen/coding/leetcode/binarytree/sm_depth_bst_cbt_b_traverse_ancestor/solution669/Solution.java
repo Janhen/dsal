@@ -6,11 +6,16 @@ class Solution {
     public TreeNode trimBST(TreeNode root, int L, int R) {
         if (root == null)
             return null;
+
+        // trim left tree
         if (root.val < L)
             return trimBST(root.right, L, R); // NOTE: remove cur node AND find
+
+        // trim right tree
         if (root.val > R)
             return trimBST(root.left, L, R);
-        // common to link
+
+        // not need trim, common to link
         root.left = trimBST(root.left, L, R);
         root.right = trimBST(root.right, L, R);
         return root;
