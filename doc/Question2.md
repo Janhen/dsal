@@ -231,3 +231,12 @@
   
 List、Queue 中保存空元素，之后的迭代过程中判断  
 在保存之前判断是否之后的迭代过程中使用到的内容是空的  
+  
+  
+  
+  
+  
+数据结构之间的转换:  
+ListNode => BST  
+Array    => BST  
+BST      => double side chain table  

@@ -9,6 +9,7 @@ class Solution {
         if (s.val == t.val)
             if (isSame(s, t))
                 return true;
+        // t may s.left or s.right tree 's subtree
         return isSubtree(s.left, t) || isSubtree(s.right, t);   // is traverse, no constrict
     }
 

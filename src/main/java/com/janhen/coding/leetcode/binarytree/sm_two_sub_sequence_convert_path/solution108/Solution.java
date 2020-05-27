@@ -9,7 +9,9 @@ class Solution {
     }
 
     private TreeNode buildBSTFromArray(int[] nums, int l, int r) {
-        if (l > r) return null;
+        if (l > r)
+            return null;
+
         int mid = l + (r - l) / 2;
         TreeNode root = new TreeNode(nums[mid]);
         root.left = buildBSTFromArray(nums, l, mid-1);

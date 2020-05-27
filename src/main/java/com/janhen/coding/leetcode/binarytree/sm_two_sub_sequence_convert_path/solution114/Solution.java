@@ -8,13 +8,15 @@ class Solution {
     public void flatten(TreeNode root) {
         if (root == null)
             return;
+
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         TreeNode pre = new TreeNode(-1);
         while (!stack.isEmpty()) {
             TreeNode cur = stack.pop();
             pre.right = cur;
-            pre.left = null;      // note
+            // cut left pointer
+            pre.left = null;
             pre = cur;
             if (cur.right != null)
                 stack.push(cur.right);

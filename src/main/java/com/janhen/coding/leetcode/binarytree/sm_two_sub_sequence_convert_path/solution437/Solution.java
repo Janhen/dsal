@@ -16,8 +16,10 @@ class Solution {
     private int getPathCountFromNode(TreeNode node, int target) {
         if (node == null)
             return 0;
+
         int res = 0;
-        if (node.val == target)  // NOTE: can negative to ...
+        // collect can negative to ...
+        if (node.val == target)
             res += 1;
         res += getPathCountFromNode(node.left, target - node.val);
         res += getPathCountFromNode(node.right, target - node.val);
