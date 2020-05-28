@@ -105,7 +105,7 @@ public static String writeStudentObject(Student student) {
 public static Student readStudentObject(String s) {
     Student student = new Student();
     String[] vals = s.split(separator);
-    student.setAge(Integer.valueOf(vals[0]));
+    student.setAge(Integer.valueOf/Users/apple/Documents/Janhen/MyProjects/resume/Markdown-Resume-master - 3/Resume-3.md(vals[0]));
     student.setName(vals[1]);
     student.setSex(vals[2]);
     if(vals.length > 3) {

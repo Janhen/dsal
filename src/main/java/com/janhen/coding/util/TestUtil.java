@@ -1,4 +1,4 @@
-package com.janhen.coding.swordoffer;
+package com.janhen.coding.util;
 
 import com.janhen.coding.swordoffer.structures.TreeNode;
 

@@ -10,12 +10,35 @@ import java.util.List;
 
 public class Main {
 
-  public static void main(String[] args) {
+  @Test
+  public void testTrie2() {
+    Trie2 trie = new Trie2();
+    System.out.println(trie.search("zuo")); // F
+    trie.insert("zuo");
+    System.out.println(trie.search("zuo")); // T
+    trie.delete("zuo");
+    System.out.println(trie.search("zuo")); // F
+    trie.insert("zuo");
+    trie.insert("zuo");
+    trie.delete("zuo");
+    System.out.println(trie.search("zuo"));// T
+    trie.delete("zuo");
+    System.out.println(trie.search("zuo")); // F
+    trie.insert("zuoa");
+    trie.insert("zuoac");
+    trie.insert("zuoab");
+    trie.insert("zuoad");
+    trie.delete("zuoa");
+    System.out.println(trie.search("zuoa")); // F
+    System.out.println(trie.prefixNumber("zuo")); // 3
+  }
 
+  @Test
+  public void testTrie() {
     System.out.println("pride-and-prejjudice");
 
     List<String> words = FileUtils.readFile(
-        "E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt");
+      "E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt");
 
     long start = System.nanoTime();
 

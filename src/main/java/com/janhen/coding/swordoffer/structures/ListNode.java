@@ -19,5 +19,4 @@ public class ListNode {
             cur = cur.next;
         }
     }
-
 }

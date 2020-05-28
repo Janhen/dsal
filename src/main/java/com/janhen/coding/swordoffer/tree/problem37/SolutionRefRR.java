@@ -1,6 +1,6 @@
 package com.janhen.coding.swordoffer.tree.problem37;
 
-import com.janhen.coding.swordoffer.TestUtil;
+import com.janhen.coding.util.TestUtil;
 import com.janhen.coding.swordoffer.structures.TreeNode;
 import org.junit.Test;
 

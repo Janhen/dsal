@@ -76,27 +76,4 @@ public class Trie2 {
       cur.end--;
     }
   }
-
-  public static void main(String[] args) {
-    Trie2 trie = new Trie2();
-    System.out.println(trie.search("zuo")); // F
-    trie.insert("zuo");
-    System.out.println(trie.search("zuo")); // T
-    trie.delete("zuo");
-    System.out.println(trie.search("zuo")); // F
-    trie.insert("zuo");
-    trie.insert("zuo");
-    trie.delete("zuo");
-    System.out.println(trie.search("zuo"));// T
-    trie.delete("zuo");
-    System.out.println(trie.search("zuo")); // F
-    trie.insert("zuoa");
-    trie.insert("zuoac");
-    trie.insert("zuoab");
-    trie.insert("zuoad");
-    trie.delete("zuoa");
-    System.out.println(trie.search("zuoa")); // F
-    System.out.println(trie.prefixNumber("zuo")); // 3
-
-  }
 }
