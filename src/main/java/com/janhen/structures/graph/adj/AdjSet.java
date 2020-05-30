@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-public class AdjSet {
+public class AdjSet implements Graph{
 
     private int V;
     private int E;
@@ -90,7 +90,7 @@ public class AdjSet {
 
     public static void main(String[] args){
 
-        AdjSet adjSet = new AdjSet("g.txt");
+        Graph adjSet = new AdjSet("g.txt");
         System.out.print(adjSet);
     }
 }

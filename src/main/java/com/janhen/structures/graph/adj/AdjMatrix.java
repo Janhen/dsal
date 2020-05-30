@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AdjMatrix {
+public class AdjMatrix implements Graph {
 
     private int V;
     private int E;
@@ -61,7 +61,7 @@ public class AdjMatrix {
         return adj[v][w] == 1;
     }
 
-    public ArrayList<Integer> adj(int v){
+    public Iterable<Integer> adj(int v){
         validateVertex(v);
         ArrayList<Integer> res = new ArrayList<>();
         for(int i = 0; i < V; i ++)
@@ -71,7 +71,11 @@ public class AdjMatrix {
     }
 
     public int degree(int v){
-        return adj(v).size();
+        validateVertex(v);
+        int res = 0;
+        for(int i = 0; i < V; i ++)
+            res += adj[v][i];
+        return res;
     }
 
     @Override
@@ -89,7 +93,7 @@ public class AdjMatrix {
 
     public static void main(String[] args){
 
-        AdjMatrix adjMatrix = new AdjMatrix("g.txt");
+        Graph adjMatrix = new AdjMatrix("g.txt");
         System.out.print(adjMatrix);
     }
 }

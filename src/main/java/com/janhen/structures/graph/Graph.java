@@ -1,27 +1,29 @@
-package com.janhen.structures.graph.adj;
+package com.janhen.structures.graph;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.TreeSet;
 
-public class AdjList implements Graph{
+
+/// 暂时只支持无向无权图
+public class Graph {
 
     private int V;
     private int E;
-    private LinkedList<Integer>[] adj;
+    private TreeSet<Integer>[] adj;
 
-    public AdjList(String pathStr){
+    public Graph(String filename){
 
-        File file = new File(pathStr);
+        File file = new File(filename);
 
         try(Scanner scanner = new Scanner(file)){
 
             V = scanner.nextInt();
             if(V < 0) throw new IllegalArgumentException("V must be non-negative");
-            adj = new LinkedList[V];
+            adj = new TreeSet[V];
             for(int i = 0; i < V; i ++)
-                adj[i] = new LinkedList<Integer>();
+                adj[i] = new TreeSet<Integer>();
 
             E = scanner.nextInt();
             if(E < 0) throw new IllegalArgumentException("E must be non-negative");
@@ -63,12 +65,13 @@ public class AdjList implements Graph{
         return adj[v].contains(w);
     }
 
-    public LinkedList<Integer> adj(int v){
+    public Iterable<Integer> adj(int v){
         validateVertex(v);
         return adj[v];
     }
 
     public int degree(int v){
+        validateVertex(v);
         return adj[v].size();
     }
 
@@ -88,7 +91,7 @@ public class AdjList implements Graph{
 
     public static void main(String[] args){
 
-        Graph adjList = new AdjList("g.txt");
-        System.out.print(adjList);
+        Graph g = new Graph("g.txt");
+        System.out.print(g);
     }
 }
