@@ -47,7 +47,7 @@
 //import java.util.stream.Collectors;
 //
 //// 16 ms, faster than 90.82%
-//class SolutionRefRR {
+//class SolutionFRefRR {
 //
 //    // 按照字符出现次数对字符串排序
 //    // char[] 数组索引构成结果
