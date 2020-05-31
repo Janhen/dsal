@@ -1,4 +1,4 @@
-package com.janhen.design.oneToOneMap;
+package com.janhen.design.onetoonemap;
 
 import java.util.HashMap;
 import java.util.Map;
