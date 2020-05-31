@@ -26,7 +26,9 @@ class Solution2 {
                 continue;                                   // no need to handle visited[i]
             list.add(nums[i]);
             visited[i] = true;
+
             backtracking(nums, i + 1, size, list, visited, res);
+
             list.remove(list.size() - 1);
             visited[i] = false;
         }

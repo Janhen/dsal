@@ -13,11 +13,14 @@ class Solution_my {
     }
 
     private void backtracking(int start, int k, int n, List<Integer> list, List<List<Integer>> res) {
-        if (list.size() > k) return;
+        if (list.size() > k)
+            return;
         if (list.size() == k && n == 0) {
             res.add(new ArrayList<>(list));
             return;
         }
+
+        // element must ∈ [1,9]
         for (int i = start; i <= 9; i ++) {
             list.add(i);
             backtracking(i + 1, k, n - i, list, res);    // start is i+1, not start

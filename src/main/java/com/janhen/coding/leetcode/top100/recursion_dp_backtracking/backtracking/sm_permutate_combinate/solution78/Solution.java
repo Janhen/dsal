@@ -1,23 +1,32 @@
 package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.backtracking.sm_permutate_combinate.solution78;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-class Solution {
+public class Solution {
+    // convert subset problem to combination problem
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        Arrays.sort(nums);
-
-        backtracking(nums, 0, new ArrayList<>(), res);
-        return res;
+        List<List<Integer>> subsets = new ArrayList<>();
+        List<Integer> subset = new ArrayList<>();
+        // null set is one subset
+        for (int sz = 0; sz <= nums.length; sz ++) {
+            findSubsetsInSize(nums, sz, 0, subset, subsets);
+        }
+        return subsets;
     }
 
-    private void backtracking(int[] nums, int start, List<Integer> subset, List<List<Integer>> res) {
-        res.add(new ArrayList<>(subset));          // every temporary result also can as subset
+    // fixed size subset
+    // backtracking, combination
+    private void findSubsetsInSize(int[] nums, int sz, int start, List<Integer> subset, List<List<Integer>> subsets) {
+        if (sz == 0) {
+            subsets.add(new ArrayList<>(subset));
+            return;
+        }
+
         for (int i = start; i < nums.length; i ++) {
             subset.add(nums[i]);
-            backtracking(nums, i + 1, subset, res);    // i+1, not can use one element many time
+            // sz to sz -1 because start index to (start + 1)
+            findSubsetsInSize(nums, sz - 1, i + 1, subset, subsets);
             subset.remove(subset.size() - 1);
         }
     }

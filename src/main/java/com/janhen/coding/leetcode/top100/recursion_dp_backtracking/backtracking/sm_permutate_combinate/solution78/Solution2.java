@@ -14,7 +14,8 @@ public class Solution2 {
     }
 
     public void backtracking(int[] nums, int start, int size, List<Integer> list, List<List<Integer>> res) {
-        if (size == list.size()) {                   // sz to control result count
+        // sz to control result count
+        if (size == list.size()) {
             res.add(new ArrayList<>(list));
             return;
         }

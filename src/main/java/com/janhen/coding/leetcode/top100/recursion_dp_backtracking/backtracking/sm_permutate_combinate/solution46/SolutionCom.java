@@ -18,6 +18,7 @@ class SolutionCom {
             res.add((ArrayList<Integer>)list.clone());
             return;
         }
+
         for (int i = 0; i < nums.length; i ++) {
             if (list.contains(nums[i]))    // O(N)
                 continue;

@@ -18,6 +18,7 @@ class Solution {
             res.add(new ArrayList<>(list));
             return;
         }
+
         if (k == 0 || n == 0)
             return;
         for (int i = start; i <= 9; i ++) {

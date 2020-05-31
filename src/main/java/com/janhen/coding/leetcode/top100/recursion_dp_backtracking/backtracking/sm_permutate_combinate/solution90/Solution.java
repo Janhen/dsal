@@ -16,7 +16,8 @@ class Solution {
     private void backtracking(int[] nums, int start, List<Integer> list, List<List<Integer>> res) {
         res.add(new ArrayList<>(list));
         for (int i = start; i < nums.length; i ++) {
-            if (i > start && nums[i] == nums[i-1]) continue;           // skip duplication
+            if (i > start && nums[i] == nums[i-1])
+                continue;           // skip duplication
             list.add(nums[i]);
             backtracking(nums, i + 1, list, res);          // like combination
             list.remove(list.size() - 1);

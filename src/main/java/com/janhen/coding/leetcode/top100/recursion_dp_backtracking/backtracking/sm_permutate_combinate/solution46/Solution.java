@@ -3,28 +3,34 @@ package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.backtracking
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+public class Solution {
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
+        List<List<Integer>> permutations = new ArrayList<>();
         if (nums == null || nums.length == 0)
-            return res;
+            return permutations;
+
         boolean[] visited = new boolean[nums.length];
-        backtracking(nums, 0, new ArrayList<>(), res, visited);
-        return res;
+        findAllPermutations(nums, visited, new ArrayList<>(), permutations);
+        return permutations;
     }
 
-    private void backtracking(int[] nums, int index, List<Integer> list, List<List<Integer>> res, boolean[] visited) {
-        if (index == nums.length) {
-            res.add(new ArrayList<>(list));
+    // backtracking
+    private void findAllPermutations(int[] nums, boolean[] visited, List<Integer> curPermutation, List<List<Integer>> permutations) {
+        if (curPermutation.size() == nums.length) {
+            permutations.add(new ArrayList<>(curPermutation));
             return;
         }
-        for (int i = 0; i < nums.length; i ++) {
-            if (visited[i]) continue;
 
-            list.add(nums[i]);
+        for (int i = 0; i < nums.length; i ++) {
+            if (visited[i])
+                continue;
+
+            curPermutation.add(nums[i]);
             visited[i] = true;
-            backtracking(nums, index + 1, list, res, visited);
-            list.remove(list.size() - 1);
+
+            findAllPermutations(nums, visited, curPermutation, permutations);
+
+            curPermutation.remove(curPermutation.size() - 1);
             visited[i] = false;
         }
     }

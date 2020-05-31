@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 class SolutionREF {
     // No messy indexing. Avoid the ConcurrentModificationException by using a temp list.
     public List<List<Integer>> subsets(int[] nums) {

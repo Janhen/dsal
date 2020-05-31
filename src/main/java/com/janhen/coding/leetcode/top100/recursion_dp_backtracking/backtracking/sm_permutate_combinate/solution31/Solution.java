@@ -6,13 +6,14 @@ class Solution {
     public void nextPermutation(int[] nums) {
         int N = nums.length;
         for (int i = N-1; i >=1; i --) {
-            if (nums[i-1] < nums[i]) {  //
+            if (nums[i-1] < nums[i]) {  // add sequence,  head → tail    need replace [i-1] position value
                 int minGreaterIndex = findMinGreater(nums, i, N-1, nums[i-1]);
                 swap(nums, minGreaterIndex, i -1);
                 Arrays.sort(nums, i, N);
                 return;
             }
         }
+        // all diminishing
         reverse(nums);
     }
 
