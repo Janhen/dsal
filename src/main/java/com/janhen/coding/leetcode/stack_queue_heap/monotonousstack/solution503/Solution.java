@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.stack_queue_heap.sm_nested_ugly_diff_polish_decode_next.solution503;
+package com.janhen.coding.leetcode.stack_queue_heap.monotonousstack.solution503;
 
 import java.util.*;
 class Solution {
