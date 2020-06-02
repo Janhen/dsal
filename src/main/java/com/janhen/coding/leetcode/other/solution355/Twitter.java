@@ -6,7 +6,7 @@ class Twitter {
   public static class User {
     public int id;
     public Set<Integer> followed;
-    // 用户发表的推文链表头结点
+    // user push first node
     public Tweet head;
 
     public User(int userId) {
@@ -22,14 +22,14 @@ class Twitter {
     }
 
     public void unfollow(int userId) {
-      // 不可以取关自己
+      // not can unfollow self
       if (userId != this.id)
         followed.remove(userId);
     }
 
     public void post(int tweetId) {
-      Tweet twt = new Tweet(tweetId, timestamp);
-      timestamp++;
+      Tweet twt = new Tweet(tweetId, sequence);
+      sequence++;
       // 将新建的推文插入链表头
       // 越靠前的推文 time 值越大
       twt.next = head;
@@ -50,12 +50,14 @@ class Twitter {
     }
   }
 
-  private static int timestamp = 0;
+  // timestamp to bigger
+  private static int sequence = 0;
+
 
   // 我们需要一个映射将 userId 和 User 对象对应起来
   private HashMap<Integer, User> userMap = new HashMap<>();
 
-  /** user 发表一条 tweet 动态 */
+  /** Compose a new tweet. */
   public void postTweet(int userId, int tweetId) {
     // 若 userId 不存在，则新建
     if (!userMap.containsKey(userId))
@@ -64,7 +66,7 @@ class Twitter {
     u.post(tweetId);
   }
 
-  /** follower 关注 followee */
+  /** Follower follows a followee. If the operation is invalid, it should be a no-op. */
   public void follow(int followerId, int followeeId) {
     // 若 follower 不存在，则新建
     if (!userMap.containsKey(followerId)) {
@@ -79,7 +81,7 @@ class Twitter {
     userMap.get(followerId).follow(followeeId);
   }
 
-  /** follower 取关 followee，如果 Id 不存在则什么都不做 */
+  /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
   public void unfollow(int followerId, int followeeId) {
     if (userMap.containsKey(followerId)) {
       User flwer = userMap.get(followerId);
@@ -87,9 +89,9 @@ class Twitter {
     }
   }
 
-  /**
-   * 返回该 user 关注的人（包括他自己）最近的动态 id， 最多 10 条，而且这些动态必须按从新到旧的时间线顺序排列。
-   */
+  /** Retrieve the 10 most recent tweet ids in the user's news feed.
+   *  Each item in the news feed must be posted by users who the user followed or by the user herself.
+   *  Tweets must be ordered from most recent to least recent. */
   public List<Integer> getNewsFeed(int userId) {
     List<Integer> res = new ArrayList<>();
     if (!userMap.containsKey(userId))
