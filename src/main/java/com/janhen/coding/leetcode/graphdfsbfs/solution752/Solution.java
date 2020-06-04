@@ -2,12 +2,15 @@ package com.janhen.coding.leetcode.graphdfsbfs.solution752;/// Leetcode 752
 
 import java.util.*;
 
+import static java.util.stream.Collectors.toSet;
+
 class Solution {
+    /*
+
+     */
     public int openLock(String[] deadends, String target) {
 
-        HashSet<String> deadset = new HashSet<>();
-        for(String s: deadends)
-            deadset.add(s);
+        Set<String> deadset = Arrays.stream(deadends).collect(toSet());
 
         if(deadset.contains(target)) return -1;
         if(deadset.contains("0000")) return -1;
@@ -15,6 +18,7 @@ class Solution {
 
         // BFS
         Queue<String> queue = new LinkedList<>();
+        // map to record status
         HashMap<String, Integer> visited = new HashMap<>();
         queue.add("0000");
         visited.put("0000", 0);

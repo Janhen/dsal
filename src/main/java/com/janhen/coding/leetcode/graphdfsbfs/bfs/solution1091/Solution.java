@@ -5,6 +5,7 @@ import java.util.Queue;
 
 class Solution {
 
+    // 8-directionally
     private int[][] dirs = {{-1, 0}, {-1, 1}, {0, 1}, {1, 1},
                             {1, 0}, {1, -1}, {0, -1}, {-1, -1}};
     private int R, C;
@@ -13,6 +14,9 @@ class Solution {
 
         R = grid.length;
         C = grid[0].length;
+        if (R == C && R == 1) {
+            return  1;
+        }
         boolean[][] visited = new boolean[R][C];
         int[][] dis = new int[R][C];
 
@@ -20,6 +24,7 @@ class Solution {
         if(R == 0 && C == 0) return 1;
 
         // BFS
+        // two-dimension =>  one-dimension
         Queue<Integer> queue = new LinkedList<>();
         queue.add(0);
         visited[0][0] = true;
