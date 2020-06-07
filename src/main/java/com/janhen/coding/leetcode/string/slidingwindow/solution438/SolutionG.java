@@ -1,9 +1,9 @@
-package com.janhen.coding.leetcode.top100.other.solution438;
+package com.janhen.coding.leetcode.string.slidingwindow.solution438;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+class SolutionG {
     // fixed window
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> res = new ArrayList<>();

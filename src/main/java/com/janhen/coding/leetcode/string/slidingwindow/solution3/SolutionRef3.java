@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.top100.other.solution3;// 3. Longest Substring Without Repeating Characters
+package com.janhen.coding.leetcode.string.slidingwindow.solution3;// 3. Longest Substring Without Repeating Characters
 
 import java.util.Arrays;
 

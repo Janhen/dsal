@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.top100.other.solution438;
+package com.janhen.coding.leetcode.string.slidingwindow.solution438;
 
 // 438. Find All Anagrams in a String
 // https://leetcode.com/problems/find-all-anagrams-in-a-string/

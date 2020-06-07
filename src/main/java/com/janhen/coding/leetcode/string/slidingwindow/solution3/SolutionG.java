@@ -1,6 +1,6 @@
-package com.janhen.coding.leetcode.top100.other.solution3;
+package com.janhen.coding.leetcode.string.slidingwindow.solution3;
 
-class Solution {
+class SolutionG {
     // sliding window that not have duplication element
     public int lengthOfLongestSubstring(String s) {
         int res = 0;

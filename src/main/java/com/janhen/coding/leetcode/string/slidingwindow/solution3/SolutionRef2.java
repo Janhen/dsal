@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.top100.other.solution3;
+package com.janhen.coding.leetcode.string.slidingwindow.solution3;
 
 // 15 ms, faster than 100.00%
 public class SolutionRef2 {

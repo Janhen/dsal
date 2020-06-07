@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.top100.other.solution438;
+package com.janhen.coding.leetcode.string.slidingwindow.solution438;
 
 import java.util.ArrayList;
 import java.util.List;
