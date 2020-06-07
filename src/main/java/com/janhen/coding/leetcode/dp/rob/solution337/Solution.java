@@ -1,6 +1,6 @@
-package com.janhen.coding.leetcode.binarytree.sm_depth_bst_cbt_b_traverse_ancestor.solution337;
+package com.janhen.coding.leetcode.dp.rob.solution337;
 
-import com.janhen.coding.leetcode.structures.TreeNode;
+import javax.swing.tree.TreeNode;
 
 //https://leetcode.com/problems/house-robber-iii/discuss/79330/Step-by-step-tackling-of-the-problem
 class Solution {

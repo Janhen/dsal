@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.binarytree.sm_depth_bst_cbt_b_traverse_ancestor.solution337;
+package com.janhen.coding.leetcode.dp.rob.solution337;
 
 // 337. House Robber III
 //https://leetcode.com/problems/house-robber-iii/
