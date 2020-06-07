@@ -1,6 +1,9 @@
 package com.janhen.coding.leetcode.dp.practice.solution63;
 
 class Solution {
+    /*
+    dp[i]:
+     */
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int width = obstacleGrid[0].length;
         int[] dp = new int[width];
