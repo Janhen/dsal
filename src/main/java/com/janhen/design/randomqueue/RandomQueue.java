@@ -1,4 +1,4 @@
-package com.janhen.structures.randomqueue;
+package com.janhen.design.randomqueue;
 
 import java.util.ArrayList;
 

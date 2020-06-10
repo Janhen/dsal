@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.a_base.solution53;
+package com.janhen.coding.leetcode.dp.maxsubarray.solution53;
 
 class SolutionF {
   public int maxSubArray(int[] nums) {

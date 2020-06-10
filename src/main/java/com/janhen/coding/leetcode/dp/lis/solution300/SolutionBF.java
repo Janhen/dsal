@@ -15,6 +15,7 @@ public class SolutionBF {
     public int lengthOfLIS(int[] nums) {            /* 求解∀可能中最大问题 */
         if(nums.length == 0)
             return 0;
+
         memo = new int[nums.length];
         Arrays.fill(memo, -1);
         int res = 1;
@@ -28,7 +29,7 @@ public class SolutionBF {
         if(memo[index] != -1)
             return memo[index];
         int res = 1;
-        for(int i = 0 ; i <= index-1 ; i ++)
+        for(int i = 0 ; i < index; i ++)
             if(nums[index] > nums[i])
                 res = Math.max(res, 1 + getMaxLength(nums, i));
         return memo[index] = res;
