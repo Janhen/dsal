@@ -12,19 +12,24 @@ class Solution {
       return intervals;
 
     List<Interval> res = new ArrayList<>();
+
     // Use defined structure attribute to sort
     intervals.sort(Comparator.comparingInt(o -> o.start));
 
-    int start = intervals.get(0).start;                   // record recent
+    // record recent iteration pointer
+    int start = intervals.get(0).start;
     int end = intervals.get(0).end;
 
     for (Interval item : intervals) {
-      if (item.start <= end) { // can merge
+      // can merge
+      if (item.start <= end) {
         end = Math.max(end, item.end);
       } else {
         res.add(new Interval(start, end));
+
+        // reset
         start = item.start;
-        end = item.end;             // reset
+        end = item.end;
       }
     }
     // handle last element

@@ -14,12 +14,13 @@ class Solution {
     record.add(list1);
     record.add(list2);
 
+    // Specify the size to find value
     for (int i = 2; i <= 33; i++) {
       List<Integer> list = new ArrayList<>();    // size == i + 1
       list.add(1);
       List<Integer> preList = record.get(i - 1);
       for (int j = 1; j < i; j++) {
-        list.add(preList.get(j) + preList.get(j - 1));
+        list.add(preList.get(j - 1) + preList.get(j));
       }
       list.add(1);
       record.add(list);

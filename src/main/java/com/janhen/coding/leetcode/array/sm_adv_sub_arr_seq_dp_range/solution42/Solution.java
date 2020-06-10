@@ -11,21 +11,24 @@ class Solution {
  we fill water in the left bin. Until left meets right, we filled the whole container.
   */
   public int trap(int[] height) {
-    int left = 0;
-    int right = height.length - 1;
+    int L = 0;
+    int R = height.length - 1;
+
     int res = 0;
-    int maxleft = 0, maxright = 0;
-    while (left <= right) {
+    int maxL = 0, maxR = 0;
+    while (L <= R) {
+      int lNum = height[L];
+      int rNum = height[R];
 
-      maxleft = Math.max(maxleft, height[left]);
-      maxright = Math.max(maxright, height[right]);
+      maxL = Math.max(maxL, lNum);
+      maxR = Math.max(maxR, rNum);
 
-      if (height[left] < height[right]) {
-        res += maxleft - height[left];
-        left++;
+      if (lNum < rNum) {
+        res += maxL - lNum;
+        L++;
       } else {
-        res += maxright - height[right];
-        right--;
+        res += maxR - rNum;
+        R--;
       }
     }
     return res;
