@@ -5,12 +5,13 @@ package com.janhen.structures.trie;
 
 import com.janhen.structures.setandmap.set.BSTSet;
 import com.janhen.FileUtils;
+import org.junit.Test;
 
 import java.util.List;
 
 public class Main {
 
-  @Test
+//  @Test
   public void testTrie2() {
     Trie2 trie = new Trie2();
     System.out.println(trie.search("zuo")); // F
