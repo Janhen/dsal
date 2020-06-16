@@ -3,9 +3,9 @@ package com.janhen.coding.leetcode.array.solution85;
 import java.util.Stack;
 
 class Solution {
-    /*
-    time: O(n^2)
-     */
+  /*
+  time: O(n^2)
+   */
   public int maximalRectangle(char[][] matrix) {
     int m = matrix.length;
     int n = m == 0 ? 0 : matrix[0].length;
@@ -14,7 +14,7 @@ class Solution {
     int[] heights = new int[n + 1];
 
     for (int i = 0; i < m; i++) {
-      Stack<Integer> s = new Stack<Integer>();
+      Stack<Integer> s = new Stack<>();
       // push dummy value, not handle empty stack
       s.push(-1);
 
