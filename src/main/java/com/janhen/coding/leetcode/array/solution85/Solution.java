@@ -14,9 +14,9 @@ class Solution {
     int[] heights = new int[n + 1];
 
     for (int i = 0; i < m; i++) {
-      Stack<Integer> s = new Stack<>();
+      Stack<Integer> stack = new Stack<>();
       // push dummy value, not handle empty stack
-      s.push(-1);
+      stack.push(-1);
 
       for (int j = 0; j <= n; j++) {
         if (j < n && matrix[i][j] == '1')
@@ -24,13 +24,13 @@ class Solution {
         else
           heights[j] = 0;
 
-        while (s.peek() != -1 && heights[j] < heights[s.peek()]) {
-          int height = heights[s.pop()];
-          int weight = j - s.peek() - 1;
+        while (stack.peek() != -1 && heights[j] < heights[stack.peek()]) {
+          int height = heights[stack.pop()];
+          int weight = j - stack.peek() - 1;
           max = Math.max(max, height * weight);
         }
 
-        s.push(j);
+        stack.push(j);
       }
     }
     return max;

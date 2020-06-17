@@ -21,6 +21,7 @@ class Solution {
         break;
       }
     }
+
     int leftIdx = begin;
     for (int i = begin - 1; i >= 0; i--) {
       int curHeight = nums[i];

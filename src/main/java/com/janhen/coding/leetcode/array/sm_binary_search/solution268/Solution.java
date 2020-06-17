@@ -10,7 +10,7 @@ class Solution {
     //                ^[0]-[n-1]
     public int missingNumber(int[] nums) {
         int res = 0;
-        for (int i = 0; i < nums.length; i ++) {
+        for (int i = 0; i < nums.length; i++) {
             res ^= i;                  // [0,n-1]
             res ^= nums[i];            // [0,n]
         }
