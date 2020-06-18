@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.tmp.solution;
+package com.janhen.coding.leetcode.tmp.solution295;
 
 import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
