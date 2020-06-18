@@ -9,6 +9,7 @@ class Solution {
     return maxArea;
   }
 
+  // 以 nums[begin] 高度向左右扩散的面积
   public int findMaxAreaFromBegin(int[] nums, int begin) {
     int height = nums[begin];
 

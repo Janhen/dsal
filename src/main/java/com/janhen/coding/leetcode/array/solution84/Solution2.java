@@ -8,16 +8,16 @@ class Solution2 {
     // Create an empty stack. The stack holds indexes of hist[] array
     // The bars stored in stack are always in increasing order of their
     // heights.
-    Stack<Integer> s = new Stack<>();
+    Stack<Integer> stack = new Stack<>();
     int maxArea = 0;
     for (int i = 0; i <= len; i++){
       int height = (i == len ? 0 : heights[i]);
-      if (s.isEmpty() || height >= heights[s.peek()]) {
+      if (stack.isEmpty() || height >= heights[stack.peek()]) {
         // init or bigger to push index
-        s.push(i);
+        stack.push(i);
       } else {
-        int topIndex = s.pop();
-        maxArea = Math.max(maxArea, heights[topIndex] * (s.isEmpty() ? i : i - 1 - s.peek()));
+        int topIndex = stack.pop();
+        maxArea = Math.max(maxArea, heights[topIndex] * (stack.isEmpty() ? i : i - 1 - stack.peek()));
         i--;
       }
     }

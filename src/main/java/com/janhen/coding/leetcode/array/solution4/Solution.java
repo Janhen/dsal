@@ -7,7 +7,6 @@ class Solution {
   public double findMedianSortedArrays(int[] A, int[] B) {
     int len = A.length + B.length;
     // 求解中位数问题的表达式
-    //
     // ((len + 1) / 2 + (len + 2) / 2) / 2
     //  len  odd number
     return (getKth(A, 0, B, 0, (len + 1) / 2) + getKth(A, 0, B, 0, (len + 2) / 2)) / 2.0;
