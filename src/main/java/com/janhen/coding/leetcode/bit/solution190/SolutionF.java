@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.tmp.solution190;
+package com.janhen.coding.leetcode.bit.solution190;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,6 +7,7 @@ public class SolutionF {
   // cache
   private final Map<Byte, Integer> cache = new HashMap<Byte, Integer>();
 
+  // 将 int 拆成 4 个 byte，然后缓存 byte 对应的比特位翻转，最后再拼接起来。
   public int reverseBits(int n) {
     byte[] bytes = new byte[4];
     for (int i = 0; i < 4; i++) // convert int into 4 bytes

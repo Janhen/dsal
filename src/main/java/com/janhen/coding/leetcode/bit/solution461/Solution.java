@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.top100.other.solution461;
+package com.janhen.coding.leetcode.bit.solution461;
 
 class Solution {
     public int hammingDistance(int x, int y) {

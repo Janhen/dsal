@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.top100.recursion_dp_backtracking.solution338;
+package com.janhen.coding.leetcode.bit.solution338;
 
 /*
  * 2 ms, faster than 54.35%

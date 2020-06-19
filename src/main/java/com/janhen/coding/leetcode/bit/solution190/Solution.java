@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.tmp.solution190;
+package com.janhen.coding.leetcode.bit.solution190;
 
 public class Solution {
   // you need treat n as an unsigned value

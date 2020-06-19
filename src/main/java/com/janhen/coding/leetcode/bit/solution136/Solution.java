@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.top100.other.solution136;
+package com.janhen.coding.leetcode.bit.solution136;
 
 class Solution {
     public int singleNumber(int[] nums) {

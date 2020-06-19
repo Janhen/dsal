@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.array.binarysearch.solution268;
+package com.janhen.coding.leetcode.bit.solution268;
 
 class Solution {
 
