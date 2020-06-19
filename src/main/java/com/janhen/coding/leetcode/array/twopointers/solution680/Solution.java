@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.other.solutions2.solution680;
+package com.janhen.coding.leetcode.array.twopointers.solution680;
 
 //
 

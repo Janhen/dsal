@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.other.solutions2.solution680;
+package com.janhen.coding.leetcode.array.twopointers.solution680;
 
 // 680. Valid Palindrome II
 //https://leetcode.com/problems/valid-palindrome-ii/
