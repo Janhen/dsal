@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.a_base.solution55;
+package com.janhen.coding.leetcode.other.a_base.solution55;
 
 // 55. Jump Game
 // https://leetcode.com/problems/jump-game/

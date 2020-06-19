@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.search.backtracking.nqueue.solution51;
+package com.janhen.coding.leetcode.search.backtracking.nqueen.solution51;
 
 //51. N-Queens
 //        https://leetcode.com/problems/n-queens/description/

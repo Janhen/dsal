@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.array.sm_base_two_search_sort_matrix.solution169;
+package com.janhen.coding.leetcode.math.solution169;
 
 import java.util.Arrays;
 

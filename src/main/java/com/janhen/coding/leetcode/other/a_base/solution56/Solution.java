@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.a_base.solution56;
+package com.janhen.coding.leetcode.other.a_base.solution56;
 
 import com.janhen.coding.leetcode.structures.Interval;
 

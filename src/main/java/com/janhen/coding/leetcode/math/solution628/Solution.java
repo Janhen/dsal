@@ -1,11 +1,7 @@
-package com.janhen.coding.leetcode.other.solutions2.other.solution628;
+package com.janhen.coding.leetcode.math.solution628;
 
 // 628. Maximum Product of Three Numbers
 //https://leetcode.com/problems/maximum-product-of-three-numbers/description/
-
-/*
-
- */
 
 class Solution {
     public int maximumProduct(int[] nums) {

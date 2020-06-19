@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.string.solution67;
+package com.janhen.coding.leetcode.math.solution67;
 
 // 67. Add Binary
 //https://leetcode.com/problems/add-binary/

@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.a_base.solution119;
+package com.janhen.coding.leetcode.other.a_base.solution119;
 
 import java.util.ArrayList;
 import java.util.List;

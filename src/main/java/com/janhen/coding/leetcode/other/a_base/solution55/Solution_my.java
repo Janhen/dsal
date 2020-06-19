@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.a_base.solution55;
+package com.janhen.coding.leetcode.other.a_base.solution55;
 
 public class Solution_my {
   public boolean canJump(int[] nums) {
