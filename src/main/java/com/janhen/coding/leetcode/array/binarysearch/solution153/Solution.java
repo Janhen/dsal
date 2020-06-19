@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.other.top100.other.solution153;
+package com.janhen.coding.leetcode.array.binarysearch.solution153;
 
 class Solution {
     public int findMin(int[] nums) {

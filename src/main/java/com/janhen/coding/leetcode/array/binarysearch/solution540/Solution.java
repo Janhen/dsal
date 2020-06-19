@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.other.solutions2.solution540;
+package com.janhen.coding.leetcode.array.binarysearch.solution540;
 
 // 540. Single Element in a Sorted Array
 //https://leetcode.com/problems/single-element-in-a-sorted-array/description/
@@ -26,7 +26,6 @@ Note: Your solution should run in O(log n) time and O(1) space.
  */
 
 class Solution {
-
     // todo JZOF
     // todo Q
     // 有序数组的 Single Element

@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.other.solutions2.solution278;
+package com.janhen.coding.leetcode.array.binarysearch.solution278;
 
 // 278. First Bad Version
 //https://leetcode.com/problems/first-bad-version/description/

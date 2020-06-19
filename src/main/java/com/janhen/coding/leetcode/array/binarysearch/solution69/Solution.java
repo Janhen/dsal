@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.other.solutions2.solution69;
+package com.janhen.coding.leetcode.array.binarysearch.solution69;
 
 // 69. Sqrt(x)
 //https://leetcode.com/problems/sqrtx/

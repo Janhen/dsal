@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.other.solutions2.solution744;
+package com.janhen.coding.leetcode.array.binarysearch.solution744;
 
 // 744. Find Smallest Letter Greater Than Target
 //https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
