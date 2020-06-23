@@ -1,7 +1,5 @@
 package com.janhen.coding.leetcode.other.a_base.solution56;
 
-import com.janhen.coding.leetcode.structures.Interval;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
