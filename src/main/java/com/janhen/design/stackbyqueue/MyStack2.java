@@ -5,41 +5,30 @@ import java.util.NoSuchElementException;
 import java.util.Queue;
 
 class MyStack2 {
-  private Queue<Integer> data = new LinkedList<>();
-  private Queue<Integer> help = new LinkedList<>();
+  private Queue<Integer> queue = new LinkedList<>();
 
   public void push(int x) {
-    data.offer(x);
+    queue.offer(x);
+    int cnt = queue.size();
+    // reverse queue element, offer(poll())
+    while (cnt-- > 1) {
+      queue.offer(queue.poll());
+    }
   }
 
   public int pop() {
     if (empty())
       throw new NoSuchElementException();
-    while (data.size() > 1)
-      help.offer(data.poll());
-    int oldTop = data.poll();
-    swap();
-    return oldTop;
+    return queue.poll();
   }
 
   public int top() {
     if (empty())
       throw new NoSuchElementException();
-    while (data.size() > 1)
-      help.offer(data.poll());
-    int top = data.poll();
-    help.offer(top);
-    swap();
-    return top;
+    return queue.peek();
   }
 
   public boolean empty() {
-    return data.isEmpty();
-  }
-
-  private void swap() {
-    Queue<Integer> t = data;
-    data = help;
-    help = t;
+    return queue.isEmpty();
   }
 }

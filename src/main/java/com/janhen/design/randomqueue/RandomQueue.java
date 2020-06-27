@@ -1,10 +1,11 @@
 package com.janhen.design.randomqueue;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RandomQueue<E> {
-
-  private ArrayList<E> queue;
+  // not keep original put order
+  private List<E> queue;
 
   public RandomQueue() {
     queue = new ArrayList<E>();
@@ -14,14 +15,16 @@ public class RandomQueue<E> {
     queue.add(e);
   }
 
+  // O(1)
   public E remove() {
     if (queue.size() == 0)
       throw new IllegalArgumentException("There's no element to remove in Random Qeuue");
 
-    int randIndex = (int) (Math.random() * queue.size());
+    int randIdx = (int) (Math.random() * queue.size());
+    E randElement = queue.get(randIdx);
 
-    E randElement = queue.get(randIndex);
-    queue.set(randIndex, queue.get(queue.size() - 1));
+    // take [N-1] to [randIdx]
+    queue.set(randIdx, queue.get(queue.size() - 1));
     queue.remove(queue.size() - 1);
 
     return randElement;

@@ -5,14 +5,10 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 
-/**
- * 处理 滑动窗口问题
- * https://leetcode.com/problems/sliding-window-maximum/
- */
 public class MaxQueue {
-  /** keep original enqueue order. */
+  // keep original enqueue order
   private Queue<Tuple> queue = new LinkedList<>();
-  /** Monotone decreasing。 */
+  // Monotone decreasing, last element is max
   private Deque<Tuple> qmax = new LinkedList<>();
   private int currentIndex = 0;
 
@@ -46,6 +42,7 @@ public class MaxQueue {
     return qmax.peekFirst().val;
   }
 
+  // wrapped value with idx to record original put order
   static class Tuple {
     int val;
     int idx;

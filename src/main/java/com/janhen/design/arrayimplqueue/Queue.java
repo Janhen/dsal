@@ -1,17 +1,15 @@
-package com.janhen.design.arrayimplqueueandstack.queue;
+package com.janhen.design.arrayimplqueue;
 
 import java.util.NoSuchElementException;
 
 /**
  * 不自动扩缩容<br>
  * 记录队列头部和尾部的索引实现<br>
- *
- * @param <E>
  */
 public class Queue<E> {
   private E[] data;
-  private int frontIdx, tailIdx;
   private int N;
+  private int frontIdx, tailIdx;
 
   public Queue(int capacity) {
     data = (E[]) new Object[capacity];

@@ -1,9 +1,12 @@
-package com.janhen.design.arrayimplqueueandstack.queue;
+package com.janhen.design.arrayimplqueue;
 
 import com.janhen.structures.queue.IQueue;
 
 import java.util.NoSuchElementException;
 
+/**
+ * shift element 实现
+ */
 public class Queue2<E> implements IQueue<E> {
   private E[] data;
   private int N;

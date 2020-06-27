@@ -6,15 +6,15 @@ import java.util.Stack;
 public class MaxQueue3 {
 
   static class MaxStack {
-
     private Stack<Integer> data = new Stack<>();
     private Stack<Integer> max = new Stack<>();
 
     public void push(int e) {
       if (max.isEmpty()) {
         max.push(e);
-      } else if (e >= max.peek())
+      } else if (e >= max.peek()) {
         max.push(e);
+      }
       data.push(e);
     }
 
@@ -79,7 +79,7 @@ public class MaxQueue3 {
     if (isEmpty())
       throw new NoSuchElementException();
     return Math.max(in.isEmpty() ? Integer.MIN_VALUE : in.max(),
-        out.isEmpty() ? Integer.MIN_VALUE : out.max());
+      out.isEmpty() ? Integer.MIN_VALUE : out.max());
   }
 
   public boolean isEmpty() {

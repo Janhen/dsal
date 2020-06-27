@@ -5,6 +5,7 @@ import java.util.Stack;
 
 class MyQueue {
   private Stack<Integer> in = new Stack<>();
+  // peek element always is first put element when pop or peek operation
   private Stack<Integer> out = new Stack<>();
 
   public void push(int x) {
@@ -34,8 +35,8 @@ class MyQueue {
   }
 
   private void in2out() {
+    // maintain out first pop is first input
     if (out.isEmpty()) {
-      // maintain out first pop is first input
       while (!in.isEmpty()) {
         out.push(in.pop());
       }

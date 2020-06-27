@@ -1,4 +1,4 @@
-package com.janhen.design.arrayimplqueueandstack.stack;
+package com.janhen.design.arrayimplstack;
 
 import java.util.NoSuchElementException;
 

@@ -1,7 +1,6 @@
 package com.janhen.design.minutehourcount;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * 最近一分钟和最近1小时的数量<br>
@@ -13,7 +12,6 @@ import java.util.List;
 public class TrailingBucketCounter {
 
   public TrailingBucketCounter(int numBuckets, int secsPerBucket) {
-
   }
 
   static class Event {

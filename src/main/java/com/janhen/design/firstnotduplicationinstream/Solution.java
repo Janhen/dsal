@@ -7,6 +7,7 @@ import java.util.Queue;
 
 public class Solution {
   private Map<Character, Integer> freqs = new HashMap<>();
+  // record original sequence
   private Queue<Character> queue = new LinkedList<>();
 
   public void Insert(char ch) {

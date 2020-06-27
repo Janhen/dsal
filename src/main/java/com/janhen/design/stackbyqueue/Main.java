@@ -6,7 +6,7 @@ public class Main {
 
   @Test
   public void testStack() {
-    MyStack stack = new MyStack();
+    MyStack2 stack = new MyStack2();
     stack.push(1);
     stack.push(2);
     stack.push(3);
@@ -21,7 +21,7 @@ public class Main {
 
   @Test
   public void testStack2() {
-    MyStack2 stack = new MyStack2();
+    MyStack stack = new MyStack();
     stack.push(1);
     stack.push(2);
     stack.push(3);

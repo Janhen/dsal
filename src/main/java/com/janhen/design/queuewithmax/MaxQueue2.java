@@ -1,9 +1,11 @@
 package com.janhen.design.queuewithmax;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class MaxQueue2 {
-
   Queue<Integer> queue = new LinkedList<>();
   PriorityQueue<Integer> heap = new PriorityQueue<>((o1, o2) -> o2 - o1);
 
@@ -17,7 +19,7 @@ public class MaxQueue2 {
       throw new NoSuchElementException();
     int oldFront = queue.poll();
     if (oldFront == heap.peek())
-      heap.poll();
+      heap.poll();  // time: O(nlogn)
     return oldFront;
   }
 

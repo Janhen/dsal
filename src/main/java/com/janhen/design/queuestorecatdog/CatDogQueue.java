@@ -6,7 +6,7 @@ import java.util.Queue;
 public class CatDogQueue {
   private Queue<WrappedPet> dogs = new LinkedList<>();
   private Queue<WrappedPet> cats = new LinkedList<>();
-  private int count; // as index
+  private int sequence; // as index to keep order
 
   public boolean isEmpty() {
     return dogs.isEmpty() && cats.isEmpty();
@@ -23,21 +23,16 @@ public class CatDogQueue {
   public void offer(Pet pet) {
     // add pet to different queue by pet type
     if (pet instanceof Dog) {
-      dogs.add(new WrappedPet(pet, count++));
+      dogs.add(new WrappedPet(pet, sequence++));
     } else if (pet instanceof Cat) {
-      cats.add(new WrappedPet(pet, count++));
+      cats.add(new WrappedPet(pet, sequence++));
     } else {
       throw new IllegalArgumentException("not a dog or cat");
     }
   }
 
-  /**
-   * 取出元素
-   *
-   * @return 🐱或🐶
-   */
   public Pet poll() {
-    if (dogs.isEmpty() && cats.isEmpty()) {
+    if (isEmpty()) {
       throw new IllegalArgumentException("queue is empty");
     }
 

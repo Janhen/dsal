@@ -3,11 +3,10 @@ package com.janhen.design.medianinstream;
 import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 
-/**
- * 一个最大堆 + 一个最小堆实现
- */
 public class Solution {
+  // max heap
   private PriorityQueue<Integer> leftSmall = new PriorityQueue<>((o1, o2) -> o2 - o1);
+  // min heap
   private PriorityQueue<Integer> rightBig = new PriorityQueue<>();
   private int N;
 
