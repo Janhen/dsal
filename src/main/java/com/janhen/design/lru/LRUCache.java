@@ -2,113 +2,85 @@ package com.janhen.design.lru;
 
 import java.util.HashMap;
 
-/**
- * 借助自定义的双端队列实现<br>
- * 控制 hit 的节点移动到队首
- */
-public class LRUCache {
-  private LinkedDeque linkedDeque;
-  private HashMap<Integer, Node> keyNodeMap;
+class LRUCache {
+  private HashMap<Integer, Node> cache;
   private int capacity;
+  private Node head;
+  private Node tail;
+
+  private class Node {
+    Node prev;
+    Node next;
+    Integer key;
+    Integer val;
+
+    public Node(Integer k, Integer v) {
+      this.key = k;
+      this.val = v;
+    }
+  }
 
   public LRUCache(int capacity) {
-    linkedDeque = new LinkedDeque();
-    keyNodeMap = new HashMap<>(capacity * 4 / 3);
     this.capacity = capacity;
+    this.cache = new HashMap<>(capacity * 4 / 3);
   }
 
   public int get(int key) {
-    if (keyNodeMap.containsKey(key)) { // hit the cache
-      Node valNode = keyNodeMap.get(key);
-      linkedDeque.moveNodeToTail(valNode);
-      return valNode.val;
+    if (!cache.containsKey(key)) {
+      return -1;
     }
-    return -1;
+    Node node = cache.get(key);
+    remove(node);
+    setHead(node);
+    return node.val;
   }
 
   public void put(int key, int value) {
-    if (keyNodeMap.containsKey(key)) {
-      Node valNode = keyNodeMap.get(key);
-      valNode.val = value; // update
-      linkedDeque.moveNodeToTail(valNode);
+    if (cache.containsKey(key)) {
+      Node oldNode = cache.get(key);
+      oldNode.val = value;
+      remove(oldNode);
+      setHead(oldNode);
     } else {
-      Node valNode = new Node(key, value);
-      keyNodeMap.put(key, valNode);
-      linkedDeque.offerLast(valNode);
-      modifyIfBeyond();
+      Node newNode = new Node(key, value);
+      if (cache.size() >= capacity) {
+        System.out.println("Cache is FULL! Removing " + tail.val + " from cache...");
+        cache.remove(tail.key);
+        remove(tail);
+      }
+      setHead(newNode);
+      cache.put(key, newNode);
     }
   }
 
-  /**
-   * capacity control
-   */
-  private void modifyIfBeyond() {
-    if (keyNodeMap.size() == capacity + 1) {
-      Node oldHead = linkedDeque.pollFirst();
-      keyNodeMap.remove(oldHead.key);
+  // remove from list node, note head tail edge
+  private void remove(Node node) {
+    if (node.prev != null) {
+      node.prev.next = node.next;
+    } else {
+      head = node.next;
+    }
+    if (node.next != null) {
+      node.next.prev = node.prev;
+    } else {
+      tail = node.prev;
     }
   }
 
-  static class Node {
-    Integer key, val;
-    Node prev, next;
+  // make node(newNode or accessed node) to head
+  private void setHead(Node node) {
+    node.next = head;
+    node.prev = null;
 
-    Node(int key, int val) {
-      this.key = key;
-      this.val = val;
+    // init or remove no element
+    if (head != null) {
+      head.prev = node;
     }
-  }
+    head = node;
 
-  static class LinkedDeque {
-    Node head;
-    Node tail;
-
-    public void offerLast(Node node) {
-      if (head == null) {
-        head = node;
-      } else {
-        tail.next = node;
-        node.prev = tail;
-      }
-      tail = node;
-    }
-
-    public Node pollFirst() {
-      if (head == null) { // none element
-        return null;
-      }
-
-      Node oldHead = head;
-      if (head == tail) { // one element
-        head = null;
-        tail = null;
-      } else {
-        head = head.next;
-        head.prev = null;
-        oldHead.next = null;
-      }
-      return oldHead;
-    }
-
-    // as latest access node
-    public void moveNodeToTail(Node node) {
-      if (node == tail) {
-        return;
-      }
-
-      // isolate node
-      if (node == head) {
-        head = head.next;
-        node.next = null;
-      } else {
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
-      }
-
-      tail.next = node;
-      node.prev = tail;
-      node.next = null;
-      tail = node;
+    // init or remove no element
+    if (tail == null) {
+      tail = head;
     }
   }
 }

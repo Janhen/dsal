@@ -2,14 +2,11 @@ package com.janhen.design.lru;
 
 import java.util.HashMap;
 
-/**
- * 通过两个 dummy head, tail 的双端节点实现
- */
-class LRUCache1 {
-  private Node head;
-  private Node tail;
+class LRUCache1_ {
   private HashMap<Integer, Node> map;
   private int capacity;
+  private Node head;
+  private Node tail;
 
   private class Node {
     Node prev;
@@ -23,7 +20,7 @@ class LRUCache1 {
     }
   }
 
-  public LRUCache1(int capacity) {
+  public LRUCache1_(int capacity) {
     this.capacity = capacity;
     this.map = new HashMap<>(capacity * 4 / 3);
     head = new Node(null, null);
@@ -56,6 +53,7 @@ class LRUCache1 {
     }
   }
 
+  // remove from list node
   private void unlink(Node node) {
     Node pre = node.prev;
     Node next = node.next;
