@@ -20,18 +20,19 @@ to make the whole array sorted in ascending order.*/
 // 17 ms, faster than 66.48%
 // https://leetcode.com/problems/shortest-unsorted-continuous-subarray/discuss/103066/Ideas-behind-the-O(n)-two-pass-and-one-pass-solutions
 class SolutionRef {
-    public int findUnsortedSubarray(int[] nums) {
-        int i = 0, j = -1;
-        int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+  public int findUnsortedSubarray(int[] nums) {
+    int i = 0, j = -1;
+    int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
 
-        for (int l = 0, r = nums.length - 1; r >= 0; l++, r--) {
-            max = Math.max(max, nums[l]);
-            if (nums[l] != max) j = l;
+    // iterate with two index
+    for (int l = 0, r = nums.length - 1; r >= 0; l++, r--) {
+      max = Math.max(max, nums[l]);
+      if (nums[l] != max) j = l;
 
-            min = Math.min(min, nums[r]);
-            if (nums[r] != min) i = r;
-        }
-
-        return (j - i + 1);
+      min = Math.min(min, nums[r]);
+      if (nums[r] != min) i = r;
     }
+
+    return (j - i + 1);
+  }
 }

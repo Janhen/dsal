@@ -3,7 +3,7 @@ package com.janhen.coding.leetcode.ds.array.sm_adv_sub_arr_seq_dp_range.solution
 import java.util.Set;
 import java.util.stream.IntStream;
 
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.toSet;
 
 class Solution {
   public int longestConsecutive(int[] nums) {

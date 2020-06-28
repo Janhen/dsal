@@ -50,6 +50,6 @@ public class Solution2 {
 //    a[3] = new int[]{5, 0};
 //    a[4] = new int[]{6, 1};
 //    a[5] = new int[]{5, 2};
-//    new Solution2().reconstructQueue(a);
+//    new Solution().reconstructQueue(a);
 //  }
 }

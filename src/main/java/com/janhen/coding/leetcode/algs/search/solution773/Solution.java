@@ -84,6 +84,6 @@ public class Solution {
 //    public static void main(String[] args){
 //
 //        int[][] board = {{1, 2, 3}, {4, 0, 5}};
-//        System.out.println((new Solution2()).slidingPuzzle(board));
+//        System.out.println((new Solution()).slidingPuzzle(board));
 //    }
 }

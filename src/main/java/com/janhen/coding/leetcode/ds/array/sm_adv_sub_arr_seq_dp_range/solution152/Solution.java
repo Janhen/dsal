@@ -9,7 +9,6 @@ class Solution {
     int curMin = nums[0];
 
     for (int i = 1; i < nums.length; i++) {
-
       // handle max min not meet because [i] is negative
       if (nums[i] < 0) {
         int t = curMax;
@@ -22,7 +21,7 @@ class Solution {
       curMin = Math.min(nums[i], curMin * nums[i]);
 
       // collect result
-      res = Math.max(curMax, res);
+      res = Math.max(res, curMax);
     }
     return res;
   }

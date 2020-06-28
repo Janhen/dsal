@@ -1,6 +1,6 @@
 package com.janhen;
 
-import main.java.janhen.leetcode.structures.TreeNode;
+import com.janhen.coding.leetcode.structures.TreeNode;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
