@@ -12,7 +12,6 @@ https://coding.imooc.com/class/370.html
 书籍:  
 [算法(E4)](../book/算法(E4).pdf)  
 [Java数据结构和算法(E2,Scan)](../book/Java数据结构和算法(E2,Scan).pdf)  
-  
 [挑战程序设计竞赛(E2)](../book/挑战程序设计竞赛(E2).pdf)  
 [编程珠玑](../book/编程珠玑.pdf)  
 [编程之美](../book/编程之美.pdf)  
