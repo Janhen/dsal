@@ -39,29 +39,29 @@ import java.util.List;
 
 //  67 ms, faster than 20.59%
 class Solution {
-    public String findLongestWord(String s, List<String> d) {
-        Collections.sort(d, (s1, s2) -> {
-            int lenDiff = s2.length()-s1.length();
-            if (lenDiff != 0)
-                return lenDiff;
-            return s1.compareTo(s2);
-        });
-        for (String str : d) {
-            if (isValid(s, str)) {
-                return str;
-            }
-        }
-        return "";
+  public String findLongestWord(String s, List<String> d) {
+    Collections.sort(d, (s1, s2) -> {
+      int lenDiff = s2.length() - s1.length();
+      if (lenDiff != 0)
+        return lenDiff;
+      return s1.compareTo(s2);
+    });
+    for (String str : d) {
+      if (isValid(s, str)) {
+        return str;
+      }
     }
+    return "";
+  }
 
-    // 正向序列下 str 是否可组合成 match
-    private boolean isValid(String str, String match) {
-        int i = 0, j = 0;
-        while (i < str.length() && j < match.length()) {
-            if (str.charAt(i) == match.charAt(j))
-                j ++;
-            i ++;
-        }
-        return j == match.length();
+  // 正向序列下 str 是否可组合成 match
+  private boolean isValid(String str, String match) {
+    int i = 0, j = 0;
+    while (i < str.length() && j < match.length()) {
+      if (str.charAt(i) == match.charAt(j))
+        j++;
+      i++;
     }
+    return j == match.length();
+  }
 }

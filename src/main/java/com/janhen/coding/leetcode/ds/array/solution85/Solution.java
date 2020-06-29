@@ -6,6 +6,7 @@ class Solution {
   /*
   time: O(n^2)
    */
+  // TODO Q
   public int maximalRectangle(char[][] matrix) {
     int m = matrix.length;
     int n = m == 0 ? 0 : matrix[0].length;

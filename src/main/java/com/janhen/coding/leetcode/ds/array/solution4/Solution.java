@@ -1,9 +1,7 @@
 package com.janhen.coding.leetcode.ds.array.solution4;
 
 class Solution {
-  /*
-   * time: O(log(m + n)), space: O(1)
-   */
+  // time: O(log(m + n)), space: O(1)
   public double findMedianSortedArrays(int[] A, int[] B) {
     int len = A.length + B.length;
     // 求解中位数问题的表达式

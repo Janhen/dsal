@@ -9,7 +9,7 @@ public class Solution {
     for (int i = 0; i < nums.length; i++) {
       // in begin to condition judgement
       if (valIdxMap.containsKey(target - nums[i]))
-        return new int[] {valIdxMap.get(target - nums[i]), i };
+        return new int[]{valIdxMap.get(target - nums[i]), i};
       // in end to collect value->index
       valIdxMap.put(nums[i], i);
     }

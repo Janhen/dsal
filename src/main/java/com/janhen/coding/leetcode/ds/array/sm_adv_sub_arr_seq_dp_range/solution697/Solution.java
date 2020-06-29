@@ -4,33 +4,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Solution {
-    public int findShortestSubArray(int[] nums) {
-        // step1: collect necessary information
-        Map<Integer, Integer> freqs = new HashMap<>();
-        // current last occur position index
-        Map<Integer, Integer> numLastIndex = new HashMap<>();
-        // current first occur position index
-        Map<Integer, Integer> numFirstIndex = new HashMap<>();
+  public int findShortestSubArray(int[] nums) {
+    // step1: collect necessary information
+    // current last occur position index
+    // current first occur position index
+    Map<Integer, Integer> freqs = new HashMap<>();
+    Map<Integer, Integer> numLastIdx = new HashMap<>();
+    Map<Integer, Integer> numFirstIdx = new HashMap<>();
 
-        // init all map
-        for (int i = 0; i < nums.length; i ++) {
-            int num = nums[i];
-            freqs.put(num, freqs.getOrDefault(num, 0) + 1);
-            numLastIndex.put(num, i);
-            if (!numFirstIndex.containsKey(num))
-                numFirstIndex.put(num, i);
-        }
-
-        // step2: find maxCnt val and index
-        int maxFreq = freqs.values().stream().max(null).get();
-
-        // step3: find min short in many max frequency
-        int minLen = nums.length;
-        for (int i = 0; i < nums.length; i ++) {
-            if (freqs.get(nums[i]) != maxFreq)
-                continue;
-            minLen = Math.min(minLen, numLastIndex.get(nums[i]) - numFirstIndex.get(nums[i]) + 1);
-        }
-        return minLen;
+    // init all map
+    for (int i = 0; i < nums.length; i++) {
+      int num = nums[i];
+      freqs.put(num, freqs.getOrDefault(num, 0) + 1);
+      numLastIdx.put(num, i);
+      if (!numFirstIdx.containsKey(num)) {
+        numFirstIdx.put(num, i);
+      }
     }
+
+    // step2: find maxCnt val and index
+    int maxFreq = freqs.values().stream().max(null).get();
+
+    // step3: find min short in many duplicate max frequency
+    int minLen = nums.length;
+    for (int i = 0; i < nums.length; i++) {
+      if (freqs.get(nums[i]) != maxFreq)
+        continue;
+      minLen = Math.min(minLen, numLastIdx.get(nums[i]) - numFirstIdx.get(nums[i]) + 1);
+    }
+    return minLen;
+  }
 }

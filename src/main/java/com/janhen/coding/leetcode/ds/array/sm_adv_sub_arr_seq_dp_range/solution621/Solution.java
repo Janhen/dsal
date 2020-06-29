@@ -7,22 +7,26 @@ import java.util.PriorityQueue;
 class Solution {
   // 获取最大频次以及为最大频次的元素个数
   public int leastInterval(char[] tasks, int n) {
+    // 1. init frequency
     Map<Character, Integer> freqs = new HashMap<>();
     for (int i = 0; i < tasks.length; i++)
       freqs.put(tasks[i], freqs.getOrDefault(tasks[i], 0) + 1);
 
-    // sort map by entry    frequency reversed order, character positive order
+    // 2. sort map by entry    frequency reversed order, character positive order
     PriorityQueue<Map.Entry<Character, Integer>> pq = new PriorityQueue<>(((o1, o2) -> o1.getValue() != o2.getValue() ?
       Integer.compare(o2.getValue(), o1.getValue()) : Integer.compare(o1.getKey(), o2.getKey())));
     pq.addAll(freqs.entrySet());
 
-    int count = 0;
+    // 3. get max frequency count
+    int maxFreqCnt = 0;
     int maxFreq = pq.peek().getValue();
     while (!pq.isEmpty() && pq.peek().getValue() == maxFreq) {
       pq.poll();
-      count++;
+      maxFreqCnt++;
     }
-    return Math.max(tasks.length, (maxFreq - 1) * (n + 1) + count);
+
+    // 4. return value
+    return Math.max(tasks.length, (maxFreq - 1) * (n + 1) + maxFreqCnt);
   }
 
   public static void main(String[] args) {
