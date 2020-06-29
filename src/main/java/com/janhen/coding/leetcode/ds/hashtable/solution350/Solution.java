@@ -46,22 +46,26 @@ then read 2 elements from each array at a time in memory, record intersections.
 
 public class Solution {
 
-    // 7 ms, faster than 27.02% 
-    public int[] intersect(int[] nums1, int[] nums2) {
+  // 7 ms, faster than 27.02%
+  public int[] intersect(int[] nums1, int[] nums2) {
+    // 1. frequency
+    Map<Integer, Integer> freqs = new HashMap<>();
+    for (int num : nums1)
+      freqs.put(num, freqs.getOrDefault(num, 0) + 1);
 
-        Map<Integer, Integer> freqs = new HashMap<>();
-        for (int num : nums1)
-            freqs.put(num, freqs.getOrDefault(num, 0) + 1);
-
-        List<Integer> res = new ArrayList<>();
-        for (int num : nums2) {                // ∃,remove or --
-            if (freqs.containsKey(num)) {
-                res.add(num);
-                freqs.put(num, freqs.get(num) - 1);
-                if (freqs.get(num) == 0)
-                    freqs.remove(num);   // this element not have in all
-            }
-        }
-        return res.stream().mapToInt(Integer::intValue).toArray();
+    // 2. remove logic by frequency
+    //   - can reduce frequency
+    //   - remove all element
+    List<Integer> res = new ArrayList<>();
+    for (int num : nums2) {
+      if (freqs.containsKey(num)) {
+        res.add(num);
+        freqs.put(num, freqs.get(num) - 1);
+        if (freqs.get(num) == 0)
+          freqs.remove(num);
+      }
     }
+    // 3. return result
+    return res.stream().mapToInt(Integer::intValue).toArray();
+  }
 }

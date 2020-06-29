@@ -3,9 +3,9 @@ package com.janhen.coding.leetcode.ds.hashtable.solution350;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution3 {
+public class Solution2 {
+  // TODO Follow
   // two list add + remove
-  // 9 ms, faster than 17.56%
   public int[] intersect(int[] nums1, int[] nums2) {
     List<Integer> record = new ArrayList<>(); // every element record
     List<Integer> res = new ArrayList<>();

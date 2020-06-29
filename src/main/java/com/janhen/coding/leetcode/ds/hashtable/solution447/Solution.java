@@ -1,28 +1,5 @@
 package com.janhen.coding.leetcode.ds.hashtable.solution447;
 
-// 447. Number of Boomerangs
-// https://leetcode.com/problems/number-of-boomerangs/description/
-// easy
-// hash table
-
-// 三点之间距离相等的个数
-
-// Given n points in the plane that are all pairwise distinct, a "boomerang" is a tuple of points (i, j, k)
-// such that the distance between i and j equals the distance between i and k (the order of the tuple matters).
-//
-//Find the number of boomerangs.
-// You may assume that n will be at most 500 and coordinates of points are all in the range [-10000, 10000] (inclusive).
-//
-//Example:
-//Input:
-//[[0,0],[1,0],[2,0]]
-//
-//Output:
-//2
-//
-//Explanation:
-//The two boomerangs are [[1,0],[0,0],[2,0]] and [[1,0],[2,0],[0,0]]
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,19 +19,19 @@ class Solution {
   public int numberOfBoomerangs(int[][] points) {
     int res = 0;
     for (int i = 0; i < points.length; i++) {
-      Map<Integer, Integer> distFreqs = new HashMap<>(); // current point x, every point ↔ record
+      // distance -> frequency
+      Map<Integer, Integer> freqs = new HashMap<>(); // current point x, every point ↔ record
       for (int j = 0; j < points.length; j++) {
         if (j != i) {
           int distance = distance(points[i], points[j]);
-          distFreqs.put(distance, distFreqs.getOrDefault(distance, 0) + 1); // collect all distance(x,y)
-                                                                      // frequency
+          freqs.put(distance, freqs.getOrDefault(distance, 0) + 1); // collect all distance(x,y)
         }
       }
       // collect result
       // if 1 1 * 0 can hidden
-      for (int key : distFreqs.keySet()) // insure x, find {y,z}
-        if (distFreqs.get(key) >= 2)
-          res += distFreqs.get(key) * (distFreqs.get(key) - 1); // C(n,2) = freq*(freq-1)
+      for (int key : freqs.keySet()) // insure x, find {y,z}
+        if (freqs.get(key) >= 2)
+          res += freqs.get(key) * (freqs.get(key) - 1); // C(n,2) = freq*(freq-1)
     }
     return res;
   }

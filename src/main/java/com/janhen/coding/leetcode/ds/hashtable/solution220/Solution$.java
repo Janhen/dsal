@@ -2,18 +2,16 @@ package com.janhen.coding.leetcode.ds.hashtable.solution220;
 
 import java.util.TreeSet;
 
-class Solution1_ {
+class Solution$ {
   // can handler integer overflow
-  // 24 ms, faster than 64.03%
+  // 41 ms, faster than 28.02%
   // time : O(nlogn)
   // space : O(k)
   public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
-    final TreeSet<Long> record = new TreeSet<>();
+    TreeSet<Long> record = new TreeSet<>();
     for (int i = 0; i < nums.length; i++) {
-      final Long floor = record.floor((long) nums[i] + (long) t);
-      final Long ceil = record.ceiling((long) nums[i] - (long) t);
-      if ((floor != null && floor >= (long) nums[i])
-        || (ceil != null && ceil <= (long) nums[i]))
+      if (record.ceiling((long) nums[i] - (long) t) != null &&      // NOTE: [i]-t=<x<=[i]+t, x∈record
+        record.ceiling((long) nums[i] - (long) t) <= (long) nums[i] + (long) t)
         return true;
       record.add((long) nums[i]);
       if (record.size() == k + 1)

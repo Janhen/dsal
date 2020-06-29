@@ -6,7 +6,7 @@ package com.janhen.coding.leetcode.ds.hashtable.solution349;
 // Hash Table, Two Pointers, Binary Search, Sort
 
 /*
-找出两个数组中重合的元素
+
 Given two arrays, write a function to compute their intersection.
 
 Example 1:
@@ -48,7 +48,6 @@ public class Solution {
         j++;
     }
 
-    int[] res = set.stream().mapToInt(Integer::intValue).toArray();
-    return res;
+    return set.stream().mapToInt(Integer::valueOf).toArray();
   }
 }

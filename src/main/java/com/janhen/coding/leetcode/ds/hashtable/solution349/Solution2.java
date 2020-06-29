@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class Solution2_my {
+public class Solution2 {
 
   // double set
   // 利用 set 自动去重性质

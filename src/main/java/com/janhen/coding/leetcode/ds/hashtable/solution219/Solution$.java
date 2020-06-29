@@ -20,7 +20,7 @@ import java.util.Set;
 //Input: nums = [1,2,3,1,2,3], k = 2
 //Output: false
 
-class Solution1_ {
+class Solution$ {
 
     // use add return value as judge condition
     // 7 ms, faster than 98.27%
@@ -45,7 +45,7 @@ class Solution1_ {
         int[] nums = {1, 2, 3, 1, 2, 3};
 //        int[] nums = {1,0,1,1};
 
-        boolean res = (new Solution1_()).containsNearbyDuplicate(nums, 2);
+        boolean res = (new Solution$()).containsNearbyDuplicate(nums, 2);
         System.out.println(res);
     }
 }
