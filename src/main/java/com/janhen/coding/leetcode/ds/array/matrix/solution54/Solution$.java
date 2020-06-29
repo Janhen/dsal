@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.ds.array.sm_base_two_search_sort_matrix.matrix.solution54;
+package com.janhen.coding.leetcode.ds.array.matrix.solution54;
 
 import java.util.ArrayList;
 import java.util.List;

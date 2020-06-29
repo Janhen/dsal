@@ -15,17 +15,17 @@ Explanation:
 One longest palindrome that can be built is "dccaccd", whose length is 7.*/
 
 public class Solution {
- 
-    public int longestPalindrome(String s) {
-        int[] cnts = new int[256];
-        for (char c : s.toCharArray())
-            cnts[c] ++;
 
-        int maxLen = 0;
-        for (int cnt : cnts)
-            maxLen += (cnt / 2) * 2;    // select even
-        if (maxLen < s.length())
-            maxLen ++;
-        return maxLen;
-    }
+  public int longestPalindrome(String s) {
+    int[] cnts = new int[256];
+    for (char c : s.toCharArray())
+      cnts[c]++;
+
+    int maxLen = 0;
+    for (int cnt : cnts)
+      maxLen += (cnt / 2) * 2;    // select even
+    if (maxLen < s.length())
+      maxLen++;
+    return maxLen;
+  }
 }

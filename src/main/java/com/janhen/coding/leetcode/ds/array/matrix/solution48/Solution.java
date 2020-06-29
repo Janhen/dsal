@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.ds.array.sm_base_two_search_sort_matrix.matrix.solution48;
+package com.janhen.coding.leetcode.ds.array.matrix.solution48;
 
 class Solution {
   public void rotate(int[][] matrix) {

@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.ds.array.sm_base_two_search_sort_matrix.matrix.solution566;
+package com.janhen.coding.leetcode.ds.array.matrix.solution566;
 
 class Solution {
   public int[][] matrixReshape(int[][] nums, int r, int c) {
