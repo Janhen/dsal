@@ -1,14 +1,8 @@
 package com.janhen.coding.leetcode.ds.string.solution14;
 
-// 14. Longest Common Prefix
-//https://leetcode.com/problems/longest-common-prefix/
-
-import com.janhen.TestUtil;
-
 import java.util.Arrays;
 
 class Solution {
-  // 7 ms, faster than 58.51%
   public String longestCommonPrefix(String[] strs) {
     if (strs.length == 0)
       return "";
@@ -27,11 +21,5 @@ class Solution {
         return builder.toString();
     }
     return builder.toString();
-  }
-
-  public static void main(String[] args) {
-    String[] strs = {"flag", "fl", "fla"};
-    Arrays.sort(strs);
-    TestUtil.printArr(strs);
   }
 }
