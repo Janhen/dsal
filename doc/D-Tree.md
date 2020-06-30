@@ -52,6 +52,18 @@ clone
 
 
 
+
+
+问题的分类:  
+性质类, 可作为结构的工具方法类:  
+求解深度相关  
+二分搜索树相关  
+平衡二叉树相关  
+树的迭代相关  
+节点的祖先问题  
+
+
+
 **反转二叉树**
 
 [226. Invert Binary Tree(easy)](https://leetcode.com/problems/invert-binary-tree/description/)
