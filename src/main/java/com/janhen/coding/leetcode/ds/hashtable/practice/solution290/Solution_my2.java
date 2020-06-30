@@ -35,38 +35,36 @@ import java.util.Objects;
 
 class Solution_my2 {
 
-    // 1 ms, faster than 99.28%
-    public boolean wordPattern(String pattern, String str) {
-        String[] words = str.split(" ");
-        if (pattern.length() != words.length)
-            return false;
-        OneToOneMap<Character, String> map = new OneToOneMap();
-        for (int i = 0; i < pattern.length(); i ++) {
-            if (!map.put(pattern.charAt(i), words[i]))
-                return false;
-        }
-        return true;
+  // 1 ms, faster than 99.28%
+  public boolean wordPattern(String pattern, String str) {
+    String[] words = str.split(" ");
+    if (pattern.length() != words.length)
+      return false;
+    OneToOneMap<Character, String> map = new OneToOneMap();
+    for (int i = 0; i < pattern.length(); i++) {
+      if (!map.put(pattern.charAt(i), words[i]))
+        return false;
+    }
+    return true;
+  }
+
+
+  class OneToOneMap<K, V> {
+    Map<K, Integer> map1 = new HashMap<>();
+    Map<V, Integer> map2 = new HashMap<>();
+    int sequence;
+
+    public boolean put(K key, V val) {
+      if (!Objects.equals(map1.put(key, sequence), map2.put(val, sequence)))
+        return false;
+      sequence++;
+      return true;
     }
 
-
-    class OneToOneMap<K, V> {
-
-        Map<K, Integer> map1 = new HashMap<>();
-        Map<V, Integer> map2 = new HashMap<>();
-
-        int sequence;
-
-        public boolean put(K key, V val) {
-            if (!Objects.equals(map1.put(key, sequence), map2.put(val, sequence)))
-                return false;
-            sequence ++;
-            return true;
-        }
-
-        public V get(K key) {
-            return null;
-        }
+    public V get(K key) {
+      return null;
     }
+  }
 //    class OneToOneMap<K, V> {
 //        Map<Holder<K>, Holder<V>> map = new HashMap<>();
 //        int sequence;

@@ -34,22 +34,22 @@ import java.util.Map;
 
 class Solution3 {
 
-    // 1 ms, faster than 99.28%
-    public boolean wordPattern(String pattern, String str) {
-        String[] words = str.split(" ");
-        if (pattern.length() != words.length)
-            return false;
-        Map<Character, String> map = new HashMap<>();
-        for (int i = 0; i < pattern.length(); i ++) {
-            if (map.containsKey(pattern.charAt(i))) {
-                if (!map.get(pattern.charAt(i)).equals(words[i]))    // x, y    have x, then y must y
-                    return false;
-            } else {
-                if (map.containsValue(words[i]))       // not have x, then not have y
-                    return false;
-                map.put(pattern.charAt(i), words[i]);
-            }
-        }
-        return true;
+  // 1 ms, faster than 99.28%
+  public boolean wordPattern(String pattern, String str) {
+    String[] words = str.split(" ");
+    if (pattern.length() != words.length)
+      return false;
+    Map<Character, String> map = new HashMap<>();
+    for (int i = 0; i < pattern.length(); i++) {
+      if (map.containsKey(pattern.charAt(i))) {
+        if (!map.get(pattern.charAt(i)).equals(words[i]))    // x, y    have x, then y must y
+          return false;
+      } else {
+        if (map.containsValue(words[i]))       // not have x, then not have y
+          return false;
+        map.put(pattern.charAt(i), words[i]);
+      }
     }
+    return true;
+  }
 }

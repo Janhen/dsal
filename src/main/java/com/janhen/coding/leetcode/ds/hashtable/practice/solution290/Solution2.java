@@ -32,16 +32,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Solution2 {
-    public boolean wordPattern(String pattern, String str) {
-        String[] words = str.split(" ");
-        if (pattern.length() != words.length)
-            return false;
-        Map<Character, Integer> map1 = new HashMap<>();
-        Map<String, Integer> map2 = new HashMap<>();
-        for (Integer i = 0; i < pattern.length(); i ++) {            // why `Integer`,  `int` can not
-            if (map1.put(pattern.charAt(i), i) != map2.put(words[i], i))
-                return false;
-        }
-        return true;
+  public boolean wordPattern(String pattern, String str) {
+    String[] words = str.split(" ");
+    if (pattern.length() != words.length)
+      return false;
+    Map<Character, Integer> map1 = new HashMap<>();
+    Map<String, Integer> map2 = new HashMap<>();
+    for (Integer i = 0; i < pattern.length(); i++) {            // why `Integer`,  `int` can not
+      if (map1.put(pattern.charAt(i), i) != map2.put(words[i], i))
+        return false;
     }
+    return true;
+  }
 }
