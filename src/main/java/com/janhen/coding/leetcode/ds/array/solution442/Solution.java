@@ -1,20 +1,19 @@
-package com.janhen.coding.leetcode.ds.stackqueue.stack.solution442;
+package com.janhen.coding.leetcode.ds.array.solution442;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-元素范围 1_n 找出重复的元素
-*/
 class Solution {
   public List<Integer> findDuplicates(int[] nums) {
     List<Integer> res = new ArrayList<>();
+    // 1. put element in should position
     for (int i = 0; i < nums.length; i++) {
       // not in element should put position
       while (nums[i] != i + 1 && nums[i] != nums[nums[i] - 1]) {
         swap(nums, i, nums[i] - 1);
       }
     }
+    // 2. find all not should position
     for (int i = 0; i < nums.length; i++)
       // not in element where it should be
       if (nums[i] != i + 1)

@@ -15,7 +15,7 @@ public class Solution {
       while (stack.size() > 0 && nums2[i] > stack.peek()) {
         map.put(stack.poll(), nums2[i]);
       }
-      stack.push(nums2[i]) ;
+      stack.push(nums2[i]);
     }
     for (int i = 0; i < nums1.length; i++) {
       nums1[i] = map.getOrDefault(nums1[i], -1);

@@ -3,25 +3,28 @@ package com.janhen.coding.leetcode.ds.stackqueue.sm_traverse_design_parentheses_
 import java.util.Stack;
 
 class Solution {
-    public String simplifyPath(String path) {
-        String[] dirs = path.split("/+");
-        Stack<String> s = new Stack<>();
-        for (String dir : dirs) {
-            if (dir.equals(".") || dir.equals("")){
-                continue;
-            } else if (dir.equals("")) {          // upper layer
-                if (!s.isEmpty())
-                    s.pop();
-            } else {
-                s.push(dir);
-            }
-        }
-        if (s.isEmpty())
-            return "/";
-
-        StringBuilder builder = new StringBuilder();
-        while (!s.isEmpty())
-            builder.insert(0, "/"+s.pop());
-        return builder.toString();
+  public String simplifyPath(String path) {
+    // 1. skip duplication path
+    String[] dirs = path.split("/+");
+    // 2. collect result
+    Stack<String> stack = new Stack<>();
+    for (String dir : dirs) {
+      if (dir.equals(".") || dir.equals("")) {
+        continue;
+      } else if (dir.equals("..")) {          // upper layer
+        if (!stack.isEmpty())
+          stack.pop();
+      } else {
+        stack.push(dir);
+      }
     }
+    // 3. handle special result
+    if (stack.isEmpty())
+      return "/";
+    // 4. build return result
+    StringBuilder builder = new StringBuilder();
+    while (!stack.isEmpty())
+      builder.insert(0, "/" + stack.pop());
+    return builder.toString();
+  }
 }

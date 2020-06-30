@@ -10,41 +10,42 @@ import java.util.Stack;
 
 class SolutionRef2 {
 
-    private class TagNode {
-        TreeNode node;
-        boolean  isFirst;
-        TagNode(TreeNode node) {
-            this.node = node;
-            this.isFirst = false;
-        }
+  private class TagNode {
+    TreeNode node;
+    boolean isFirst;
+
+    TagNode(TreeNode node) {
+      this.node = node;
+      this.isFirst = false;
     }
+  }
 
-    // todo Q
-    // modify object attribute to reduce object create cost
-    public List<Integer> postorderTraversal(TreeNode root) {
-        ArrayList<Integer> res = new ArrayList<>();
-        if (root == null)
-            return res;
+  // todo Q
+  // modify object attribute to reduce object create cost
+  public List<Integer> postorderTraversal(TreeNode root) {
+    ArrayList<Integer> res = new ArrayList<>();
+    if (root == null)
+      return res;
 
-        Stack<TagNode> stack = new Stack<>();
-        TreeNode cur = root;
-        while (cur != null || !stack.empty()) {
-            while (cur != null) {
-                stack.push(new TagNode(cur));
-                cur = cur.left;
-            }
+    Stack<TagNode> stack = new Stack<>();
+    TreeNode cur = root;
+    while (cur != null || !stack.empty()) {
+      while (cur != null) {
+        stack.push(new TagNode(cur));
+        cur = cur.left;
+      }
 
-            TagNode tagNode = stack.pop();
-            cur = tagNode.node;
-            if (!tagNode.isFirst) {
-                tagNode.isFirst = true;
-                stack.push(tagNode);   // pop and push    only modify attribute
-                cur = cur.right;
-            } else {
-                res.add(cur.val);
-                cur = null;
-            }
-        }
-        return res;
+      TagNode tagNode = stack.pop();
+      cur = tagNode.node;
+      if (!tagNode.isFirst) {
+        tagNode.isFirst = true;
+        stack.push(tagNode);   // pop and push    only modify attribute
+        cur = cur.right;
+      } else {
+        res.add(cur.val);
+        cur = null;
+      }
     }
+    return res;
+  }
 }

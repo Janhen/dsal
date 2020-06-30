@@ -10,7 +10,8 @@ public class MaxQueue {
   private Queue<Tuple> queue = new LinkedList<>();
   // Monotone decreasing, last element is max
   private Deque<Tuple> qmax = new LinkedList<>();
-  private int currentIndex = 0;
+  // increasing sequence
+  private int sequencer = 0;
 
   public void offer(int val) {
     // poll not meet to main monotonicity
@@ -18,7 +19,7 @@ public class MaxQueue {
       qmax.pollLast();
     }
 
-    Tuple tuple = new Tuple(val, currentIndex++);
+    Tuple tuple = new Tuple(val, sequencer++);
     queue.offer(tuple);
     qmax.offerLast(tuple);
   }
