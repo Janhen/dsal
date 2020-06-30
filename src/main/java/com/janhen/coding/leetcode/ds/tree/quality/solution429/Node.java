@@ -1,4 +1,4 @@
-package com.janhen.coding.leetcode.ds.tree.solution429;
+package com.janhen.coding.leetcode.ds.tree.quality.solution429;
 
 import java.util.List;
 
