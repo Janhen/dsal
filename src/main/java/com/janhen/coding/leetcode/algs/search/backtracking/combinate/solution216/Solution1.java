@@ -26,26 +26,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Solution1 {
-    private List<List<Integer>> res = new ArrayList<>();
+  private List<List<Integer>> res = new ArrayList<>();
 
-    // 2 ms, faster than 37.95%
-    public List<List<Integer>> combinationSum3(int k, int n) {
-        res.clear();
-        int[] record = new int[]{1,2,3,4,5,6,7,8,9};
-        backtracking(record, 0, k, n, new ArrayList<>());
-        return res;
-    }
+  public List<List<Integer>> combinationSum3(int k, int n) {
+    res.clear();
+    int[] record = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+    backtracking(record, 0, k, n, new ArrayList<>());
+    return res;
+  }
 
-    private void backtracking(int[] record, int start, int k, int n, List<Integer> list) {
-        if (list.size() > k) return;
-        if (list.size() == k && n == 0) {
-            res.add(new ArrayList<>(list));
-            return;  // note: return
-        }
-        for (int i = start; i < record.length; i ++) {
-            list.add(record[i]);
-            backtracking(record, i + 1, k, n - record[i], list);    // start is i+1, not start
-            list.remove(list.size() - 1);
-        }
+  private void backtracking(int[] record, int start, int k, int n, List<Integer> list) {
+    if (list.size() > k) return;
+    if (list.size() == k && n == 0) {
+      res.add(new ArrayList<>(list));
+      return;  // note: return
     }
+    for (int i = start; i < record.length; i++) {
+      list.add(record[i]);
+      backtracking(record, i + 1, k, n - record[i], list);    // start is i+1, not start
+      list.remove(list.size() - 1);
+    }
+  }
 }
