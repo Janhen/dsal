@@ -4,20 +4,22 @@ import com.janhen.coding.leetcode.structures.TreeNode;
 
 class Solution {
 
-    int sum = 0;
+  int sum = 0;
 
-    public TreeNode convertBST(TreeNode root) {
-        if (root == null) return null;
-        traverseRDL(root);
-        return root;
-    }
+  public TreeNode convertBST(TreeNode root) {
+    if (root == null) return null;
+    traverseRDL(root);
+    return root;
+  }
 
-    private void traverseRDL(TreeNode node) {
-        if (node == null)
-            return;
-        traverseRDL(node.right);
-        sum += node.val;
-        node.val = sum;
-        traverseRDL(node.left);
-    }
+  // BST greater => 中序遍历的反面
+  // LDR => RDL
+  private void traverseRDL(TreeNode node) {
+    if (node == null)
+      return;
+    traverseRDL(node.right);
+    sum += node.val;
+    node.val = sum;
+    traverseRDL(node.left);
+  }
 }

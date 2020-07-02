@@ -14,7 +14,8 @@ class Solution {
     return paths.stream().mapToInt(p -> Integer.parseInt(p)).sum();
   }
 
-  // path: retucn
+  // path: string to record val
+  // String immutable => every path transfer is new a object
   private void dfs(TreeNode root, String path, List<String> paths) {
     // 1. terminal condition
     if (root.left == null && root.right == null) {
