@@ -4,30 +4,30 @@ import com.janhen.coding.leetcode.structures.TreeNode;
 
 // todo QQ
 class SolutionR {
-    public void flatten(TreeNode root) {
-        postOrder(root);
-    }
+  public void flatten(TreeNode root) {
+    postOrder(root);
+  }
 
-    private void postOrder(TreeNode node) {
-        if (node == null)
-            return;
+  private void postOrder(TreeNode node) {
+    if (node == null)
+      return;
 
-        TreeNode left = node.left;
-        TreeNode right = node.right;
+    TreeNode left = node.left;
+    TreeNode right = node.right;
 
-        node.left = null;
+    node.left = null;
 
-        postOrder(left);
-        postOrder(right);
+    postOrder(left);
+    postOrder(right);
 
-        node.right = left;
-        TreeNode rightest = rightestNode(node);
-        rightest.right = right;
-    }
+    node.right = left;
+    TreeNode rightest = rightestNode(node);
+    rightest.right = right;
+  }
 
-    private TreeNode rightestNode(TreeNode node) {
-        TreeNode cur = node;
-        while (cur.right != null) cur = cur.right;
-        return cur;
-    }
+  private TreeNode rightestNode(TreeNode node) {
+    TreeNode cur = node;
+    while (cur.right != null) cur = cur.right;
+    return cur;
+  }
 }

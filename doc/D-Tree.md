@@ -64,6 +64,24 @@ clone
 
 
 
+操作类，特殊操作，多个树的操作:  
+与其他数据结构结合: 根据有序数组构造 BST，链表构造出平衡二叉树, 二叉树转变成链表    
+与数字结合: 将路径表示为
+与其他算法结合  
+两个树  
+子树  
+子序列  
+转化  
+路径问题  
+  
+  
+  
+  
+  
+实现:  
+模拟为每个节点增加高度、最长路径属性...
+
+
 **反转二叉树**
 
 [226. Invert Binary Tree(easy)](https://leetcode.com/problems/invert-binary-tree/description/)

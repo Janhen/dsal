@@ -9,13 +9,13 @@ package com.janhen.coding.leetcode.ds.tree.sm_two_sub_sequence_convert_path.solu
  *
  */
 class SolutionMath {
-    int numTrees(int n) {
-        //cantalan树
-        //C(2n,n)/(n+1)
-        long ans = 1;
-        for (int i = n + 1; i <= 2 * n; i++) {
-            ans = ans * i / (i - n);
-        }
-        return (int) (ans / (n + 1));
+  int numTrees(int n) {
+    //cantalan树
+    //C(2n,n)/(n+1)
+    long ans = 1;
+    for (int i = n + 1; i <= 2 * n; i++) {
+      ans = ans * i / (i - n);
     }
+    return (int) (ans / (n + 1));
+  }
 }

@@ -43,28 +43,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 class SolutionRef2 {
-    public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        List<List<Integer>> res = new ArrayList<>();
-        if (root == null)
-            return res;
-        dfs(root, sum, new ArrayList<>(), res);
-        return res;
-    }
+  public List<List<Integer>> pathSum(TreeNode root, int sum) {
+    List<List<Integer>> res = new ArrayList<>();
+    if (root == null)
+      return res;
+    dfs(root, sum, new ArrayList<>(), res);
+    return res;
+  }
 
-    private void dfs(TreeNode root, int sum, List<Integer> path, List<List<Integer>> res) {
-        if (root == null)
-            return;
-        if (root.left == null && root.right == null) {    // util leaf node, then subtract leaf node val
-            if (sum - root.val == 0) {
-                path.add(root.val);
-                res.add(new ArrayList<>(path));
-                path.remove(path.size() - 1);
-                return;
-            }
-        }
+  private void dfs(TreeNode root, int sum, List<Integer> path, List<List<Integer>> res) {
+    if (root == null)
+      return;
+    if (root.left == null && root.right == null) {    // util leaf node, then subtract leaf node val
+      if (sum - root.val == 0) {
         path.add(root.val);
-        dfs(root.left, sum - root.val, path, res);
-        dfs(root.right, sum - root.val, path, res);
-        path.remove(path.size() - 1);                  /* back from current node */
+        res.add(new ArrayList<>(path));
+        path.remove(path.size() - 1);
+        return;
+      }
     }
+    path.add(root.val);
+    dfs(root.left, sum - root.val, path, res);
+    dfs(root.right, sum - root.val, path, res);
+    path.remove(path.size() - 1);                  /* back from current node */
+  }
 }
