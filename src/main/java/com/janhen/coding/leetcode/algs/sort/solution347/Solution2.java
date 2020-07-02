@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SolutionBucket {
+public class Solution2 {
+    // bucket sort
     public List<Integer> topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> freqs = new HashMap<>();
         for (int val : nums)

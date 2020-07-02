@@ -4,16 +4,19 @@ import java.util.*;
 
 public class Solution {
   public int[] topKFrequent(int[] nums, int k) {
-    Map<Integer, Integer> map = new HashMap<>();
+    // 1. frequency statistics
+    Map<Integer, Integer> freqs = new HashMap<>();
     for (int num : nums)
-      map.put(num, map.getOrDefault(num, 0) + 1);
-    // map to sort nums freq by storage additional attribute
-    PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.comparingInt(map::get));
-    for (Integer key : map.keySet()) {
+      freqs.put(num, freqs.getOrDefault(num, 0) + 1);
+    // 2. map to sort nums freq by storage additional attribute
+    PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.comparingInt(freqs::get));
+    // 3. fixed size pq to find kth frequency number
+    for (Integer key : freqs.keySet()) {
       pq.offer(key);
       if (pq.size() == k + 1)
         pq.poll();
     }
+    // 4. return value by priority queue iterate
     return pq.stream().mapToInt(Integer::valueOf).toArray();
   }
 }

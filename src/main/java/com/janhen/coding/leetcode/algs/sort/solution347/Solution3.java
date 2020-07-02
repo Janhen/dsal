@@ -2,7 +2,9 @@ package com.janhen.coding.leetcode.algs.sort.solution347;
 
 import java.util.*;
 
-public class SolutionLinkedHashMap {
+public class Solution3 {
+    // LinkedHashMap
+    // sort and return linked hash map to keep iterate order
     public List<Integer> topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> freqs = new HashMap<>();
         for (int num : nums)

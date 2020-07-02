@@ -16,9 +16,12 @@ class Solution {
     int i = 0;
     int pivot = 1;
     while (i < gt) {
-      if (nums[i] == pivot) i++;
-      else if (nums[i] < pivot) swap(nums, i++, ++lt);
-      else swap(nums, i, --gt);
+      if (nums[i] == pivot)
+        i++;
+      else if (nums[i] < pivot)
+        swap(nums, i++, ++lt);
+      else
+        swap(nums, i, --gt);
     }
   }
 

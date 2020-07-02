@@ -2,7 +2,7 @@ package com.janhen.coding.leetcode.algs.sort.solution347;
 
 import java.util.*;
 
-public class SolutionPQ {
+public class Solution$ {
   public int[] topKFrequent(int[] nums, int k) {
     Map<Integer, Integer> freqs = new HashMap<>();
     for (int num : nums)
