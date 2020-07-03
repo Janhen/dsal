@@ -9,10 +9,8 @@ public class Solution {
     if (people == null || people.length == 0 || people[0].length == 0) {
       return new int[0][0];
     }
-
     // Core
     Arrays.sort(people, (a, b) -> (a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]));
-
     List<int[]> queue = new ArrayList<>();
     for (int[] p : people) {
       queue.add(p[1], p);

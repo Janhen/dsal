@@ -21,12 +21,14 @@ public class Solution2 {
     if (people.length == 0)
       return new int[0][0];
 
+    // 1. pre-processing: init heap and data
     PriorityQueue<People> pq = new PriorityQueue<>((p1, p2) ->
       (p1.height != p2.height ? p2.height - p1.height : p1.k - p2.k));
     for (int i = 0; i < people.length; i++) {
       pq.add(new People(people[i][0], people[i][1], i));
     }
 
+    // 2. insert list
     List<Integer> list = new ArrayList<>();
     while (!pq.isEmpty()) {
       People p = pq.poll();
@@ -42,14 +44,4 @@ public class Solution2 {
     }
     return res;
   }
-//  public static void main(String[] args) {
-//    int[][] a = new int[6][2];
-//    a[0] = new int[]{7, 0};
-//    a[1] = new int[]{4, 4};
-//    a[2] = new int[]{7, 1};
-//    a[3] = new int[]{5, 0};
-//    a[4] = new int[]{6, 1};
-//    a[5] = new int[]{5, 2};
-//    new Solution().reconstructQueue(a);
-//  }
 }

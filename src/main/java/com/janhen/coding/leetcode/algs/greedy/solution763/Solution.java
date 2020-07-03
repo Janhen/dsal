@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution {
+  // TODO
   public List<Integer> partitionLabels(String S) {
     int[] lastIndexsOfChar = new int[26];
     for (int i = 0; i < S.length(); i++) {

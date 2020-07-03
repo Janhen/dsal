@@ -10,10 +10,9 @@ class Solution {
     if (intervals.length == 0) {
       return 0;
     }
-
-    // 按区间的结尾进行排序，每次选择结尾最小，并且和前一个区间不重叠的区间
+    // 1. 按区间的结尾进行排序，每次选择结尾最小，并且和前一个区间不重叠的区间
     Arrays.sort(intervals, Comparator.comparingInt(o -> o[1]));
-
+    // 2. iterate to collect intervals count
     int cnt = 1;
     int end = intervals[0][1];
     for (int i = 1; i < intervals.length; i++) {
@@ -24,6 +23,7 @@ class Solution {
       end = intervals[i][1];
       cnt++;
     }
+    // 3. return real cnt
     return intervals.length - cnt;
   }
 }

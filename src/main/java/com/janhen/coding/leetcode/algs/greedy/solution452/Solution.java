@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class Solution {
-  // 也是计算不重叠的区间个数，不过和 Non-overlapping Intervals 的区别在于，[1, 2] 和 [2, 3] 在本题中算是重叠区间。
+  // 计算不重叠的区间个数
   public int findMinArrowShots(int[][] points) {
     if (points.length == 0) {
       return 0;
