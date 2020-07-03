@@ -10,8 +10,8 @@ public class Solution {
     for (int i = 0; i < n; i++)
       for (int j = k; j >= 1; j--) {
         if (i - 1 == -1) { /* 处理 base case */ }
-        dp[i][j][0] = Math.max(dp[i-1][j][0], dp[i-1][j][1] + prices[i]);
-        dp[i][j][1] = Math.max(dp[i-1][j][1], dp[i-1][j-1][0] - prices[i]);
+        dp[i][j][0] = Math.max(dp[i - 1][j][0], dp[i - 1][j][1] + prices[i]);
+        dp[i][j][1] = Math.max(dp[i - 1][j][1], dp[i - 1][j - 1][0] - prices[i]);
       }
     return dp[n - 1][k][0];
   }

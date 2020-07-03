@@ -13,37 +13,37 @@ package com.janhen.coding.leetcode.algs.dp.fibonacci;
 /// 空间复杂度: O(1)
 public class Solution2 {
 
-    public int climbStairs(int n) {
-        if(n == 1)
-            return 1;
+  public int climbStairs(int n) {
+    if (n == 1)
+      return 1;
 
-        int[][] base = {{1, 1}, {1, 0}};
-        return matrix_pow(base, n)[0][0];
-    }
+    int[][] base = {{1, 1}, {1, 0}};
+    return matrix_pow(base, n)[0][0];
+  }
 
-    private int[][] matrix_pow(int[][] m, int n){
+  private int[][] matrix_pow(int[][] m, int n) {
 
-        if(n == 1)
-            return m;
+    if (n == 1)
+      return m;
 
-        int[][] t = matrix_pow(m, n / 2);
-        int[][] res = matrix_multiply(t, t);
-        if(n % 2 == 1)
-            return matrix_multiply(res, m);
-        return res;
-    }
+    int[][] t = matrix_pow(m, n / 2);
+    int[][] res = matrix_multiply(t, t);
+    if (n % 2 == 1)
+      return matrix_multiply(res, m);
+    return res;
+  }
 
-    int[][] matrix_multiply(int[][] m1, int[][] m2){
-        int[][] res = new int[2][2];
-        res[0][0] = m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0];
-        res[0][1] = m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1];
-        res[1][0] = m1[1][0] * m2[0][0] + m1[1][1] * m2[1][0];
-        res[1][1] = m1[1][0] * m2[0][1] + m1[1][1] * m2[1][1];
-        return res;
-    }
+  int[][] matrix_multiply(int[][] m1, int[][] m2) {
+    int[][] res = new int[2][2];
+    res[0][0] = m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0];
+    res[0][1] = m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1];
+    res[1][0] = m1[1][0] * m2[0][0] + m1[1][1] * m2[1][0];
+    res[1][1] = m1[1][0] * m2[0][1] + m1[1][1] * m2[1][1];
+    return res;
+  }
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        System.out.println((new Solution2()).climbStairs(10));
-    }
+    System.out.println((new Solution2()).climbStairs(10));
+  }
 }

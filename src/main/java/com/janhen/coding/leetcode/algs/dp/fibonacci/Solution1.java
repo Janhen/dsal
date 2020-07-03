@@ -18,20 +18,20 @@ package com.janhen.coding.leetcode.algs.dp.fibonacci;
 
 public class Solution1 {
 
-    public int climbStairs(int n) {
-        if(n == 1)
-            return 1;
-        int prev = 1, cur = 1;
-        for(int i = 3 ; i <= n + 1; i ++){
-            int f = cur + prev;
-            prev = cur;
-            cur = f;
-        }
-        return cur;
+  public int climbStairs(int n) {
+    if (n == 1)
+      return 1;
+    int prev = 1, cur = 1;
+    for (int i = 3; i <= n + 1; i++) {
+      int f = cur + prev;
+      prev = cur;
+      cur = f;
     }
+    return cur;
+  }
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        System.out.println((new Solution1()).climbStairs(10));
-    }
+    System.out.println((new Solution1()).climbStairs(10));
+  }
 }

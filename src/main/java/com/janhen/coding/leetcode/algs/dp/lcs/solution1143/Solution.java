@@ -1,7 +1,6 @@
 package com.janhen.coding.leetcode.algs.dp.lcs.solution1143;
 
 public class Solution {
-
   public int longestCommonSubsequence(String text1, String text2) {
     int n1 = text1.length(), n2 = text2.length();
     int[][] dp = new int[n1 + 1][n2 + 1];

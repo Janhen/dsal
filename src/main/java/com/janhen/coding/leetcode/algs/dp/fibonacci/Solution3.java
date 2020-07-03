@@ -13,20 +13,20 @@ package com.janhen.coding.leetcode.algs.dp.fibonacci;
 /// 空间复杂度: O(1)
 public class Solution3 {
 
-    public int climbStairs(int n) {
+  public int climbStairs(int n) {
 
-        if(n <= 0)
-            throw new IllegalArgumentException("n must be greater than zero");
+    if (n <= 0)
+      throw new IllegalArgumentException("n must be greater than zero");
 
-        if(n == 1)
-            return 1;
+    if (n == 1)
+      return 1;
 
-        double sqrt5 = Math.sqrt(5.0);
-        return (int)((Math.pow((1 + sqrt5) / 2, n + 1) - Math.pow((1 - sqrt5) / 2, n + 1)) / sqrt5);
-    }
+    double sqrt5 = Math.sqrt(5.0);
+    return (int) ((Math.pow((1 + sqrt5) / 2, n + 1) - Math.pow((1 - sqrt5) / 2, n + 1)) / sqrt5);
+  }
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        System.out.println((new Solution3()).climbStairs(10));
-    }
+    System.out.println((new Solution3()).climbStairs(10));
+  }
 }
