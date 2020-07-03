@@ -16,7 +16,7 @@ public class Solution {
 //    return solveByDFS(adjs);
   }
 
-  private void initialiseGraph(int[] incLinkCounts, List<List<Integer>> adjs, int[][] prerequisites){
+  private void initialiseGraph(int[] incLinkCounts, List<List<Integer>> adjs, int[][] prerequisites) {
     int n = incLinkCounts.length;
     while (n-- > 0) adjs.add(new ArrayList<>());
     for (int[] edge : prerequisites) {
@@ -25,7 +25,7 @@ public class Solution {
     }
   }
 
-  private int[] solveByBFS(int[] incLinkCounts, List<List<Integer>> adjs){
+  private int[] solveByBFS(int[] incLinkCounts, List<List<Integer>> adjs) {
     int[] order = new int[incLinkCounts.length];
     Queue<Integer> toVisit = new ArrayDeque<>();
     for (int i = 0; i < incLinkCounts.length; i++) {

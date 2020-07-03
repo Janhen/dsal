@@ -1,11 +1,6 @@
 package com.janhen.coding.util;
 
 public class ArrayHelper {
-
-  private boolean outOfBound(int r, int c, int m, int n) {
-    return r >= m || r < 0 || c >= n || c < 0;
-  }
-
   public int findKthLargest(int[] nums, int k) {
     k = nums.length - k;
     int l = 0, h = nums.length - 1;
@@ -41,5 +36,4 @@ public class ArrayHelper {
     a[i] = a[j];
     a[j] = t;
   }
-
 }
