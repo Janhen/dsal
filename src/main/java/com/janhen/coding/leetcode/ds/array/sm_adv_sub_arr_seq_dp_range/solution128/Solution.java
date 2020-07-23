@@ -7,28 +7,26 @@ import static java.util.stream.Collectors.toSet;
 
 class Solution {
   public int longestConsecutive(int[] nums) {
+    // 1. copy and duplicate removal
     int max = 0;
-    // copy and duplicate removal
     Set<Integer> set = IntStream.of(nums).boxed().collect(toSet());
 
     for (int num : nums) {
       int cnt = 1;
 
-      // delete from left to right
+      // 2. delete from left to right, from right to left
       int curNum = num;
       while (set.contains(++curNum)) {
         cnt++;
         set.remove(curNum);
       }
-
-      // delete from right to left
       curNum = num;
       while (set.contains(--curNum)) {
         cnt++;
         set.remove(curNum);
       }
 
-      // compare num continue and collect result
+      // 3. compare num continue and collect result
       max = Math.max(max, cnt);
     }
     return max;

@@ -27,9 +27,5 @@ class Solution2 {
 
     private int maxCount(Map<Integer, Integer> map) {
         return map.values().stream().max(Comparator.naturalOrder()).get();
-//        int max = 0;
-//        for (Integer num : map.keySet())
-//            max = Math.max(max, map.get(num));
-//        return max;
     }
 }

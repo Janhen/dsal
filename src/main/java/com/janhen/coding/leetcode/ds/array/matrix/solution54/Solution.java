@@ -7,10 +7,10 @@ public class Solution {
 
   public List<Integer> spiralOrder(int[][] matrix) {
     List<Integer> res = new ArrayList<>();
-    if (matrix == null || matrix.length == 0) return res;
+    if (matrix == null || matrix.length == 0)
+      return res;
 
-    int m = matrix.length;
-    int n = matrix[0].length;
+    int m = matrix.length, n = matrix[0].length;
     int up = 0, left = 0, bottom = m - 1, right = n - 1;
     while (left <= right && up <= bottom)
       printEdge(matrix, up++, left++, bottom--, right--, res);

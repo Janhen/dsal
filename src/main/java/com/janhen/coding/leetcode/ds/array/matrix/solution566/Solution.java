@@ -4,7 +4,7 @@ class Solution {
   public int[][] matrixReshape(int[][] nums, int r, int c) {
     int m = nums.length, n = nums[0].length;
     if (m * n != r * c)
-        return nums;
+      return nums;
 
     int[][] matrix = new int[r][c];
     int index = 0;

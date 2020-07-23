@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Solution1 {
+  // TODO
   public int longestConsecutive(int[] nums) {
     Map<Integer, Integer> ranges = new HashMap<>();
     int max = 0;
