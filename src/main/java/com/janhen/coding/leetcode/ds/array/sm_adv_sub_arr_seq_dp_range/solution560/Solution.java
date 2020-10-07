@@ -26,11 +26,10 @@ public class Solution {
     preSumCnt.put(0, 1);
 
     int res = 0;
-    // record cur iterated val summary
+    // Record cur iterated val summary
     int sum = 0;
     for (int num : nums) {
       sum += num;
-
       // need to find key
       int key = sum - k;
 

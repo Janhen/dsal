@@ -10,20 +10,20 @@ public class Solution {
       return res;
     }
 
-    // maintain boundary
+    // Maintain boundary
     int begin = nums[0], end = nums[0];
     for (int i = 1; i < nums.length; i++) {
-      // continuous
+      // Check continuous
       if (nums[i] == nums[i - 1] + 1) {
         end = nums[i];
       } else {
         res.add(geneRange(begin, end));          // need to collect result
-        // reset boundary continue to find other segment
+        // Reset boundary continue to find other segment
         begin = nums[i];
         end = nums[i];
       }
     }
-    res.add(geneRange(begin, end));     // need to handle tail
+    res.add(geneRange(begin, end));
     return res;
   }
 

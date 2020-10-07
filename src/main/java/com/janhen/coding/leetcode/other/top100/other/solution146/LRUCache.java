@@ -1,104 +1,90 @@
 package com.janhen.coding.leetcode.other.top100.other.solution146;
 
 import java.util.HashMap;
+import java.util.Map;
 
-// 63 ms, faster than 100.00%
-public class LRUCache {
+class LRUCache {
 
-    class Node {
-        Integer key, val;
-        Node prev, next;
+  private class Node {
+    Integer key;
+    Integer val;
+    Node prev;
+    Node next;
 
-        Node(int key, int val) {
-            this.key = key;
-            this.val = val;
-        }
+    public Node(Integer key, Integer val) {
+      this.key = key;
+      this.val = val;
     }
+  }
 
-    class LinkedDeque {
-        Node head;
-        Node tail;
+  private Map<Integer, Node> cache;
+  private Integer capacity;
+  private Node head;
+  private Node tail;
 
-        public void addNodeToTail(Node node) {
-            if (head == null) {
-                head = node;
-                tail = node;
-            } else {
-                tail.next = node;
-                node.prev = tail;
-                tail = node;
-            }
-        }
 
-        public void moveNodeToTail(Node node) {
-            if (node == tail)
-                return;
-            if (node == head) {
-                head = head.next;
-                node.next = null;
-            } else {
-                node.prev.next = node.next;
-                node.next.prev = node.prev;
-            }
-            tail.next = node;
-            node.prev = tail;
-            node.next = null;  // as tail
-            tail = node;
-        }
+  public LRUCache(int capacity) {
+    this.cache = new HashMap<>(capacity / 4 * 3);
+    this.capacity = capacity;
+  }
 
-        public Node removeHead() {
-            Node oldHead = head;
-            if (head == null)
-                return oldHead;
-            if (head == tail) {
-                head = null;
-                tail = null;
-            } else {
-                head = head.next;
-                head.prev = null;   // as head
-                oldHead.next = null;
-            }
-            return oldHead;
-        }
+  public int get(int key) {
+    if (!cache.containsKey(key)) {
+      return -1;
     }
+    Node node = cache.get(key);
+    remove(node);
+    setHead(node);
+    return node.val;
+  }
 
-    private LinkedDeque linkedDeque;
-    private HashMap<Integer, Node> keyNodeMap;
-    private int capacity;
-
-    public LRUCache(int capacity) {
-        linkedDeque = new LinkedDeque();
-        keyNodeMap = new HashMap<>();
-        this.capacity = capacity;
+  public void put(int key, int value) {
+    if (cache.containsKey(key)) {
+      Node node = cache.get(key);
+      node.val = value;
+      remove(node);
+      setHead(node);
+    } else {
+      Node node = new Node(key, value);
+      if (cache.size() >= capacity) {
+        System.out.println("Cache is full, Removing element: " + tail.key);
+        cache.remove(tail.key);
+        remove(tail);
+        setHead(node);
+        cache.put(key, node);
+      } else {
+        setHead(node);
+        cache.put(key, node);
+      }
     }
+  }
 
-    public int get(int key) {
-        if (keyNodeMap.containsKey(key)) {            // not hit the cache
-            Node valNode = keyNodeMap.get(key);
-            linkedDeque.moveNodeToTail(valNode);
-            return valNode.val;
-        }
-        return -1;
+  // remove node from dequeue
+  private void remove(Node node) {
+    if (node.prev != null) {
+      node.prev.next = node.next;
+    } else {
+      head = node.next;
     }
+    if (node.next != null) {
+      node.next.prev = node.prev;
+    } else {
+      tail = node.prev;
+    }
+  }
 
-    // update OR add one
-    public void put(int key, int value) {
-        if (keyNodeMap.containsKey(key)) {
-            Node valNode = keyNodeMap.get(key);
-            valNode.val = value;
-            linkedDeque.moveNodeToTail(valNode);     // like access
-        } else {
-            Node valNode = new Node(key, value);
-            keyNodeMap.put(key, valNode);             // linkedList + hashTable
-            linkedDeque.addNodeToTail(valNode);
-            modifyIfNecessary();
-        }
+  // node is new node
+  private void setHead(Node node) {
+    node.next = head;
+    node.prev = null;
+    if (head == null) {
+      head = node;
+    } else {
+      head.prev = node;
+      head = node;
     }
-
-    private void modifyIfNecessary() {
-        if (keyNodeMap.size() == capacity + 1) {
-            Node oldHead = linkedDeque.removeHead();
-            keyNodeMap.remove(oldHead.key);
-        }
+    if (tail == null) {
+      tail = node;
     }
+  }
 }

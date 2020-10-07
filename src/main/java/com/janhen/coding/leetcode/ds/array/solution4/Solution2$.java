@@ -4,9 +4,6 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 class Solution2$ {
-  /*
-  优先队列排序
-   */
   public double findMedianSortedArrays(int[] nums1, int[] nums2) {
     int len1 = nums1.length, len2 = nums2.length;
     int len = len1 + len2;
