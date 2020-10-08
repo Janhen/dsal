@@ -8,10 +8,6 @@ LCA(Lowest Common Ancestor): 最近的公共祖先
 序列化和反序列化  
 clone    
 
-  
-
-  
-
 二叉树的左叶子、右叶子、最后一层的叶子、所有叶子节点的性质    
 二叉树中左下角的节点   
 二叉树的路径问题，必须经过跟节点/可不经过根节点，路径距离，路径上节点的和  
@@ -24,7 +20,6 @@ clone
 右边的节点数  
 树的parent节点(Map迭代过程中记录收集)  
 
-  
 
 二分查找数问题  
 
@@ -33,25 +28,17 @@ clone
 深度问题    
 平衡性问题  
 
-  
-
 
 判断性质类问题:  
 判断给定树是否是 BST
 判断一颗树是否对称
 
-  
-
-  
 
 思路:  
 分析可能性；
 包含当前节点、不包含；
 定义消息体；
 可能性中需要什么数据来进行确定具体的；
-
-
-
 
 
 问题的分类:  
@@ -63,7 +50,6 @@ clone
 节点的祖先问题  
 
 
-
 操作类，特殊操作，多个树的操作:  
 与其他数据结构结合: 根据有序数组构造 BST，链表构造出平衡二叉树, 二叉树转变成链表    
 与数字结合: 将路径表示为
@@ -73,9 +59,6 @@ clone
 子序列  
 转化  
 路径问题  
-  
-  
-  
   
   
 实现:  
@@ -191,6 +174,7 @@ public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
     return root;
 }
 ```
+
 
 ## 遍历相关
 
@@ -762,9 +746,6 @@ private int tryRob(TreeNode root) {
 改进二：通过 DP 记录实现
 
 
-
-
-
 ## 高度路径问题
 
 **二叉树的最大深度**
@@ -980,7 +961,6 @@ private int getMaxDuplicationPathLength(TreeNode node) {
 ```
 
 
-
 ## 结构**
 
 **根据二叉树的前序和后续遍历构造出二叉树**
@@ -1059,7 +1039,6 @@ private TreeNode buildTree(int inL, int[] postorder, int postL, int postR) {
 ```
 
 
-
 ## 两颗树|子树
 
 **判断一颗树是否对称**
@@ -1092,7 +1071,6 @@ private boolean isSymmetric(TreeNode t1, TreeNode t2) {
     return isSymmetric(t1.left, t2.right) && isSymmetric(t1.right, t2.left);   
 }
 ```
-
 
 
 ## LCA

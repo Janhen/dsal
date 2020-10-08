@@ -7,9 +7,6 @@
 头插法逆序  
 
 
-
-
-
 链表的添加 | 删除 | 交换 | 反转 | 查找 | 交换： 
 链表元素的删除:  
 删除链表中所有给定值的节点；  
@@ -19,9 +16,6 @@
 删除链表中给定的节点   
 在 O(1) 内删除给定的节点  
 
-  
-
-   
 
 链表的判断和查找:   
 判断链表是否有环；   
@@ -30,9 +24,6 @@
 找到链表的中间节点    
 找到两条链表的交点；   
 找出链表环的入口节点；  
-
-  
-
 
 
 链表的修改和构建:   
@@ -43,7 +34,6 @@
 重建链表: 将链表按奇偶位置形成两条链表并拼接   
 两条链表中的值相加     
 反向存储的链表值相加；    
-
   
 
 左右分割: 将链表分割成左半部分小于 x, 右半部分小于 大于x    
@@ -57,15 +47,8 @@
 合并 k 个已经排序的链表；    
 
 
-
 根据有序链表构建平衡的二叉查找树；   
 复杂链表的复制；  
-
-
-
-
-
-
 
 
 
@@ -80,9 +63,6 @@
 复制
 
 构建
-
-
-
 
 
 
@@ -160,27 +140,9 @@ public ListNode swapPairs(ListNode head) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 **&& Good**
 
 **按照组进行反转**
-
-
-
-
-
-
 
 
 
@@ -239,8 +201,6 @@ private int length(ListNode head) {
     return len;
 }
 ```
-
-
 
 
 
@@ -524,10 +484,7 @@ public ListNode getIntersectionNode(ListNode list1, ListNode list2) {
 
 
 
-
 思路三： 栈进行逆向比较
-
-
 
 
 
@@ -570,8 +527,6 @@ public ListNode removeElements(ListNode head, int val) {
     }
 }
 ```
-
-
 
 
 
@@ -711,13 +666,6 @@ public ListNode deleteNode(ListNode head, ListNode tobeDelete) {
     return head;
 }
 ```
-
-
-
-
-
-
-
 
 
 
