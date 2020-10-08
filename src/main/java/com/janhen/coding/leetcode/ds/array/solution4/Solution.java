@@ -7,30 +7,52 @@ class Solution {
     return (findKth(A, 0, B, 0, (len + 1) / 2) + findKth(A, 0, B, 0, (len + 2) / 2)) / 2.0;
   }
 
-  // find two array kth biggest number
-  // A[aL, len1) B[bL, len2)
   public double findKth(int[] A, int aL, int[] B, int bL, int k) {
-    // handle tail border
+    // pre-process input value, special value handle
+    assert A.length - aL + B.length - bL >= k;
     if (aL >= A.length)
       return B[bL + k - 1];
     if (bL >= B.length)
       return A[aL + k - 1];
-    // handle head border
     if (k == 1)
       return Math.min(A[aL], B[bL]);
 
-    int aMid = Integer.MAX_VALUE;
-    int bMid = Integer.MAX_VALUE;
-    if (aL + k / 2 - 1 < A.length)
-      aMid = A[aL + k / 2 - 1];
-    if (bL + k / 2 - 1 < B.length)
-      bMid = B[bL + k / 2 - 1];
-
-    // TODO Q
-    if (aMid <= bMid)
-      // half size
-      return findKth(A, aL + k / 2, B, bL, k - k / 2);// Check: aRight + bLeft
-    else
-      return findKth(A, aL, B, bL + k / 2, k - k / 2);// Check: bRight + aLeft
+    int aMid = aL + k / 2 - 1 < A.length ? A[aL + k / 2 - 1] :Integer.MAX_VALUE;
+    int bMid = bL + k / 2 - 1 < B.length ? B[bL + k / 2 - 1] : Integer.MAX_VALUE;
+    if (aMid <= bMid) {
+      // skip A left narrow k/2, find in A right, B all
+      return findKth(A, aL + k / 2, B, bL, k - k / 2);
+    }
+    else {
+      // skip B left narrow k/2, find in A all, B right
+      return findKth(A, aL, B, bL + k / 2, k - k / 2);
+    }
   }
+
+  // find two array kth biggest number
+  // A[aL, len1) B[bL, len2)
+//  public double findKth(int[] A, int aL, int[] B, int bL, int k) {
+//    // handle tail border
+//    if (aL >= A.length)
+//      return B[bL + k - 1];
+//    if (bL >= B.length)
+//      return A[aL + k - 1];
+//    // handle head border
+//    if (k == 1)
+//      return Math.min(A[aL], B[bL]);
+//
+//    int aMid = Integer.MAX_VALUE;
+//    int bMid = Integer.MAX_VALUE;
+//    if (aL + k / 2 - 1 < A.length)
+//      aMid = A[aL + k / 2 - 1];
+//    if (bL + k / 2 - 1 < B.length)
+//      bMid = B[bL + k / 2 - 1];
+//
+//    // TODO Q
+//    if (aMid <= bMid)
+//      // half size
+//      return findKth(A, aL + k / 2, B, bL, k - k / 2);// Check: aRight + bLeft
+//    else
+//      return findKth(A, aL, B, bL + k / 2, k - k / 2);// Check: bRight + aLeft
+//  }
 }

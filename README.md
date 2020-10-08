@@ -11,7 +11,7 @@
 堆, Trie, 线段树,并查集   
 跳表  
 
-- [基础查找和排序算法](doc/A-基础算法.md)    
+- [基础查找和排序算法](docs/A-基础算法.md)    
 快速排序: 随机枢纽元快排、三路快排、三数中值快排  
 归并排序: 自顶向下归并、自底向上归并  
 堆排序:  下沉构建堆、赋值确定位置下沉  
@@ -25,7 +25,7 @@ leetcode 题目
 
 
 ## 其他
-- [Java 集合源码](doc/B-Java%20集合源码.md)
+- [Java 集合源码](docs/B-Java%20集合源码.md)
 基本 List, Set, Queue, Map   
 ArrayList, LinkedList, Vector, CopyOnWriteArrayList  
 HashMap JDK7, JDK8   

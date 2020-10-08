@@ -55,7 +55,7 @@ class Solution2 {
 
   public static void main(String[] args) {
     int[] heights = {
-        2, 1, 5, 6, 2, 3 };
+      2, 1, 5, 6, 2, 3};
     new Solution2().largestRectangleArea(heights);
   }
 }
