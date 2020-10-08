@@ -1,5 +1,8 @@
 package com.janhen.coding.leetcode.ds.array.solution84;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.OptionalDouble;
 import java.util.Stack;
 
 class Solution {
@@ -21,6 +24,8 @@ class Solution {
         i--;
       }
     }
+    new LinkedList<>()
+    double asDouble = new ArrayList<>().stream().mapToInt(Integer::valueOf).average().getAsDouble();
     return maxArea;
   }
 }

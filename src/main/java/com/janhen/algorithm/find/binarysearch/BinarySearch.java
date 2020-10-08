@@ -1,5 +1,6 @@
 package com.janhen.algorithm.find.binarysearch;
 
+
 /**
  * 基本的二分查找
  *
