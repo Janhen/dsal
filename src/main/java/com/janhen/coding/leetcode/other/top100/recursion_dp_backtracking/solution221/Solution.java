@@ -1,26 +1,5 @@
 package com.janhen.coding.leetcode.other.top100.recursion_dp_backtracking.solution221;
 
-/*
- * > 思路 1
- * ******- 时间复杂度: O(row * col)******- 空间复杂度: O(row * col)******
- *
- *
- * dp[i][j]代表以matrix[i][j]为右下角的正方形的最大长度
- *
- * 状态方程dp[i][j] = min(dp[i-1][j-1], dp[i][j-1], dp[i-1][j]) + 1，但是必须要满足dp[i][j] == 1，因为右下角也必须为1啊
- *
- *
- *
- * ```
- * 原本的matrix                     DP
- *
- * 1 0 1 0 0                     1 0 1 0 0
- * 1 0 1 1 1            →        1 0 1 1 1
- * 1 1 1 1 1                     1 1 1 2 2
- * 1 0 0 1 0                     1 0 0 1 0
- *
- * ```
- */
 class Solution {
     public int maximalSquare(char[][] matrix) {
         if (matrix == null || matrix.length == 0)

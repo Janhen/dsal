@@ -8,24 +8,18 @@ class Solution {
     Map<Character, Integer> freqs = new HashMap<>();
     int res = 0;
 
-    // record whether match the target string.
     int counter = 0;
     int L = 0, R = 0;
     while (R < s.length()) {
-      // > 0 means repeating character
-      //if(map[s.charAt(end++)]-- > 0) counter++;
-      char rCh = s.charAt(R);
-      R++;
+      // add right char
+      char rCh = s.charAt(R ++);
       freqs.put(rCh, freqs.getOrDefault(rCh, 0) + 1);
-
       if (freqs.get(rCh) > 1)
         counter++;
 
       while (counter > 0) {
-        //if (map[s.charAt(begin++)]-- > 1) counter--;
-        char lCh = s.charAt(L);
-        L++;
-
+        // eliminate left char
+        char lCh = s.charAt(L ++);
         if (freqs.get(lCh) > 1)
           counter--;
         freqs.put(lCh, freqs.get(lCh) - 1);
