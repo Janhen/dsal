@@ -43,7 +43,7 @@ public class LinkedList<E> {
     return false;
   }
 
-  public void add(int index, E e) {
+  public void add(int index, E val) {
     if (index < 0 || index > N)
       throw new IllegalArgumentException();
 
@@ -51,18 +51,18 @@ public class LinkedList<E> {
     for (int i = 0; i < index; i++) {
       prev = prev.next;
     }
-    Node node = new Node(e);
+    Node node = new Node(val);
     node.next = prev.next;
     prev.next = node;
     N++;
   }
 
-  public void addFirst(E e) {
-    add(0, e);
+  public void addFirst(E val) {
+    add(0, val);
   }
 
-  public void addLast(E e) {
-    add(N, e);
+  public void addLast(E val) {
+    add(N, val);
   }
 
   public E get(int index) {
@@ -151,8 +151,8 @@ public class LinkedList<E> {
     public Node next;
     public E val;
 
-    public Node(E e, Node next) {
-      this.val = e;
+    public Node(E val, Node next) {
+      this.val = val;
       this.next = next;
     }
 

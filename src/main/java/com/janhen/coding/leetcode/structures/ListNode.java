@@ -184,6 +184,23 @@ public class ListNode implements Cloneable {
     return pre;
   }
 
+  // 奇数: 中间节点； 偶数: 第二个中间节点
+  public ListNode middleNode(ListNode head) {
+    ListNode fast = head;
+    ListNode slow = head;
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+    if (fast == null) {
+      // even count
+      return slow;
+    } else {
+      // odd
+      return slow;
+    }
+  }
+
   public static ListNode removeNthFromEnd(ListNode head, int n) {
     ListNode first = new ListNode(-1);
     first.next = head;

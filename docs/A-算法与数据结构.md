@@ -1,28 +1,22 @@
+[TOC] 
+
+
+
 # 基础算法
 
 ## 排序
 > 基本的排序算法，以及变种  
 
-| 算法 | Time 复杂度 | 最坏 | 最好 | Space 复杂度 | 稳定 |
-| -------- | ---- | ------- | -------- | -------- | -------- |
-| 快排     | O(nlogn) |  |  |  | X |
-| 归并     | O(nlogn) |         |  |  | ✔️ |
-| 堆排序   | O(nlogn) |         |  |  | X |
-| 希尔排序 |      |         |  |  | X |
-| 插入排序 | O(n^2) |         |  |  | ✔️ |
-| 选择排序 | O(n^2) |         |  |  | X |
-| 冒泡排序 | O(n^2) |         |  |  | ✔️ |
-| 桶排序   | O(n+k) |         |  |  | ✔️ |
-| 计数排序 | O(n+k) |         |  |  | ✔️ |
-|基数排序|||||✔️|
-
 ### 基础排序
+
 #### 选择排序
 
 （1） 算法:
 
 选择数组中最小的元素, 将它与数组的第一个元素交换, 之后开始次小元元素...
 （2） 复杂度
+
+
 
 比较: N²/2,  交换: N
 最坏: O(n²)
@@ -70,7 +64,6 @@ void selectSort(int[] arr) {
 
 - 原地排序；
   
-  
 
 **1、基础冒泡**
 
@@ -84,9 +77,9 @@ void bubbleSort(int[] arr) {
 }
 ```
 
-
-
 **2、 有序性优化**
+
+对于已经有序的数据，不进行元素交换。
 
 ```java
 void bubbleSort(int[] arr) {
@@ -103,6 +96,7 @@ void bubbleSort(int[] arr) {
     }
 }
 ```
+
 
 
 #### 插入排序
@@ -122,9 +116,8 @@ void bubbleSort(int[] arr) {
 
 - 原地排序；
 
-  
 
-**1、基础插入**
+**1、基础插入排序**
 
 ```java
 public static void insertSortB(int[] arr) {
@@ -135,8 +128,6 @@ public static void insertSortB(int[] arr) {
             swap(arr, j, j - 1);
 }
 ```
-
-
 
 **2、 赋值优化**
 
@@ -154,12 +145,24 @@ void insertSort(int[] arr) {
 }
 ```
 
+**3、链表实现插入排序**
+
+[147. Insertion Sort List(Medium)](https://leetcode.com/problems/insertion-sort-list/)
+
+```java
+
+```
+
+
+
+
 
 #### 希尔排序
 
 （1） 算法：使用插入排序对间隔 h 的序列进行排序。通过不断减小 h，最后令 h=1，就可以使得整个数组是有序的。 
 
 （2） 复杂度分析： 希尔排序的运行时间达不到平方级别，使用递增序列 1, 4, 13, 40, ... 的希尔排序所需要的比较次数不会超过 N 的若干倍乘于递增序列的长度。
+
 （3） 性质：
 
 - 交换不相邻元素，将逆序数量减少大于1；
@@ -186,6 +189,7 @@ void shellSort(int[] arr) {
     }
 }
 ```
+
 
 
 ### 快速排序
@@ -216,9 +220,11 @@ void shellSort(int[] arr) {
  三数取中法
  随机选取法
 
+**1、随机取枢纽元**
 
+小数据集使用插入排序；
 
-**1、随机枢纽元**
+随机选择枢纽元比较；
 
 ```java
 void quickSort(int[] arr) {
@@ -253,15 +259,15 @@ int partition(int[] arr, int lo, int hi) {
 }
 ```
 
-
-
-**2、三路快排**
+**2、三路快排优化**
 
 对重复元素较多的情形优化；
 
 函数返回重复元素第一次和最后一次出现位置；
 
 类似荷兰国旗问题的处理；
+
+相关： [75. Sort Colors](https://leetcode.com/problems/sort-colors/description/)  
 
 ```java
 int[] partition(int[] arr, int lo,int hi) {
@@ -278,12 +284,9 @@ int[] partition(int[] arr, int lo,int hi) {
     }
     return new int[]{lt+1, gt-1};
 }
-
 ```
 
-
-
-**3、 三数取中值**
+**3、 三数取中值确定枢纽元优化**
 
 枢纽元的选取上进行优化；
 
@@ -332,6 +335,7 @@ void quickSort(int[] arr, int lo, int hi) {
 ```
 
 
+
 ### 归并排序
 
 （1） 算法
@@ -355,9 +359,7 @@ void quickSort(int[] arr, int lo, int hi) {
 
 - 非原地排序；
 
-
-
-**1、一般归并**
+**1、基础归并排序**
 
 ① 对排序的两个子数组 [lo,mid], [mid+1, hi]，在 [mid] >= [mid+1] 数组整体有序情况下跳过合并；
 
@@ -392,8 +394,6 @@ void merge(int[] arr, int lo, int mid, int hi) {
 }
 ```
 
-
-
 **2、 自底向上的归并排序**
 
 考虑处理两种情况：
@@ -417,6 +417,73 @@ void mergeSort(int[] arr) {
 }
 ```
 
+**3、使用链表进行归并排序**
+
+找出中间节点，分割链表；
+
+对分割的链表分别进行归并排序；
+
+将链表合并；
+
+相关： [148. Sort List(Medium)](https://leetcode.com/problems/sort-list/)
+
+```java
+public class ListNode implements Cloneable {
+  public int val;
+  public ListNode next;
+
+  public ListNode(int val) {
+    this.val = val;
+  }
+
+  public ListNode(int val, ListNode next) {
+    this.val = val;
+    this.next = next;
+  }
+}
+```
+
+```java
+public ListNode sortList(ListNode head) {
+    if (head == null || head.next == null)
+      return head;
+    // 1. find mid node and cut two list
+    ListNode preMid = findPreMid(head);
+    ListNode mid = preMid.next;
+    preMid.next = null;
+    // 2. handle two sub problem
+    ListNode l1 = sortList(head);
+    ListNode l2 = sortList(mid);
+    // 3. merge result
+    return merge(l1, l2);
+  }
+
+  private ListNode findPreMid(ListNode head) {
+    ListNode pre = null, fast = head, slow = head;
+    while (fast != null && fast.next != null) {
+      pre = slow;
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+    return pre;
+  }
+
+  private ListNode merge(ListNode l1, ListNode l2) {
+    if (l1 == null)
+      return l2;
+    if (l2 == null)
+      return l1;
+    if (l1.val < l2.val) {
+      l1.next = merge(l1.next, l2);
+      return l1;
+    } else {
+      l2.next = merge(l1, l2.next);
+      return l2;
+    }
+  }
+```
+
+
 
 ### 堆排序
 
@@ -434,9 +501,7 @@ O(logN)
 
 - 原地排序，适用于嵌入式系统中内存小的情况；
 
-
-
-**1、 基础堆排**
+**1、 基础堆排序**
 
 先通过向堆中不断插入元素，向上调整形成堆结构；
 
@@ -479,15 +544,13 @@ void sink(int[] arr, int N, int k) {
 }
 ```
 
-
-
 **2、算法优化**
 
 与 java.util.ProrityQueue 中实现逻辑相同
 
 ① 通过 sink 向下调整进行优化；
 
-② 下城操作中使用赋值替代交换，常数级优化；
+② 下沉操作中使用赋值替代交换，常数级优化；
 
 ```java
 void heapSort(int[] arr) {
@@ -519,6 +582,7 @@ void sink(int[] arr, int k, int N) {
 ```
 
 
+
 ### 总结
 
 （1）各个排序比较
@@ -530,13 +594,15 @@ void sink(int[] arr, int k, int N) {
 |     插入排序     |   √    |      N \~ N<sup>2</sup>      |     1      |     与初始的逆序度相关      |
 |     希尔排序     |   ×    | N 的若干倍乘于递增序列的长度 |     1      | 每次交换逆序度数量减少大于1 |
 |     快速排序     |   ×    |            NlogN             |    logN    |                             |
-| 三向切分快速排序 |   ×    |          N \~ NlogN          |    logN    |    适用于有大量重复主键     |
+| 三向切分快速排序 |   ×    |          N \~ NlogN          |    logN    |     适用于有大量重复值      |
 |     归并排序     |   √    |            NlogN             |     N      |                             |
 |      堆排序      |   ×    |            NlogN             |     1      |     无法利用局部性原理      |
 
 （2） JDK 中的排序
 
 见 [Java-Java 集合源码]()
+
+
 
 
 ## 查找
@@ -554,8 +620,6 @@ O(logN)
 - 适用于处理 ceil、floor 等操作；
 
 - 配合索引相当于是实现了跳表结构；
-
-
 
 **1、 普通二分查找**
 
@@ -575,8 +639,7 @@ int binarySearch(int[] arr, int target) {
 }
 ```
 
-
-**2、 二分查找-最先&最后**
+**2、 带有重复元素的二分查找-最先&最后**
 
 （1） 查找含有重复元素的数组集合中元素第一次出现的位置
 
@@ -617,8 +680,6 @@ int binarySearchLast(int[] nums, int key, int lo, int hi) {
 }
 ```
 
-
-
 **3、 二分查找-大于&小于**
 
 （1） 查找小于等于给定元素的最小元素在数组中的位置
@@ -655,11 +716,9 @@ public int binarySearchCeil(int[] nums, int key, int lo, int hi) {
 }
 ```
 
-
-
 **4、 带偏移的二分查找**
 
-用于旋转数组的查找；
+用于旋转数组的查找，偏移后数据有序；
 
 ```java
 int binarySearchOffset(int[] nums, int key, int offset) {
@@ -679,9 +738,12 @@ int binarySearchOffset(int[] nums, int key, int offset) {
 ```
 
 
-# 操作
 
-**&& 结构维护**
+
+
+# 基础结构
+
+**结构维护**
 
 （1） 构造函数中直接根据传入的值进行调整
 
@@ -695,8 +757,6 @@ int binarySearchOffset(int[] nums, int key, int offset) {
 
 
 
-
-
 1、remove
 
 (1) 标记-清除：  
@@ -706,19 +766,15 @@ int binarySearchOffset(int[] nums, int key, int offset) {
 处理的情况： 找到的空闲位置是后来删除的，导致原来的查找算法失效。本来存在的数据，会被认定为不存在。
 问题解决： 将删除的元素，特殊标记为deleted。当线性探测查找的时候，遇到标记为deleted的空间，并不是停下来，而是继续往下探测。
 
-
-
 (2) 树的结构调整使其符合结构语义
 
 处理 BST、 AVL 、红黑树删除之后需要对有序性、平衡性进行对应的调整
-
-
 
 (3) 堆结构的维护
 
 
 
-**&& 访问修饰**
+**访问修饰**
 
 public 方法不仅对已经实现的逻辑进行保证, 还要考虑通用性.
 
@@ -726,23 +782,15 @@ public 方法不仅对已经实现的逻辑进行保证, 还要考虑通用性.
 
 
 
-
-
-
-
-**&& 基于数组的扩容与缩容**
+**基于数组的扩容与缩容**
 
 （1） 两倍扩容
 
 HashMap 中利用位运算的性质进行控制；
 
-
-
 （2） 大容量和小容量不同的扩容策略
 
-Vector 的扩容策略，可指定每次扩容增大多少的容量；
-
-
+指定每次扩容的规模： Vector 的扩容策略，可指定每次扩容增大多少的容量；
 
 （3） 缩容策略
 
@@ -751,19 +799,64 @@ Vector 的扩容策略，可指定每次扩容增大多少的容量；
 JDK8 HashMap 中 Node → TreeNode, TreeNode → Node，分别为 8， 6；
 
 
-# 基础结构
 
 ## Array
 
+基础定义
+
+```java
+public class Array<E> {
+  private E[] data;
+  private int N;
+  private final static int DEFAULT_SIZE = 10;
+  ...
+}
+```
+
 （1） 动态扩容
 
-防止复杂度震荡
+防止复杂度震荡，在数组中元素移除的时候控制；
 
+```java
+public E remove(int index) {
+  if (index < 0 || index > N) {
+    throw new IndexOutOfBoundsException();
+  }
 
+  E ret = data[index];
+  for (int i = index + 1; i < N; i++) {
+    data[i - 1] = data[i];
+  }
+  data[N - 1] = null;
+  N--;
+  if (N == data.length / 4 && data.length != 0) {
+    resize(data.length / 2);
+  }
+  return ret;
+}
+```
 
 （2） add() 
 
 通过复杂度均摊，在尾部插入为 O(1)；
+
+```java
+public void add(int index, E val) {
+  if (index < 0 || index > N)
+    throw new IndexOutOfBoundsException();
+  if (N == data.length) {    // >= 2^x    every time adjust
+    resize(data.length * 2);
+  }
+
+  for (int i = N - 1; i >= index; i--) {
+    data[i + 1] = data[i];
+  }
+  data[index] = val;
+  N++;
+}
+```
+
+
 
 
 
@@ -787,8 +880,6 @@ JDK8 HashMap 中 Node → TreeNode, TreeNode → Node，分别为 8， 6；
 
 后进先出的结构，类似有约束性质的队列
 
-
-
 **（） 应用**
 
 ① 浏览器中前进和后退，两个栈分表保存前进的与后退的
@@ -801,9 +892,21 @@ JDK8 HashMap 中 Node → TreeNode, TreeNode → Node，分别为 8， 6；
 
 
 
+相关：
+
+[503. Next Greater Element II(Medium)](https://leetcode.com/problems/next-greater-element-ii/)
+
+[739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
+
+..
+
+
+
+
+
 ## Queue
 
-**&& 循环队列**
+**循环队列**
 
 （1） 结构
 
@@ -846,10 +949,6 @@ E dequeue() {
 }
 ```
 
-
-
-
-
 （4） 扩容
 
 ```java
@@ -864,8 +963,6 @@ void resize(int newCapacity) {
 }
 ```
 
-
-
 （5） 一些应用
 
 ArrayBlockingQueue 通过循环队列实现，通过保存 takeIndex, putIndex 来控制取出和放入；
@@ -878,17 +975,16 @@ int count;
 ```
 
 
+
 # 特殊的树形结构
 
 ## Heap
 
-**&& 堆的构建**
+**堆的构建**
 
 （1） 通过插入实现
 
 swim 向上调整
-
-
 
 （2） 通过中间节点不断向下调整实现
 
@@ -896,31 +992,21 @@ sink 向下调整
 
 
 
-
-
-**&& 堆的插入**
+**堆的插入**
 
 将其放到完全二叉树的最末节点上，之后不断向上调整实现。
 
 
 
-
-
-
-
-**&& 堆顶元素的弹出**
+**堆顶元素的弹出**
 
 保存堆顶元素
 
 
 
-
-
-
-
 ## Trie
 
-**&& 应用**
+**应用**
 
 （1） 多模式串匹配算法中使用来作为敏感词过滤
 
@@ -936,20 +1022,51 @@ sink 向下调整
 
 
 
-
-
 ## UnionFind
+
+并查集
+
+求解连通性问题
+
+
 
 
 
 ## SegmentTree
+
+线段树
+
+相关：
+
+ [303. Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/description/)
+ [307. Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable/description/)
+
+
+
+接口
+
+```java
+public interface ISegmentTree<E> {
+  E query(int queryL, int queryR);
+  void set(int index, E e);
+}
+public interface Merger<E> {
+    E merge(E a, E b);
+}
+```
+
+
+
+
+
+
 
 
 # 树
 
 ## 二叉树
 
-**&& 一些分类**
+**一些分类**
 
 （1） 完全二叉树
 
@@ -959,15 +1076,11 @@ sink 向下调整
 
 一棵二叉树至多只有最下面的一层上的结点的度数可以小于2，并且最下层上的结点都集中在该层最左边的若干位置上，而在最后一层上，右边的若干结点缺失的二叉树，则此二叉树成为完全二叉树。
 
-
-
 完全二叉树的特点是：
 
 1）只允许最后一层有空缺结点且空缺在右边，即叶子结点只能在层次最大的两层上出现；
 
 2）对任一结点，如果其右子树的深度为j，则其左子树的深度必为j或j+1。 即度为1的点只有1个或0个
-
-
 
 （2） 满二叉树
 
@@ -983,7 +1096,7 @@ sink 向下调整
 
 
 
-**&& 遍历**
+**遍历**
 
 （1） 前序遍历
 
@@ -1009,6 +1122,8 @@ public List<Integer> preorderTraversal(TreeNode root) {
 ```
 
 Morris 遍历
+
+空间复杂度: O(1)
 
 ```java
 public List<Integer> preorderTraversal(TreeNode root) {
@@ -1176,8 +1291,6 @@ public static TreeNode reverseEdge(TreeNode node) {
 }
 ```
 
-
-
 （4） 层序遍历
 
 ```java
@@ -1210,9 +1323,9 @@ List<List<Integer>> levelOrderTraversal(TreeNode root) {
 
 对 BST 进行中序遍历的结果是有序的
 
-**&& remove**
+**remove**
 
-（） 经典实现
+（1） 经典实现
 
 对于既有左孩子又有有孩子节点的删除
 
@@ -1234,8 +1347,6 @@ node.left = node.right = null;
 return successor;
 ```
 
-
-
 （2） 递归语义实现
 
 ① 获取后继节点；
@@ -1253,12 +1364,17 @@ node.right = remove(node.right, successor.val);   // reuse function
 return node;
 ```
 
+相关： 
+
+[450. Delete Node in a BST(Medium)](https://leetcode.com/problems/delete-node-in-a-bst/description/)
+
+
 
 ## AVL
 
 平衡树，任意节点的左右高度不超过 1
 
-&& 结构
+结构
 
 ```java
 class Node {
@@ -1271,7 +1387,7 @@ class Node {
 
 
 
-**&& 平衡调整**
+**平衡调整**
 
 需要维护原来 BST 的有序性，同时需要维护树的平衡性
 
@@ -1291,6 +1407,19 @@ T1   x      向左旋转 (y)       y     z
     T3 T4
 ```
 
+```java
+private Node leftRotate(Node y) {
+  Node x = y.right;
+  Node T2 = x.left;
+  x.left = y;
+  y.right = T2;        // ordered
+
+  y.height = 1 + Math.max(getHeight(T2), getHeight(y.left));
+  x.height = 1 + Math.max(getHeight(y), getHeight(x.right));           // balanced
+  return x;
+}
+```
+
 （2） 右旋转
 
 处理 LL 情况
@@ -1308,6 +1437,19 @@ T1   T2
 satisfy BST and balanced
 ```
 
+```java
+private Node rightRotate(Node y) {
+  Node x = y.left;
+  Node T3 = x.right;
+  x.right = y;
+  y.left = T3;      // ordered
+  // maintain height, sub tree -> big tree ⇒ first calculate y → second x
+  y.height = 1 + Math.max(getHeight(T3), getHeight(y.right));
+  x.height = 1 + Math.max(getHeight(x.left), getHeight(y));              // balanced
+  return x;
+}
+```
+
 （3） LR 情况处理
 
 ```
@@ -1318,6 +1460,14 @@ satisfy BST and balanced
  T1   z                        x   T3                          / \   / \
      / \                      / \                            T1  T2 T3 T4
    T2   T3                  T1   T2
+```
+
+```java
+private Node LR(Node y) {
+  Node x = y.left;
+  y.left = leftRotate(x);
+  return rightRotate(y);
+}
 ```
 
 （4） RL 情况处理
@@ -1332,7 +1482,13 @@ T1   x      向右旋转 (x)    T1   z        向右旋转 (y)            y     
  T2 T3                         T3 T4
 ```
 
-
+```java
+private Node RL(Node y) {
+  Node x = y.right;
+  y.right = rightRotate(x);
+  return leftRotate(y);
+}
+```
 
 （5） 调整时机
 
@@ -1356,8 +1512,6 @@ void recomputeHeight(Node node) {
 }
 ```
 
-
-
 平衡性调整：
 
 ```java
@@ -1378,6 +1532,7 @@ Node reBalance(Node node) {
 ```
 
 
+
 ## 2-3 Tree
 
 2-node： 有两个孩子的节点
@@ -1386,6 +1541,10 @@ Node reBalance(Node node) {
 
 4-node： 有四个孩子的节点(非法)
 
+作为学习红黑树的基础
+
+
+
 
 ## RB Tree
 
@@ -1393,25 +1552,17 @@ Node reBalance(Node node) {
 
 ① 每个节点颜色∈ {RED, BLCAK}
 
-② root.color = BLCAK
+② 根节点为黑(root.color = BLCAK)
 
 ③ 叶子节点颜色为 BLACK(NULL)
 
 ④ RED-node 的孩子节点为 BLCAK-node；
 
-⑤ **任意**位置从该处到达叶子节点所经过的 BLACK-node 数量相同；
+⑤ **任意** 位置从该处到达叶子节点所经过的 BLACK-node 数量相同；
 
 
 
 **2、 与 2-3 Tree 的等价性**
-
-
-
-
-
-
-
-
 
 
 
@@ -1432,11 +1583,13 @@ AVL 的查找效率更高，O(logN)，而 RB 通常情况下为 O(2logN)；
 AVL 的插入和删除效率低，为了维护绝对的平衡开销大，而 RB 非绝对平衡，允许最多 logN 的高度差；
 
 
-# 其他有序
+
+
+# 其他有序结构
 
 ## SkipList(redis)
 
-**&& 底层结构**
+**底层结构**
 
 类似带有 Level (平衡 | 索引) 和 Score(有序) 的双向链表。
 
@@ -1444,19 +1597,13 @@ AVL 的插入和删除效率低，为了维护绝对的平衡开销大，而 RB 
 
 ② Score： 用于进行排序的参考值，结合 Hash 表能够在 O(1) 内找出；
 
-
-
 Level： span，下一个指向
 
 Node： 包含多个向前指向，一个向后指向，存放数据的指针
 
-![1551944105711](E:\Data\坚果云\我的坚果云\笔记\assets\1551944105711.png)
+![1551944105711](assets\1551944105711.png)
 
-
-
-
-
-**&& 与 RB 的比较**
+**跳表与红黑树的比较**
 
 与红黑树等平衡树相比，跳跃表具有以下优点：
 
@@ -1486,19 +1633,15 @@ Node： 包含多个向前指向，一个向后指向，存放数据的指针
 
 
 
-**&& 插入**
+**插入**
 
 考虑三种情况： 需要根据 Leaf Page与 Index Page 是否满来进行不同的处理
-
-
 
 通过节点之间的分裂实现平衡的维护
 
 
 
-
-
-**&& B-Tree 与 B+Tree 的比较**
+**B-Tree 与 B+Tree 的比较**
 
 ① 磁盘访问速度： B+Tree 快，内部节点仅仅存放必要字段，而 B-Tree 需访问整块空间；
 
@@ -1507,11 +1650,13 @@ Node： 包含多个向前指向，一个向后指向，存放数据的指针
 ③ 迭代|范围|结果排序支持： B+Tree 叶子节点为双端链表，节点内部仍然是双端链表，便于进行范围查询排序，B-Tree 实现的代价高；
 
 
+
+
 # 散列表 | 哈希函数
 
 ## Hash 表
 
-**&& hash 函数**
+**hash 函数**
 
 散列函数设计的好坏，决定了散列表冲突的概率大小，也直接决定了散列表的性能。
 
@@ -1520,8 +1665,6 @@ Node： 包含多个向前指向，一个向后指向，存放数据的指针
 ② 如果key1 = key2，那hash(key1) == hash(key2)；
 ③  如果key1 ≠ key2，那hash(key1) ≠ hash(key2)。
 
-
-
 （2） 一些设计
 
 `+`: char
@@ -1529,40 +1672,6 @@ Node： 包含多个向前指向，一个向后指向，存放数据的指针
 `*`:  乘法不相关性
 
 `xor`: 异或得出 hashCode 值
-
-
-
-
-
-**&& Key 冲突处理方法**
-
-（1） 开放地址法
-
-思想： 如果出现了散列冲突，我们就重新探测一个空闲位置，将其插入。
-
-① 线性探测法
-
-当我们往散列表中插入数据时，如果某个数据经过散列函数散列之后，存储位置已经被占用了，我们就从当前位置开始，依次往后查找，看是否有空闲位置，直到找到为止。
-
-
-
-② 二次探测法(Quadratic probing)
-
-线性探测每次探测的步长是1，那它探测的下标序列就是hash(key)+0，hash(key)+1，hash(key)+2……而二次探测探测的步长就变成了原来的“二次方”，也就是说，它探测的下标序列就是hash(key)+0，hash(key)+1^2，hash(key)+2^2……
-
-
-
-③ 双重散列
-
-意思就是不仅要使用一个散列函数。我们使用  一组  散列函数hash1(key)，hash2(key)，hash3(key)……我们先用第一个散列函数，如果计算得到的存储位置已经被占用，再用第二个散列函数，依次类推，直到找到空闲的存储位置。
-
-
-
-（2） 链地址法（拉链法）
-
-当插入的时候，我们只需要通过散列函数计算出对应的散列槽位，将其插入到对应链表中即可，所以插入的时间复杂度是O(1)。
-
-
 
 
 
@@ -1606,13 +1715,40 @@ Node： 包含多个向前指向，一个向后指向，存放数据的指针
 - 根据猎头的ID快速查找、删除、更新这个猎头的积分信息；
 
 - 查找积分在某个区间的猎头ID列表；
+
 - 查找按照积分从小到大排名在第x位到第y位之间的猎头ID列表。
+
+  
+
+## **Key 冲突处理方法**
+
+（1） 开放地址法
+
+思想： 如果出现了散列冲突，我们就重新探测一个空闲位置，将其插入。
+
+① 线性探测法
+
+当我们往散列表中插入数据时，如果某个数据经过散列函数散列之后，存储位置已经被占用了，我们就从当前位置开始，依次往后查找，看是否有空闲位置，直到找到为止。
+
+② 二次探测法(Quadratic probing)
+
+线性探测每次探测的步长是1，那它探测的下标序列就是hash(key)+0，hash(key)+1，hash(key)+2……而二次探测探测的步长就变成了原来的“二次方”，也就是说，它探测的下标序列就是hash(key)+0，hash(key)+1^2，hash(key)+2^2……
+
+③ 双重散列
+
+意思就是不仅要使用一个散列函数。我们使用  一组  散列函数hash1(key)，hash2(key)，hash3(key)……我们先用第一个散列函数，如果计算得到的存储位置已经被占用，再用第二个散列函数，依次类推，直到找到空闲的存储位置。
+
+（2） 链地址法（拉链法）
+
+当插入的时候，我们只需要通过散列函数计算出对应的散列槽位，将其插入到对应链表中即可，所以插入的时间复杂度是O(1)。
+
+
 
 
 
 ## 哈希算法
 
-**&& 设计要求**
+**设计要求**
 
 从哈希值不能反向推导出原始数据（所以哈希算法也叫单向哈希算法）；
 对输入数据非常敏感，哪怕原始数据只修改了一个Bit，最后得到的哈希值也大不相同；
@@ -1621,31 +1757,23 @@ Node： 包含多个向前指向，一个向后指向，存放数据的指针
 
 
 
-**&& 应用**
+**应用**
 
 （1） 常规应用
 
 ① 应用加密
 
-MD5、SHA
-
-对用于加密的哈希算法来说，有两点格外重要。第一点是很难根据哈希值反向推导出原始数据，第二点是散列冲突的概率要很小。
-
-
+MD5、SHA 加密，对用于加密的哈希算法来说，有两点格外重要。第一点是很难根据哈希值反向推导出原始数据，第二点是散列冲突的概率要很小。
 
 ② 唯一标识
 
 要在海量的图库中，搜索一张图是否存在，我们不能单纯地用图片的元信息（比如图片名称）来比对，因为有可能存在名称相同但图片内容不同，或者名称不同图片内容相同的情况。
-
-
 
 ③ 数据校验
 
 电影文件可能会被分割成很多文件块（比如可以分成100块，每块大约20MB）。等所有的文件块都下载完成之后，再组装成一个完整的电影文件就行了。
 
 HTTPS 中的完整性校验；
-
-
 
 ④ 散列函数
 
@@ -1661,8 +1789,6 @@ HTTPS 中的完整性校验；
 如何才能实现一个会话粘滞（session sticky）的负载均衡算法呢？也就是说，我们需要在同一
 个客户端上，在一次会话中的所有请求都路由到同一个服务器上。
 
-
-
 思路一： 维护一张映射关系表，这张表的内容是客户端IP地址或者会话ID与服务器编号的映射关系
 
 思路二： 通过哈希算法，对客户端IP地址或者会话ID计算哈希值，将取得的哈希值与服务器列表的大小进行取模运算，最终得到的值就是应该被路由到的服务器编号。
@@ -1671,20 +1797,14 @@ HTTPS 中的完整性校验；
 
 ⑥ 数据分片
 
-
-
-@Q1: 如何统计“搜索关键词”出现的次数？
+Q1: 如何统计“搜索关键词”出现的次数？
 假如我们有1T的日志文件，这里面记录了用户的搜索关键词，我们想要快速统计出每个关键词被搜索的次数，该怎么做呢？
 
-在机器内存不足时，
+在机器内存不足时，MapReduce 设计思想
 
 
 
-MapReduce 设计思想
-
-
-
-@Q2: 如何快速判断图片是否在图库中？
+Q2: 如何快速判断图片是否在图库中？
 
 对数据进行分片，然后采用多机处理。我们准备n台机器，让每台机器只维护某一部分图片对应的散列表。我们每次从图库中读取一个图片，计算唯一标识，然后与机器个数n求余取模，得到的值就对应要分配的机器编号，然后将这个图片的唯一标识和图片路径发往对应的机器构建散列表。
 
@@ -1692,29 +1812,31 @@ MapReduce 设计思想
 
 ⑦ 分布式存储
 
-我们就需要将数据分布在多台机器上。
+需要将数据分布在多台机器上。
 
-问题： 原来使用 10 台机器进行数据分片，现在扩充了一台机器，取模不同
+Q： 原来使用 10 台机器进行数据分片，现在扩充了一台机器，如何处理？
 
 如果从新计算 hash，缓存全部失效，造成雪崩效应，压垮 DB；
 
+通过一致性 hash 算法，同时借助虚拟节点处理，可解决该问题；
 
 
-通过一致性 hash 算法，同时借助虚拟节点处理，解决该问题；
 
 
 ## InnoDB 中的 Hash
 
-**&& hash()**
+**hash()**
 
 使用除法作为散列函数
+
+
 
 
 # 其他
 
 ## Huffman Tree
 
-**&& 底层结构**
+**底层结构**
 
 哈夫曼编码过程：字符串“AAAABBBBBCCDDDDDDE”，字符出现的频率为
 
@@ -1722,7 +1844,7 @@ A4，B5，C2，D6，E1
 
 
 
-**&& 算法流程**
+**算法流程**
 
 霍夫曼编码的具体步骤如下：
 
@@ -1736,7 +1858,7 @@ A4，B5，C2，D6，E1
 
 
 
-**&& 编码与解码**
+**编码与解码**
 
 编码就是从根节点开始，往左走就是0，往右走就是1
 
@@ -1755,14 +1877,7 @@ E:000
 
 
 
+**注意事项**
 
+Huffman编码使得每一个字符的编码都与另一个字符编码的前一部分不同，不会出现像’A’：00，  ’B’：001，这样的情况，解码也不会出现冲突。
 
-
-
-
-
-
-
-**&& 注意事项**
-
-这里需要注意的是，Huffman编码使得每一个字符的编码都与另一个字符编码的前一部分不同，不会出现像’A’：00，  ’B’：001，这样的情况，解码也不会出现冲突。

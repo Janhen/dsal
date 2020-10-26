@@ -1,10 +1,7 @@
 package com.janhen.structures.segmenttree;
 
-/// 303. Range Sum Query - Immutable
-/// https://leetcode.com/problems/range-sum-query-immutable/description/
-
-/// Leetcode 307. Range Sum Query - Mutable
-/// https://leetcode.com/problems/range-sum-query-mutable/description/
+// [303. Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/description/)
+// [307. Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable/description/)
 
 public class Main {
 
