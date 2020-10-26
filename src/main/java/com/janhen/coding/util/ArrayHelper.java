@@ -184,4 +184,15 @@ public class ArrayHelper {
       return index >= 0 ? index : -1;
     }
   }
+
+  /**
+   * 返回两个数组中最长的公共的元素
+   *
+   * @param arr1
+   * @param arr2
+   * @return
+   */
+  public int[] merge(int[] arr1, int[] arr2) {
+    return null;
+  }
 }
