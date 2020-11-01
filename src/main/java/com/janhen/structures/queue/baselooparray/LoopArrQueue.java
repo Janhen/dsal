@@ -4,10 +4,11 @@ import com.janhen.structures.queue.IQueue;
 
 /**
  * 循环数组实现队列
- * 
- * @param <E>
+ * https://leetcode-cn.com/problems/design-circular-queue/
  */
 public class LoopArrQueue<E> implements IQueue<E> {
+
+  private static final int DEFAULT_CAPACITY = 10;
 
   private E[] data;
   private int front, tail; // tail->lastElement
@@ -97,6 +98,4 @@ public class LoopArrQueue<E> implements IQueue<E> {
     sb.append("] tail");
     return sb.toString();
   }
-
-  private static final int DEFAULT_CAPACITY = 10;
 }
