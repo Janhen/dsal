@@ -1,6 +1,8 @@
 package com.janhen.coding.leetcode.ds.array.sm_adv_sub_arr_seq_dp_range.solution152;
 
 class Solution {
+  //  maxProduct = curMax * cur   cur > 0
+  //               curMin * cur   cur <= 0
   public int maxProduct(int[] nums) {
     int res = nums[0];
 

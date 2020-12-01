@@ -4,7 +4,9 @@ class Solution {
   private int sequencer;
 
   public int[][] generateMatrix(int n) {
+    // init space
     int[][] matrix = new int[n][n];
+    // fill number to position
     sequencer = 1;
     int left = 0, up = 0, right = n - 1, down = n - 1;
     while (left <= right)

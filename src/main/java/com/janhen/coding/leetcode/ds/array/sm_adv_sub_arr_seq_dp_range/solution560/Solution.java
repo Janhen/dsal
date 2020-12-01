@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Solution {
   /*
+  问题转换
   we know SUM[0, i - 1] and SUM[0, j], then we can easily get SUM[i, j]
 
   1. Hashmap<sum[0,i - 1], frequency>
@@ -20,9 +21,8 @@ public class Solution {
   Time complexity O(n), Space complexity O(n).
    */
   public int subarraySum(int[] nums, int k) {
-    // sum[i] -> count, this frequency            map collect on iterative process
+    // sum[i] -> count
     Map<Integer, Integer> preSumCnt = new HashMap<>();
-    // TOWHY why need this
     preSumCnt.put(0, 1);
 
     int res = 0;
@@ -32,10 +32,10 @@ public class Solution {
       sum += num;
       // need to find key
       int key = sum - k;
-
-      if (preSumCnt.containsKey(key))
+      if (preSumCnt.containsKey(key)) {
         res += preSumCnt.get(key);
-      // maintain key's frequency
+      }
+      // maintain key's frequency when cur element is no negitive
       preSumCnt.put(sum, preSumCnt.getOrDefault(sum, 0) + 1);
     }
     return res;

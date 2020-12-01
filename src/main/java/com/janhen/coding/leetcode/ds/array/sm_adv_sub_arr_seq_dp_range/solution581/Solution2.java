@@ -20,8 +20,9 @@ class Solution2 {
     //its left side and mark it as end
     for (int i = 0; i < nums.length; i++) {
       max = Math.max(max, nums[i]);
-      if (nums[i] < max)
+      if (nums[i] < max) {
         end = i;
+      }
     }
 
     int min = Integer.MAX_VALUE;
@@ -31,8 +32,9 @@ class Solution2 {
     //its right side and mark it as begin
     for (int i = nums.length - 1; i >= 0; i--) {
       min = Math.min(min, nums[i]);
-      if (nums[i] > min)
+      if (nums[i] > min) {
         begin = i;
+      }
     }
 
     return end - begin + 1;

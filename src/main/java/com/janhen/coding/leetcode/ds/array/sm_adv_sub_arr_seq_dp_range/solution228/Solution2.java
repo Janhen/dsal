@@ -9,7 +9,6 @@ public class Solution2 {
     int end = 0;
     List<String> list = new ArrayList<>();
     for (int i = 0; i < nums.length; i++) {
-
       // find max can meet the conditions
       while (i < nums.length - 1 && nums[i] + 1 == nums[i + 1]) {
         end++;
@@ -27,8 +26,8 @@ public class Solution2 {
       // reset for continue to find
       end++;
       begin = end;
-
     }
     return list;
+
   }
 }

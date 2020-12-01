@@ -10,7 +10,8 @@ class Solution {
     int index = 0;
     for (int i = 0; i < r; i++) {
       for (int j = 0; j < c; j++) {
-        matrix[i][j] = nums[index / n][index % n];   // one dimension use col to
+        // one dimension use col to
+        matrix[i][j] = nums[index / n][index % n];
         index++;
       }
     }

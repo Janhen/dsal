@@ -6,10 +6,11 @@ import java.util.Map;
 class Solution {
   public int findShortestSubArray(int[] nums) {
     // step1: collect necessary information
-    // current last occur position index
-    // current first occur position index
+    // num -> freq
     Map<Integer, Integer> freqs = new HashMap<>();
+    // num -> firstOccurIdx
     Map<Integer, Integer> numLastIdx = new HashMap<>();
+    // num -> lastOccurIdx
     Map<Integer, Integer> numFirstIdx = new HashMap<>();
 
     // init all map

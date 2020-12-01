@@ -17,6 +17,7 @@ public class Solution {
     return res;
   }
 
+  // 逐层遍历
   private void printEdge(int[][] m, int up, int left, int bottom, int right, List<Integer> res) {
     // one column
     if (left == right) {
