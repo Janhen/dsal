@@ -4,6 +4,7 @@ class Solution {
   public void setZeroes(int[][] matrix) {
     int m = matrix.length, n = matrix[0].length;
     // row or col need to modify 0, as clone original data
+    // 注意修改导致其他
     boolean[] rows = new boolean[m];
     boolean[] cols = new boolean[n];
     for (int i = 0; i < m; i++) {

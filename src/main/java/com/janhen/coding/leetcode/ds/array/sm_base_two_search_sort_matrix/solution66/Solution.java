@@ -2,14 +2,14 @@ package com.janhen.coding.leetcode.ds.array.sm_base_two_search_sort_matrix.solut
 
 class Solution {
   /*
-  three condition:
-  - low bit [0, 8]
-  - can carry
-  - can continue carry
+   * three condition:
+   * - low bit [0, 8]
+   * - can carry
+   * - can continue carry
    */
   public int[] plusOne(int[] digits) {
     for (int i = digits.length - 1; i >= 0; i--) {
-      // case1: terminal condition
+      // case1: first +1 over OR carry +1 over
       if (digits[i] < 9) {
         digits[i]++;
         return digits;

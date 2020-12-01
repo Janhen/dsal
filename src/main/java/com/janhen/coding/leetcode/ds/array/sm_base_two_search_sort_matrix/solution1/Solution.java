@@ -5,11 +5,12 @@ import java.util.Map;
 
 class Solution {
   public int[] twoSum(int[] nums, int target) {
+    // num -> idx
     Map<Integer, Integer> valIdxMap = new HashMap();
     for (int i = 0; i < nums.length; i++) {
-      int findKey = target - nums[i];
-      if (valIdxMap.containsKey(findKey)) {
-        return new int[]{valIdxMap.get(findKey), i};
+      int targetKey = target - nums[i];
+      if (valIdxMap.containsKey(targetKey)) {
+        return new int[]{valIdxMap.get(targetKey), i};
       }
       valIdxMap.put(nums[i], i);
     }

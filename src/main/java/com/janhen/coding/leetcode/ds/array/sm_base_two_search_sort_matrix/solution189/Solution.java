@@ -5,7 +5,8 @@ class Solution {
     if (nums.length == 1) return;
 
     int n = nums.length;
-    k = k % n;                     // prevent unnecessary rotate
+    // prevent unnecessary rotate
+    k = k % n;
     reverse(nums, 0, n - k - 1);
     reverse(nums, n - k, n - 1);
     reverse(nums, 0, n - 1);
