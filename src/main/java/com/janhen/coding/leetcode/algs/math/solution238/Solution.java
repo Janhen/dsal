@@ -2,7 +2,7 @@ package com.janhen.coding.leetcode.algs.math.solution238;
 
 import java.util.Arrays;
 
-class SolutionF {
+class Solution {
   public int[] productExceptSelf(int[] nums) {
       // 1. define and fill initial product
     int n = nums.length;
