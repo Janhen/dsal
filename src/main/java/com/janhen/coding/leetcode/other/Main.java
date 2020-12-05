@@ -60,5 +60,6 @@ public class Main {
         Integer[] nums = {5,7,4,9,10,7,6};
         TreeNode root = new TreeNode(nums);
         root.printTree();
+        root.printLevel();
     }
 }
