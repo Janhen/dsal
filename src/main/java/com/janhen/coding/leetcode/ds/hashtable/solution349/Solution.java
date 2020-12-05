@@ -28,9 +28,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Solution {
-
-  // sort + double index
-  // 3 ms, faster than 78.87%
+  // 排序 + 双指针处理
   // time : O(nlogn), space : O(n)
   public int[] intersection(int[] nums1, int[] nums2) {
     Set<Integer> set = new HashSet<>();

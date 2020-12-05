@@ -14,22 +14,23 @@ class Solution {
   // 105 ms, faster than 74.82%
   // time : O(n^2)  space : O(n^2)
   public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
-    // 保存 C + D 的可能性
-    Map<Integer, Integer> recordCD = new HashMap<>();
+    // A[i] + A[j] -> freq
+    Map<Integer, Integer> freqs = new HashMap<>();
     for (int i = 0; i < C.length; i++) {
       for (int j = 0; j < D.length; j++) {
         int key = C[i] + D[j];
-        recordCD.put(key, recordCD.getOrDefault(key, 0) + 1);
+        freqs.put(key, freqs.getOrDefault(key, 0) + 1);
       }
     }
-    int res = 0;
+    int ret = 0;
     for (int i = 0; i < A.length; i++) {
       for (int j = 0; j < B.length; j++) {
         int key = 0 - A[i] - B[j];
-        if (recordCD.containsKey(key)) // corresponding can come to result constraint
-          res += recordCD.get(key);
+        if (freqs.containsKey(key)) {
+          ret += freqs.get(key);
+        }
       }
     }
-    return res;
+    return ret;
   }
 }
