@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-class Solution_my2 {
+class Solution2$ {
 
   // 1 ms, faster than 99.28%
   public boolean wordPattern(String pattern, String str) {

@@ -9,16 +9,17 @@ class Solution {
     // record to prevent loop
     Set<Integer> record = new HashSet<>();
     while (cur != 1) {
-      cur = getDigitSquare(cur);
-      if (!record.contains(cur))
+      cur = digitSquare(cur);
+      if (!record.contains(cur)) {
         record.add(cur);
-      else           // in this have loop
+      } else {
         return false;
+      }
     }
     return true;
   }
 
-  private int getDigitSquare(int n) {
+  private int digitSquare(int n) {
     int sum = 0;
     while (n > 0) {
       int digit = n % 10;

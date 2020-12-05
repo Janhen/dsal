@@ -1,5 +1,7 @@
 package com.janhen.coding.util;
 
+import java.util.Arrays;
+
 public class StringHelper {
   public boolean isPalindrome(String s, int i, int j) {
     while (i < j) {
@@ -31,5 +33,11 @@ public class StringHelper {
       j--;
     }
     return true;
+  }
+
+  public String sort(String s) {
+    char[] chs = s.toCharArray();
+    Arrays.sort(chs);
+    return new String(chs);
   }
 }

@@ -1,8 +1,5 @@
 package com.janhen.coding.leetcode.ds.hashtable.practice.solution205;
 
-//  205. Isomorphic Strings
-// https://leetcode.com/problems/isomorphic-strings/
-
 import java.util.HashMap;
 import java.util.Map;
 

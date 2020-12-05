@@ -32,7 +32,7 @@ Output: false
 import java.util.HashMap;
 import java.util.Map;
 
-class Solution3 {
+class Solution$ {
 
   // 1 ms, faster than 99.28%
   public boolean wordPattern(String pattern, String str) {
