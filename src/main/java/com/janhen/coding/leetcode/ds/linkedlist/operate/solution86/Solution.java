@@ -3,7 +3,6 @@ package com.janhen.coding.leetcode.ds.linkedlist.operate.solution86;
 import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution {
-  // 单个链表的分割
   public ListNode partition(ListNode head, int x) {
     // 1. record left part and right part list first node
     ListNode first1 = new ListNode(-1);

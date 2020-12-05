@@ -4,9 +4,11 @@ import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution {
   public void reorderList(ListNode head) {
-    if (head == null || head.next == null) return;
+    if (head == null || head.next == null) {
+      return;
+    }
     // 1. find mid node
-    ListNode preMid = findPreMid(head);
+    ListNode preMid = preMidNode(head);
 
     // 2. cut and reverse right half list node
     ListNode l1 = head;
@@ -17,25 +19,41 @@ class Solution {
     mergeCross(l1, l2);
   }
 
+  /**
+   * 交叉合并链表
+   *
+   * @param l1
+   * @param l2
+   * @return 合并后的链表
+   */
   public static ListNode mergeCross(ListNode l1, ListNode l2) {
     ListNode newHead = l1;
+    ListNode next1 = null;
+    ListNode next2 = null;  // record original next node
     // l1, l2 as iteration pointer
     while (l1 != null && l2 != null) {
       // l1 -> n1 -> xx    =>   l1 -> l2 -> n1 -> xx
       // l2 -> n2 -> yy    =>   n2 -> yy
-      ListNode next1 = l1.next, next2 = l2.next;  // record original next node
+      next1 = l1.next;
+      next2 = l2.next;
       l1.next = l2;                               // adjust four pointer to meet condition order
-      if (next1 == null) break;
+      if (next1 == null) {
+        break;
+      }
       l2.next = next1;
-      if (next2 == null) break;
+      if (next2 == null) {
+        break;
+      }
       l1 = next1;
       l2 = next2;
     }
     return newHead;
   }
 
-  private ListNode findPreMid(ListNode head) {
-    ListNode fast = head, slow = head, pre = null;
+  private ListNode preMidNode(ListNode head) {
+    ListNode fast = head;
+    ListNode slow = head;
+    ListNode pre = null;
     while (fast != null && fast.next != null) {
       pre = slow;
       slow = slow.next;
@@ -45,13 +63,14 @@ class Solution {
   }
 
   private ListNode reverse(ListNode head) {
+    ListNode cur = head;
     ListNode pre = null;
     ListNode next = null;
-    while (head != null) {
-      next = head.next;
-      head.next = pre;
-      pre = head;
-      head = next;
+    while (cur != null) {
+      next = cur.next;
+      cur.next = pre;
+      pre = cur;
+      cur = next;
     }
     return pre;
   }

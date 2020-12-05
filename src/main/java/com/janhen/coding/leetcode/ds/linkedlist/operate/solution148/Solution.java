@@ -4,11 +4,12 @@ import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution {
   public ListNode sortList(ListNode head) {
-    if (head == null || head.next == null)
+    if (head == null || head.next == null) {
       return head;
+    }
 
     // 1. find mid node and cut two list
-    ListNode preMid = findPreMid(head);
+    ListNode preMid = preMidNode(head);
     ListNode mid = preMid.next;
     preMid.next = null;
     // 2. handle two sub problem
@@ -18,7 +19,7 @@ class Solution {
     return merge(l1, l2);
   }
 
-  private ListNode findPreMid(ListNode head) {
+  private ListNode preMidNode(ListNode head) {
     ListNode pre = null, fast = head, slow = head;
     while (fast != null && fast.next != null) {
       pre = slow;

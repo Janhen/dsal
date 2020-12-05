@@ -1,13 +1,8 @@
 package com.janhen.coding.leetcode.ds.linkedlist.operate.solution328;
 
-// 328. Odd Even Linked List
-//https://leetcode.com/problems/odd-even-linked-list/
-
 import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution2 {
-
-  // COMMON handle
   public ListNode oddEvenList(ListNode head) {
     // define four pointer to joint, one pointer to iteration
     ListNode oddTail = null, oddHead = null;

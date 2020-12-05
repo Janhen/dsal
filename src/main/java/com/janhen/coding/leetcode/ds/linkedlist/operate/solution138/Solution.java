@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Solution {
   public Node copyRandomList(Node head) {
-    // 1. record origin node -> copy node
+    // node -> copy node
     Map<Node, Node> map = new HashMap<>();
 
     // 2. iterate, copy, link, store origin node -> copy node
@@ -19,9 +19,8 @@ public class Solution {
       cur1 = cur1.next;
     }
 
-    // 3. set copy node random attribute link,
-    // get copy origin Node and oriNode.random Node
-    map.keySet().stream().forEach(oriNode -> map.get(oriNode).random = map.get(oriNode.random));
+    // set copy node random attribute link,
+    map.forEach((oriNode, copyNode) -> copyNode.random = map.get(oriNode.random));
     return map.get(head);
   }
 }

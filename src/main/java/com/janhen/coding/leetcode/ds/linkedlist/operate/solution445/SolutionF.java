@@ -7,8 +7,8 @@ import java.util.Stack;
 class SolutionF {
   public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
     // 1. make list to "reverse"
-    Stack<ListNode> s1 = buildStack(l1);
-    Stack<ListNode> s2 = buildStack(l2);
+    Stack<ListNode> stack1 = buildStack(l1);
+    Stack<ListNode> stack2 = buildStack(l2);
 
     // 2. iterate and calculate list
     int carry = 0;
@@ -18,26 +18,27 @@ class SolutionF {
     //   s1/s2 empty:     one list high bit not have element
     //   carry is 0:
     //   carry is not 0:
-    while (!s1.isEmpty() || !s2.isEmpty() || carry != 0) {
+    while (!stack1.isEmpty() || !stack2.isEmpty() || carry != 0) {
       // iterate from slow bit to high bit
-      int val = (s1.isEmpty() ? 0 : s1.pop().val) + (s2.isEmpty() ? 0 : s2.pop().val) + carry;
+      int val = (stack1.isEmpty() ? 0 : stack1.pop().val) + (stack2.isEmpty() ? 0 : stack2.pop().val) + carry;
       carry = val / 10;
-      ListNode node = new ListNode(val % 10);
+      val = val % 10;
+      ListNode node = new ListNode(val);
 
       // 3. head insert to reverse
-      node.next = first.next;                           // 头插法逆序 7087 ⇒ 7807
+      node.next = first.next;
       first.next = node;
     }
     return first.next;
   }
 
-  private Stack<ListNode> buildStack(ListNode l) {
-    Stack<ListNode> s = new Stack<>();
+  private Stack<ListNode> buildStack(ListNode head) {
+    Stack<ListNode> stack = new Stack<>();
     // modify list reference
-    while (l != null) {
-      s.push(l);
-      l = l.next;
+    while (head != null) {
+      stack.push(head);
+      head = head.next;
     }
-    return s;
+    return stack;
   }
 }

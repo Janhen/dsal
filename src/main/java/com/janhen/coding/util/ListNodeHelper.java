@@ -128,7 +128,7 @@ public class ListNodeHelper {
   /**
    * 链表中间元素的前一个节点
    */
-  public ListNode preMid(ListNode head) {
+  public ListNode preMidNode(ListNode head) {
     ListNode fast = head;
     ListNode slow = head;
     ListNode pre = null;
@@ -238,6 +238,29 @@ public class ListNodeHelper {
   }
 
   /**
+   * 反转 [begin.next,...,end) 范围的链表并返回反转后的最后一个元素
+   *
+   * @param begin 之前的节点(不进行反转)
+   * @param end   终止的节点
+   * @return 反转后最后最后一个元素(临近end)
+   */
+  public ListNode reverse(ListNode begin, ListNode end) {
+    ListNode cur = begin.next;
+    ListNode next = null;
+    ListNode first = begin.next;
+    ListNode pre = begin;
+    while (cur != end) {
+      next = cur.next;
+      cur.next = pre;
+      pre = cur;
+      cur = next;
+    }
+    begin.next = pre;
+    first.next = cur;
+    return first;
+  }
+
+  /**
    * 获取两个链表的交点(模拟环)
    */
   public static ListNode getIntersectionNode(ListNode list1, ListNode list2) {
@@ -270,27 +293,12 @@ public class ListNodeHelper {
   }
 
   /**
-   * 交叉合并两条链表, 不等长保留多余的节点
-   */
-  public static ListNode mergeCross(ListNode l1, ListNode l2) {
-    ListNode newHead = l1;
-    while (l1 != null && l2 != null) {
-      ListNode n1 = l1.next, n2 = l2.next;
-      l1.next = l2;
-      if (n1 == null) break;
-      l2.next = n1;
-      if (n2 == null) break;
-      l1 = n1;
-      l2 = n2;
-    }
-    return newHead;
-  }
-
-  /**
    * 奇偶链表
    */
   public ListNode oddEvenList(ListNode head) {
-    if (head == null) return null;
+    if (head == null) {
+      return null;
+    }
     ListNode odd = head;
     ListNode even = head.next;
     ListNode evenHead = even;    // 保存用于最后直接链接
@@ -302,5 +310,36 @@ public class ListNodeHelper {
     }
     odd.next = evenHead;
     return head;
+  }
+
+  /**
+   * 交叉合并链表
+   *
+   * @param l1
+   * @param l2
+   * @return 合并后的链表
+   */
+  public static ListNode mergeCross(ListNode l1, ListNode l2) {
+    ListNode newHead = l1;
+    ListNode next1 = null;
+    ListNode next2 = null;  // record original next node
+    // l1, l2 as iteration pointer
+    while (l1 != null && l2 != null) {
+      // l1 -> n1 -> xx    =>   l1 -> l2 -> n1 -> xx
+      // l2 -> n2 -> yy    =>   n2 -> yy
+      next1 = l1.next;
+      next2 = l2.next;
+      l1.next = l2;                               // adjust four pointer to meet condition order
+      if (next1 == null) {
+        break;
+      }
+      l2.next = next1;
+      if (next2 == null) {
+        break;
+      }
+      l1 = next1;
+      l2 = next2;
+    }
+    return newHead;
   }
 }

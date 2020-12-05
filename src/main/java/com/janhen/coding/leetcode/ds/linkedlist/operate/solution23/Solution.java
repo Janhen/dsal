@@ -8,7 +8,10 @@ import java.util.PriorityQueue;
 class Solution {
   // Like from many data stream collect data, and then find top
   public ListNode mergeKLists(ListNode[] lists) {
-    // 1. load all data stream first element to heap
+    if (lists == null || lists.length == 0) {
+      return null;
+    }
+    // 初始化加载所有链表的头节点
     PriorityQueue<ListNode> pq = new PriorityQueue<>(lists.length, Comparator.comparingInt(l -> l.val));   // list like each data flow
     for (ListNode list : lists) {
       if (list != null) {
@@ -16,14 +19,14 @@ class Solution {
       }
     }
 
-    // 2. iterate heap to continue to find next sorted element
-    ListNode first = new ListNode(-1);     // use for join together
+    // 比较每条链表当前的头节点
+    ListNode first = new ListNode(-1);
     ListNode cur = first;
     while (!pq.isEmpty()) {
       cur.next = pq.poll();
-      cur = cur.next;             // sort node
+      cur = cur.next;
       if (cur.next != null) {
-        pq.offer(cur.next);       // iterate list next element , load next node if have in this data flow
+        pq.offer(cur.next);
       }
     }
     return first.next;

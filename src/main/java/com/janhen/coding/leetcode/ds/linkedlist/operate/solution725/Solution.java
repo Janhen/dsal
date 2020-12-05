@@ -3,15 +3,14 @@ package com.janhen.coding.leetcode.ds.linkedlist.operate.solution725;
 import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution {
-  // every list node count like order fill k bucket
-  // need to keep original order
   public ListNode[] splitListToParts(ListNode root, int k) {
     // 1. make sure part length
     int len = length(root);
     ListNode[] parts = new ListNode[k];
     int size = len / k;
     int remain = len % k;
-    ListNode pre = null, cur = root;
+    ListNode pre = null;
+    ListNode cur = root;
     // 2. two condition to iteration and link list node
     for (int i = 0; i < k && cur != null; i++) {         // two iteration pointer
       parts[i] = cur;
@@ -27,12 +26,12 @@ class Solution {
   }
 
   private int length(ListNode head) {
-    int len = 0;
+    int N = 0;
     ListNode cur = head;
     while (cur != null) {
-      len++;
+      N++;
       cur = cur.next;
     }
-    return len;
+    return N;
   }
 }

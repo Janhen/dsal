@@ -6,17 +6,19 @@ class Solution {
   public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
     l1 = reverse(l1);
     l2 = reverse(l2);
-    ListNode resReverse = addTwoNumbers(l1, l2, 0);
-    return reverse(resReverse);
+    ListNode retReverse = addTwoNumbers(l1, l2, 0);
+    return reverse(retReverse);
   }
 
   private ListNode addTwoNumbers(ListNode l1, ListNode l2, int carry) {
-    if (l1 == null && l2 == null && carry == 0)
+    if (l1 == null && l2 == null && carry == 0) {
       return null;
+    }
 
     int val = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry;
     carry = val / 10;
-    ListNode res = new ListNode(val % 10);
+    val = val % 10;
+    ListNode res = new ListNode(val);
     res.next = addTwoNumbers(l1 != null ? l1.next : null, l2 != null ? l2.next : null, carry);
     return res;
   }

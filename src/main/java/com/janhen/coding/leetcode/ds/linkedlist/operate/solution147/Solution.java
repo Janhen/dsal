@@ -3,7 +3,6 @@ package com.janhen.coding.leetcode.ds.linkedlist.operate.solution147;
 import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution {
-  // TODO
   public ListNode insertionSortList(ListNode head) {
     if (head == null) {
       return head;

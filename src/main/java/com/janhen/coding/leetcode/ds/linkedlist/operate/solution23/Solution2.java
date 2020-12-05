@@ -9,8 +9,12 @@ class Solution2 {
   }
 
   private ListNode mergeSortList(ListNode[] lists, int lo, int hi) {
-    if (lo > hi) return null;
-    if (lo == hi) return lists[lo];    // only one list original condition or terminal sorted list
+    if (lo > hi) {
+      return null;
+    }
+    if (lo == hi) {
+      return lists[lo];
+    }
 
     int mid = lo + (hi - lo) / 2;
     ListNode left = mergeSortList(lists, lo, mid);
@@ -18,10 +22,14 @@ class Solution2 {
     return merge(left, right);
   }
 
-  // merge two list node
+  // 合并两个排序的链表
   private ListNode merge(ListNode l1, ListNode l2) {
-    if (l1 == null) return l2;
-    if (l2 == null) return l1;
+    if (l1 == null) {
+      return l2;
+    }
+    if (l2 == null) {
+      return l1;
+    }
     if (l1.val < l2.val) {
       l1.next = merge(l1.next, l2);
       return l1;
