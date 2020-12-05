@@ -8,6 +8,7 @@ class Solution {
     int len = heights.length;
     Stack<Integer> stack = new Stack<>();
     int maxArea = 0;
+    // 包含数组末尾元素的比较
     for (int i = 0; i <= len; i++) {
       // 尾部截断
       int height = (i == len ? 0 : heights[i]);

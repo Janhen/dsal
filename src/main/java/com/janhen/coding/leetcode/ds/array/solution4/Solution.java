@@ -7,15 +7,21 @@ class Solution {
     return (findKth(A, 0, B, 0, (len + 1) / 2) + findKth(A, 0, B, 0, (len + 2) / 2)) / 2.0;
   }
 
+  //  A ---------------
+  //             ^
+  //            aL
+  //  B ---------^-----
+  //
   public double findKth(int[] A, int aL, int[] B, int bL, int k) {
     // pre-process input value, special value handle
     assert A.length - aL + B.length - bL >= k;
-    // case0.1: find in only one array
+
+    // case0.1: find in only one array, A OR B special
     if (aL >= A.length)
       return B[bL + k - 1];  // find kth in B[bL, B.length - 1]
     if (bL >= B.length)
       return A[aL + k - 1];
-    // case0.2:
+    // case0.2: only find first element, k special
     if (k == 1)
       return Math.min(A[aL], B[bL]);
 
@@ -23,7 +29,7 @@ class Solution {
     int aMid = aL + k / 2 - 1 < A.length ? A[aL + k / 2 - 1] : Integer.MAX_VALUE;
     int bMid = bL + k / 2 - 1 < B.length ? B[bL + k / 2 - 1] : Integer.MAX_VALUE;
 
-    // find in small data set (-k/2)
+    // find in small data set (-k/2), k - k/2 保证在 k 为奇数的情况下...
     if (aMid <= bMid) {
       // skip A left narrow k/2, find in A right, B all
       return findKth(A, aL + k / 2, B, bL, k - k / 2);

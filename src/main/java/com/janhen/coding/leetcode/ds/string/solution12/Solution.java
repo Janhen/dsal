@@ -11,10 +11,10 @@ class Solution {
   M             1000
    */
   String[][] map = {
-    {"I", "V", "X"},
-    {"X", "L", "C"},
-    {"C", "D", "M"},
-    {"M"}
+    {"I", "V", "X"},  // 1-10
+    {"X", "L", "C"},  // 10-100
+    {"C", "D", "M"},  // 100-1000
+    {"M"}             // 1000 ...
   };
 
   //  45 ms, faster than 75.31%
@@ -24,6 +24,7 @@ class Solution {
     for (int i = 0; i < chs.length; i++) {
       int n = chs[i] - '0';
       int bit = chs.length - i - 1;
+      // 按照当前所在的位进行生成罗马数字
       String val = genRomanNum(n, bit);
       sb.append(val);
     }

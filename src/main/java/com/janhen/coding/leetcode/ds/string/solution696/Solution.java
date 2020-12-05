@@ -9,17 +9,23 @@ package com.janhen.coding.leetcode.ds.string.solution696;
  */
 class Solution {
   public int countBinarySubstrings(String s) {
-    int preLen = 0, curLen = 1;             // record consecutive 0's OR 1's
+    // 记录连续的 0 / 1 的个数
+    // 将字符串 s 按照 0 和 1 的连续段分组
+    // s = 00111011s=00111011  ==> counts={2,3,1,2}
+
+    int preLen = 0;
+    int curLen = 1;
     int res = 0;
     for (int i = 1; i < s.length(); i++) {
-      if (s.charAt(i) == s.charAt(i - 1))
+      if (s.charAt(i) == s.charAt(i - 1)) {
         curLen++;
-      else {
+      } else {
         preLen = curLen;
         curLen = 1;
       }
-      if (preLen >= curLen)
+      if (preLen >= curLen) {
         res++;
+      }
     }
     return res;
   }

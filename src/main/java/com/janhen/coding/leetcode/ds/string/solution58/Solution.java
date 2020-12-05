@@ -18,21 +18,6 @@ Output: 5
  */
 
 class Solution {
-//    public int lengthOfLastWord(String s) {
-//        int blankIndex = s.lastIndexOf(' ');
-//        if (blankIndex == -1)
-//            return s.length();
-//        return s.length() - blankIndex - 1;
-//    }
-
-
-    // string as word    `trim()` use
-    //  3 ms, faster than 86.30%
-//    public int lengthOfLastWord(String s) {
-//        return s.trim().length() - s.trim().lastIndexOf(" ") - 1;
-//    }
-
-    // 2 ms, faster than 100.00%
     public int lengthOfLastWord(String s) {
         s = s.trim();
         int lastIndex = s.lastIndexOf(' ') + 1;

@@ -23,7 +23,8 @@ Output: -1
 
 class Solution2 {
   public int strStr(String haystack, String needle) {
-    int l1 = haystack.length(), l2 = needle.length();
+    int l1 = haystack.length();
+    int l2 = needle.length();
     if (l1 < l2) {
       return -1;
     } else if (l2 == 0) {

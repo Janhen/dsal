@@ -3,6 +3,7 @@ package com.janhen.coding.leetcode.ds.string.solution14;
 import java.util.Arrays;
 
 class Solution {
+  // 排序后比较第一个和最后一个字符串即可
   public String longestCommonPrefix(String[] strs) {
     if (strs.length == 0)
       return "";

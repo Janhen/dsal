@@ -8,6 +8,7 @@ class Solution {
   time: O(n^2)
    */
   // TODO Q
+  // 转化成单调栈进行处理
   public int maximalRectangle(char[][] matrix) {
     int m = matrix.length;
     int n = m == 0 ? 0 : matrix[0].length;

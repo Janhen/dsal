@@ -4,6 +4,12 @@ public class Solution {
 
   // O(n^2)
   // TOOPT
+  // 滑动窗口方式查找
+  // 知道了开始位置，将数组进行对齐
+  // A = [3, 6, 1, 2, 4]
+  // B =    [7, 1, 2, 9]
+  //            ↑ ↑
+  // time: O((N+M)×min(N,M)), space: O(1)
   public int findLength(int[] A, int[] B) {
     int len1 = A.length;
     int len2 = B.length;
