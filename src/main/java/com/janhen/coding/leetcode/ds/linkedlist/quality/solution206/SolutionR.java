@@ -10,8 +10,9 @@ class SolutionR {
   // 1->2<-3<-4<-5
   // head
   public ListNode reverseList(ListNode head) {
-    if (head == null || head.next == null)
+    if (head == null || head.next == null) {
       return head;
+    }
     ListNode reverseHead = reverseList(head.next);
     head.next.next = head;
     head.next = null;               // as tail

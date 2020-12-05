@@ -144,7 +144,7 @@ public class ListNodeHelper {
    * 链表中间节点
    * 奇数: 中间节点； 偶数: 第二个中间节点
    */
-  public ListNode middleNode(ListNode head) {
+  public ListNode midNode(ListNode head) {
     ListNode fast = head;
     ListNode slow = head;
     while (fast != null && fast.next != null) {

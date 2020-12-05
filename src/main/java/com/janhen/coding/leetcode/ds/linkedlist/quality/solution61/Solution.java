@@ -3,43 +3,33 @@ package com.janhen.coding.leetcode.ds.linkedlist.quality.solution61;
 import com.janhen.coding.leetcode.structures.ListNode;
 
 class Solution {
-  // find pre AND tail
   public ListNode rotateRight(ListNode head, int k) {
-    if (head == null || head.next == null)
+    if (head == null || head.next == null) {
       return head;
-
-    // 1. init necessary value and refresh input
-    int len = length(head);
-    k = k % len;                        // preHandle
-    if (k == 0)
-      return head;
-
-    // 2. find (len-k)th previous node
-    // n1 -> n2 -> .... -> nk -> nk+1 -> ... -> tail -> NULL
-    ListNode pre = null;  // recode len-k node
-    ListNode cur = head;  // iterate and finally recode tail node
-    int cnt = 0;
-    while (cur.next != null) {
-      cnt++;
-      if (cnt == len - k)
-        pre = cur;
-      cur = cur.next;
     }
 
-    // 3. unlink and link to result list node
-    ListNode newHead = pre.next;        // as head
-    cur.next = head;
-    pre.next = null;                    // as tail
-    return newHead;
-  }
+    ListNode first = new ListNode(-1);
+    first.next = head;
+    ListNode slow = first;
+    ListNode fast = first;    // slow point to pre,  fast point to tail
 
-  private int length(ListNode head) {
-    ListNode cur = head;
-    int len = 0;
-    while (cur != null) {
-      len++;
-      cur = cur.next;
+    // find all list count
+    int N = 0;
+    while (fast.next != null) {
+      N++;
+      fast = fast.next;
     }
-    return len;
+
+    // make slow move to
+    int step = N - k % N;   // need to step from dummy
+    while (step-- > 0) {
+      slow = slow.next;
+    }
+
+    // split and join
+    fast.next = first.next;
+    first.next = slow.next;
+    slow.next = null;
+    return first.next;
   }
 }

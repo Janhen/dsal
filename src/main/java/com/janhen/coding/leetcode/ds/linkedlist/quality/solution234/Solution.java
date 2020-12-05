@@ -9,7 +9,8 @@ class Solution {
   public boolean isPalindrome(ListNode head) {
     // 1. store left half nodes
     Stack<Integer> stack = new Stack<>();
-    ListNode fast = head, slow = head;
+    ListNode fast = head;
+    ListNode slow = head;
     while (fast != null && fast.next != null) {
       stack.push(slow.val);
       slow = slow.next;
@@ -22,8 +23,9 @@ class Solution {
 
     // 3. use slow to iterate right half nodes
     while (slow != null) {    // also can !s.isEmpty();   slow from left to right, stack from right to left;
-      if (stack.pop() != slow.val)
+      if (stack.pop() != slow.val) {
         return false;
+      }
       slow = slow.next;
     }
     return true;

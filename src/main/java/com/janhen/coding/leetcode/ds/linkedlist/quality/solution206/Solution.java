@@ -6,8 +6,9 @@ class Solution {
   public ListNode reverseList(ListNode head) {
     ListNode cur = head;
     ListNode pre = null;
+    ListNode next = null;
     while (cur != null) {
-      ListNode next = cur.next;
+      next = cur.next;
       cur.next = pre;
       pre = cur;
       cur = next;

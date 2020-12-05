@@ -13,7 +13,8 @@ class Solution {
     }
     int val = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry;
     carry = val / 10;
-    ListNode head = new ListNode(val % 10);
+    val = val % 10;
+    ListNode head = new ListNode(val);
     head.next = addTwoNumbers(l1 == null ? null : l1.next, l2 == null ? null : l2.next, carry);
     return head;
   }

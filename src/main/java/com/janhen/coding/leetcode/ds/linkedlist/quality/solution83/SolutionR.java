@@ -4,12 +4,17 @@ import com.janhen.coding.leetcode.structures.ListNode;
 
 class SolutionR {
   public ListNode deleteDuplicates(ListNode head) {
-    if (head == null || head.next == null) return head;
+    if (head == null || head.next == null) {
+      return head;
+    }
     ListNode next = head.next;
     if (head.val == head.next.val) {
-      while (next.next != null && head.val == next.next.val)
-        next = next.next;   // next is last excepted
-      return deleteDuplicates(next);
+      ListNode cur = next;
+      while (cur.next != null && head.val == cur.next.val) {
+        cur = cur.next;   // next is last excepted
+      }
+      cur.next = deleteDuplicates(cur.next);
+      return cur;
     } else {
       head.next = deleteDuplicates(next);
       return head;

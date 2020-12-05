@@ -8,10 +8,11 @@ class Solution {
     first.next = head;
     ListNode pre = first;
     while (pre.next != null) {
-      if (pre.next.val == val)
+      if (pre.next.val == val) {
         pre.next = pre.next.next;     // val is excepted
-      else
+      } else {
         pre = pre.next;
+      }
     }
     return first.next;
   }
