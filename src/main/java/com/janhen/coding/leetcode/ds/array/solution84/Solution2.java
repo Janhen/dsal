@@ -3,7 +3,14 @@ package com.janhen.coding.leetcode.ds.array.solution84;
 import java.util.Stack;
 
 class Solution2 {
+  public static void main(String[] args) {
+    int[] heights = {
+      2, 1, 5, 6, 2, 3};
+    new Solution2().largestRectangleArea(heights);
+  }
+
   // https://www.geeksforgeeks.org/largest-rectangle-under-histogram/
+  // TOWHY
   public int largestRectangleArea(int[] heights) {
     // Create an empty stack. The stack holds indexes of hist [] array
     // The bars stored in stack are always in increasing order of their
@@ -50,12 +57,5 @@ class Solution2 {
 
     return max_area;
 
-  }
-
-
-  public static void main(String[] args) {
-    int[] heights = {
-      2, 1, 5, 6, 2, 3};
-    new Solution2().largestRectangleArea(heights);
   }
 }

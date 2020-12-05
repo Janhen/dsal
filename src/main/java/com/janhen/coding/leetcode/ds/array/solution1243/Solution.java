@@ -10,11 +10,14 @@ public class Solution {
     if (length <= 2) {
       return Arrays.stream(arr).boxed().collect(Collectors.toList());
     }
+
+    // flag to skip loop
     boolean isChange = true;
     int[] lastArr;
     while (isChange) {
       isChange = false;
       lastArr = Arrays.copyOf(arr, length);
+      // 根据情况找处在波谷、波峰的值，并相应的处理
       for (int i = 1; i < length - 1; i++) {
         if (lastArr[i] > lastArr[i - 1] && lastArr[i] > lastArr[i + 1]) {
           arr[i]--;

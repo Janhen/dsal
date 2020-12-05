@@ -1,6 +1,12 @@
 package com.janhen.coding.leetcode.ds.array.solution84;
 
 class SolutionB {
+  public static void main(String[] args) {
+    int[] heights = {
+      2, 1, 5, 6, 2, 3};
+    new SolutionB().largestRectangleArea(heights);
+  }
+
   public int largestRectangleArea(int[] heights) {
     int maxArea = 0;
     for (int i = 0; i < heights.length; i++) {
@@ -33,11 +39,5 @@ class SolutionB {
       }
     }
     return (rightIdx - leftIdx + 1) * height;
-  }
-
-  public static void main(String[] args) {
-    int[] heights = {
-        2, 1, 5, 6, 2, 3 };
-    new SolutionB().largestRectangleArea(heights);
   }
 }
