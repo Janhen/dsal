@@ -15,24 +15,26 @@ class Solution {
       return head;
     }
 
-    ListNode first = new ListNode(-1);
+    ListNode first = new ListNode(0);
+    first.next = head;
+    // sum -> node, 存放当前和最后一次的节点
     Map<Integer, ListNode> sumNodeMap = new HashMap<>();
     int curSum = 0;
-    first.next = head;
-   ListNode cur = first;
-   while (cur != null) {
-     curSum += cur.val;
-     sumNodeMap.put(curSum, cur);
-     cur = cur.next;
-   }
+    ListNode cur = first;  // TOWHY
+    while (cur != null) {
+      curSum += cur.val;
+      sumNodeMap.put(curSum, cur);
+      cur = cur.next;
+    }
 
-   curSum = 0;
-   cur = first;
-   while (cur != null) {
-     curSum += cur.val;
-     cur.next = sumNodeMap.get(curSum).next;
-     cur = cur.next;
-   }
-   return first.next;
+    // 从链表中删除连续的 0
+    curSum = 0;
+    cur = first;
+    while (cur != null) {
+      curSum += cur.val;
+      cur.next = sumNodeMap.get(curSum).next;
+      cur = cur.next;
+    }
+    return first.next;
   }
 }

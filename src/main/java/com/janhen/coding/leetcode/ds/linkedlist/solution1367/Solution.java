@@ -12,8 +12,9 @@ class Solution {
   }
 
   private boolean dfs(ListNode head, TreeNode root) {
-    if (head == null)
+    if (head == null) {
       return true;
+    }
     if (root == null) {
       return false;
     }

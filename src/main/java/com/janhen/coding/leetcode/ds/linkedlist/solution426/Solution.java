@@ -3,6 +3,9 @@ package com.janhen.coding.leetcode.ds.linkedlist.solution426;
 // https://leetcode-cn.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
 
 class Solution {
+  private Node first = null;
+  private Node last = null;
+
   public Node treeToDoublyList(Node root) {
     if (root == null) {
       return null;
@@ -12,9 +15,6 @@ class Solution {
     last.right = first;
     return first;
   }
-
-  private Node first = null;
-  private Node last = null;
 
   public void inorder(Node node) {
     if (node == null) {

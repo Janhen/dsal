@@ -13,18 +13,18 @@ public class Solution {
 
   /* return the tail of the flatten list */
   // pre-order traverse
-  public Node dfs(Node prev, Node curr) {
-    if (curr == null) {
-      return prev;
+  public Node dfs(Node pre, Node cur) {
+    if (cur == null) {
+      return pre;
     }
-    curr.prev = prev;
-    prev.next = curr;
+    cur.prev = pre;
+    pre.next = cur;
 
-    Node tmpNext = curr.next;
+    Node next = cur.next;
     // child to iterate
-    Node tail = dfs(curr, curr.child);
-    curr.child = null;
+    Node tail = dfs(cur, cur.child);
+    cur.child = null;
     // original next to iterate
-    return dfs(tail, tmpNext);
+    return dfs(tail, next);
   }
 }
