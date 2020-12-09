@@ -190,6 +190,9 @@ public class TreeNodeHelper {
     return node.left == null && node.right == null;
   }
 
+  /**
+   * 二叉树的最小深度
+   */
   public static int minDepth(TreeNode root) {
     if (root == null) {
       return 0;
@@ -200,6 +203,17 @@ public class TreeNodeHelper {
       return left + right + 1;
     }
     return 1 + Math.min(left, right);
+  }
+
+  /**
+   * 二叉树的最大深度(高度)
+   */
+  private int height(TreeNode root) {
+    if (root == null)
+      return 0;
+    int left = height(root.left);
+    int right = height(root.right);
+    return 1 + Math.max(left, right);
   }
 
   /**

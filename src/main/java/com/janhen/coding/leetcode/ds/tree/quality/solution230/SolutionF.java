@@ -4,18 +4,22 @@ import com.janhen.coding.leetcode.structures.TreeNode;
 
 class SolutionF {
   // continue to narrow tree scale
+  // 根据 BST 进行二分查找
   public int kthSmallest(TreeNode root, int k) {
     int leftSize = count(root.left);
-    if (leftSize == k - 1)
+    if (leftSize == k - 1) {
       return root.val;
-    else if (leftSize > k - 1)
+    } else if (leftSize > k - 1) {
       return kthSmallest(root.left, k);   // left is big enough
-    else
+    } else {
       return kthSmallest(root.right, k - leftSize - 1);   // left insufficient
+    }
   }
 
   private int count(TreeNode node) {
-    if (node == null) return 0;
+    if (node == null) {
+      return 0;
+    }
     return 1 + count(node.left) + count(node.right);
   }
 }

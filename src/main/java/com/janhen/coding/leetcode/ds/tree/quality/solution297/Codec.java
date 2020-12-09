@@ -14,17 +14,17 @@ public class Codec {
   public String serialize(TreeNode root) {
     StringBuilder sb = new StringBuilder();
     // queue can storage null node
-    Queue<TreeNode> q = new LinkedList<>();
-    q.offer(root);
-    while (!q.isEmpty()) {
-      TreeNode cur = q.poll();
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+    while (!queue.isEmpty()) {
+      TreeNode cur = queue.poll();
       if (cur == null) {
         sb.append(NULL).append(SEPARATOR);
         continue;
       }
       sb.append(cur.val).append(SEPARATOR);
-      q.offer(cur.left);
-      q.offer(cur.right);
+      queue.offer(cur.left);
+      queue.offer(cur.right);
     }
     return sb.toString();
   }
@@ -34,16 +34,17 @@ public class Codec {
     int index = 0;
     TreeNode root = geneTreeNode(vals[index++]);
 
-    Queue<TreeNode> q = new LinkedList<>();
-    q.offer(root);
-    while (!q.isEmpty()) {
-      TreeNode cur = q.poll();      // now only one node not have link
-      if (cur == null)
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+    while (!queue.isEmpty()) {
+      TreeNode cur = queue.poll();      // now only one node not have link
+      if (cur == null) {
         continue;
+      }
       cur.left = geneTreeNode(vals[index++]);
       cur.right = geneTreeNode(vals[index++]);             // link
-      q.offer(cur.left);
-      q.offer(cur.right);
+      queue.offer(cur.left);
+      queue.offer(cur.right);
     }
     return root;
   }
@@ -51,6 +52,6 @@ public class Codec {
   private TreeNode geneTreeNode(String val) {
     if (val.equals(NULL))                    // handle NULL
       return null;
-    return new TreeNode(Integer.valueOf(val));
+    return new TreeNode(Integer.parseInt(val));
   }
 }

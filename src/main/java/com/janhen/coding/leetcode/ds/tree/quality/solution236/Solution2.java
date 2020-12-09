@@ -5,7 +5,6 @@ package com.janhen.coding.leetcode.ds.tree.quality.solution236;
 
 import com.janhen.coding.leetcode.structures.TreeNode;
 
-// 152 ms, faster than 7.41%
 class Solution2 {
   /*
    * Same solution in several languages.

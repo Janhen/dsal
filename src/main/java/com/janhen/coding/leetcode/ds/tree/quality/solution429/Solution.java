@@ -8,11 +8,12 @@ import java.util.Queue;
 class Solution {
   public List<List<Integer>> levelOrder(Node root) {
     List<List<Integer>> res = new ArrayList<>();
-    if (root == null)
+    if (root == null) {
       return res;
+    }
 
     // 1. init queue and put root node
-    Queue<Node> queue = new LinkedList();
+    Queue<Node> queue = new LinkedList<>();
     queue.offer(root);
     while (!queue.isEmpty()) {
       // 2. iterate level element and collect result

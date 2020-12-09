@@ -9,8 +9,9 @@ import java.util.Stack;
 class Solution {
   public List<Integer> inorderTraversal(TreeNode root) {
     List<Integer> res = new ArrayList<>();
-    if (root == null)
+    if (root == null) {
       return res;
+    }
 
     // 1. init node
     Stack<TreeNode> stack = new Stack<>();

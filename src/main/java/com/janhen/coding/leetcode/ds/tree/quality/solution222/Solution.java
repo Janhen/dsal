@@ -7,8 +7,9 @@ class Solution {
   public int countNodes(TreeNode root) {
     int leftDepth = leftDepth(root);
     int rightDepth = rightDepth(root);
-    if (leftDepth == rightDepth)
+    if (leftDepth == rightDepth) {
       return (1 << leftDepth) - 1;
+    }
     return 1 + countNodes(root.left) + countNodes(root.right);
   }
 

@@ -32,8 +32,9 @@ class Solution {
     }
 
     // 3. find lowest common ancestor in p ancestor
-    while (!pAncestors.contains(q))
+    while (!pAncestors.contains(q)) {
       q = parent.get(q);
+    }
     return q;
   }
 }

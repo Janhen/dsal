@@ -4,7 +4,7 @@ import com.janhen.coding.leetcode.structures.TreeNode;
 
 class Solution2 {
   /*
-  find minimum and delete min to maintain bst order
+   * find minimum and delete min to maintain bst order
    */
   public TreeNode deleteNode(TreeNode root, int key) {
     if (root == null)
