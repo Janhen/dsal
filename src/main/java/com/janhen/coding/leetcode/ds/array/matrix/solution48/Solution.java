@@ -4,14 +4,12 @@ class Solution {
   public void rotate(int[][] matrix) {
     int n = matrix.length;
     int up = 0, left = 0, bottom = n - 1, right = n - 1;
-    // only one element not need rotate
+    // rotate from outside to in
     while (left < right)
       rotateEdge(matrix, up++, left++, bottom--, right--);
   }
 
-  // four point to rotate
   private void rotateEdge(int[][] matrix, int up, int left, int bottom, int right) {
-    // rotate times
     int time = right - left;
     for (int i = 0; i < time; i++) {
       int tmp = matrix[up][left + i];
