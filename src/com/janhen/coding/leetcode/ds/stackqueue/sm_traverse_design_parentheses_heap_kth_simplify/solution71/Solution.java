@@ -11,7 +11,7 @@ class Solution {
     for (String dir : dirs) {
       if (dir.equals(".") || dir.equals("")) {
         continue;
-      } else if (dir.equals("..")) {          // upper layer
+      } else if (dir.equals("src/main")) {          // upper layer
         if (!stack.isEmpty())
           stack.pop();
       } else {

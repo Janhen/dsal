@@ -1,6 +1,9 @@
 主要内容:  
 基本数据结构的代码实现  
 基本的算法  
+- 二分查找
+- 排序
+
 一些数据结构设计题  
 
 ## 算法和数据结构基础
@@ -18,10 +21,9 @@
 二分查找: 查找第一次后最后一次出现位置、查找大于小于给定值最近的位置、带偏移的位置  
 
 
-
-
 ##  刷题
-leetcode 题目
+leetcode 题目  
+
 
 
 ## 其他
@@ -39,7 +41,7 @@ Redis-Dict
 LRU, LFU    
 数据流中位数,  数据流第一个不重复元素    
   
-[code](src/main/java/com/janhen/design)
+[code](src/com/janhen/design)
 
 
 

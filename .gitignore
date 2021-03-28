@@ -33,15 +33,15 @@ hs_err_pid*
 
 /lib/
 /com/janhen/leetcode/solutions/leetcode/
-/src/main/java/com/janhen/design/lru/genericity/
-/src/main/java/com/janhen/structures/bst/withParentNode/
-/src/main/java/com/janhen/structures/bst/orderTree/
-/src/main/java/com/janhen/structures/bst/baseV/
-/src/main/java/com/janhen/structures/hashtable/other/
-/src/main/java/com/janhen/structures/heap/other/
-/src/main/java/com/janhen/structures/loopArrQueue/other/
-/src/main/java/com/janhen/structures/trie/other/
-/src/main/java/com/janhen/structures/avl/other/
+/src/com/janhen/design/lru/genericity/
+/src/com/janhen/structures/bst/withParentNode/
+/src/com/janhen/structures/bst/orderTree/
+/src/com/janhen/structures/bst/baseV/
+/src/com/janhen/structures/hashtable/other/
+/src/com/janhen/structures/heap/other/
+/src/com/janhen/structures/loopArrQueue/other/
+/src/com/janhen/structures/trie/other/
+/src/com/janhen/structures/avl/other/
 target
 book
 .DS_Store

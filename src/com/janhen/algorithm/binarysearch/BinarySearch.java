@@ -1,4 +1,4 @@
-package com.janhen.algorithm.find.binarysearch;
+package com.janhen.algorithm.binarysearch;
 
 
 /**
