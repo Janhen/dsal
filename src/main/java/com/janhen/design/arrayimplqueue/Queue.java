@@ -3,13 +3,16 @@ package com.janhen.design.arrayimplqueue;
 import java.util.NoSuchElementException;
 
 /**
+ * 使用数组实现队列
  * 不自动扩缩容<br>
  * 记录队列头部和尾部的索引实现<br>
+ * 每次出对，更改头索引+1
  */
 public class Queue<E> {
   private E[] data;
   private int N;
-  private int frontIdx, tailIdx;
+  private int frontIdx;
+  private int tailIdx;
 
   public Queue(int capacity) {
     data = (E[]) new Object[capacity];

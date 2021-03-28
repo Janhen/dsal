@@ -29,7 +29,6 @@ public class BoundedPriorityQueue<E> extends PriorityQueue<E> {
         compareResult = comparator.compare(o1, o2);
       } else {
       	// E must Comparable
-        @SuppressWarnings("unchecked")
         Comparable<E> o1c = (Comparable<E>) o1;
         compareResult = o1c.compareTo(o2);
       }

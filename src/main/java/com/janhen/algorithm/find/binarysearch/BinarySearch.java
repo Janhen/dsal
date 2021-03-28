@@ -11,16 +11,16 @@ public class BinarySearch {
    * [a, b] 闭区间方式
    *
    * @param arr    待查找数组
-   * @param target 查找的元素
+   * @param key 查找的元素
    * @return 数组中的位置
    */
-  public static int binarySearch(int[] arr, int target) {
+  public static int binarySearch(int[] arr, int key) {
     int lo = 0, hi = arr.length - 1;
     while (lo <= hi) {
       int mid = lo + (hi - lo) / 2;
-      if (arr[mid] == target)
+      if (arr[mid] == key)
         return mid;
-      if (arr[mid] < target)
+      if (arr[mid] < key)
         lo = mid + 1;
       else
         hi = mid - 1;

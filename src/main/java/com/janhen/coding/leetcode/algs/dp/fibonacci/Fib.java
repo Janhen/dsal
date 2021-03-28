@@ -11,8 +11,7 @@ public class Fib {
   static int[] memo;
 
   // time : O(2^n)
-  static long fib(int n) {
-    count++;
+  public static long fib(int n) {
     if (n == 0)
       return 0;
     if (n == 1)
@@ -24,8 +23,7 @@ public class Fib {
   // The search of memory
   // top to down
   // time : O(n)
-  static int fib2(int n) {
-    count++;
+  public static int fib2(int n) {
     if (n == 0)
       return 0;
     if (n == 1)
@@ -38,14 +36,30 @@ public class Fib {
   }
 
   // down to top
-  static int fib3(int n) {
-    count++;
+  public static int fib3(int n) {
     int[] memo = new int[n + 1];
     memo[0] = 0;
-    memo[1] = 1;                             /* 记录最基本的问题解 */
-    for (int i = 2; i <= n; i++)
-      memo[i] = memo[i - 1] + memo[i - 2];      /* 根据之前问题的解求出更大子问题的解 */
+    memo[1] = 1;
+    for (int i = 2; i <= n; i++) {
+      memo[i] = memo[i - 1] + memo[i - 2];
+    }
     return memo[n];
+  }
+
+  /**
+   * 去除递归调用
+   */
+  static int fib4(int n) {
+    if (n <= 2) {
+      return 1;
+    }
+    int first = 1;
+    int second = 1;
+    for (int i = 3; i <= n; i++) {
+      second = first + second;
+      first = second - first;
+    }
+    return second;
   }
 
   public static void main(String[] args) {
