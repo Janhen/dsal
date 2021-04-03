@@ -4,9 +4,10 @@ import java.util.NoSuchElementException;
 
 /**
  * 使用数组实现队列
- * 不自动扩缩容<br>
- * 记录队列头部和尾部的索引实现<br>
- * 每次出对，更改头索引+1
+ * - 不自动扩缩容<br>
+ * - 记录队列头部和尾部的索引实现<br>
+ * - 每次出对，更改头索引+1
+ * {@link java.util.ArrayDeque}
  */
 public class Queue<E> {
   private E[] data;

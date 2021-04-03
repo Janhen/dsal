@@ -7,7 +7,8 @@ public class LFUCache {
   private int size;
   private HashMap<Integer, Node> records; // key -- node to map
   private HashMap<Node, NodeList> heads;  // 多对一
-                                         // (F,nodelist1),(A,nodelist1),(C,nodelist1),(E,nodelist1),(G,nodelist3),(D,nodelist3)
+                                          // (F,nodelist1),(A,nodelist1),(C,nodelist1),(E,nodelist1),(G,nodelist3),
+                                          // (D,nodelist3)
   private NodeList headList; // 整个大链表的头部
 
   public LFUCache(int capacity) {
@@ -18,8 +19,7 @@ public class LFUCache {
     headList = null;
   }
 
-  // 添加元素, 存在跟新一个
-  // \
+  // 添加元素, 存在更新一个
   // 不存在, 挂接在词频为 1 的大链表中
   public void put(int key, int value) {
     if (records.containsKey(key)) {
@@ -27,8 +27,8 @@ public class LFUCache {
       node.value = value;
       node.times++;
 
-      NodeList curNodeList = heads.get(node); // 在 大链表中的位置
-      move(node, curNodeList); // 从选来的大链表中删除, 移动到对应的大链表节点下
+      NodeList curNodeList = heads.get(node); // 在大链表中的位置
+      move(node, curNodeList);                // 从选来的大链表中删除, 移动到对应的大链表节点下
     } else {
       // 添加节点 :
       // - 触发 elimination strategy to keep size
@@ -36,7 +36,7 @@ public class LFUCache {
       if (size == capacity) {
         Node node = headList.tail; // 删除词频最低的尾节点
         headList.deleteNode(node); // 先删除 淘汰的节点, 可能进行头结点的调整
-        modifyHeadList(headList); // 并处理可能的影响
+        modifyHeadList(headList);  // 并处理可能的影响
 
         records.remove(node.key);
         heads.remove(node);
@@ -48,7 +48,7 @@ public class LFUCache {
       } else {
         if (headList.head.times.equals(node.times)) { // 挂在已经有的大链表中, 直接加入
           headList.addNodeFromHead(node);
-        } else { // 创建新的大链表中的节点
+        } else {                                      // 创建新的大链表中的节点
           NodeList newList = new NodeList(node);
           newList.next = headList;
           headList.last = newList;
@@ -110,12 +110,12 @@ public class LFUCache {
   // 删除, 是否需要将整个小链表去除
   private boolean modifyHeadList(NodeList nodeList) {
     if (nodeList.isEmpty()) {
-      if (headList == nodeList) { // 删除大链表的首节点
+      if (headList == nodeList) {             // 删除大链表的首节点
         headList = nodeList.next;
         if (headList != null) {
           headList.last = null;
         }
-      } else { // 删除大链表的中间节点
+      } else {                                // 删除大链表的中间节点
         nodeList.last.next = nodeList.next;
         if (nodeList.next != null) {
           nodeList.next.last = nodeList.last;

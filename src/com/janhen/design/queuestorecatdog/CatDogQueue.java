@@ -66,7 +66,7 @@ public class CatDogQueue {
     return (Dog) dogs.poll().getPet();
   }
 
-  class WrappedPet {
+  static class WrappedPet {
     private Pet pet;
     private int count;
 
