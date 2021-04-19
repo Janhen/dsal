@@ -23,7 +23,8 @@ class SolutionDFS4 {
             else if (node1.val != node2.val)      // complete
                 return false;
 
-            s.push(new Pair<>(node1.left, node2.left));              // can not insure left and right node whether or not is null
+            s.push(new Pair<>(node1.left, node2.left));              // can not insure left and right node whether or
+            // not is null
             s.push(new Pair<>(node1.right, node2.right));
         }
         return s.isEmpty();

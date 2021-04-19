@@ -1,6 +1,8 @@
 package com.janhen.coding.leetcode.ds.basealgorithm.slidingwindow.solution438;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 class SolutionBF {
 
@@ -11,7 +13,7 @@ class SolutionBF {
 
         int m = s.length(), n = p.length();
         p = sort(p);
-        for (int i = 0; i < m - n + 1; i ++) {
+        for (int i = 0; i < m - n + 1; i++) {
             String key = sort(s.substring(i, i + n));
             if (key.equals(p))
                 res.add(i);

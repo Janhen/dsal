@@ -39,7 +39,7 @@ import java.util.Stack;
 
 public class NestedIteratorREF2 implements Iterator<Integer> {
 
-    private Stack<ListIterator<NestedInteger>> stack;
+    private final Stack<ListIterator<NestedInteger>> stack;
 
     // todo Q
     public NestedIteratorREF2(List<NestedInteger> nestedList) {

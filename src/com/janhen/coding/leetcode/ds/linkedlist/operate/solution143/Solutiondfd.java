@@ -9,7 +9,7 @@ import com.janhen.coding.leetcode.structures.ListNode;
 class Solutiondfd {
     // O(N) time, O(1) space in total
     void reorderList(ListNode head) {
-        if (head == null|| head.next == null) return;
+        if (head == null || head.next == null) return;
 
         // find the middle node: O(n)
         ListNode slow = head, fast = head.next;

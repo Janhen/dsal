@@ -11,30 +11,30 @@ import java.util.*;
 public class TestUtil {
 
     public static int[][] CONSTS = {
-            {2, 3, 4, 7, 6, 1},   // 0
-            {11, 22, 33, 44, 55}, // 1
-            {1, 2, 2, 2, 3, 4, 5, 5, 6},  // 2
-            {2, 2, 2, 2, 2, 2},   // 3
-            {},             // 4
-            null,           // 5
-            {-23, -3, 1, 44, 55}, // 1
-            {2}
+      {2, 3, 4, 7, 6, 1},   // 0
+      {11, 22, 33, 44, 55}, // 1
+      {1, 2, 2, 2, 3, 4, 5, 5, 6},  // 2
+      {2, 2, 2, 2, 2, 2},   // 3
+      {},             // 4
+      null,           // 5
+      {-23, -3, 1, 44, 55}, // 1
+      {2}
     };
 
     private static int count = 0;
 
-    public static String rate(double ... times) {
+    public static String rate(double... times) {
         return rate(3, times);
     }
 
-    public static String rate(int scale, double ... times) {
+    public static String rate(int scale, double... times) {
         // int scale = 3;
         double min = times[0];
-        for (int i = 1; i < times.length; i ++)
+        for (int i = 1; i < times.length; i++)
             min = Math.min(min, times[i]);
 
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < times.length; i ++) {
+        for (int i = 0; i < times.length; i++) {
             // double d = Math.round(times[i] / min * 1E3) / 1E3;
             double d = Math.round(times[i] / min * Math.pow(10, scale)) / Math.pow(10, scale);
             sb.append(i == times.length - 1 ? d : d + " : ");
@@ -82,7 +82,7 @@ public class TestUtil {
 
     public static void printArr(Object[] objs) {
         System.out.print("[");
-        for (int i = 0; i < objs.length; i ++)
+        for (int i = 0; i < objs.length; i++)
             System.out.print(i != objs.length - 1 ? objs[i] + "," : objs[i] + "]");
         System.out.println();
     }
@@ -115,11 +115,11 @@ public class TestUtil {
         return buf.toString();
     }
 
-    public static void printf(String format, Object ... args) {
-        System.out.println(count ++ + ", " + String.format(format, args));
+    public static void printf(String format, Object... args) {
+        System.out.println(count++ + ", " + String.format(format, args));
     }
 
-    public static void log(String format, Object ... args) {
+    public static void log(String format, Object... args) {
         System.out.print(new SimpleDateFormat("yy-MM-dd HH-mm-ss").format(new Date()) + " ");
         System.out.println(MessageFormat.format(format, args));
     }
@@ -133,7 +133,7 @@ public class TestUtil {
 
         Integer[] arr = new Integer[n];
         for (int i = 0; i < n; i++)
-            arr[i] = (int)(Math.random() * (rangeR - rangeL + 1)) + rangeL;
+            arr[i] = (int) (Math.random() * (rangeR - rangeL + 1)) + rangeL;
         return arr;
     }
 
@@ -165,7 +165,7 @@ public class TestUtil {
 
         String[] parts = input.split(",");
         int[] output = new int[parts.length];
-        for(int index = 0; index < parts.length; index++) {
+        for (int index = 0; index < parts.length; index++) {
             String part = parts[index].trim();
             output[index] = Integer.parseInt(part);
         }
@@ -186,7 +186,7 @@ public class TestUtil {
         nodeQueue.add(root);
 
         int index = 1;
-        while(!nodeQueue.isEmpty()) {
+        while (!nodeQueue.isEmpty()) {
             TreeNode node = nodeQueue.remove();
 
             if (index == parts.length) {
@@ -224,7 +224,7 @@ public class TestUtil {
         String output = "";
         Queue<TreeNode> nodeQueue = new LinkedList<>();
         nodeQueue.add(root);
-        while(!nodeQueue.isEmpty()) {
+        while (!nodeQueue.isEmpty()) {
             TreeNode node = nodeQueue.remove();
 
             if (node == null) {
@@ -232,7 +232,7 @@ public class TestUtil {
                 continue;
             }
 
-            output += String.valueOf(node.val) + ", ";
+            output += node.val + ", ";
             nodeQueue.add(node.left);
             nodeQueue.add(node.right);
         }
@@ -291,8 +291,8 @@ public class TestUtil {
 
     public static int combine(int n, int k) {
         long res = 1;
-        for (int i = 1; i <= k; i ++)
-            res = res * (n-k+i)/i;
+        for (int i = 1; i <= k; i++)
+            res = res * (n - k + i) / i;
         return (int) res;
     }
 

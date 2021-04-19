@@ -6,11 +6,11 @@ public class HeapSortBase {
     public static void heapSort(int[] arr) {
         if (arr == null || arr.length < 2)
             return;
-        for (int i = 0; i < arr.length; i ++)
+        for (int i = 0; i < arr.length; i++)
             heapify(arr, i);                            // heapInsert
         int N = arr.length;
         while (N > 0) {                              // heapify: delete and adjust heap structure
-            swap(arr, -- N, 0);
+            swap(arr, --N, 0);
             sink(arr, N, 0);
         }
     }
@@ -26,7 +26,7 @@ public class HeapSortBase {
         while (2 * k + 1 < N) {
             int j = 2 * k + 1;
             if (j + 1 < N && arr[j] < arr[j + 1])
-                j ++;
+                j++;
             if (arr[k] >= arr[j])
                 break;
             swap(arr, k, j);

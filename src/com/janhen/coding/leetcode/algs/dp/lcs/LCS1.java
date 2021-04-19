@@ -8,78 +8,78 @@ import java.util.Arrays;
 /// 空间复杂度: O(len(s1)*len(s2))
 public class LCS1 {
 
-  private int[][] memo;
+    private int[][] memo;
 
-  public String lcs(String s1, String s2) {
+    public static void main(String[] args) {
 
-    if (s1 == null || s2 == null)
-      throw new IllegalArgumentException("s1 and s2 can not be null.");
+        String s1 = "ABCDGH";
+        String s2 = "AEDFHR";
+        System.out.println((new LCS1()).lcs(s1, s2));
 
-    if (s1.length() == 0 || s2.length() == 0)
-      return "";
+        s1 = "AAACCGTGAGTTATTCGTTCTAGAA";
+        s2 = "CACCCCTAAGGTACCTTTGGTTC";
+        System.out.println((new LCS1()).lcs(s1, s2));
+    }
 
-    memo = new int[s1.length()][s2.length()];
-    for (int i = 0; i < s1.length(); i++)
-      Arrays.fill(memo[i], -1);
+    public String lcs(String s1, String s2) {
 
-    lcs(s1, s2, s1.length() - 1, s2.length() - 1);
-    return getLCS(s1, s2);
-  }
+        if (s1 == null || s2 == null)
+            throw new IllegalArgumentException("s1 and s2 can not be null.");
 
-  // 求s1[0...m]和s2[0...n]的最长公共子序列的长度值
-  private int lcs(String s1, String s2, int m, int n) {
+        if (s1.length() == 0 || s2.length() == 0)
+            return "";
 
-    if (m < 0 || n < 0)
-      return 0;
+        memo = new int[s1.length()][s2.length()];
+        for (int i = 0; i < s1.length(); i++)
+            Arrays.fill(memo[i], -1);
 
-    if (memo[m][n] != -1)
-      return memo[m][n];
+        lcs(s1, s2, s1.length() - 1, s2.length() - 1);
+        return getLCS(s1, s2);
+    }
 
-    int res = 0;
-    if (s1.charAt(m) == s2.charAt(n))
-      res = 1 + lcs(s1, s2, m - 1, n - 1);
-    else
-      res = Math.max(lcs(s1, s2, m - 1, n),
-        lcs(s1, s2, m, n - 1));
+    // 求s1[0...m]和s2[0...n]的最长公共子序列的长度值
+    private int lcs(String s1, String s2, int m, int n) {
 
-    memo[m][n] = res;
-    return res;
-  }
+        if (m < 0 || n < 0)
+            return 0;
 
-  // 通过memo反向求解s1和s2的最长公共子序列
-  private String getLCS(String s1, String s2) {
+        if (memo[m][n] != -1)
+            return memo[m][n];
 
-    int m = s1.length() - 1;
-    int n = s2.length() - 1;
-
-    StringBuilder res = new StringBuilder("");
-    while (m >= 0 && n >= 0)
-      if (s1.charAt(m) == s2.charAt(n)) {
-        res = res.insert(0, s1.charAt(m));
-        m--;
-        n--;
-      } else if (m == 0)
-        n--;
-      else if (n == 0)
-        m--;
-      else {
-        if (memo[m - 1][n] > memo[m][n - 1])
-          m--;
+        int res = 0;
+        if (s1.charAt(m) == s2.charAt(n))
+            res = 1 + lcs(s1, s2, m - 1, n - 1);
         else
-          n--;
-      }
+            res = Math.max(lcs(s1, s2, m - 1, n),
+              lcs(s1, s2, m, n - 1));
 
-    return res.toString();
-  }
+        memo[m][n] = res;
+        return res;
+    }
 
-  public static void main(String[] args) {
+    // 通过memo反向求解s1和s2的最长公共子序列
+    private String getLCS(String s1, String s2) {
 
-    String s1 = "ABCDGH";
-    String s2 = "AEDFHR";
-    System.out.println((new LCS1()).lcs(s1, s2));
+        int m = s1.length() - 1;
+        int n = s2.length() - 1;
 
-    s1 = "AAACCGTGAGTTATTCGTTCTAGAA";
-    s2 = "CACCCCTAAGGTACCTTTGGTTC";
-    System.out.println((new LCS1()).lcs(s1, s2));
-  }
+        StringBuilder res = new StringBuilder();
+        while (m >= 0 && n >= 0)
+            if (s1.charAt(m) == s2.charAt(n)) {
+                res = res.insert(0, s1.charAt(m));
+                m--;
+                n--;
+            } else if (m == 0)
+                n--;
+            else if (n == 0)
+                m--;
+            else {
+                if (memo[m - 1][n] > memo[m][n - 1])
+                    m--;
+                else
+                    n--;
+            }
+
+        return res.toString();
+    }
 }

@@ -28,27 +28,28 @@ package com.janhen.coding.leetcode.ds.hashtable.solution220;
 import java.util.TreeSet;
 
 class Solution2 {
-  // @Error: integer overflow
-  // ordered data structure as sliding window
-  // time : O(nlogn)
-  // space : O(k)
-  public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+    // @Error: integer overflow
+    // ordered data structure as sliding window
+    // time : O(nlogn)
+    // space : O(k)
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
 
-    // ∃x, nums[i]-t <= x <= nums[i]+t
-    // ⇒ ∃x, x>=nums[i]-t     ⇔  record.ceiling(nums[i]-t)!=null
-    //    ∃x, x<=nums[i]+t     ⇔  record.ceiling(nums[i]-t)<=nums[i]+t
+        // ∃x, nums[i]-t <= x <= nums[i]+t
+        // ⇒ ∃x, x>=nums[i]-t     ⇔  record.ceiling(nums[i]-t)!=null
+        //    ∃x, x<=nums[i]+t     ⇔  record.ceiling(nums[i]-t)<=nums[i]+t
 
-    TreeSet<Integer> record = new TreeSet<>();
-    for (int i = 0; i < nums.length; i++) {
-      if (record.ceiling(nums[i] - t) != null &&                   // have first element that >= nums[i]-t   and this first element <= nums[i]+t
-        record.ceiling(nums[i] - t) <= nums[i] + t)  // ∃x, nums[i]-t <= x <= nums[i]+t   in set.
-        return true;
-      record.add(nums[i]);
-      if (record.size() == k + 1)
-        record.remove(nums[i - k]);
+        TreeSet<Integer> record = new TreeSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (record.ceiling(nums[i] - t) != null &&                   // have first element that >= nums[i]-t
+              // and this first element <= nums[i]+t
+              record.ceiling(nums[i] - t) <= nums[i] + t)  // ∃x, nums[i]-t <= x <= nums[i]+t   in set.
+                return true;
+            record.add(nums[i]);
+            if (record.size() == k + 1)
+                record.remove(nums[i - k]);
+        }
+        return false;
     }
-    return false;
-  }
 
-  // 整形溢出问题  (1,2133333...)    nums[i] + t
+    // 整形溢出问题  (1,2133333...)    nums[i] + t
 }

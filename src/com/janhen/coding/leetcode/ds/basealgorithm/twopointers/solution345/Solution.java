@@ -15,19 +15,22 @@ Input: "leetcode"
 Output: "leotcede"
  */
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 // 5 ms, faster than 72.83%
 class Solution {
-    private static final Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o','u','A','E','I','O','U'));
+    private static final Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I',
+      'O', 'U'));
 
     public String reverseVowels(String s) {
         char[] chs = s.toCharArray();
         int i = 0, j = s.length() - 1;
         while (i < j) {
-            while (!vowels.contains(chs[i]) && i < j) i ++;   // find first vowel
-            while (!vowels.contains(chs[j]) && i < j) j --;
-            swap(chs, i ++, j --);
+            while (!vowels.contains(chs[i]) && i < j) i++;   // find first vowel
+            while (!vowels.contains(chs[j]) && i < j) j--;
+            swap(chs, i++, j--);
         }
         return new String(chs);
     }

@@ -13,7 +13,8 @@ Add to List
 Share
 Given an n-ary tree, return the postorder traversal of its nodes' values.
 
-Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value (See examples).
+Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by
+the null value (See examples).
 
 
 
@@ -49,17 +50,17 @@ import java.util.List;
 
 public class SolutionR {
 
-  private List<Integer> list = new ArrayList<>();
+    private final List<Integer> list = new ArrayList<>();
 
-  // LRD
-  public List<Integer> postorder(Node root) {
-    if (root == null)
-      return list;
+    // LRD
+    public List<Integer> postorder(Node root) {
+        if (root == null)
+            return list;
 
-    for (Node node : root.children)
-      postorder(node);
+        for (Node node : root.children)
+            postorder(node);
 
-    list.add(root.val);
-    return list;
-  }
+        list.add(root.val);
+        return list;
+    }
 }

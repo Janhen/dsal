@@ -10,42 +10,42 @@ import java.util.Stack;
 
 class SolutionRef2 {
 
-  private class TagNode {
-    TreeNode node;
-    boolean isFirst;
+    // todo Q
+    // modify object attribute to reduce object create cost
+    public List<Integer> postorderTraversal(TreeNode root) {
+        ArrayList<Integer> res = new ArrayList<>();
+        if (root == null)
+            return res;
 
-    TagNode(TreeNode node) {
-      this.node = node;
-      this.isFirst = false;
+        Stack<TagNode> stack = new Stack<>();
+        TreeNode cur = root;
+        while (cur != null || !stack.empty()) {
+            while (cur != null) {
+                stack.push(new TagNode(cur));
+                cur = cur.left;
+            }
+
+            TagNode tagNode = stack.pop();
+            cur = tagNode.node;
+            if (!tagNode.isFirst) {
+                tagNode.isFirst = true;
+                stack.push(tagNode);   // pop and push    only modify attribute
+                cur = cur.right;
+            } else {
+                res.add(cur.val);
+                cur = null;
+            }
+        }
+        return res;
     }
-  }
 
-  // todo Q
-  // modify object attribute to reduce object create cost
-  public List<Integer> postorderTraversal(TreeNode root) {
-    ArrayList<Integer> res = new ArrayList<>();
-    if (root == null)
-      return res;
+    private class TagNode {
+        TreeNode node;
+        boolean isFirst;
 
-    Stack<TagNode> stack = new Stack<>();
-    TreeNode cur = root;
-    while (cur != null || !stack.empty()) {
-      while (cur != null) {
-        stack.push(new TagNode(cur));
-        cur = cur.left;
-      }
-
-      TagNode tagNode = stack.pop();
-      cur = tagNode.node;
-      if (!tagNode.isFirst) {
-        tagNode.isFirst = true;
-        stack.push(tagNode);   // pop and push    only modify attribute
-        cur = cur.right;
-      } else {
-        res.add(cur.val);
-        cur = null;
-      }
+        TagNode(TreeNode node) {
+            this.node = node;
+            this.isFirst = false;
+        }
     }
-    return res;
-  }
 }

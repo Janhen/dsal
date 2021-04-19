@@ -6,7 +6,7 @@ class Solution2 {
         int cnt = 0;
         while (xor != 0) {
             xor &= (xor - 1);
-            cnt ++;
+            cnt++;
         }
         return cnt;
     }

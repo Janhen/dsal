@@ -25,11 +25,12 @@ class SolutionDFS {
 
             if (node1.right != null) s1.push(node1.right);
             if (node2.right != null) s1.push(node2.right);
-            if (s1.size() %2 != 0) return false;        // to prevent broken node,  all null OR or not null can continue
+            if (s1.size() % 2 != 0)
+                return false;        // to prevent broken node,  all null OR or not null can continue
 
             if (node1.left != null) s1.push(node1.left);
             if (node2.left != null) s1.push(node2.left);
-            if (s1.size() %2 != 0) return false;
+            if (s1.size() % 2 != 0) return false;
         }
         return s1.isEmpty();
     }

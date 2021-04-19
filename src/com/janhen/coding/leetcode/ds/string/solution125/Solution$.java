@@ -19,30 +19,30 @@ Output: false
 
 public class Solution$ {
 
-  // Character:
-  //    - isLetter(c)
-  //    - isLetterOrDigit(c)
-  //    - toLowerCase(c): char return can compare
-  public boolean isPalindrome(String s) {
-    if (s.isEmpty())
-      return true;
+    // Character:
+    //    - isLetter(c)
+    //    - isLetterOrDigit(c)
+    //    - toLowerCase(c): char return can compare
+    public boolean isPalindrome(String s) {
+        if (s.isEmpty())
+            return true;
 
-    int l = 0, r = s.length() - 1;
-    while (l < r) {
-      char lCh = s.charAt(l);
-      char rCh = s.charAt(r);
-      // skip not digit and letter character
-      if (!Character.isLetterOrDigit(lCh))
-        l++;
-      else if (!Character.isLetterOrDigit(rCh))
-        r--;
-      else {
-        if (Character.toLowerCase(lCh) != Character.toLowerCase(rCh))
-          return false;
-        l++;
-        r--;
-      }
+        int l = 0, r = s.length() - 1;
+        while (l < r) {
+            char lCh = s.charAt(l);
+            char rCh = s.charAt(r);
+            // skip not digit and letter character
+            if (!Character.isLetterOrDigit(lCh))
+                l++;
+            else if (!Character.isLetterOrDigit(rCh))
+                r--;
+            else {
+                if (Character.toLowerCase(lCh) != Character.toLowerCase(rCh))
+                    return false;
+                l++;
+                r--;
+            }
+        }
+        return true;
     }
-    return true;
-  }
 }

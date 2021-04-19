@@ -31,7 +31,7 @@ package com.janhen.coding.leetcode.ds.basealgorithm.binarysearch.solution287;
  * 如果count 小于等于mid， 说明 1 到 mid 这些数字 没有重复项， 重复项在 右半边 mid 到n， 所以缩小到右半边继续搜索；
  *
  * 如果count 大于mid， 说明 1 到 mid 这些数字中 有重复项，缩小到 左半边继续搜索。
-*/
+ */
 
 
 // O(nlogn) O(1)
@@ -55,7 +55,7 @@ class Solution_range {
         int cnt = 0;
         for (int num : nums)
             if (num <= end && num >= start)
-                cnt ++;
+                cnt++;
         return cnt;
     }
 }

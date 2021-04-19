@@ -6,29 +6,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Solution {
-  public boolean findTarget(TreeNode root, int k) {
-    // convert to sorted list to find
-    List<Integer> list = new ArrayList<>();
-    inOrder(root, list);
+    public boolean findTarget(TreeNode root, int k) {
+        // convert to sorted list to find
+        List<Integer> list = new ArrayList<>();
+        inOrder(root, list);
 
-    int i = 0, j = list.size() - 1;
-    while (i < j) {
-      int sum = list.get(i) + list.get(j);
-      if (sum == k)
-        return true;
-      else if (sum < k)
-        i++;
-      else
-        j--;
+        int i = 0, j = list.size() - 1;
+        while (i < j) {
+            int sum = list.get(i) + list.get(j);
+            if (sum == k)
+                return true;
+            else if (sum < k)
+                i++;
+            else
+                j--;
+        }
+        return false;
     }
-    return false;
-  }
 
-  private void inOrder(TreeNode root, List<Integer> list) {
-    if (root == null)
-      return;
-    inOrder(root.left, list);
-    list.add(root.val);
-    inOrder(root.right, list);
-  }
+    private void inOrder(TreeNode root, List<Integer> list) {
+        if (root == null)
+            return;
+        inOrder(root.left, list);
+        list.add(root.val);
+        inOrder(root.right, list);
+    }
 }

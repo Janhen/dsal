@@ -2,8 +2,6 @@ package com.janhen.algorithm.sort.basesort.bucket_radix_countSort.countSort;
 
 /**
  * 计数排序
- *
- * @author Janhen
  */
 public class CountSort {
     public void countingSort(int[] a, int n) {

@@ -4,8 +4,8 @@ import com.janhen.structures.unionfind.UF;
 
 public class UnionFind implements UF {
 
-    private int[] parent;
-    private int[] rank;
+    private final int[] parent;
+    private final int[] rank;
 
     public UnionFind(int size) {
         parent = new int[size];
@@ -54,13 +54,11 @@ public class UnionFind implements UF {
         // ★ 依附大树
         if (rank[pRoot] < rank[qRoot]) {
             parent[pRoot] = qRoot;
-        }
-        else if (rank[qRoot] < rank[pRoot]) {
+        } else if (rank[qRoot] < rank[pRoot]) {
             parent[qRoot] = pRoot;
-        }
-        else {
+        } else {
             parent[pRoot] = qRoot;
-            rank[qRoot] ++;
+            rank[qRoot]++;
         }
     }
 }

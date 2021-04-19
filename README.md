@@ -13,7 +13,8 @@
 基本的线性结构：   
 [array](src/com/janhen/structures/array): 数组  
 [linkedlist](src/com/janhen/structures/linkedlist)： 链表  
-[queue](src/com/janhen/structures/queue)： 队列      
+[queue](src/com/janhen/structures/queue)： 队列       
+> 基于链表实现队列、基于循环数组实现队列
 [stack](src/com/janhen/structures/stack)： 栈  
 [heap](src/com/janhen/structures/heap)： 堆  
 [setandmap](src/com/janhen/structures/setandmap)： 集合与映射 

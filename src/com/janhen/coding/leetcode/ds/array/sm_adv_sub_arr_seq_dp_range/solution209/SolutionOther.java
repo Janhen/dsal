@@ -21,9 +21,9 @@ class SolutionOther {
         while (R < nums.length) {
             if (sum == s) {
                 minLen = Math.min(minLen, R - L + 1);
-                sum -= nums[L ++];
+                sum -= nums[L++];
             } else if (sum < s) {   // < right
-                R ++;
+                R++;
                 if (R == nums.length)  // border control
                     break;
                 sum += nums[R];    // right shift to add

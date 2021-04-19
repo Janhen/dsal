@@ -4,12 +4,12 @@ import com.janhen.structures.unionfind.UF;
 
 public class UnionFind implements UF {
 
-    private int[] parent;
+    private final int[] parent;
 
     public UnionFind(int size) {
         parent = new int[size];
 
-        for (int i = 0; i < parent.length; i ++)
+        for (int i = 0; i < parent.length; i++)
             parent[i] = i;
     }
 
@@ -42,7 +42,7 @@ public class UnionFind implements UF {
         int qRoot = find(q);
 
         if (pRoot == qRoot)
-            return ;
+            return;
 
         // only modify a point
         parent[pRoot] = qRoot;

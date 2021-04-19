@@ -15,20 +15,20 @@ import java.util.Map;
  * b -> a              ⇒  a -> b
  */
 class Solution2 {
-  public boolean isIsomorphic(String s, String t) {
-    if (s.length() != t.length())
-      return false;
-    Map<Character, Character> record = new HashMap<>();
-    for (int i = 0; i < s.length(); i++) {
-      if (record.containsKey(s.charAt(i))) {
-        if (record.get(s.charAt(i)) != t.charAt(i))
-          return false;
-      } else {
-        if (record.containsValue(t.charAt(i)))
-          return false;
-        record.put(s.charAt(i), t.charAt(i));
-      }
+    public boolean isIsomorphic(String s, String t) {
+        if (s.length() != t.length())
+            return false;
+        Map<Character, Character> record = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (record.containsKey(s.charAt(i))) {
+                if (record.get(s.charAt(i)) != t.charAt(i))
+                    return false;
+            } else {
+                if (record.containsValue(t.charAt(i)))
+                    return false;
+                record.put(s.charAt(i), t.charAt(i));
+            }
+        }
+        return true;
     }
-    return true;
-  }
 }

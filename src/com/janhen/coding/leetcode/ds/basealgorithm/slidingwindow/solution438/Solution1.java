@@ -11,20 +11,20 @@ class Solution1 {
             return res;
         int[] freqs = new int[256];
         for (char val : p.toCharArray())
-            freqs[val] ++;
+            freqs[val]++;
         int L = 0, R = 0;
         int counter = p.length();
         while (R < p.length()) {
-            if (-- freqs[s.charAt(R ++)] >= 0)
-                counter --;
+            if (--freqs[s.charAt(R++)] >= 0)
+                counter--;
         }
         if (counter == 0)
             res.add(0);
         while (R < s.length()) {
-            if (freqs[s.charAt(L ++)] ++ >= 0)  // slide one step
-                counter ++;
-            if (-- freqs[s.charAt(R ++)] >= 0)
-                counter --;
+            if (freqs[s.charAt(L++)]++ >= 0)  // slide one step
+                counter++;
+            if (--freqs[s.charAt(R++)] >= 0)
+                counter--;
             if (counter == 0) res.add(L);
         }
         return res;

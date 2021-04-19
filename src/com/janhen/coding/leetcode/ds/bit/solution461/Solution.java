@@ -8,8 +8,8 @@ class Solution {
             int xBit = numOfnthBit(x, flag);
             int yBit = numOfnthBit(y, flag);
             if (xBit != yBit)
-                cnt ++;
-            flag ++;
+                cnt++;
+            flag++;
         }
         return cnt;
     }

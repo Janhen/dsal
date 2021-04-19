@@ -30,14 +30,14 @@ n does not exceed 1690.
  */
 
 class SolutionVB {
-    
+
     public int nthUglyNumber(int n) {
         int num = 0;
         int cnt = 0;
         while (cnt < n) {
-            num ++;
+            num++;
             if (isUgly(num)) {
-                cnt ++;
+                cnt++;
             }
         }
         return num;
@@ -50,6 +50,6 @@ class SolutionVB {
             num /= 3;
         while (num % 5 == 0)
             num /= 5;
-        return num == 1 ? true : false;
+        return num == 1;
     }
 }

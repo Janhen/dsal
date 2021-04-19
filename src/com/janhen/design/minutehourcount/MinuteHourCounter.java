@@ -5,34 +5,34 @@ import java.util.List;
 
 /**
  * 最近一分钟和最近1小时的数量<br>
- * 
+ * <p>
  * 传送带设计方案<br>
  */
 public class MinuteHourCounter {
-  List<Event> minuteEvents;
-  List<Event> hourEvents;
-  int minuteCount;
-  int hourCount;
+    List<Event> minuteEvents;
+    List<Event> hourEvents;
+    int minuteCount;
+    int hourCount;
 
-  static class Event {
-    int count;
-    Date time;
+    void add(int count) {
 
-    public Event(int count, Date time) {
-      this.count = count;
-      this.time = time;
     }
-  }
 
-  void add(int count) {
+    int minuteCount() {
+        return -1;
+    }
 
-  }
+    int hourCount() {
+        return -1;
+    }
 
-  int minuteCount() {
-    return -1;
-  }
+    static class Event {
+        int count;
+        Date time;
 
-  int hourCount() {
-    return -1;
-  }
+        public Event(int count, Date time) {
+            this.count = count;
+            this.time = time;
+        }
+    }
 }

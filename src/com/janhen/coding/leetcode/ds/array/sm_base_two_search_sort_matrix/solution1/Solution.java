@@ -4,16 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Solution {
-  public int[] twoSum(int[] nums, int target) {
-    // num -> idx
-    Map<Integer, Integer> valIdxMap = new HashMap();
-    for (int i = 0; i < nums.length; i++) {
-      int targetKey = target - nums[i];
-      if (valIdxMap.containsKey(targetKey)) {
-        return new int[]{valIdxMap.get(targetKey), i};
-      }
-      valIdxMap.put(nums[i], i);
+    public int[] twoSum(int[] nums, int target) {
+        // num -> idx
+        Map<Integer, Integer> valIdxMap = new HashMap();
+        for (int i = 0; i < nums.length; i++) {
+            int targetKey = target - nums[i];
+            if (valIdxMap.containsKey(targetKey)) {
+                return new int[]{valIdxMap.get(targetKey), i};
+            }
+            valIdxMap.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No result");
     }
-    throw new IllegalArgumentException("No result");
-  }
 }

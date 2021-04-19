@@ -39,6 +39,14 @@ import java.util.Set;
 
 class SolutionVio {
 
+    private static void swap(char[] a, int i, int j) {
+        if (i == j)
+            return;
+        char t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+
     // Memory Limit Exceeded
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> res = new ArrayList<>();
@@ -48,7 +56,7 @@ class SolutionVio {
         Set<String> record = new HashSet<>();
         findAllPermutation(p.toCharArray(), 0, record);
         int m = s.length(), n = p.length();
-        for (int i = 0; i < m - n + 1; i ++) {
+        for (int i = 0; i < m - n + 1; i++) {
             String key = s.substring(i, i + n);
             if (record.contains(key))
                 res.add(i);
@@ -62,18 +70,10 @@ class SolutionVio {
             set.add(new String(chs));
             return;
         }
-        for (int i = start; i < chs.length; i ++) {
+        for (int i = start; i < chs.length; i++) {
             swap(chs, i, start);
             findAllPermutation(chs, start + 1, set);
             swap(chs, i, start);
         }
-    }
-
-    private static void swap(char[] a, int i, int j) {
-        if (i == j)
-            return;
-        char t = a[i];
-        a[i] = a[j];
-        a[j] = t;
     }
 }

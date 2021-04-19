@@ -8,9 +8,9 @@ class SolutionG {
         int[] freqs = new int[256];
         while (L < s.length()) {
             if (R + 1 < s.length() && freqs[s.charAt(R + 1)] == 0)
-                freqs[s.charAt(++ R)]++;
+                freqs[s.charAt(++R)]++;
             else
-                freqs[s.charAt(L ++)]--;
+                freqs[s.charAt(L++)]--;
             res = Math.max(res, R - L + 1);
         }
         return res;

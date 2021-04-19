@@ -6,7 +6,7 @@ package com.janhen.coding.leetcode.algs.dp.lcs;
 /// 空间复杂度: O(len(s1)*len(s2))
 public class LCS3 {
 
-    public String lcs(String s1, String s2){
+    public String lcs(String s1, String s2) {
 
         int m = s1.length();
         int n = s2.length();
@@ -21,9 +21,9 @@ public class LCS3 {
 
         // 动态规划的过程
         // 注意, 由于动态规划状态的转变, 下面的i和j可以取到m和n
-        for(int i = 1 ; i <= m ; i ++)
-            for(int j = 1 ; j <= n ; j ++)
-                if(s1.charAt(i - 1) == s2.charAt(j - 1))
+        for (int i = 1; i <= m; i++)
+            for (int j = 1; j <= n; j++)
+                if (s1.charAt(i - 1) == s2.charAt(j - 1))
                     memo[i][j] = 1 + memo[i - 1][j - 1];
                 else
                     memo[i][j] = Math.max(memo[i - 1][j], memo[i][j - 1]);
@@ -32,16 +32,15 @@ public class LCS3 {
         m = s1.length();
         n = s2.length();
         StringBuilder res = new StringBuilder("");
-        while(m > 0 && n > 0)
-            if(s1.charAt(m - 1) == s2.charAt(n - 1)){
+        while (m > 0 && n > 0)
+            if (s1.charAt(m - 1) == s2.charAt(n - 1)) {
                 res.insert(0, s1.charAt(m - 1));
-                m --;
-                n --;
-            }
-            else if(memo[m - 1][n] > memo[m][n - 1])
-                m --;
+                m--;
+                n--;
+            } else if (memo[m - 1][n] > memo[m][n - 1])
+                m--;
             else
-                n --;
+                n--;
 
         return res.toString();
     }

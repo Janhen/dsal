@@ -2,19 +2,19 @@ package com.janhen.structures.queue;
 
 public interface Deque<E> {
 
-  void offerFirst(E val);
+    void offerFirst(E val);
 
-  void offerLast(E val);
+    void offerLast(E val);
 
-  E pollFirst();
+    E pollFirst();
 
-  E pollLast();
+    E pollLast();
 
-  boolean isEmpty();
+    boolean isEmpty();
 
-  int size();
+    int size();
 
-  E peekFirst();
+    E peekFirst();
 
-  E peekLast();
+    E peekLast();
 }

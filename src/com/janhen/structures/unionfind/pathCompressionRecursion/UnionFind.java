@@ -4,8 +4,8 @@ import com.janhen.structures.unionfind.UF;
 
 public class UnionFind implements UF {
 
-    private int[] parent;
-    private int[] rank;
+    private final int[] parent;
+    private final int[] rank;
 
     public UnionFind(int size) {
         parent = new int[size];
@@ -55,15 +55,13 @@ public class UnionFind implements UF {
         if (rank[pRoot] < rank[qRoot]) {
             // p -> q
             parent[pRoot] = qRoot;
-        }
-        else if (rank[qRoot] < rank[pRoot]) {
+        } else if (rank[qRoot] < rank[pRoot]) {
             // q -> p
             parent[qRoot] = pRoot;
-        }
-        else {
+        } else {
             // p -> q
             parent[pRoot] = qRoot;
-            rank[qRoot] ++;
+            rank[qRoot]++;
         }
     }
 }

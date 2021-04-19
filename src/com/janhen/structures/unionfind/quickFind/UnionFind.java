@@ -7,12 +7,12 @@ quick find
  */
 public class UnionFind implements UF {
 
-    private int[] id;
+    private final int[] id;
 
     public UnionFind(int size) {
 
         id = new int[size];
-        for (int i = 0; i < id.length; i ++)
+        for (int i = 0; i < id.length; i++)
             id[i] = i;
     }
 
@@ -43,7 +43,7 @@ public class UnionFind implements UF {
         if (pId == qId)
             return;
 
-        for (int i = 0; i < id.length; i ++)
+        for (int i = 0; i < id.length; i++)
             if (id[i] == qId)
                 id[i] = pId;
     }

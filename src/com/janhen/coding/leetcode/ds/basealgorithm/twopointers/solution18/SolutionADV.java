@@ -6,11 +6,13 @@ import java.util.List;
 
 /*
 General Idea
-If you have already read and implement the 3sum and 4sum by using the sorting approach: reduce them into 2sum at the end, you might already got the feeling that, all ksum recursiont_dp can be divided into two problems:
+If you have already read and implement the 3sum and 4sum by using the sorting approach: reduce them into 2sum at the
+end, you might already got the feeling that, all ksum recursiont_dp can be divided into two problems:
 
 2sum Problem
 Reduce K sum recursiont_dp to K – 1 sum Problem
-Therefore, the ideas is simple and straightforward. We could use recursive to solve this recursiont_dp. Time complexity is O(N^(K-1)).
+Therefore, the ideas is simple and straightforward. We could use recursive to solve this recursiont_dp. Time
+complexity is O(N^(K-1)).
  */
 public class SolutionADV {
 

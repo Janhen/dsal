@@ -33,20 +33,20 @@ import java.util.Map;
 import java.util.Objects;
 
 class Solution {
-  public boolean wordPattern(String pattern, String str) {
-    String[] words = str.split(" ");
-    if (pattern.length() != words.length) {
-      return false;
+    public boolean wordPattern(String pattern, String str) {
+        String[] words = str.split(" ");
+        if (pattern.length() != words.length) {
+            return false;
+        }
+        Map<Character, Integer> map1 = new HashMap<>();
+        Map<String, Integer> map2 = new HashMap<>();
+        for (int i = 0; i < pattern.length(); i++) {            // why `Integer`,  `int` can not
+            Integer idx1 = map1.put(pattern.charAt(i), i);
+            Integer idx2 = map2.put(words[i], i);
+            if (!Objects.equals(idx1, idx2)) {
+                return false;
+            }
+        }
+        return true;
     }
-    Map<Character, Integer> map1 = new HashMap<>();
-    Map<String, Integer> map2 = new HashMap<>();
-    for (int i = 0; i < pattern.length(); i++) {            // why `Integer`,  `int` can not
-      Integer idx1 = map1.put(pattern.charAt(i), i);
-      Integer idx2 = map2.put(words[i], i);
-      if (!Objects.equals(idx1, idx2)) {
-        return false;
-      }
-    }
-    return true;
-  }
 }

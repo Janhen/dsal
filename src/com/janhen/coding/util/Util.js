@@ -73,7 +73,7 @@ function queryToObj() {
     const ret = {};
     const search = location.search.substr(1);
     search.split('&').forEach(paramStr => {
-        const  arr = paramStr.split('=');
+        const arr = paramStr.split('=');
         let key = arr[0];
         let val = arr[1];
         ret[key] = val;
@@ -140,7 +140,8 @@ function deepClone(obj = {}) {
 function compose(...funcs) {
     if (funcs.length === 0) {
         // return arg => arg;
-        return () => {};
+        return () => {
+        };
     }
     if (funcs.length === 1) {
         return funcs[0];

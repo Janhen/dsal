@@ -23,7 +23,7 @@ class SolutionMorris {
                     cur2.right = cur1;
                 }
             }
-            if (-- k == 0)
+            if (--k == 0)
                 return cur1.val;
             cur1 = cur1.right;
         }

@@ -38,51 +38,51 @@ import java.util.List;
 
 class Solution {
 
-  // use for record all possible value
-  private String[] memo;
+    // use for record all possible value
+    private final String[] memo;
 
-  public Solution() {
-    memo = new String[30 + 1];
-    memo[1] = "1";
-    for (int i = 2; i <= 30; i++) {
-      memo[i] = genStrByPre(memo[i - 1]);
-    }
-  }
-
-  // 1211
-  // original order and frequency record, can have duplicated element   ⇒  List
-  // todo
-  private String genStrByPre(String str) {
-    List<Pari> freqs = new ArrayList<>();
-    freqs.add(new Pari(str.charAt(0), 1));
-    for (int i = 1; i < str.length(); i++) {
-      if (str.charAt(i) == str.charAt(i - 1))
-        freqs.get(freqs.size() - 1).count++;
-      else
-        freqs.add(new Pari(str.charAt(i), 1));
+    public Solution() {
+        memo = new String[30 + 1];
+        memo[1] = "1";
+        for (int i = 2; i <= 30; i++) {
+            memo[i] = genStrByPre(memo[i - 1]);
+        }
     }
 
-    StringBuilder sb = new StringBuilder();
-    for (Pari pari : freqs) {
-      sb.append(pari.count);
-      sb.append(pari.val);
+    // 1211
+    // original order and frequency record, can have duplicated element   ⇒  List
+    // todo
+    private String genStrByPre(String str) {
+        List<Pari> freqs = new ArrayList<>();
+        freqs.add(new Pari(str.charAt(0), 1));
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == str.charAt(i - 1))
+                freqs.get(freqs.size() - 1).count++;
+            else
+                freqs.add(new Pari(str.charAt(i), 1));
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (Pari pari : freqs) {
+            sb.append(pari.count);
+            sb.append(pari.val);
+        }
+        return sb.toString();
     }
-    return sb.toString();
-  }
 
-  class Pari {
-    char val;
-    int count;
-
-    Pari(char v, int c) {
-      val = v;
-      count = c;
+    // use same object to invoke this method optimize
+    // 18 ms, faster than 20.42%
+    public String countAndSay(int n) {
+        return memo[n];
     }
-  }
 
-  // use same object to invoke this method optimize
-  // 18 ms, faster than 20.42%
-  public String countAndSay(int n) {
-    return memo[n];
-  }
+    class Pari {
+        char val;
+        int count;
+
+        Pari(char v, int c) {
+            val = v;
+            count = c;
+        }
+    }
 }

@@ -10,17 +10,17 @@ class SolutionG {
         int L = 0, R = 0;
         int[] freqs = new int[256];
         for (char val : p.toCharArray())
-            freqs[val] ++;
+            freqs[val]++;
 
         int counter = p.length();
         while (R < s.length()) {
-            if (-- freqs[s.charAt(R ++)] >= 0)
-                counter --;
+            if (--freqs[s.charAt(R++)] >= 0)
+                counter--;
             if (counter == 0)
                 res.add(L);
-            if (R-L == p.length()) {   // fixed size AND narrow window
-                if (freqs[s.charAt(L ++)] ++ >= 0)
-                    counter ++;
+            if (R - L == p.length()) {   // fixed size AND narrow window
+                if (freqs[s.charAt(L++)]++ >= 0)
+                    counter++;
             }
         }
         return res;

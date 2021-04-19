@@ -8,7 +8,8 @@ package com.janhen.coding.leetcode.ds.basealgorithm.slidingwindow.solution438;
 /*
 Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
 
-Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
+Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,
+100.
 
 The order of output does not matter.
 
@@ -59,18 +60,18 @@ class SolutionCom {
             char rCh = s.charAt(R);
             if (freqs.containsKey(rCh)) {
                 freqs.put(rCh, freqs.get(rCh) - 1);   // [R] in match
-                if (freqs.get(rCh) == 0) counter --;   // [R] all match
+                if (freqs.get(rCh) == 0) counter--;   // [R] all match
             }
-            R ++;
+            R++;
             while (counter == 0) {  // [L, R] have all match
                 char lCh = s.charAt(L);
                 if (freqs.containsKey(lCh)) {  // [L] in match, reset to
                     freqs.put(lCh, freqs.get(lCh) + 1);
-                    if (freqs.get(lCh) > 0) counter ++;     // [L, R] lack [L]
+                    if (freqs.get(lCh) > 0) counter++;     // [L, R] lack [L]
                 }
                 if (R - L == p.length())
                     res.add(L);
-                L ++;
+                L++;
             }
         }
         return res;

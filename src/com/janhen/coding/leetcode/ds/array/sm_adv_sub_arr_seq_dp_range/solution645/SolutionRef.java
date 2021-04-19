@@ -7,17 +7,17 @@ import java.util.Arrays;
  * O(nlogn), O(1)
  */
 class SolutionRef {
-  public int[] findErrorNums(int[] nums) {
-    Arrays.sort(nums);
-    int n = nums.length, dup = -1, res = nums[n - 1] ^ n;
-    for (int i = 1; i < n; i++) {
-      if (nums[i] == nums[i - 1]) {
-        dup = nums[i];
-      }
-      res ^= i;
-      res ^= nums[i - 1];
+    public int[] findErrorNums(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length, dup = -1, res = nums[n - 1] ^ n;
+        for (int i = 1; i < n; i++) {
+            if (nums[i] == nums[i - 1]) {
+                dup = nums[i];
+            }
+            res ^= i;
+            res ^= nums[i - 1];
+        }
+        res ^= dup;
+        return new int[]{dup, res};
     }
-    res ^= dup;
-    return new int[]{dup, res};
-  }
 }

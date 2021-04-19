@@ -1,8 +1,8 @@
 package com.janhen.structures.setandmap.set;
 
-import com.janhen.structures.avl.other.AVLSet;
 import com.janhen.FileUtils;
 import com.janhen.TestUtil;
+import com.janhen.structures.avl.ref.AVLSet;
 import org.junit.Test;
 
 import java.util.List;
@@ -10,7 +10,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        String filename = "E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt";
+        String filename = "E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride" +
+          "-and-prejudice.txt";
         double t1 = testSet(new BSTSet<>(), filename);
         double t2 = testSet(new LinkedListSet<>(), filename);
         double t3 = testSet(new AVLSet<>(), filename);
@@ -42,7 +43,8 @@ public class Main {
     @Test
     void testAVLSet() {
         System.out.println("pride-and-prejudice");
-        List<String> list = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt");
+        List<String> list = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java" +
+          "\\com\\janhen\\pride-and-prejudice.txt");
 
         System.out.println("Total word : " + list.size());
 
@@ -54,7 +56,8 @@ public class Main {
 
 
         System.out.println("a-tale-of-two-cities.txt");
-        List<String> list2 = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\a-tale-of-two-cities.txt");
+        List<String> list2 = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java" +
+          "\\com\\janhen\\a-tale-of-two-cities.txt");
         System.out.println("Total word : " + list2.size());
 
         Set<String> set2 = new BSTSet<>();
@@ -66,7 +69,8 @@ public class Main {
     @Test
     public void testBSTSet() {
         System.out.println("pride-and-prejudice");
-        List<String> list = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt");
+        List<String> list = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java" +
+          "\\com\\janhen\\pride-and-prejudice.txt");
 
         System.out.println("Total word : " + list.size());
 
@@ -78,7 +82,8 @@ public class Main {
 
 
         System.out.println("a-tale-of-two-cities.txt");
-        List<String> list2 = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\a-tale-of-two-cities.txt");
+        List<String> list2 = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java" +
+          "\\com\\janhen\\a-tale-of-two-cities.txt");
         System.out.println("Total word : " + list2.size());
 
         Set<String> set2 = new BSTSet<>();
@@ -90,7 +95,8 @@ public class Main {
     @Test
     public void testLinkedSet() {
         System.out.println("pride-and-prejudice");
-        List<String> list = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\pride-and-prejudice.txt");
+        List<String> list = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java" +
+          "\\com\\janhen\\pride-and-prejudice.txt");
 
         System.out.println("Total word : " + list.size());
 
@@ -102,7 +108,8 @@ public class Main {
 
 
         System.out.println("a-tale-of-two-cities.txt");
-        List<String> list2 = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java\\com\\janhen\\a-tale-of-two-cities.txt");
+        List<String> list2 = FileUtils.readFile("E:\\Data\\workspace_idea\\Play-with-Data-structures\\src\\main\\java" +
+          "\\com\\janhen\\a-tale-of-two-cities.txt");
         System.out.println("Total word : " + list2.size());
 
         Set<String> set2 = new LinkedListSet<>();

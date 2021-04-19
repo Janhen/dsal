@@ -22,13 +22,21 @@ import java.util.Set;
 
 class Solution$ {
 
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 1, 2, 3};
+//        int[] nums = {1,0,1,1};
+
+        boolean res = (new Solution$()).containsNearbyDuplicate(nums, 2);
+        System.out.println(res);
+    }
+
     // use add return value as judge condition
     // 7 ms, faster than 98.27%
     // time : O(N)
     // space : O(k)
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         if (nums == null || nums.length < 2 ||
-                k < 0)
+          k < 0)
             return false;
 
         Set<Integer> record = new HashSet<>();
@@ -39,13 +47,5 @@ class Solution$ {
                 record.remove(nums[i - k]);
         }
         return false;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 1, 2, 3};
-//        int[] nums = {1,0,1,1};
-
-        boolean res = (new Solution$()).containsNearbyDuplicate(nums, 2);
-        System.out.println(res);
     }
 }

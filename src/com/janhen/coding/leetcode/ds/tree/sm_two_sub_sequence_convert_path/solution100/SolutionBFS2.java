@@ -24,7 +24,7 @@ class SolutionBFS2 {
             if (node1 == null && node2 == null) // leaf
                 continue;
             else if (node1 == null || node2 == null ||
-                    node1.val != node2.val) // broken or not match
+              node1.val != node2.val) // broken or not match
                 return false;
 
             // all complete node

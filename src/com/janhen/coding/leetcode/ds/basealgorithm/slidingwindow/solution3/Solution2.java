@@ -9,9 +9,9 @@ class Solution2 {
         Arrays.fill(preIndex, -1);
         int curWinLen = 0, maxLen = 0;
 
-        for (int i = 0; i < s.length(); i ++) {
+        for (int i = 0; i < s.length(); i++) {
             if (preIndex[s.charAt(i)] == -1 || i - preIndex[s.charAt(i)] > curWinLen)
-                curWinLen ++;
+                curWinLen++;
             else
                 curWinLen = i - preIndex[s.charAt(i)];
             preIndex[s.charAt(i)] = i;

@@ -3,13 +3,13 @@ package com.janhen.coding.leetcode.ds.array.sm_base_two_search_sort_matrix.solut
 import java.util.Arrays;
 
 class Solution {
-  public void moveZeroes(int[] nums) {
-    int k = 0;
-    // 1. sequential set value
-    for (int i = 0; i < nums.length; i++)
-      if (nums[i] != 0)
-        nums[k++] = nums[i];
-    // 2. set tail elements to 0
-    Arrays.fill(nums, k, nums.length, 0);
-  }
+    public void moveZeroes(int[] nums) {
+        int k = 0;
+        // 1. sequential set value
+        for (int i = 0; i < nums.length; i++)
+            if (nums[i] != 0)
+                nums[k++] = nums[i];
+        // 2. set tail elements to 0
+        Arrays.fill(nums, k, nums.length, 0);
+    }
 }

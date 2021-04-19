@@ -22,10 +22,10 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
     @Override
     public void push(E item) {
         if (N == arr.length) {
-            resize(2*arr.length);
+            resize(2 * arr.length);
         }
         arr[N] = item;
-        N ++;
+        N++;
     }
 
     // "rpush + rpop"
@@ -35,9 +35,9 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
 
         E oldTop = arr[N - 1];
         arr[N - 1] = null;
-        N  --;
-        if (N == arr.length/4 && arr.length != 0)
-            resize(arr.length/2);
+        N--;
+        if (N == arr.length / 4 && arr.length != 0)
+            resize(arr.length / 2);
         return oldTop;
     }
 
@@ -61,8 +61,8 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("Stack : size = %d, capacity=%d\n", N, arr.length));
         sb.append("[");
-        for (int i = 0;i < N; i++) {
-            sb.append(i != N-1 ? arr[i] + ", " : arr[i]);
+        for (int i = 0; i < N; i++) {
+            sb.append(i != N - 1 ? arr[i] + ", " : arr[i]);
         }
         sb.append("]");
         return sb.toString();
@@ -86,7 +86,7 @@ public class Stack<E> implements IStack<E>, Iterable<E> {
         @Override
         public E next() {
             if (!hasNext()) throw new NoSuchElementException();
-            return arr[i --];
+            return arr[i--];
         }
     }
 }

@@ -11,9 +11,9 @@ class SolutionRef {
         int len = 0;
         ListNode cur = head;
         while (cur != null) {
-            len ++;
-            if (len == from-1) fPrev = cur;
-            if (len == to+1) tPost = cur;
+            len++;
+            if (len == from - 1) fPrev = cur;
+            if (len == to + 1) tPost = cur;
             cur = cur.next;
         }
         if (from > to || from < 1 || to > len)

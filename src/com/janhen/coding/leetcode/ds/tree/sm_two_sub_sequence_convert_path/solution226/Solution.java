@@ -3,12 +3,12 @@ package com.janhen.coding.leetcode.ds.tree.sm_two_sub_sequence_convert_path.solu
 import com.janhen.coding.leetcode.structures.TreeNode;
 
 class Solution {
-  public TreeNode invertTree(TreeNode root) {
-    if (root == null)
-      return null;
-    TreeNode tmp = root.left;
-    root.left = invertTree(root.right);
-    root.right = invertTree(tmp);
-    return root;
-  }
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null)
+            return null;
+        TreeNode tmp = root.left;
+        root.left = invertTree(root.right);
+        root.right = invertTree(tmp);
+        return root;
+    }
 }

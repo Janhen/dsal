@@ -7,7 +7,7 @@ package com.janhen.coding.leetcode.ds.bit.solution338;
 class Solution {
     public int[] countBits(int num) {
         int[] res = new int[num + 1];
-        for (int i = 0; i <= num; i ++)
+        for (int i = 0; i <= num; i++)
             res[i] = countOfOneBit(i);
         return res;
     }
@@ -15,8 +15,8 @@ class Solution {
     private int countOfOneBit(int n) {
         int cnt = 0;
         while (n != 0) {
-            n = n & (n-1);
-            cnt ++;
+            n = n & (n - 1);
+            cnt++;
         }
         return cnt;
     }

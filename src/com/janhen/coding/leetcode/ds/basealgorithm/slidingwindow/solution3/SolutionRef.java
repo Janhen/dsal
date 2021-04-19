@@ -17,9 +17,9 @@ public class SolutionRef {
         int max = 0;
         while (r + 1 < s.length()) {            // r+1<s.len
             if (r + 1 < s.length() && freq[s.charAt(r + 1)] == 0)
-                freq[s.charAt(++ r)] ++;
+                freq[s.charAt(++r)]++;
             else    //freq[s[r+1]] == 1
-                freq[s.charAt(l ++)] --;
+                freq[s.charAt(l++)]--;
             max = Math.max(max, r - l + 1);
         }
         return max;

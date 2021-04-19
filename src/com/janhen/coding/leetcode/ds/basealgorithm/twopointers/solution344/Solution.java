@@ -6,19 +6,19 @@ package com.janhen.coding.leetcode.ds.basealgorithm.twopointers.solution344;
 /*翻转字符串*/
 
 class Solution {
+    private static void swap(char[] a, int i, int j) {
+        a[i] = (char) (a[i] ^ a[j]);
+        a[j] = (char) (a[i] ^ a[j]);
+        a[i] = (char) (a[i] ^ a[j]);
+    }
+
     // char as int to calculate
     public String reverseString(String s) {
         int i = 0, j = s.length() - 1;
         char[] chars = s.toCharArray();
         while (i < j)
-            swap(chars, i ++, j --);
+            swap(chars, i++, j--);
         return new String(chars);
-    }
-
-    private static void swap(char[] a, int i, int j) {
-        a[i] = (char) (a[i] ^ a[j]);
-        a[j] = (char) (a[i] ^ a[j]);
-        a[i] = (char) (a[i] ^ a[j]);
     }
 
     // string as byte to calculate

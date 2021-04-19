@@ -8,7 +8,8 @@ package com.janhen.coding.leetcode.ds.basealgorithm.slidingwindow.solution438;
 /*
 Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
 
-Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
+Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,
+100.
 
 The order of output does not matter.
 
@@ -37,15 +38,18 @@ The substring with start index = 1 is "ba", which is an anagram of "ab".
 The substring with start index = 2 is "ab", which is an anagram of "ab".
  */
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 class SolutionRef2 {
 
     public List<Integer> findAnagrams(String s, String t) {
         List<Integer> result = new LinkedList<>();
-        if(t.length()> s.length()) return result;
+        if (t.length() > s.length()) return result;
         Map<Character, Integer> map = new HashMap<>();
-        for(char c : t.toCharArray()){
+        for (char c : t.toCharArray()) {
             map.put(c, map.getOrDefault(c, 0) + 1);
         }
         int counter = map.size();
@@ -54,23 +58,23 @@ class SolutionRef2 {
         int head = 0;
         int len = Integer.MAX_VALUE;
 
-        while(end < s.length()){
+        while (end < s.length()) {
             char c = s.charAt(end);
-            if( map.containsKey(c) ){
-                map.put(c, map.get(c)-1);
-                if(map.get(c) == 0) counter--;
+            if (map.containsKey(c)) {
+                map.put(c, map.get(c) - 1);
+                if (map.get(c) == 0) counter--;
             }
             end++;
 
-            while(counter == 0){
+            while (counter == 0) {
                 char tempc = s.charAt(begin);
-                if(map.containsKey(tempc)){
+                if (map.containsKey(tempc)) {
                     map.put(tempc, map.get(tempc) + 1);
-                    if(map.get(tempc) > 0){
+                    if (map.get(tempc) > 0) {
                         counter++;
                     }
                 }
-                if(end-begin == t.length()){
+                if (end - begin == t.length()) {
                     result.add(begin);
                 }
                 begin++;

@@ -8,7 +8,8 @@ package com.janhen.coding.leetcode.ds.basealgorithm.slidingwindow.solution438;
 /*
 Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
 
-Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
+Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,
+100.
 
 The order of output does not matter.
 
@@ -126,7 +127,8 @@ class SolutionRef {
             //If diff has reached zero, that means for the last p.length() iterations, diff was decremented and
             //NOT decremented, which means every one of those characters was in the anagram, so it must be an anagram
 
-            //Note: If many windows in a row find anagrams, then each iteration will have diff incremented then decremented again
+            //Note: If many windows in a row find anagrams, then each iteration will have diff incremented then
+            // decremented again
             if (diff == 0) {
                 soln.add(start);
             }

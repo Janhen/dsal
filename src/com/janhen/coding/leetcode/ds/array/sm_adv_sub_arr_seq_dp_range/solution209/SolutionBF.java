@@ -14,12 +14,12 @@ class SolutionBF {
         int res = Integer.MAX_VALUE;
 
         int[] sums = new int[N + 1];
-        for (int i = 1; i <= N; i ++)
+        for (int i = 1; i <= N; i++)
             sums[i] = sums[i - 1] + nums[i - 1];
 
         int cur = 0;
-        for (int l = 0; l < N; l ++) {
-            for (int r = l; r < N; r ++) {
+        for (int l = 0; l < N; l++) {
+            for (int r = l; r < N; r++) {
                 cur = sums[r + 1] - sums[l];         // sum(l,r)
                 if (cur >= s) res = Math.min(res, r - l + 1);
             }

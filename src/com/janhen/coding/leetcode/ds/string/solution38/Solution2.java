@@ -45,7 +45,7 @@ class Solution2 {
 
         String res = "";
         String pre = "1";
-        for (int i = 2; i <= n; i ++) {
+        for (int i = 2; i <= n; i++) {
             res = genStrByPre(pre);
             pre = res;
         }
@@ -57,9 +57,9 @@ class Solution2 {
     private String genStrByPre(String str) {
         List<Pari> freqs = new ArrayList<>();
         freqs.add(new Pari(str.charAt(0), 1));
-        for (int i = 1; i < str.length(); i ++) {
+        for (int i = 1; i < str.length(); i++) {
             if (str.charAt(i) == str.charAt(i - 1))
-                freqs.get(freqs.size()-1).count ++;
+                freqs.get(freqs.size() - 1).count++;
             else
                 freqs.add(new Pari(str.charAt(i), 1));
         }
@@ -75,6 +75,7 @@ class Solution2 {
     class Pari {
         char val;
         int count;
+
         Pari(char v, int c) {
             val = v;
             count = c;

@@ -18,26 +18,26 @@ Output: 2->3
 import com.janhen.coding.leetcode.structures.ListNode;
 
 class SolutionRed {
-  // 0 ms, faster than 100.00%
-  public ListNode deleteDuplicates(ListNode head) {
-    ListNode first = new ListNode(-1);
-    first.next = head;
-    ListNode pre = first;
-    ListNode cur = head;
-    while (cur != null && cur.next != null) {
-      if (cur.val == cur.next.val) {
-        int duplicatedVal = cur.val;
-        while (cur.next != null && cur.next.val == duplicatedVal) {
-          cur = cur.next;
+    // 0 ms, faster than 100.00%
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode first = new ListNode(-1);
+        first.next = head;
+        ListNode pre = first;
+        ListNode cur = head;
+        while (cur != null && cur.next != null) {
+            if (cur.val == cur.next.val) {
+                int duplicatedVal = cur.val;
+                while (cur.next != null && cur.next.val == duplicatedVal) {
+                    cur = cur.next;
+                }
+                // now cur is last duplicated node, cur.next may null
+                pre.next = cur.next;
+                cur = cur.next;
+            } else {
+                pre = cur;
+                cur = cur.next;
+            }
         }
-        // now cur is last duplicated node, cur.next may null
-        pre.next = cur.next;
-        cur = cur.next;
-      } else {
-        pre = cur;
-        cur = cur.next;
-      }
+        return first.next;
     }
-    return first.next;
-  }
 }

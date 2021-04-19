@@ -7,22 +7,22 @@ import java.util.Stack;
 
 public class SolutionF {
 
-  public List<Integer> postorder(Node root) {
-    List<Integer> list = new ArrayList<>();
-    if (root == null)
-      return list;
+    public List<Integer> postorder(Node root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null)
+            return list;
 
-    Stack<Node> stack = new Stack<>();
-    stack.push(root);
-    // LRD -> DRL reverse
-    while (!stack.isEmpty()) {
-      root = stack.pop();
-      list.add(root.val);
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        // LRD -> DRL reverse
+        while (!stack.isEmpty()) {
+            root = stack.pop();
+            list.add(root.val);
 
-      for (Node node : root.children)
-        stack.add(node);
+            for (Node node : root.children)
+                stack.add(node);
+        }
+        Collections.reverse(list);
+        return list;
     }
-    Collections.reverse(list);
-    return list;
-  }
 }

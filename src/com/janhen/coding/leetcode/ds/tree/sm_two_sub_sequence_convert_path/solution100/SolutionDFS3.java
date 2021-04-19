@@ -28,8 +28,8 @@ class SolutionDFS3 {
             if (node1.right != null && node2.right != null) { // complete
                 s1.push(node1.right);
                 s2.push(node2.right);
-            }
-            else if (node1.right == null && node2.right == null) {} // leaf          continue skip loop
+            } else if (node1.right == null && node2.right == null) {
+            } // leaf          continue skip loop
             else                    // broken
                 return false;
 
@@ -37,9 +37,8 @@ class SolutionDFS3 {
             if (node1.left != null && node2.left != null) {
                 s1.push(node1.left);
                 s2.push(node2.left);
-            }
-            else if (node1.left == null && node2.left == null) {}
-            else // number not match
+            } else if (node1.left == null && node2.left == null) {
+            } else // number not match
                 return false;
         }
         // same empty

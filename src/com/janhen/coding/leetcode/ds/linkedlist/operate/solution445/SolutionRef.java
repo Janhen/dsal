@@ -5,7 +5,8 @@ package com.janhen.coding.leetcode.ds.linkedlist.operate.solution445;
 // Medium  595:82
 
 /*
-You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes
+first and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
@@ -27,15 +28,14 @@ class SolutionRef {
         int len1 = length(l1);
         int len2 = length(l2);
         if (len1 < len2)
-            l1 = padList(l1, len2-len1);
+            l1 = padList(l1, len2 - len1);
         else
-            l2 = padList(l2, len1-len2);
+            l2 = padList(l2, len1 - len2);
 
         Pair pair = addListHelper(l1, l2);
         if (pair.carry == 0) {
             return pair.sum;
-        }
-        else {
+        } else {
             ListNode node = new ListNode(pair.carry);
             node.next = pair.sum;
             return node;
@@ -58,21 +58,9 @@ class SolutionRef {
         return new Pair(node, val / 10);
     }
 
-
-    // partial sum
-    public class Pair {
-        private ListNode sum;
-        private int carry;
-
-        Pair(ListNode sum, int carry) {
-            this.sum = sum;
-            this.carry = carry;
-        }
-    }
-
     private ListNode padList(ListNode head, int len) {
         ListNode cur = head;
-        while (len -- > 0) {
+        while (len-- > 0) {
             // first interpolation
             ListNode node = new ListNode(0);
             node.next = cur;
@@ -85,9 +73,20 @@ class SolutionRef {
         int len = 0;
         ListNode cur = head;
         while (cur != null) {
-            len ++;
+            len++;
             cur = cur.next;
         }
         return len;
+    }
+
+    // partial sum
+    public class Pair {
+        private final ListNode sum;
+        private final int carry;
+
+        Pair(ListNode sum, int carry) {
+            this.sum = sum;
+            this.carry = carry;
+        }
     }
 }
