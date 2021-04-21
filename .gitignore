@@ -33,7 +33,7 @@ hs_err_pid*
 
 /lib/
 /com/janhen/leetcode/solutions/leetcode/
-/src/com/janhen/design/lru/genericity/
+/src/com/janhen/structures/design/lru/genericity/
 /src/com/janhen/structures/bst/withParentNode/
 /src/com/janhen/structures/bst/orderTree/
 /src/com/janhen/structures/bst/baseV/
