@@ -2,8 +2,9 @@ package com.janhen.coding.swordoffer.a_good.problem56;
 
 public class Solution {
     public void FindNumsAppearOnce(int[] nums, int num1[], int num2[]) {
-        if (nums == null || nums.length < 2)
-            return ;
+        if (nums == null || nums.length < 2) {
+            return;
+        }
 
         int xorRes = 0;
         for (int num : nums)
@@ -11,7 +12,7 @@ public class Solution {
 
         int index = findIndexInIntFromLowToHist(xorRes);
         for (int num : nums) {
-            if (isBit1InIndex(num, index)){
+            if (isBit1InIndex(num, index)) {
                 num1[0] ^= num;
             } else {
                 num2[0] ^= num;
@@ -22,7 +23,7 @@ public class Solution {
     private int findIndexInIntFromLowToHist(int val) {
         int idx = 0;
         while ((val & 1) != 1) {
-            idx ++;
+            idx++;
             val = val >> 1;    // shift right
         }
         return idx;

@@ -1,7 +1,6 @@
 package com.janhen.coding.swordoffer.a_base.problem10_2;
 
 public class Solution {
-
     public int JumpFloor(int target) {
         if (target <= 2)
             return target;

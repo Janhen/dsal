@@ -8,7 +8,7 @@ public class SolutionMatrix {
         if (n == 1 || n == 2) {
             return 1;
         }
-        int[][] base = { { 1, 1 }, { 1, 0 } };
+        int[][] base = {{1, 1}, {1, 0}};
         int[][] res = matrixPower(base, n - 2);
         return res[0][0] + res[1][0];
     }

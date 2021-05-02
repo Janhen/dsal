@@ -6,23 +6,24 @@ import java.util.NoSuchElementException;
 
 public class MaxQueue {
 
-    Deque<Tuple> data = new LinkedList<>();
-    Deque<Tuple> qmax = new LinkedList<>();
-    int currentIndex = 0;
+    private Deque<Tuple> data = new LinkedList<>();
+    private Deque<Tuple> qmax = new LinkedList<>();
+    private int currentIndex = 0;
 
     public void enquue(int val) {
-        while (!qmax.isEmpty() && val >= qmax.peekLast().val)  {     // poll not meet
+        while (!qmax.isEmpty() && val >= qmax.peekLast().val) {     // poll not meet
             qmax.pollLast();
         }
 
-        Tuple tuple = new Tuple(val, currentIndex ++);
+        Tuple tuple = new Tuple(val, currentIndex++);
         data.offer(tuple);
         qmax.offerLast(tuple);
     }
 
     public int dequeue() {
-        if (data.isEmpty())
+        if (data.isEmpty()) {
             throw new NoSuchElementException();
+        }
 
         if (qmax.peekFirst().index == data.peekFirst().index)   // index as unique identify
             qmax.pollFirst();
@@ -31,11 +32,11 @@ public class MaxQueue {
     }
 
     public int max() {
-        if (data.isEmpty())
+        if (data.isEmpty()) {
             throw new NoSuchElementException();
+        }
         return qmax.peekFirst().val;
     }
-
 
     static class Tuple {
         int val;

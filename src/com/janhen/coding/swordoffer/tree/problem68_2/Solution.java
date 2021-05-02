@@ -12,5 +12,4 @@ public class Solution {
         return left == null ? right                      // left tree have not, must all in right tree
                 : right == null ? left : root;             // right tree have not all p,q;
     }
-
 }

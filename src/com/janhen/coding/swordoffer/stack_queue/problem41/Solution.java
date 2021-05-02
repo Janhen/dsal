@@ -5,31 +5,47 @@ import java.util.PriorityQueue;
 
 public class Solution {
 
-    PriorityQueue<Integer> leftSmall = new PriorityQueue<>((o1, o2) -> o2 - o1);
-    PriorityQueue<Integer> rightBig = new PriorityQueue<>();
-    int N;
+    private PriorityQueue<Integer> smallerHalf = new PriorityQueue<>((o1, o2) -> o2 - o1);
+    private PriorityQueue<Integer> largerHalf = new PriorityQueue<>();
+    private int N;
 
     public void Insert(Integer num) {
-        if (N % 2 == 0) {         // even, put rightBig AND ordered
-            leftSmall.offer(num);
-            rightBig.offer(leftSmall.poll());
-        } else {                 // odd, right N/2+1
-            rightBig.offer(num);
-            leftSmall.offer(rightBig.poll());
+        if (isEmpty()) {
+            largerHalf.offer(num);
+        } else {
+            if (num > GetMedian()) {
+                largerHalf.offer(num);
+            } else {
+                smallerHalf.offer(num);
+            }
         }
-        N ++;
+        rebalance();
+        N++;
+    }
+
+    private void rebalance() {
+        if (largerHalf.size() - smallerHalf.size() > 1) {
+            smallerHalf.offer(largerHalf.poll());
+        }
+        if (smallerHalf.size() - largerHalf.size() > 1) {
+            largerHalf.offer(smallerHalf.poll());
+        }
     }
 
     public Double GetMedian() {
         if (isEmpty())
-            throw new NoSuchElementException();
-        if (N % 2 == 0)
-            return (leftSmall.peek() + rightBig.peek()) / 2.0;    // int -> double, when have double to calculate
-        else
-            return (double) rightBig.peek();
+            throw new NoSuchElementException("MedianHeap is empty");
+        if (largerHalf.size() == smallerHalf.size()) {
+            return (smallerHalf.peek() + largerHalf.peek()) / 2.0;    // int -> double, when have double to calculate
+        }
+        else if (largerHalf.size() > smallerHalf.size()) {
+            return (double) largerHalf.peek();
+        } else {
+            return (double) smallerHalf.peek();
+        }
     }
 
     public boolean isEmpty() {
-        return leftSmall.isEmpty() && rightBig.isEmpty();
+        return N == 0;
     }
 }

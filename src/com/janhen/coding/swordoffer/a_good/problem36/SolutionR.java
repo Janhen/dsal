@@ -9,11 +9,14 @@ public class SolutionR {
         return head;
     }
 
+    // result linked dequeue head ...
     private TreeNode head;
     private TreeNode pre;
+
     public void inOrder(TreeNode node) {
-        if (node == null)
+        if (node == null) {
             return;
+        }
         inOrder(node.left);
         if (pre == null) {
             pre = node;

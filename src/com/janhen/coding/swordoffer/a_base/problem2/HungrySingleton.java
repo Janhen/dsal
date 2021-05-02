@@ -3,31 +3,28 @@ package com.janhen.coding.swordoffer.a_base.problem2;
 import java.io.Serializable;
 
 /**
- * 饿汉式单例
+ * 饿汉式单例： 类初始化的时候就创建好单例对象
  *
  * <pre>
  *   私有构造+反射防御
  *   序列化防御(重写readResolve)
  * </pre>
- *
- * @author Janhen
  */
-public class HungrySingleton implements Serializable,Cloneable{
+public class HungrySingleton implements Serializable, Cloneable {
+    private final static HungrySingleton instance = new HungrySingleton();
 
-    private final static HungrySingleton hungrySingleton = new HungrySingleton();
-
-    public static HungrySingleton getInstance(){
-        return hungrySingleton;
+    public static HungrySingleton getInstance() {
+        return instance;
     }
 
-    private HungrySingleton(){
-        if(hungrySingleton != null){
+    private HungrySingleton() {
+        if (instance != null) {
             throw new RuntimeException("单例构造器禁止反射调用");
         }
     }
 
-    private Object readResolve(){
-        return hungrySingleton;
+    private Object readResolve() {
+        return instance;
     }
 
     @Override

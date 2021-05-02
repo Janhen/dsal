@@ -2,12 +2,15 @@ package com.janhen.coding.swordoffer.a_good.problem12;
 
 public class Solution2 {
 
+    // define backtracking direction
     private final static int[][] next = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
     private int rows;
     private int cols;
 
     public boolean hasPath(char[] arr, int rows, int cols, char[] str) {
-        if (rows == 0 || cols == 0)  return false;
+        if (rows == 0 || cols == 0) {
+            return false;
+        }
         this.rows = rows;
         this.cols = cols;
         boolean[][] visited = new boolean[rows][cols];

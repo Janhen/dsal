@@ -6,20 +6,20 @@ import com.janhen.coding.swordoffer.structures.TreeLinkNode;
 
 public class Solution2 {
 
-    public TreeLinkNode GetNext(TreeLinkNode pNode) {
-        if (pNode.right != null) {
-            TreeLinkNode right = pNode.right;
+    public TreeLinkNode GetNext(TreeLinkNode node) {
+        if (node.right != null) {
+            TreeLinkNode right = node.right;
             while (right.left != null) {
                 right = right.left;
             }
             return right;
         } else {
-            while (pNode.next != null) {
-                TreeLinkNode parent = pNode.next;
-                if (parent.left == pNode) {
+            while (node.next != null) {
+                TreeLinkNode parent = node.next;
+                if (parent.left == node) {
                     return parent;
                 }
-                pNode = pNode.next;
+                node = node.next;
             }
         }
         return null;

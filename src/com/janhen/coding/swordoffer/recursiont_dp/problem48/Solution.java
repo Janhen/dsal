@@ -13,12 +13,12 @@ public class Solution {
         Arrays.fill(position, -1);
         for (int i = 0; i < str.length(); i ++) {
             int c = str.charAt(i) - 'a';
-            int preI = position[c];
-            if (preI == -1 || (i - preI) > curLen) {    // not occur OR not in cur sub array
+            int preIdx = position[c];
+            if (preIdx == -1 || (i - preIdx) > curLen) {    // not occur OR not in cur sub array
                 curLen = curLen + 1;
                 maxLen = Math.max(curLen, maxLen);
             } else {
-                curLen = i - preI;
+                curLen = i - preIdx;
                 maxLen = Math.max(curLen, maxLen);
             }
             position[c] = i;

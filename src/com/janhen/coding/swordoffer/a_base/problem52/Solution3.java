@@ -7,16 +7,17 @@ import java.util.Set;
 
 public class Solution3 {
     // 借助 Map 特性实现
-    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+    public ListNode FindFirstCommonNode(ListNode list1, ListNode list2) {
         Set<ListNode> record = new HashSet<>();
-        while (pHead1 != null) {
-            record.add(pHead1);
-            pHead1 = pHead1.next;
+        while (list1 != null) {
+            record.add(list1);
+            list1 = list1.next;
         }
-        while (pHead2 != null) {
-            if (record.contains(pHead2))
-                return pHead2;
-            pHead2 = pHead2.next;
+        while (list2 != null) {
+            if (record.contains(list2)) {
+                return list2;
+            }
+            list2 = list2.next;
         }
         return null;
     }

@@ -4,17 +4,17 @@ import java.util.Stack;
 
 public class Solution {
     public boolean IsPopOrder(int[] pushA,int[] popA) {
-        Stack<Integer> s = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         int i = 0, j = 0;
         int N = pushA.length;
         while (i < N) {
-            s.push(pushA[i]);
-            while (j < N && !s.isEmpty() && s.peek() == popA[j]){
-                s.pop();
+            stack.push(pushA[i]);
+            while (j < N && !stack.isEmpty() && stack.peek() == popA[j]){
+                stack.pop();
                 j ++;
             }
             i ++;
         }
-        return s.isEmpty();
+        return stack.isEmpty();
     }
 }

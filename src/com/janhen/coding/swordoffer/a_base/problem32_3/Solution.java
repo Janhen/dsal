@@ -8,12 +8,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution {
-    public ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {
+    public ArrayList<ArrayList<Integer>> Print(TreeNode root) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
-        if (pRoot == null)
+        if (root == null) {
             return res;
+        }
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(pRoot);
+        queue.offer(root);
         boolean needReverse = false;
         while (!queue.isEmpty()) {
             ArrayList<Integer> list = new ArrayList<>();
@@ -24,7 +25,9 @@ public class Solution {
                 if (cur.left != null) queue.offer(cur.left);
                 if (cur.right != null) queue.offer(cur.right);
             }
-            if (needReverse) Collections.reverse(list);
+            if (needReverse) {
+                Collections.reverse(list);
+            }
             res.add(list);
             needReverse = !needReverse;
         }

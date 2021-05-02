@@ -3,8 +3,9 @@ package com.janhen.coding.swordoffer.a_base.problem23;
 import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class Solution {
-    public ListNode EntryNodeOfLoop(ListNode pHead) {
-        ListNode fast = pHead, slow = pHead;
+    public ListNode EntryNodeOfLoop(ListNode head) {
+        // find merge position
+        ListNode fast = head, slow = head;
         while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
@@ -13,11 +14,11 @@ public class Solution {
                 break;
             }
         }
-        // have no cycle
+        // check have no cycle
         if (fast == null || fast.next == null) {
             return null;
         }
-        slow = pHead;
+        slow = head;
         while (slow != fast) {
             slow = slow.next;
             fast = fast.next;

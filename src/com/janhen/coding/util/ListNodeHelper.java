@@ -32,9 +32,6 @@ public class ListNodeHelper {
         return false;
     }
 
-    /**
-     * 链表长度
-     */
     public static int length(ListNode head) {
         ListNode cur = head;
         int cnt = 0;
@@ -45,9 +42,6 @@ public class ListNodeHelper {
         return cnt;
     }
 
-    /**
-     * 环形链表长度
-     */
     public static int lengthOfLoop(ListNode head) {
         if (head == null) {
             return 0;

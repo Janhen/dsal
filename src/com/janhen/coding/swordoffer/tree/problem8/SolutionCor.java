@@ -6,13 +6,15 @@ import com.janhen.coding.swordoffer.structures.TreeLinkNode;
  * TreeMap.predecessor
  */
 public class SolutionCor {
+    // 找前驱节点
     public TreeLinkNode predecessor(TreeLinkNode node) {
         if (node == null)
             return null;
         if (node.left != null) {
             TreeLinkNode cur = node.left;
-            while (cur.right != null)
+            while (cur.right != null) {
                 cur = cur.right;
+            }
             return cur;
         } else {
             TreeLinkNode parent = node.next;

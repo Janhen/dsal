@@ -5,19 +5,22 @@ import com.janhen.coding.swordoffer.structures.TreeNode;
 import java.util.Stack;
 
 public class Solution {
-    TreeNode KthNode(TreeNode pRoot, int k) {
-        if (pRoot == null || k < 0)
+    TreeNode KthNode(TreeNode root, int k) {
+        if (root == null || k < 0) {
             return null;
+        }
         int cnt = 0;             // record now is cnt th
-        Stack<TreeNode> s = new Stack<>();
-        TreeNode cur = pRoot;
-        while (cur != null || !s.isEmpty()) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
             while (cur != null) {
-                s.push(cur);
+                stack.push(cur);
                 cur = cur.left;
             }
-            cur = s.pop();
-            if (++ cnt == k) return cur;    // preposition ++ to handle ...
+            cur = stack.pop();
+            if (++ cnt == k) {
+                return cur;    // preposition ++ to handle ...
+            }
             cur = cur.right;
         }
         return null;

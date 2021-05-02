@@ -1,22 +1,29 @@
 package com.janhen.coding.swordoffer.a_base.problem5;
 
 public class Solution {
+    // 扩展原有的 StringBuffer，对其进行更改
+    // time:O(N) space:O(1)?
     public String replaceSpace(StringBuffer str) {
-        if (str == null)
+        if (str == null) {
             return null;
-        int orgIndex = str.length() - 1;
-        for (int i = 0; i < orgIndex + 1; i++)
-            if (str.charAt(i) == ' ')
+        }
+        // 遍历并增加标记
+        int oldLen = str.length();
+        for (int i = 0; i < oldLen; i++) {
+            if (str.charAt(i) == ' ') {
                 str.append("  ");
-        int repIndex = str.length() - 1;
-        for (int i = orgIndex, j = repIndex; i >= 0; i--) {
-            char c = str.charAt(i);
-            if (c == ' ') {
+            }
+        }
+        // 从后向前遍历，更改新建的数组元素值
+        int curLen = str.length();
+        for (int i = oldLen - 1, j = curLen - 1; i >= 0; i--) {
+            char ch = str.charAt(i);
+            if (ch == ' ') {
                 str.setCharAt(j--, '0');
                 str.setCharAt(j--, '2');
                 str.setCharAt(j--, '%');
             } else {
-                str.setCharAt(j--, c);
+                str.setCharAt(j--, ch);
             }
         }
         return str.toString();

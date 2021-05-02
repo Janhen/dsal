@@ -2,12 +2,11 @@ package com.janhen.coding.swordoffer.a_base.problem2;
 
 /**
  * 枚举单例
- *
- * @author Janhen
  */
 public enum EnumSingleton {
-    INSTANCE{
-        protected  void printTest(){
+    INSTANCE {
+        // 单例中的方法
+        protected void printTest() {
             System.out.println("Test");
         }
     };
@@ -24,8 +23,7 @@ public enum EnumSingleton {
         this.data = data;
     }
 
-    public static EnumSingleton getInstance(){
+    public static EnumSingleton getInstance() {
         return INSTANCE;
     }
-
 }

@@ -2,7 +2,9 @@ package com.janhen.coding.swordoffer.recursiont_dp.problem49;
 
 public class Solution {
     public int GetUglyNumber_Solution(int N) {
-        if (N <= 6) return N;
+        if (N <= 6) {
+            return N;
+        }
 
         int index2 = 0, index3 = 0, index5 = 0; // record * factor > pre
         int[] dp = new int[N];

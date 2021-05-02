@@ -6,7 +6,9 @@ import java.util.Arrays;
 
 public class Solution2 {
     public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
-        if (pre == null || pre.length == 0 || in == null || in.length == 0) return null;
+        if (pre == null || pre.length == 0 || in == null || in.length == 0) {
+            return null;
+        }
 
         int i = findRootIndexInInorder(in, pre[0]);
         TreeNode root = new TreeNode(pre[0]);

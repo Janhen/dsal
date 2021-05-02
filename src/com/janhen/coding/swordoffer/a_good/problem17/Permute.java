@@ -13,8 +13,9 @@ public class Permute {
     void backtracking(char[] nums, int start, ArrayList<ArrayList<Character>> res) {
         if (start == nums.length) {
             ArrayList<Character> list = new ArrayList<>();
-            for (char num : nums)
+            for (char num : nums) {
                 list.add(num);
+            }
             System.out.println(Arrays.toString(nums));
             return;
         }

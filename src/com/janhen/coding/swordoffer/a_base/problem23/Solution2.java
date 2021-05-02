@@ -4,6 +4,7 @@ import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class Solution2 {
 
+    // time: O(N), space: O(1)
     public ListNode EntryNodeOfLoop(ListNode head) {
         // step1: check whether or not have cycle
         ListNode slow = head, fast = head;
@@ -14,27 +15,37 @@ public class Solution2 {
                 break;
             }
         }
-        if (fast == null || fast.next == null)
+        if (fast == null || fast.next == null) {
             return null;
+        }
 
         // step2: calculate cycle node count
-        // note: at this time fast == slow, must from 1 to begin
-        int loopSize = 1;
-        fast = fast.next;
-        while (fast != slow) {
-            loopSize++;
-            fast = fast.next;
-        }
+        int loopSize = lengthOfLoop(fast);
 
         // step3: X = X+Y to find merge node
         fast = head;
         slow = head;
-        while (loopSize-- > 0)
+        while (loopSize-- > 0) {
             fast = fast.next;
+        }
         while (fast != slow) {
             fast = fast.next;
             slow = slow.next;
         }
         return fast;
+    }
+
+    public static int lengthOfLoop(ListNode head) {
+        if (head == null) {
+            return 0;
+        }
+        int loopSize = 1;
+        ListNode cur = head;
+        cur = cur.next;
+        while (cur != head) {
+            loopSize++;
+            cur = cur.next;
+        }
+        return loopSize;
     }
 }

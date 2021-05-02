@@ -4,7 +4,7 @@ import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class SolutionR {
 
-    public ListNode FindKthToTail(ListNode head,int k) {
+    public ListNode FindKthToTail(ListNode head, int k) {
         if (head == null || k <= 0)
             return null;
         return FindKthToTail(head, k, new IntWrapper());

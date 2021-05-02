@@ -8,11 +8,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class Main {
-
     /**
      * 基于 序列化 破坏单例
-     *
-     * @throws Exception
      */
     @Test 
     public  void testHungrySerialize() throws Exception {
@@ -27,6 +24,19 @@ public class Main {
         System.out.println(instance);
         System.out.println(newInstance);
         System.out.println(instance == newInstance);
+    }
+
+    @Test
+    public void testLazySingleton() throws Exception {
+        Constructor c = LazySingleton.class.getDeclaredConstructor();
+        c.setAccessible(true);
+        LazySingleton o2 = (LazySingleton) c.newInstance();
+
+        LazySingleton o1 = LazySingleton.getInstance();
+
+        System.out.println(o1);
+        System.out.println(o2);
+        System.out.println(o1 == o2);
     }
 
 

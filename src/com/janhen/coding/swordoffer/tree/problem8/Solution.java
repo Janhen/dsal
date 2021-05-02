@@ -7,18 +7,20 @@ import com.janhen.coding.swordoffer.structures.TreeLinkNode;
  */
 public class Solution {
     // LDR
-    public TreeLinkNode GetNext(TreeLinkNode pNode) {
-        if (pNode == null) return null;
+    public TreeLinkNode GetNext(TreeLinkNode node) {
+        if (node == null) {
+            return null;
+        }
 
-        if (pNode.right != null) {
-            TreeLinkNode cur = pNode.right;
+        if (node.right != null) {
+            TreeLinkNode cur = node.right;
             while (cur.left != null) {          // find leftmost(node.right)
                 cur = cur.left;
             }
             return cur;
-        }  else {                         // find cur is parent left, then return parent
-            TreeLinkNode parent = pNode.next;
-            TreeLinkNode cur = pNode;
+        } else {                                // find cur is parent left, then return parent
+            TreeLinkNode parent = node.next;
+            TreeLinkNode cur = node;
             while (parent != null && cur == parent.right) {
                 cur = parent;
                 parent = parent.next;

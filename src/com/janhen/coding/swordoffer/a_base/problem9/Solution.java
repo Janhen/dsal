@@ -4,7 +4,6 @@ import java.util.NoSuchElementException;
 import java.util.Stack;
 
 public class Solution {
-
     private Stack<Integer> in  = new Stack<>();
     private Stack<Integer> out = new Stack<>();
 
@@ -13,16 +12,18 @@ public class Solution {
     }
 
     public int pop() {
-        if (isEmpty())
+        if (isEmpty()) {
             throw new NoSuchElementException();
-        in2out();
+        }
+        rebalance();
         return out.pop();
     }
 
     public int peek() {
-        if (isEmpty())
+        if (isEmpty()) {
             throw new NoSuchElementException();
-        in2out();
+        }
+        rebalance();
         return out.peek();
     }
 
@@ -30,11 +31,12 @@ public class Solution {
         return in.isEmpty() && out.isEmpty();
     }
 
-    private void in2out() {
-        // modify necessarily
+    // in to out make out.peek as queue first element
+    private void rebalance() {
         if (out.isEmpty()) {
-            while (!in.isEmpty())
+            while (!in.isEmpty()) {
                 out.push(in.pop());
+            }
         }
     }
 }

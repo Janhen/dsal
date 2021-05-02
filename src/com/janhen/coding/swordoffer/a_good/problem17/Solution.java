@@ -1,7 +1,6 @@
 package com.janhen.coding.swordoffer.a_good.problem17;
 
 public class Solution {
-
     //对于大数，int|long 类型存在溢出问题，需要使用String类型来存放n位数，或者使用int[]数组
     // int[] 仿全排列
     public void print1ToMaxOfNDigits(int n) {

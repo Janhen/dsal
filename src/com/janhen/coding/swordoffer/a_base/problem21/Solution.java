@@ -1,21 +1,24 @@
 package com.janhen.coding.swordoffer.a_base.problem21;
 
 public class Solution {
-
-    public void reOrderArray(int [] array) {
+    // 获取出奇数元素的个数，在新的数组中标记奇数和偶数开始的索引
+    // time: O(N), space: O(N)
+    public void reOrderArray(int[] arr) {
         int oddCnt = 0;
-        for (int num : array){
+        for (int num : arr) {
             if (num % 2 == 1) {
-                oddCnt ++;
+                oddCnt++;
             }
         }
+
+        // tag odd, even index to assign element
         int oddIdx = 0, evenIdx = oddCnt;
-        int[] aux = array.clone();
+        int[] aux = arr.clone();
         for (int num : aux) {
             if (num % 2 == 1) {
-                array[oddIdx ++] = num;
+                arr[oddIdx++] = num;
             } else {
-                array[evenIdx ++] = num;
+                arr[evenIdx++] = num;
             }
         }
     }

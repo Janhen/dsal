@@ -15,7 +15,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Solution2 {
-
     private Map<Character, Integer> freqs = new LinkedHashMap<>();
 
     // O(1)
@@ -26,8 +25,9 @@ public class Solution2 {
     // O(n)
     public char FirstAppearingOnce() {
         for (Map.Entry<Character, Integer> entry : freqs.entrySet()) {
-            if (entry.getValue() == 1)
+            if (entry.getValue() == 1) {
                 return entry.getKey();
+            }
         }
         return '#';
     }

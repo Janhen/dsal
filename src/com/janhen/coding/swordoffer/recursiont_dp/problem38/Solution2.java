@@ -12,7 +12,7 @@ package com.janhen.coding.swordoffer.recursiont_dp.problem38;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/*
+/**
  * 按照字典序排列的话，输出顺序为 123 132  213 231 312 321 ，
  * 也就是说，当前数的下一个数必须比它大，并且和它距离最短，这就是字典序排列。
  *

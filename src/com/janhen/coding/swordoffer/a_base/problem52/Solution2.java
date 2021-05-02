@@ -4,29 +4,33 @@ import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class Solution2 {
     // Same length, From left to Right visit
-    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
-        int len1 = length(pHead1);
-        int len2 = length(pHead2);
-        int diff = Math.abs(len1-len2);
+    public ListNode FindFirstCommonNode(ListNode list1, ListNode list2) {
+        int len1 = length(list1);
+        int len2 = length(list2);
+        int diff = Math.abs(len1 - len2);
+        // fast run diff step
         if (len1 > len2) {
-            while (diff -- > 0)
-                pHead1 = pHead1.next;
+            while (diff-- > 0) {
+                list1 = list1.next;
+            }
         } else {
-            while (diff -- > 0)
-                pHead2 = pHead2.next;
+            while (diff-- > 0) {
+                list2 = list2.next;
+            }
         }
-        while (pHead1 != pHead2) {
-            pHead1 = pHead1.next;
-            pHead2 = pHead2.next;
+        // sync to traverse ...
+        while (list1 != list2) {
+            list1 = list1.next;
+            list2 = list2.next;
         }
-        return pHead1;
+        return list1;
     }
 
     private int length(ListNode head) {
         int len = 0;
         ListNode cur = head;
         while (cur != null) {
-            len ++;
+            len++;
             cur = cur.next;
         }
         return len;

@@ -3,19 +3,25 @@ package com.janhen.coding.swordoffer.a_base.problem3_2;
 import java.util.stream.IntStream;
 
 public class Solution {
-    public int getDulplication(int[] nums) {
+    // 二分查找实现
+    public int findDuplicate(int[] nums) {
         int lo = 0, hi = nums.length - 1;
         while (lo <= hi) {
-            int mid = (hi - lo) / 2 + lo;
-            int count = countOfRange(nums, lo, mid);
+            int mid = lo + (hi - lo) / 2;
+            int leftCount = countOfRange(nums, lo, mid);
             if (lo == hi) {
-                if (count > 1) return lo;
-                else break;
+                if (leftCount > 1) {
+                    return lo;
+                } else {
+                    break;
+                }
             }
-            if (count > (mid - lo + 1))
+            // 左边范围的元素过多，在左边进行查找
+            if (leftCount > (mid - lo + 1)) {
                 hi = mid;
-            else
+            } else {
                 lo = mid + 1;
+            }
         }
         return -1;
     }

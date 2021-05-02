@@ -3,12 +3,14 @@ package com.janhen.coding.swordoffer.a_base.problem39;
 import java.util.stream.IntStream;
 
 public class Solution {
-    public int MoreThanHalfNum_Solution(int [] array) {
+    public int MoreThanHalfNum_Solution(int[] array) {
         int candidate = array[0];
         int count = 1;
         for (int num : array) {
-            if (count == 0)
+            if (count == 0) {
+                // change candidate
                 candidate = num;
+            }
             count = num == candidate ? count + 1 : count - 1;
         }
         count = countOfEqual(array, candidate);

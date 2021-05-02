@@ -3,7 +3,6 @@ package com.janhen.coding.swordoffer.a_base.problem25;
 import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class SolutionR {
-
     public ListNode Merge(ListNode list1, ListNode list2) {
         if (list1 == null) {
             return list2;

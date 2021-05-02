@@ -2,8 +2,7 @@ package com.janhen.coding.swordoffer.other.problem20;
 
 // 20 表示数值的字符串
 
-
-/*
+/**
  * 表示数值的字符串遵循模式A[.[B]][e|EC]或者.B[e|EC]，
  *
  * 其中A为数值的整数部分，B紧跟小数点为数值的小数部分，

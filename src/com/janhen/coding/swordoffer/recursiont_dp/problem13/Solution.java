@@ -18,9 +18,9 @@ public class Solution {
         visited[row][col] = true;
         int count = 0;
         count = 1 + dfs(threshold, row, col - 1, rows, cols, visited, digitSum)
-                + dfs(threshold, row, col + 1, rows, cols, visited, digitSum)
-                + dfs(threshold, row - 1, col, rows, cols, visited, digitSum)
-                + dfs(threshold, row + 1, col, rows, cols, visited, digitSum);
+          + dfs(threshold, row, col + 1, rows, cols, visited, digitSum)
+          + dfs(threshold, row - 1, col, rows, cols, visited, digitSum)
+          + dfs(threshold, row + 1, col, rows, cols, visited, digitSum);
         return count;
     }
 
@@ -33,7 +33,7 @@ public class Solution {
     // use table to save calculated value
     private int[][] geneDigitSum(int rows, int cols) {
         int[] help = new int[Math.max(rows, cols)];
-        for (int i = 0; i < help.length; i ++) {
+        for (int i = 0; i < help.length; i++) {
             int num = i;
             while (num > 0) {
                 help[i] += num % 10;
@@ -41,8 +41,8 @@ public class Solution {
             }
         }
         int[][] digitSum = new int[rows][cols];
-        for (int i = 0; i < rows; i ++) {
-            for (int j = 0; j < cols; j ++) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 digitSum[i][j] = help[i] + help[j];
             }
         }

@@ -9,9 +9,9 @@ public class Solution {
             if (cur == chs.length || chs[cur] == ' ') {
                 reverse(chs, begin, cur - 1);
                 begin = cur + 1;
-                cur ++;
+                cur++;
             } else {
-                cur ++;
+                cur++;
             }
         }
         reverse(chs, 0, chs.length - 1);
@@ -19,8 +19,9 @@ public class Solution {
     }
 
     private void reverse(char[] chs, int i, int j) {
-        while (i < j)
-            swap(chs, i ++, j --);
+        while (i < j) {
+            swap(chs, i++, j--);
+        }
     }
 
     private void swap(char[] chs, int i, int j) {

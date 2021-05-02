@@ -29,7 +29,7 @@ public class Solution {
     }
 
     private boolean canSwap(char[] chars, int start, int end) {
-        for (int i = start; i < end; i ++)
+        for (int i = start; i < end; i++)
             if (chars[end] == chars[i])
                 return false;
         return true;

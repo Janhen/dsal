@@ -7,18 +7,22 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution2 {
-
+    // tree level traverse
     public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();
-        if (root == null)
+        if (root == null) {
             return res;
-        Queue<TreeNode> q = new LinkedList<>();
-        q.offer(root);
-        while (!q.isEmpty()) {
-            TreeNode cur = q.poll();
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.poll();
+            if (cur == null) {
+                continue;
+            }
             res.add(cur.val);
-            if (cur.left != null) q.offer(cur.left);
-            if (cur.right != null) q.offer(cur.right);
+            queue.offer(cur.left);
+            queue.offer(cur.right);
         }
         return res;
     }

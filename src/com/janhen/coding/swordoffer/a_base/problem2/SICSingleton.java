@@ -7,20 +7,18 @@ package com.janhen.coding.swordoffer.a_base.problem2;
  *   JDK5- 版本也可以保证线程安全
  *   JVM 对类的初始化锁控制
  * </pre>
- *
- * @author Janhen
  */
 public class SICSingleton {
     private static class InnerClass{
-        private static SICSingleton SICSingleton = new SICSingleton();
+        private static SICSingleton instance = new SICSingleton();
     }
 
     public static SICSingleton getInstance(){
-        return InnerClass.SICSingleton;
+        return InnerClass.instance;
     }
 
     private SICSingleton(){
-        if(InnerClass.SICSingleton != null){
+        if(InnerClass.instance != null){
             throw new RuntimeException("单例构造器禁止反射调用");
         }
     }
