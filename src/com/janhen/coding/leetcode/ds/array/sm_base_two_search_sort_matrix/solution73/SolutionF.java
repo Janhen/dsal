@@ -9,7 +9,6 @@ class SolutionF {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (matrix[i][j] == 0) {
-
                     if (i == 0) rowAffect = true;
                     if (j == 0) colAffect = true;
                     matrix[i][0] = 0;

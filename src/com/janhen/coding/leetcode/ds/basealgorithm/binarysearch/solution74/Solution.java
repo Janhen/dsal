@@ -6,14 +6,14 @@ class Solution {
 
         int m = matrix.length, n = matrix[0].length;
         // search from the top right corner
-        int r = 0, c = n - 1;
-        while (r < m && c >= 0) {
-            if (matrix[r][c] == target)
+        int row = 0, cow = n - 1;
+        while (row < m && cow >= 0) {
+            if (matrix[row][cow] == target)
                 return true;
-            else if (matrix[r][c] < target)
-                r++;
+            else if (matrix[row][cow] < target)
+                row++;
             else
-                c--;
+                cow--;
         }
         return false;
     }
