@@ -3,7 +3,9 @@ package com.janhen.coding.swordoffer.a_good.problem35;
 import com.janhen.coding.swordoffer.structures.RandomListNode;
 
 public class Solution2 {
-
+    // step1. insert redundancy node
+    // step2. copy random pointer
+    // step3. split the redundancy node
     public RandomListNode Clone(RandomListNode head) {
         if (head == null) return null;
         RandomListNode cur = head;

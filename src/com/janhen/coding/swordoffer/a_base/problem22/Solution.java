@@ -10,7 +10,7 @@ public class Solution {
         while (fast != null && k-- > 0) {
             fast = fast.next;
         }
-        // check k
+        // check k not exceed list node length
         if (k > 0) {
             return null;
         }

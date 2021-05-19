@@ -4,8 +4,9 @@ import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 
 public class Solution {
-
+    // keep small than median
     private PriorityQueue<Integer> smallerHalf = new PriorityQueue<>((o1, o2) -> o2 - o1);
+    // keep larger than median
     private PriorityQueue<Integer> largerHalf = new PriorityQueue<>();
     private int N;
 
@@ -19,6 +20,7 @@ public class Solution {
                 smallerHalf.offer(num);
             }
         }
+        // maintain larger, smaller size
         rebalance();
         N++;
     }

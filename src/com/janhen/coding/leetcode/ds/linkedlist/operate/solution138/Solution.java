@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class Solution {
     public Node copyRandomList(Node head) {
-        // node -> copy node
+        // record node -> copy node
         Map<Node, Node> map = new HashMap<>();
 
-        // 2. iterate, copy, link, store origin node -> copy node
+        // 1. iterate, copy, link, store origin node -> copy node
         Node cur1 = head;             // use for iteration original list
         Node cur2 = new Node(-1); // use for link copy node
         while (cur1 != null) {

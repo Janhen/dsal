@@ -5,6 +5,7 @@ import com.janhen.coding.swordoffer.structures.TreeNode;
 import java.util.Stack;
 
 public class Solution {
+    // 中序便利，modify link
     // LDR, need right to traverse THEN right as next pointer, left as prev pointer
     public TreeNode Convert(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
@@ -20,6 +21,7 @@ public class Solution {
             // logic handle
             if (pre == null) {
                 pre = cur;
+                // root as dequeue head and make head previous to null
                 root = cur;
                 root.left = null;   // as head
             } else {

@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 
+// pop(), top() 时保持
 public class MyStack {
     private Queue<Integer> data = new LinkedList<>();
     private Queue<Integer> help = new LinkedList<>();

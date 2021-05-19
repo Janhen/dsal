@@ -3,7 +3,7 @@ package com.janhen.coding.swordoffer.a_base.problem22;
 import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class SolutionR {
-
+    // IntWrapper 处理引用更新问题
     public ListNode FindKthToTail(ListNode head, int k) {
         if (head == null || k <= 0)
             return null;

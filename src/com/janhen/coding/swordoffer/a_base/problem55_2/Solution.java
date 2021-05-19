@@ -20,6 +20,7 @@ public class Solution {
         if (Math.abs(right - left) > 1) {
             isBalanced = false;   // judge balanced
         }
+        // get height
         return 1 + Math.max(left, right);
     }
 }

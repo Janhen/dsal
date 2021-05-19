@@ -3,6 +3,7 @@ package com.janhen.coding.swordoffer.a_base.problem50;
 import java.util.BitSet;
 
 public class Solution2 {
+    // 优化空间使用
     // 记录三种状态
     // 0 0 未出现过
     // 1 0 出现过一次
@@ -17,6 +18,7 @@ public class Solution2 {
                 bs2.set(c);     // 1 0 -> 1 1
             }
         }
+        // like ...
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
             // 1 0

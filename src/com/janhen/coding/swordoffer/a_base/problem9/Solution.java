@@ -3,6 +3,7 @@ package com.janhen.coding.swordoffer.a_base.problem9;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 
+// peek, pop 时，将 in 中的所有元素放入到 out, 保证 out.peek() / out.pop() 为队首元素
 public class Solution {
     private Stack<Integer> in  = new Stack<>();
     private Stack<Integer> out = new Stack<>();

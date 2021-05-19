@@ -14,9 +14,11 @@ public class Solution {
         while (R < sum) {
             if (winSum < sum) {
                 winSum += R + 1;
+                // expand window to find element
                 R ++;
             } else if (winSum > sum) {
                 winSum -= L;
+                // narrow window to find element
                 L ++;
             } else {
                 res.add(geneList(L, R));

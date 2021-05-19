@@ -1,6 +1,7 @@
 package com.janhen.coding.swordoffer.a_base.problem10;
 
 public class Solution1 {
+    // f(n) = f(n-1) + f(n-2)
     public int fib(int n) {
         if (n == 0)
             return 0;

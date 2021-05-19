@@ -15,7 +15,8 @@ class Solution {
         if (head.next == null) {
             return new TreeNode(head.val);
         }
-        // 1. find previous middle node and
+
+        // 1. find previous middle node and split
         // cut ⇒ two list
         ListNode preMid = preMidNode(head);           // not need precise odd OR even count
         ListNode mid = preMid.next;

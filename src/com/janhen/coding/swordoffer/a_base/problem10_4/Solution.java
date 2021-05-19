@@ -3,7 +3,9 @@ package com.janhen.coding.swordoffer.a_base.problem10_4;
 public class Solution {
 
     public int RectCover(int target) {
-        if (target <= 2) return target;
+        if (target <= 2) {
+            return target;
+        }
         int pre1 = 2, pre2 = 1;
         int res = 0;
         for (int i = 3; i <= target; i++) {     // i == 3; i <= target        ==      i = 2; i <= target

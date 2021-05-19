@@ -2,6 +2,7 @@ package com.janhen.coding.swordoffer.a_base.problem15_2;
 
 public class Solution {
 
+    // 数学性质
     public static boolean isPower2(int n) {
         return (n & (n-1)) == 0;
     }

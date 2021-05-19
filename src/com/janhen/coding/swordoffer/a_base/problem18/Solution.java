@@ -3,6 +3,7 @@ package com.janhen.coding.swordoffer.a_base.problem18;
 import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class Solution {
+    // 删除节点为 {head, tail, middle node}
     public ListNode deleteNode(ListNode head, ListNode tobeDelete) {
         if (head == null || tobeDelete == null) {
             return null;

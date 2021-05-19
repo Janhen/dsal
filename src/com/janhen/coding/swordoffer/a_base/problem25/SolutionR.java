@@ -11,9 +11,11 @@ public class SolutionR {
             return list1;
         }
         if (list1.val < list2.val) {
+            // select list1
             list1.next = Merge(list1.next, list2);
             return list1;
         } else {
+            // select list2
             list2.next = Merge(list1, list2.next);
             return list2;
         }

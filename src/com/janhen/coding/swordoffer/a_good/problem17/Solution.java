@@ -4,7 +4,9 @@ public class Solution {
     //对于大数，int|long 类型存在溢出问题，需要使用String类型来存放n位数，或者使用int[]数组
     // int[] 仿全排列
     public void print1ToMaxOfNDigits(int n) {
-        if (n < 1) throw new RuntimeException();
+        if (n < 1) {
+            throw new IllegalArgumentException();
+        }
         int[] nums = new int[n];
         int digit = 0;
         print1ToMaxOfNDigits(nums, digit);

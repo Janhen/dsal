@@ -111,8 +111,6 @@ public class TreeNodeHelper {
         if (cur == null) {
             return;
         }
-        System.out.print("PRE  : ");
-
         Stack<TreeNode> stack = new Stack<>();
         stack.push(cur);
         while (!stack.isEmpty()) {
@@ -133,7 +131,6 @@ public class TreeNodeHelper {
         if (cur == null) {
             return;
         }
-        System.out.print("IN   : ");
 
         Stack<TreeNode> stack = new Stack<>();
         while (!stack.isEmpty() || cur != null) {
@@ -158,11 +155,12 @@ public class TreeNodeHelper {
         }
         System.out.print("POST : ");
 
+        // DRL to push treeNode
         Stack<TreeNode> stack1 = new Stack<>();
+        // record reversed post order value
         Stack<Integer> stack2 = new Stack<>();
         stack1.push(cur);
         while (!stack1.isEmpty()) {
-            // DRL
             cur = stack1.pop();
             stack2.push(cur.val);
 

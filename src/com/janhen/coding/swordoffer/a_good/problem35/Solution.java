@@ -8,8 +8,9 @@ import java.util.Map;
 public class Solution {
     public RandomListNode Clone(RandomListNode head) {
         Map<RandomListNode, RandomListNode> map = new HashMap<>();
-        RandomListNode cur1 = head;                 // use for
+        RandomListNode cur1 = head;                          // use for
         RandomListNode cur2 = new RandomListNode(-1);   // make the line connect AND as pre
+        // 1. clone, record original -> new node, link to list
         while (cur1 != null) {
             RandomListNode copy = new RandomListNode(cur1.label);            // ⇔ insertAfter(cur, copy)
             map.put(cur1, copy);
@@ -17,6 +18,7 @@ public class Solution {
             cur2 = copy;
             cur1 = cur1.next;
         }
+        // 2. link random node
         for (Map.Entry<RandomListNode, RandomListNode> entry : map.entrySet()) {
             entry.getValue().random = map.get(entry.getKey().random);
         }

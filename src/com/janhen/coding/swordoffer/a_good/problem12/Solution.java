@@ -5,6 +5,7 @@ public class Solution {
     public boolean hasPath(char[] matrix, int rows, int cols, char[] str) {
         // convert one-dimensional array to two-dimensional array to handle
         char[][] M = buildMatrix(matrix, rows, cols);
+        //
         boolean[][] visited = new boolean[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {

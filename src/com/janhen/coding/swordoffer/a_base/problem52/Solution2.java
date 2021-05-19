@@ -4,11 +4,12 @@ import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class Solution2 {
     // Same length, From left to Right visit
+    // time: O(N), space: O(1)
     public ListNode FindFirstCommonNode(ListNode list1, ListNode list2) {
         int len1 = length(list1);
         int len2 = length(list2);
         int diff = Math.abs(len1 - len2);
-        // fast run diff step
+        // 1. fast run diff step
         if (len1 > len2) {
             while (diff-- > 0) {
                 list1 = list1.next;
@@ -18,7 +19,7 @@ public class Solution2 {
                 list2 = list2.next;
             }
         }
-        // sync to traverse ...
+        // 2. sync to traverse ...
         while (list1 != list2) {
             list1 = list1.next;
             list2 = list2.next;

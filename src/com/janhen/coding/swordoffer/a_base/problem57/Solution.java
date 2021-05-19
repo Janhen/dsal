@@ -15,8 +15,10 @@ public class Solution {
             if (curSum == sum) {
                 return new ArrayList<>(Arrays.asList(array[i], array[j]));
             } else if (curSum < sum) {
+                // sorted so find bigger direction
                 i++;
             } else {
+                // find in smaller direction
                 j--;
             }
         }

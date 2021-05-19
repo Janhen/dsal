@@ -1,31 +1,13 @@
 package com.janhen.coding.swordoffer.a_base.problem58_2;
 
 public class Solution {
-
-    // x+y   ==>> y + x
-    //^(^x + ^y) = y + x
+    // 先构造 xyxy, 之后从 xyxy 中截取,  [n, n+str.length)
     public String LeftRotateString(String str, int n) {
         if (str.length() == 0) {
-            return "";
+            return str;
         }
-
-        char[] chs = str.toCharArray();
         n = n % str.length();
-        reverse(chs, 0, n - 1);
-        reverse(chs, n, chs.length - 1);
-        reverse(chs, 0, chs.length - 1);
-        return new String(chs);
-    }
-
-    private void reverse(char[] c, int i, int j) {
-        while (i < j) {
-            swap(c, i++, j--);
-        }
-    }
-
-    private void swap(char[] c, int i, int j) {
-        char t = c[i];
-        c[i] = c[j];
-        c[j] = t;
+        String dou = str + str;
+        return dou.substring(n, n + str.length());
     }
 }

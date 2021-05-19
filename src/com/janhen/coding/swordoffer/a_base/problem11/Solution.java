@@ -1,6 +1,8 @@
 package com.janhen.coding.swordoffer.a_base.problem11;
 
 public class Solution {
+    // 二分查找
+    // time:O(logN), space:O(1)
     public int minNumberInRotateArray(int[] arr) {
         if (arr == null || arr.length == 0) {
             return 0;

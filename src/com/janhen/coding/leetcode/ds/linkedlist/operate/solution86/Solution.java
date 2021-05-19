@@ -22,6 +22,7 @@ class Solution {
             }
             head = head.next;
         }
+        // 3. link two list
         cur2.next = null;
         cur1.next = first2.next;
         return first1.next;

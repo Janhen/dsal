@@ -1,13 +1,14 @@
 package com.janhen.coding.leetcode.ds.hashtable.practice.solution594;
 
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 class Solution {
     public int findLHS(int[] nums) {
-        Map<Integer, Integer> freqs = new HashMap<>();
-        for (int num : nums)
-            freqs.put(num, freqs.getOrDefault(num, 0) + 1);
+        final Map<Integer, Integer> freqs = Arrays.stream(nums).boxed().collect(Collectors.toMap(Function.identity(),
+          val -> 1, Integer::sum));
 
         int longest = 0;
         for (Integer num : freqs.keySet()) {

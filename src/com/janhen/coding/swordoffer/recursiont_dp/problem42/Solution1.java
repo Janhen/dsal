@@ -1,6 +1,8 @@
 package com.janhen.coding.swordoffer.recursiont_dp.problem42;
 
 public class Solution1 {
+    // 维护每个 ...
+    // time： O(N), space: O(N)
     public int FindGreatestSumOfSubArray(int[] arr) {
         if (arr == null || arr.length == 0)
             return 0;

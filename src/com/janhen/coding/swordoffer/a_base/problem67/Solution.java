@@ -1,7 +1,10 @@
 package com.janhen.coding.swordoffer.a_base.problem67;
 
 public class Solution {
-
+    // num * 10 + curNum
+    // - 负数
+    // - error char fast skip
+    // - note iterate first element
     public int StrToInt(String str) {
         if (str.length() == 0) {
             return 0;

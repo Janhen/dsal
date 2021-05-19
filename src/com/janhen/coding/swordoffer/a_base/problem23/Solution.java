@@ -3,26 +3,48 @@ package com.janhen.coding.swordoffer.a_base.problem23;
 import com.janhen.coding.swordoffer.structures.ListNode;
 
 public class Solution {
+    // time: O(N), space: O(1)
     public ListNode EntryNodeOfLoop(ListNode head) {
-        // find merge position
-        ListNode fast = head, slow = head;
+        // step1: check whether or not have cycle
+        ListNode slow = head, fast = head;
         while (fast != null && fast.next != null) {
-            fast = fast.next.next;
             slow = slow.next;
-            // have cycle
+            fast = fast.next.next;
             if (slow == fast) {
                 break;
             }
         }
-        // check have no cycle
         if (fast == null || fast.next == null) {
             return null;
         }
+
+        // step2: calculate cycle node count
+        int loopSize = lengthOfLoop(fast);
+
+        // step3: X = X+Y to find merge node, fast and slow point...
+        fast = head;
         slow = head;
-        while (slow != fast) {
-            slow = slow.next;
+        while (loopSize-- > 0) {
             fast = fast.next;
         }
-        return slow;
+        while (fast != slow) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return fast;
+    }
+
+    public static int lengthOfLoop(ListNode head) {
+        if (head == null) {
+            return 0;
+        }
+        int loopSize = 1;
+        ListNode cur = head;
+        cur = cur.next;
+        while (cur != head) {
+            loopSize++;
+            cur = cur.next;
+        }
+        return loopSize;
     }
 }

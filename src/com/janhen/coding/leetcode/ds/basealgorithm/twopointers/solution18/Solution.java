@@ -1,31 +1,5 @@
 package com.janhen.coding.leetcode.ds.basealgorithm.twopointers.solution18;
 
-// 18. 4Sum
-// https://leetcode.com/problems/4sum/
-// Medium
-// array, hash table, two pointers
-
-/*
-数组中四数和为给定数的所有不同的组
-Given an array nums of n integers and an integer target,
-are there elements a, b, c, and d in nums such that a + b + c + d = target?
-Find all unique quadruplets in the array which gives the sum of target.
-
-Note:
-
-The solution15 set must 【not contain duplicate quadruplets】.
-
-Example:
-
-Given array nums = [1, 0, -1, 0, -2, 2], and target = 0.
-
-A solution15 set is:
-[
-  [-1,  0, 0, 1],
-  [-2, -1, 1, 2],
-  [-2,  0, 0, 2]
-]
- */
 
 import java.util.ArrayList;
 import java.util.Arrays;

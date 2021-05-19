@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Solution {
+    //  nums[i]      x
+    //    i         x-1
+    // x=nums[i]
+    // nums[x-1]=x   =>   nums[nums[i] - 1] = nums[i]
     public List<Integer> findDuplicates(int[] nums) {
         List<Integer> res = new ArrayList<>();
         // 1. put element in should position
@@ -14,10 +18,11 @@ class Solution {
             }
         }
         // 2. find all not should position
-        for (int i = 0; i < nums.length; i++)
-            // not in element where it should be
-            if (nums[i] != i + 1)
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != i + 1) {
                 res.add(nums[i]);
+            }
+        }
         return res;
     }
 

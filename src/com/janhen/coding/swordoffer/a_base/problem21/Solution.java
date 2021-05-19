@@ -4,6 +4,7 @@ public class Solution {
     // 获取出奇数元素的个数，在新的数组中标记奇数和偶数开始的索引
     // time: O(N), space: O(N)
     public void reOrderArray(int[] arr) {
+        // get odd count
         int oddCnt = 0;
         for (int num : arr) {
             if (num % 2 == 1) {
