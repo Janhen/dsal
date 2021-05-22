@@ -1,43 +1,32 @@
 package com.janhen.coding.swordoffer.a_base.problem30;
 
-import java.util.NoSuchElementException;
 import java.util.Stack;
 
-// min stack count = data count, continue to push current min
 public class Solution {
     private Stack<Integer> data = new Stack<>();
+    // keep current element min val
     private Stack<Integer> min = new Stack<>();
 
-    public void push(int node) {
-        if (min.isEmpty()) {
-            min.push(node);
-        } else if (node <= min.peek()) {
-            min.push(node);
+    public void push(int val) {
+        // synchronization push
+        if (min.isEmpty() || min.peek() > val) {
+            min.push(val);
+        } else {
+            min.push(min.peek());
         }
-        data.push(node);
+        data.push(val);
     }
 
     public void pop() {
-        if (data.isEmpty()) {
-            throw new NoSuchElementException();
-        }
-        int oldTop = data.pop();
-        if (oldTop == min.peek()) {
-            min.pop();
-        }
+        min.pop();
+        data.pop();
     }
 
     public int top() {
-        if (data.isEmpty()) {
-            throw new NoSuchElementException();
-        }
         return data.peek();
     }
 
     public int min() {
-        if (data.isEmpty()) {
-            throw new NoSuchElementException();
-        }
         return min.peek();
     }
 }

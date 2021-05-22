@@ -2,28 +2,28 @@ package com.janhen.coding.swordoffer.recursiont_dp.problem48;
 
 // 48. 最长不含重复字符的子字符串
 
-import java.util.Arrays;
-
 public class Solution {
-
-    public int longestSubStringWithoutDuplication(String str) {
-        int curLen = 0;
+    // 滑动窗口计算, 构造一个窗口，窗口里面的元素都是不重复的
+    public int lengthOfLongestSubstring(String s) {
+        // record sliding window freq
+        int[] freqs = new int[256];
+        int L = 0;
+        int R = -1;
+        // default is 0 for ""
         int maxLen = 0;
-        int[] position = new int[26];           // record last occur position, override to implement
-        Arrays.fill(position, -1);
-        for (int i = 0; i < str.length(); i ++) {
-            int c = str.charAt(i) - 'a';
-            int preIdx = position[c];
-            if (preIdx == -1 || (i - preIdx) > curLen) {    // not occur OR not in cur sub array
-                curLen = curLen + 1;
-                maxLen = Math.max(curLen, maxLen);
+        while (L < s.length()) {
+            // window edge
+            if (R + 1 < s.length() && freqs[s.charAt(R + 1)] == 0) {
+                char rCh = s.charAt(R + 1);
+                freqs[rCh]++;
+                R++;// in window
             } else {
-                curLen = i - preIdx;
-                maxLen = Math.max(curLen, maxLen);
+                char lCh = s.charAt(L);
+                freqs[lCh]--;
+                L++;
             }
-            position[c] = i;
+            maxLen = Math.max(maxLen, R - L + 1);
         }
-        maxLen = Math.max(maxLen, curLen);
         return maxLen;
     }
 }

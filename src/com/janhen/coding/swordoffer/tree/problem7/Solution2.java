@@ -12,6 +12,7 @@ public class Solution2 {
 
         int i = findRootIndexInInorder(in, pre[0]);
         TreeNode root = new TreeNode(pre[0]);
+        // split left tree
         root.left = reConstructBinaryTree(Arrays.copyOfRange(pre, 1, i + 1), Arrays.copyOfRange(in, 0, i));
         root.right = reConstructBinaryTree(Arrays.copyOfRange(pre, i + 1, pre.length), Arrays.copyOfRange(in, i + 1, in.length));
         return root;

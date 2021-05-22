@@ -4,6 +4,7 @@ import java.util.stream.IntStream;
 
 public class Solution {
     // 二分查找实现
+    // time： O(NlogN), space: O(1)
     public int findDuplicate(int[] nums) {
         int lo = 0, hi = nums.length - 1;
         while (lo <= hi) {

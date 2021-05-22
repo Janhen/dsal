@@ -6,14 +6,16 @@ import java.util.Map;
 import java.util.Queue;
 
 public class Solution {
-    private Map<Character, Integer> freq = new HashMap<>();
+    // frequency
+    private Map<Character, Integer> freqs = new HashMap<>();
     // record origin add order and maintain queue head element, always appear one time
     private Queue<Character> queue = new LinkedList<>();
 
     public void Insert(char ch) {
-        freq.put(ch, freq.getOrDefault(ch, 0) + 1);
+        freqs.put(ch, freqs.getOrDefault(ch, 0) + 1);
         queue.offer(ch);
-        while (!queue.isEmpty() && freq.get(queue.peek()) > 1) {
+        // maintain queue keep frequency is one
+        while (!queue.isEmpty() && freqs.get(queue.peek()) > 1) {
             queue.poll();    // pop tail of queue
         }
     }

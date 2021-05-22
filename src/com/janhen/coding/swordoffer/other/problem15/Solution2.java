@@ -1,4 +1,4 @@
-package com.janhen.coding.swordoffer.a_base.problem15;
+package com.janhen.coding.swordoffer.other.problem15;
 
 public class Solution2 {
     public int NumberOf1(int n) {

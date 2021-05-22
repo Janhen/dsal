@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Solution3 {
+    // add to list and reverse
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         ArrayList<Integer> list = new ArrayList<>();
         while (listNode != null) {

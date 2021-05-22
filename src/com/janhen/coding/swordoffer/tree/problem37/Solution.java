@@ -31,7 +31,7 @@ public class Solution {
     TreeNode Deserialize(String str) {
         String[] vals = str.split(" ");
         int idx = 0;
-        TreeNode root = geneTreeNode(vals[idx ++]);
+        TreeNode root = createTreeNode(vals[idx ++]);
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
@@ -39,15 +39,15 @@ public class Solution {
             if (cur == null) {
                 continue;
             }
-            cur.left =  geneTreeNode(vals[idx ++]);       // NOTE: need to join
-            cur.right = geneTreeNode(vals[idx ++]);
+            cur.left =  createTreeNode(vals[idx ++]);       // NOTE: need to join
+            cur.right = createTreeNode(vals[idx ++]);
             queue.offer(cur.left);
             queue.offer(cur.right);
         }
         return root;
     }
 
-    TreeNode geneTreeNode(String val) {
+    TreeNode createTreeNode(String val) {
         if ("#".equals(val)) {
             return null;
         }

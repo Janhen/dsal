@@ -7,6 +7,7 @@ import java.util.Queue;
 // pop(), top() 时保持
 public class MyStack {
     private Queue<Integer> data = new LinkedList<>();
+    // when pop/top, help push n-1 element from data
     private Queue<Integer> help = new LinkedList<>();
 
     public void push(int x) {

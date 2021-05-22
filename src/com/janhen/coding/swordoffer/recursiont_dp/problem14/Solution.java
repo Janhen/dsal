@@ -1,6 +1,7 @@
 package com.janhen.coding.swordoffer.recursiont_dp.problem14;
 
 public class Solution {
+    // j * (i-j), j*f(i-j)
     public int integerBreak(int n) {
         int[] dp = new int[n + 1];
         dp[0] = 0;

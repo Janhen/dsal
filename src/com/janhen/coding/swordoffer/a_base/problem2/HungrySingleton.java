@@ -7,10 +7,11 @@ import java.io.Serializable;
  *
  * <pre>
  *   私有构造+反射防御
- *   序列化防御(重写readResolve)
+ *   序列化防御(重写 readResolve)
  * </pre>
  */
 public class HungrySingleton implements Serializable, Cloneable {
+    // new object before invoke
     private final static HungrySingleton instance = new HungrySingleton();
 
     public static HungrySingleton getInstance() {

@@ -6,9 +6,11 @@ public class Solution {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return false;
         }
+        // as iterator guard
         int m = matrix.length, n = matrix[0].length;
         int row = 0, col = n - 1;
         while (row < m && col >= 0) {
+            // right top point is different direction ...
             int val = matrix[row][col];
             if (val == target) {
                 return true;

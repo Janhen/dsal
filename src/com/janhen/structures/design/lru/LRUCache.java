@@ -3,6 +3,7 @@ package com.janhen.structures.design.lru;
 import java.util.HashMap;
 
 class LRUCache {
+    // value -> node
     private final HashMap<Integer, Node> cache;
     private final int capacity;
     private Node head;
@@ -18,20 +19,27 @@ class LRUCache {
             return -1;
         }
         Node node = cache.get(key);
+        // remove from linkedList
         remove(node);
+        // make node as linkedList head
         setHead(node);
         return node.val;
     }
 
     // region operator
     public void put(int key, int value) {
+        // already have current value
         if (cache.containsKey(key)) {
+            // update old value
             Node oldNode = cache.get(key);
             oldNode.val = value;
+            // make node as head
             remove(oldNode);
             setHead(oldNode);
         } else {
+            // make current value as head node
             Node newNode = new Node(key, value);
+            // capacity limit, remove old tail
             if (cache.size() >= capacity) {
                 System.out.println("Cache is FULL! Removing " + tail.val + " from cache...");
                 cache.remove(tail.key);
@@ -47,11 +55,13 @@ class LRUCache {
         if (node.prev != null) {
             node.prev.next = node.next;
         } else {
+            // remove node is head node
             head = node.next;
         }
         if (node.next != null) {
             node.next.prev = node.prev;
         } else {
+            // remove node is tail node
             tail = node.prev;
         }
     }

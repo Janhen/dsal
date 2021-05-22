@@ -11,10 +11,10 @@ public class Solution {
         if (listNode == null) {
             return list;
         }
-        ListNode pre = reverse(listNode);
-        while (pre != null) {
-            list.add(pre.val);
-            pre = pre.next;
+        ListNode reversed = reverse(listNode);
+        while (reversed != null) {
+            list.add(reversed.val);
+            reversed = reversed.next;
         }
         return list;
     }

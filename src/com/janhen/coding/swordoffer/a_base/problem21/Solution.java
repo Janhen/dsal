@@ -12,7 +12,7 @@ public class Solution {
             }
         }
 
-        // tag odd, even index to assign element
+        // tag odd, even index to re assign element
         int oddIdx = 0, evenIdx = oddCnt;
         int[] aux = arr.clone();
         for (int num : aux) {

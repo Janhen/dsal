@@ -3,7 +3,7 @@ package com.janhen.coding.swordoffer.tree.problem8;
 import com.janhen.coding.swordoffer.structures.TreeLinkNode;
 
 /**
- * java.util.TreeMap.successor
+ * {@link java.util.TreeMap#successor}
  */
 public class Solution {
     // LDR
@@ -11,7 +11,7 @@ public class Solution {
         if (node == null) {
             return null;
         }
-
+        // LDR, now try find in right tree, find leftmost in right tree
         if (node.right != null) {
             TreeLinkNode cur = node.right;
             while (cur.left != null) {          // find leftmost(node.right)

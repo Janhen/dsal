@@ -4,6 +4,7 @@ import java.util.BitSet;
 
 public class Solution2_ {
     // biSet 去重实现
+    // time： O(N)
     public boolean duplicate(int nums[], int length, int[] duplication) {
         BitSet set = new BitSet(length);
         for (int i = 0; i < length; i++) {

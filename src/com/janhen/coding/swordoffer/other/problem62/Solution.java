@@ -10,13 +10,15 @@ public class Solution {
         if (n <= 0 || m <= 0) {
             return -1;
         }
-        // define original list
+        // 1. define original list, make (0,1,2,3,4,..,n-1)
         LinkedList<Integer> list = IntStream.range(0, n).boxed().collect(Collectors.toCollection(LinkedList::new));
+
         // find relational node and remove
-        int index = 0;
+        int idx = 0;
+        // 2. continue to remove util only have one element
         while (list.size() > 1) {
-            index = (index + m - 1) % list.size();
-            list.remove(index);
+            idx = (idx + m - 1) % list.size();
+            list.remove(idx);
         }
         return list.get(0);
     }

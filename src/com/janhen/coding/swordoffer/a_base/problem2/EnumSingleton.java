@@ -2,6 +2,8 @@ package com.janhen.coding.swordoffer.a_base.problem2;
 
 /**
  * 枚举单例
+ *
+ * 自动进行反射、序列化防御
  */
 public enum EnumSingleton {
     INSTANCE {

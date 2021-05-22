@@ -10,13 +10,14 @@ public class Solution {
         if (size > nums.length || size < 1) {
             return res;
         }
-
+        // keep bounded max heap
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> o2 - o1);    // N=size-1, record sliding
-        // window max val
+        // window max val, window size always fixed
         int L = 0, R = 0;
-        while (R < nums.length) {               //
+        while (R < nums.length) {
             maxHeap.offer(nums[R++]);
             if (maxHeap.size() == size) {
+                // get size fixed window current max value
                 res.add(maxHeap.peek());
                 maxHeap.remove(nums[L++]);    // [L] to remove, O(logN)?
             }

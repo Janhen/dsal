@@ -7,8 +7,9 @@ import java.util.ArrayList;
 public class SolutionR {
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         ArrayList<Integer> list = new ArrayList<>();
-        if (listNode == null)
+        if (listNode == null) {
             return list;
+        }
         list.addAll(printListFromTailToHead(listNode.next));
         list.add(listNode.val);
         return list;

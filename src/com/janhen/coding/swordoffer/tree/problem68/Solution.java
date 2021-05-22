@@ -8,9 +8,11 @@ public class Solution {
         if (root == null) {
             return root;
         }
+        // p, q all in root.left tree
         if (root.val > p.val && root.val > q.val) {
             lowestCommonAncestor(root.left, p, q);          // p,q all in left tree
         }
+        // p, q all in root.right tree
         if (root.val < p.val && root.val < q.val) {
             lowestCommonAncestor(root.right, p, q);           // p,q all in right tree
         }

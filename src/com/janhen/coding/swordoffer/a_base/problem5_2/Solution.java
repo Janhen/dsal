@@ -1,7 +1,7 @@
 package com.janhen.coding.swordoffer.a_base.problem5_2;
 
 public class Solution {
-    // 从后向前进行更新
+    // 从后向前赋值更新
     public void merge(int[] A, int[] B, int lastA, int lastB) {
         int i = lastA - 1;
         int j = lastB - 1;

@@ -1,6 +1,7 @@
 package com.janhen.coding.swordoffer.tree.problem33;
 
 public class Solution {
+    // 拆分左右子树，判断有序性
     // LRD
     // 3 2 1 5 8 7 4
     // LLLLL ^ RRR ^
@@ -19,17 +20,18 @@ public class Solution {
         }
         // find right tree index
         int rootVal = sequence[last];
-        int firstRightIdx = first;
-        while (firstRightIdx < last && sequence[firstRightIdx] < rootVal) {
-            firstRightIdx++;
+        int firstRightTreeIdx = first;
+        while (firstRightTreeIdx < last && sequence[firstRightTreeIdx] < rootVal) {
+            firstRightTreeIdx++;
         }
 
-        // compare all elements in right tree
-        for (int i = firstRightIdx; i < last; i++) {
+        // compare all elements in right tree [firstRightIdx, last) must < rootVal
+        for (int i = firstRightTreeIdx; i < last; i++) {
             if (sequence[i] < rootVal) {
                 return false;
             }
         }
-        return verify(sequence, first, firstRightIdx - 1) && verify(sequence, firstRightIdx, last - 1);   // insure left and right tree to recursion
+        // now to verify left tree(first, firstRightTreeIdx -1) and right tree(firstRightTreeIdx, last - 1)
+        return verify(sequence, first, firstRightTreeIdx - 1) && verify(sequence, firstRightTreeIdx, last - 1);   // insure left and right tree to recursion
     }
 }

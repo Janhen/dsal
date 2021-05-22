@@ -1,11 +1,11 @@
 package com.janhen.coding.swordoffer.recursiont_dp.problem13;
 
 public class Solution {
-
     // 有条件的遍历行为
     // 保存矩阵的数字和, help[] 防止重复计算
     public int movingCount(int threshold, int rows, int cols) {
         int count = 0;
+        // record is or not visit
         boolean[][] visited = new boolean[rows][cols];
         int[][] digitSum = geneDigitSum(rows, cols);
         count = dfs(threshold, 0, 0, rows, cols, visited, digitSum);
@@ -13,11 +13,13 @@ public class Solution {
     }
 
     private int dfs(int threshold, int row, int col, int rows, int cols, boolean[][] visited, int[][] digitSum) {
-        if (!canRun(threshold, row, col, rows, cols, visited, digitSum))
+        if (!canRun(threshold, row, col, rows, cols, visited, digitSum)) {
             return 0;
+        }
         visited[row][col] = true;
         int count = 0;
-        count = 1 + dfs(threshold, row, col - 1, rows, cols, visited, digitSum)
+        count = 1
+          + dfs(threshold, row, col - 1, rows, cols, visited, digitSum)
           + dfs(threshold, row, col + 1, rows, cols, visited, digitSum)
           + dfs(threshold, row - 1, col, rows, cols, visited, digitSum)
           + dfs(threshold, row + 1, col, rows, cols, visited, digitSum);
@@ -30,7 +32,7 @@ public class Solution {
         return true;
     }
 
-    // use table to save calculated value
+    // init calculate: use table to save calculated value
     private int[][] geneDigitSum(int rows, int cols) {
         int[] help = new int[Math.max(rows, cols)];
         for (int i = 0; i < help.length; i++) {

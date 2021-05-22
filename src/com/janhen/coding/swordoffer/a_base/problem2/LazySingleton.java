@@ -5,6 +5,7 @@ package com.janhen.coding.swordoffer.a_base.problem2;
  *
  * <pre>
  *   synchronized 保证线程安全
+ *   加锁性能不佳
  * </pre>
  */
 public class LazySingleton {

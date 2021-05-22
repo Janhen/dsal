@@ -2,8 +2,9 @@ package com.janhen.coding.swordoffer.a_base.problem10_2;
 
 public class Solution {
     public int JumpFloor(int target) {
-        if (target <= 2)
+        if (target <= 2) {
             return target;
+        }
         int pre1 = 2, pre2 = 1;
         int res = 0;
         for (int i = 2; i < target; i++) {

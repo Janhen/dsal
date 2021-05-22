@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class MaxQueue {
-
     private Deque<Tuple> data = new LinkedList<>();
     private Deque<Tuple> qmax = new LinkedList<>();
     private int currentIndex = 0;

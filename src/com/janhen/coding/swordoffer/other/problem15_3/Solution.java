@@ -1,4 +1,4 @@
-package com.janhen.coding.swordoffer.a_base.problem15_3;
+package com.janhen.coding.swordoffer.other.problem15_3;
 
 public class Solution {
     public int getDifferentCount(int m, int n) {

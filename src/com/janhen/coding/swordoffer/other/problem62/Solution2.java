@@ -30,6 +30,7 @@ public class Solution2 {
         Node pre = null;
         while (n != 1) {
             pre = head;
+            // run m -1 step
             for (int i = 0; i < m-2;i ++) {
                 pre = pre.next;
             }

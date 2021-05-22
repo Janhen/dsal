@@ -11,6 +11,7 @@ public class Solution {
         int lo = 0, hi = arr.length - 1;
         while (lo < hi) {
             int mid = lo + (hi - lo) / 2;
+            // now first small element is in [lo,hi]
             if (arr[mid] == arr[lo] && arr[mid] == arr[hi]) {
                 return getMin(arr, lo, hi);
             } else if (arr[mid] <= arr[hi]) {

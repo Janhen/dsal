@@ -9,13 +9,13 @@ public class Solution2 {
     // time:O(N),space:O(N)
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         ArrayList<Integer> list = new ArrayList<>();
-        Stack<Integer> s = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         while (listNode != null) {
-            s.add(listNode.val);
+            stack.add(listNode.val);
             listNode = listNode.next;
         }
-        while (!s.isEmpty()) {
-            list.add(s.pop());
+        while (!stack.isEmpty()) {
+            list.add(stack.pop());
         }
         return list;
     }
