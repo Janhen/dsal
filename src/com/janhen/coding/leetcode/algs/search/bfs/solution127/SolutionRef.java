@@ -15,7 +15,8 @@ Medium
 题目描述：找出一条从 beginWord 到 endWord 的最短路径，每次移动规定为改变一个字符，并且改变之后的字符串必须在 wordList 中。
 
 Share
-Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation sequence from beginWord to endWord, such that:
+Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation
+sequence from beginWord to endWord, such that:
 
 Only one letter can be changed at a time.
 Each transformed word must exist in the word list. Note that beginWord is not a transformed word.
@@ -56,68 +57,68 @@ import java.util.Queue;
 
 class SolutionRef {
 
-  public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-    wordList.add(beginWord);
-    int N = wordList.size();
-    int start = N - 1;
-    int end = 0;
-    while (end < N && !wordList.get(end).equals(endWord)) {
-      end++;
-    }
-    if (end == N) {
-      return 0;
-    }
-    List<Integer>[] graphic = buildGraphic(wordList);
-    return getShortestPath(graphic, start, end);
-  }
-
-  private List<Integer>[] buildGraphic(List<String> wordList) {
-    int N = wordList.size();
-    List<Integer>[] graphic = new List[N];
-    for (int i = 0; i < N; i++) {
-      graphic[i] = new ArrayList<>();
-      for (int j = 0; j < N; j++) {
-        if (isConnect(wordList.get(i), wordList.get(j))) {
-          graphic[i].add(j);
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        wordList.add(beginWord);
+        int N = wordList.size();
+        int start = N - 1;
+        int end = 0;
+        while (end < N && !wordList.get(end).equals(endWord)) {
+            end++;
         }
-      }
-    }
-    return graphic;
-  }
-
-  private boolean isConnect(String s1, String s2) {
-    int diffCnt = 0;
-    for (int i = 0; i < s1.length() && diffCnt <= 1; i++) {
-      if (s1.charAt(i) != s2.charAt(i)) {
-        diffCnt++;
-      }
-    }
-    return diffCnt == 1;
-  }
-
-  private int getShortestPath(List<Integer>[] graphic, int start, int end) {
-    Queue<Integer> queue = new LinkedList<>();
-    boolean[] marked = new boolean[graphic.length];
-    queue.add(start);
-    marked[start] = true;
-    int path = 1;
-    while (!queue.isEmpty()) {
-      int size = queue.size();
-      path++;
-      while (size-- > 0) {
-        int cur = queue.poll();
-        for (int next : graphic[cur]) {
-          if (next == end) {
-            return path;
-          }
-          if (marked[next]) {
-            continue;
-          }
-          marked[next] = true;
-          queue.add(next);
+        if (end == N) {
+            return 0;
         }
-      }
+        List<Integer>[] graphic = buildGraphic(wordList);
+        return getShortestPath(graphic, start, end);
     }
-    return 0;
-  }
+
+    private List<Integer>[] buildGraphic(List<String> wordList) {
+        int N = wordList.size();
+        List<Integer>[] graphic = new List[N];
+        for (int i = 0; i < N; i++) {
+            graphic[i] = new ArrayList<>();
+            for (int j = 0; j < N; j++) {
+                if (isConnect(wordList.get(i), wordList.get(j))) {
+                    graphic[i].add(j);
+                }
+            }
+        }
+        return graphic;
+    }
+
+    private boolean isConnect(String s1, String s2) {
+        int diffCnt = 0;
+        for (int i = 0; i < s1.length() && diffCnt <= 1; i++) {
+            if (s1.charAt(i) != s2.charAt(i)) {
+                diffCnt++;
+            }
+        }
+        return diffCnt == 1;
+    }
+
+    private int getShortestPath(List<Integer>[] graphic, int start, int end) {
+        Queue<Integer> queue = new LinkedList<>();
+        boolean[] marked = new boolean[graphic.length];
+        queue.add(start);
+        marked[start] = true;
+        int path = 1;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            path++;
+            while (size-- > 0) {
+                int cur = queue.poll();
+                for (int next : graphic[cur]) {
+                    if (next == end) {
+                        return path;
+                    }
+                    if (marked[next]) {
+                        continue;
+                    }
+                    marked[next] = true;
+                    queue.add(next);
+                }
+            }
+        }
+        return 0;
+    }
 }

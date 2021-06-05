@@ -2,10 +2,33 @@ package com.janhen.coding.leetcode.algs.search.floodfill.solution200;
 
 class SolutionRef2 {
 
-    private int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    private final int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
     private boolean[][] visited;
-    private int         rows, cols;
+    private int rows, cols;
+
+    public static void main(String[] args) {
+
+        char[][] grid1 = {
+          {'1', '1', '1', '1', '0'},
+          {'1', '1', '0', '1', '0'},
+          {'1', '1', '0', '0', '0'},
+          {'0', '0', '0', '0', '0'}
+        };
+        System.out.println((new SolutionRef2()).numIslands(grid1));
+        // 1
+
+        // ---
+
+        char[][] grid2 = {
+          {'1', '1', '0', '0', '0'},
+          {'1', '1', '0', '0', '0'},
+          {'0', '0', '1', '0', '0'},
+          {'0', '0', '0', '1', '1'}
+        };
+        System.out.println((new SolutionRef2()).numIslands(grid2));
+        // 3
+    }
 
     public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0)
@@ -40,28 +63,5 @@ class SolutionRef2 {
 
     private boolean inArea(int r, int c) {
         return r >= 0 && r < rows && c >= 0 && c < cols;
-    }
-
-    public static void main(String[] args) {
-
-        char grid1[][] = {
-                {'1','1','1','1','0'},
-                {'1','1','0','1','0'},
-                {'1','1','0','0','0'},
-                {'0','0','0','0','0'}
-        };
-        System.out.println((new SolutionRef2()).numIslands(grid1));
-        // 1
-
-        // ---
-
-        char grid2[][] = {
-                {'1','1','0','0','0'},
-                {'1','1','0','0','0'},
-                {'0','0','1','0','0'},
-                {'0','0','0','1','1'}
-        };
-        System.out.println((new SolutionRef2()).numIslands(grid2));
-        // 3
     }
 }

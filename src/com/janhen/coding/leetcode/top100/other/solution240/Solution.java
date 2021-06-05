@@ -5,14 +5,14 @@ class Solution {
         if (matrix == null || matrix.length == 0)
             return false;
         int m = matrix.length, n = matrix[0].length;
-        int r = 0, c = n-1;
+        int r = 0, c = n - 1;
         while (r < m && c >= 0) {
             if (matrix[r][c] == target)
                 return true;
             else if (matrix[r][c] > target)
-                c --;     // in left
+                c--;     // in left
             else
-                r ++;    // in down
+                r++;    // in down
         }
         return false;
     }

@@ -3,10 +3,11 @@ package com.janhen.coding.leetcode.algs.search.backtracking.permutate.solution51
 //51. N-Queens
 //        https://leetcode.com/problems/n-queens/description/
 // 51. N 皇后II
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ArrayList;
 
 /// 时间复杂度: O(n^n)
 /// 空间复杂度: O(n)
@@ -19,6 +20,20 @@ class Solution2 {
     private boolean[] dia1;
     private boolean[] dia2;
     private ArrayList<List<String>> res;
+
+    private static void printBoard(List<String> board) {
+        for (String s : board)
+            System.out.println(s);
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+
+        int n = 4;
+        List<List<String>> res = (new Solution()).solveNQueens(n);
+        for (List<String> board : res)
+            printBoard(board);
+    }
 
     public List<List<String>> solveNQueens(int n) {
 
@@ -34,16 +49,16 @@ class Solution2 {
     }
 
     // 尝试在一个n皇后问题中, 摆放第index行的皇后位置
-    private void putQueen(int n, int index, LinkedList<Integer> row){
+    private void putQueen(int n, int index, LinkedList<Integer> row) {
 
-        if(index == n){
+        if (index == n) {
             res.add(generateBoard(n, row));
             return;
         }
 
-        for(int i = 0 ; i < n ; i ++)
+        for (int i = 0; i < n; i++)
             // 尝试将第index行的皇后摆放在第i列
-            if(!col[i] && !dia1[index + i] && !dia2[index - i + n - 1]){
+            if (!col[i] && !dia1[index + i] && !dia2[index - i + n - 1]) {
                 row.addLast(i);
                 col[i] = true;
                 dia1[index + i] = true;
@@ -58,31 +73,17 @@ class Solution2 {
         return;
     }
 
-    private List<String> generateBoard(int n, LinkedList<Integer> row){
+    private List<String> generateBoard(int n, LinkedList<Integer> row) {
 
         assert row.size() == n;
 
         ArrayList<String> board = new ArrayList<String>();
-        for(int i = 0 ; i < n ; i ++){
+        for (int i = 0; i < n; i++) {
             char[] charArray = new char[n];
             Arrays.fill(charArray, '.');
             charArray[row.get(i)] = 'Q';
             board.add(new String(charArray));
         }
         return board;
-    }
-
-    private static void printBoard(List<String> board){
-        for(String s: board)
-            System.out.println(s);
-        System.out.println();
-    }
-
-    public static void main(String[] args) {
-
-        int n = 4;
-        List<List<String>> res = (new Solution()).solveNQueens(n);
-        for(List<String> board: res)
-            printBoard(board);
     }
 }

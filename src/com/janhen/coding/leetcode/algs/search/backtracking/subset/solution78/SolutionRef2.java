@@ -20,7 +20,7 @@ class SolutionRef2 {
     public void backtracking(int[] nums, int start, List<Integer> list) {
         res.add(new ArrayList<>(list));
         for (int i = start; i < nums.length; i++) {
-            if (i > start && nums[i] == nums[i-1]) continue;  // prevent duplicate element
+            if (i > start && nums[i] == nums[i - 1]) continue;  // prevent duplicate element
             list.add(nums[start]);
             backtracking(nums, start + 1, list);
             list.remove(list.size() - 1);

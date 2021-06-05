@@ -12,7 +12,7 @@ class Solution:
             counts[left], counts[l] = counts[l], counts[left]
 
             if l + 1 == k:
-                return counts[:l+1]
+                return counts[:l + 1]
             elif l + 1 < k:
                 return quick_select(l + 1, right)
             else:

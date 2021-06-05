@@ -10,7 +10,7 @@ class Solution:
         d = {}
         for num in nums:
             if num in d:
-                d[num] -= 1 # reverse the sign on the freq for the heap's sake
+                d[num] -= 1  # reverse the sign on the freq for the heap's sake
             else:
                 d[num] = -1
 

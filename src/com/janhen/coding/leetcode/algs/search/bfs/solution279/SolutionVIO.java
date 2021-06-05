@@ -20,6 +20,7 @@ Output: 2
 Explanation: 13 = 4 + 9.
 
  Memory Limit*/
+
 import javafx.util.Pair;
 
 import java.util.LinkedList;
@@ -41,7 +42,7 @@ class SolutionVIO {
             if (num == 0)
                 return step;
             // 冗余节点
-            for (int i = 1; num - i * i >= 0; i ++)
+            for (int i = 1; num - i * i >= 0; i++)
                 q.offer(new Pair<>(num - i * i, step + 1));
         }
         throw new IllegalArgumentException("no");

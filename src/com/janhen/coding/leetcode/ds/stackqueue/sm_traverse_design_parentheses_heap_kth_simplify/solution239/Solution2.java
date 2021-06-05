@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-class Solution2 {
+class   Solution2 {
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums == null || nums.length == 0 || nums.length < k || k < 0)
             return new int[]{};

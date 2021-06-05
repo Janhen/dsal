@@ -7,8 +7,8 @@ package com.janhen.coding.leetcode.algs.search.backtracking.permutate.solution51
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 /**
- *
  * ERROR
  */
 class Solution {
@@ -40,8 +40,8 @@ class Solution {
             return;
         }
 
-        for (int j = 0; j < n; j ++) {
-            if (!col[j] && !diagonal1[index + 1] &&!diagonal2[index - j + n - 1]) {
+        for (int j = 0; j < n; j++) {
+            if (!col[j] && !diagonal1[index + 1] && !diagonal2[index - j + n - 1]) {
                 row.add(j);
                 col[j] = true;
                 diagonal1[index + j] = true;
@@ -62,7 +62,7 @@ class Solution {
         assert row.size() == n;
         List<String> board = new ArrayList<>();
 
-        for (int i = 0; i < n; i ++) {
+        for (int i = 0; i < n; i++) {
             char[] chars = new char[n];
             Arrays.fill(chars, '.');
             chars[row.get(i)] = 'Q';

@@ -1,7 +1,6 @@
 package com.janhen.coding.swordoffer.recursiont_dp.problem47;
 
 public class Bonus {
-    //
     // dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]) + board[i][j];
     public int getMost(int[][] board) {
         int m = board.length;

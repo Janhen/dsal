@@ -6,6 +6,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 class Solution3_ {
+    public static void main(String[] args) {
+
+        System.out.println((new Solution3_()).numSquares(12));
+        System.out.println((new Solution3_()).numSquares(13));
+    }
+
     //  30 ms, faster than 63.18%
     // 进一步优化
     // time: O(n)
@@ -20,7 +26,7 @@ class Solution3_ {
             Pair<Integer, Integer> front = q.poll();
             int num = front.getKey();
             int step = front.getValue();
-            for (int i = 1; ; i ++) {
+            for (int i = 1; ; i++) {
                 int a = num - i * i;
                 if (a < 0) break;
                 if (a == 0) return step + 1;
@@ -31,12 +37,6 @@ class Solution3_ {
             }
         }
         throw new IllegalArgumentException("no");
-    }
-
-    public static void main(String[] args) {
-
-        System.out.println((new Solution3_()).numSquares(12));
-        System.out.println((new Solution3_()).numSquares(13));
     }
 
 

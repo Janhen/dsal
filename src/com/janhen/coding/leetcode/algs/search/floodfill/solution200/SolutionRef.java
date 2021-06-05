@@ -4,7 +4,30 @@ class SolutionRef {
 
     private int M, N;
     private boolean[][] visited;
-    private int[][]     dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    private final int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+
+    public static void main(String[] args) {
+
+        char[][] grid1 = {
+          {'1', '1', '1', '1', '0'},
+          {'1', '1', '0', '1', '0'},
+          {'1', '1', '0', '0', '0'},
+          {'0', '0', '0', '0', '0'}
+        };
+        System.out.println((new SolutionRef()).numIslands(grid1));
+        // 1
+
+        // ---
+
+        char[][] grid2 = {
+          {'1', '1', '0', '0', '0'},
+          {'1', '1', '0', '0', '0'},
+          {'0', '0', '1', '0', '0'},
+          {'0', '0', '0', '1', '1'}
+        };
+        System.out.println((new SolutionRef()).numIslands(grid2));
+        // 3
+    }
 
     public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0)
@@ -32,29 +55,5 @@ class SolutionRef {
         for (int i = 0; i < dirs.length; i++)
             dfs(grid, r + dirs[i][0], c + dirs[i][1]);
         return;
-    }
-
-
-    public static void main(String[] args) {
-
-        char grid1[][] = {
-                {'1', '1', '1', '1', '0'},
-                {'1', '1', '0', '1', '0'},
-                {'1', '1', '0', '0', '0'},
-                {'0', '0', '0', '0', '0'}
-        };
-        System.out.println((new SolutionRef()).numIslands(grid1));
-        // 1
-
-        // ---
-
-        char grid2[][] = {
-                {'1', '1', '0', '0', '0'},
-                {'1', '1', '0', '0', '0'},
-                {'0', '0', '1', '0', '0'},
-                {'0', '0', '0', '1', '1'}
-        };
-        System.out.println((new SolutionRef()).numIslands(grid2));
-        // 3
     }
 }

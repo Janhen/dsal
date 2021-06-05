@@ -29,15 +29,15 @@ class SolutionDP {
     //25.6 MB, less than 51.84%
     public int numSquares(int n) {
 
-        int[] dp = new int[n+1];
+        int[] dp = new int[n + 1];
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
         dp[1] = 1;
-        for (int i = 2; i <= n; i ++) {
+        for (int i = 2; i <= n; i++) {
             int min = Integer.MAX_VALUE, num = 1;
             while (i - num * num >= 0) {
-                min = Math.min(min, dp[i-num*num] + 1);
-                num ++;
+                min = Math.min(min, dp[i - num * num] + 1);
+                num++;
             }
             dp[i] = min;
         }
@@ -46,13 +46,13 @@ class SolutionDP {
 
     public int numSquares2(int n) {
 
-        int[] dp = new int[n+1];
+        int[] dp = new int[n + 1];
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
         dp[1] = 1;
-        for (int i = 2; i <= n; i ++) {
-            for (int j = 1; j * j <= i; j ++) {
-                dp[i] = Math.min(dp[i], dp[i-j*j] + 1);   /* 在-1²,2²,3², 4²,5² ... x²<=n 种子问题之间选择最小的步数 */
+        for (int i = 2; i <= n; i++) {
+            for (int j = 1; j * j <= i; j++) {
+                dp[i] = Math.min(dp[i], dp[i - j * j] + 1);   /* 在-1²,2²,3², 4²,5² ... x²<=n 种子问题之间选择最小的步数 */
             }
         }
         return dp[n];

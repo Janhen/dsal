@@ -21,7 +21,7 @@ public class Solution2 {
         }
 
         List<Integer> topK = new ArrayList<>();
-        for (int i = buckets.length - 1; i >= 0; i --) {
+        for (int i = buckets.length - 1; i >= 0; i--) {
             if (buckets[i] == null) continue;
             if (topK.size() >= k) break;
             if (buckets[i].size() <= (k - topK.size()))

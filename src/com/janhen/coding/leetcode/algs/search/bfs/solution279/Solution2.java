@@ -6,6 +6,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 class Solution2 {
+    public static void main(String[] args) {
+
+        System.out.println((new Solution2()).numSquares(12));
+        System.out.println((new Solution2()).numSquares(13));
+    }
+
     public int numSquares(int n) {
         Queue<Pair<Integer, Integer>> q = new LinkedList<>();
         q.offer(new Pair<>(n, 0));
@@ -17,7 +23,7 @@ class Solution2 {
             q.poll();
             if (num == 0)
                 return step;
-            for (int i = 1; num - i * i >= 0; i ++) {
+            for (int i = 1; num - i * i >= 0; i++) {
                 if (!visited[num - i * i]) {
                     q.offer(new Pair<>(num - i * i, step + 1));
                     visited[num - i * i] = true;
@@ -25,11 +31,5 @@ class Solution2 {
             }
         }
         throw new IllegalArgumentException("no");
-    }
-
-    public static void main(String[] args) {
-
-        System.out.println((new Solution2()).numSquares(12));
-        System.out.println((new Solution2()).numSquares(13));
     }
 }

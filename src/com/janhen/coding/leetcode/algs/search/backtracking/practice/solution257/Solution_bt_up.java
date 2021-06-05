@@ -16,9 +16,9 @@ class Solution_bt_up {
         }
         List<String> leftPaths = binaryTreePaths(root.left);
         List<String> rightPaths = binaryTreePaths(root.right);
-        for (int i = 0; i < leftPaths.size(); i ++)
+        for (int i = 0; i < leftPaths.size(); i++)
             res.add(root.val + "->" + leftPaths.get(i));    // reverse add operation
-        for (int i = 0; i < rightPaths.size(); i ++)
+        for (int i = 0; i < rightPaths.size(); i++)
             res.add(root.val + "->" + rightPaths.get(i));
         return res;
     }

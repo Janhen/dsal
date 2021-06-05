@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class SolutionB {
-    private List<List<Integer>> res = new ArrayList<>();
+    private final List<List<Integer>> res = new ArrayList<>();
 
     // 保持原始传递值进行递归
     public List<List<Integer>> combinationSum3(int k, int n) {
@@ -19,7 +19,7 @@ class SolutionB {
             res.add(new ArrayList<>(list));
             return;  // note: return
         }
-        for (int i = start; i <= 9; i ++) {                /* 固定数量的选择 */
+        for (int i = start; i <= 9; i++) {                /* 固定数量的选择 */
             list.add(i);
             backtracking(i + 1, k, n, list);
             list.remove(list.size() - 1);
@@ -28,7 +28,7 @@ class SolutionB {
 
     private int sum(List<Integer> list) {
         int sum = 0;
-        for (int val: list)
+        for (int val : list)
             sum += val;
         return sum;
     }

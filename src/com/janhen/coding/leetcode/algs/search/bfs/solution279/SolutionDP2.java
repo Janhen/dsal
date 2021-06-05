@@ -31,14 +31,14 @@ class SolutionDP2 {
     //
     public int numSquares(int n) {
         List<Integer> squareList = geneSquareList(n);
-        int[] dp = new int[n+1];
+        int[] dp = new int[n + 1];
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
         dp[1] = 1;
-        for (int i = 2; i <= n; i ++) {
+        for (int i = 2; i <= n; i++) {
             for (int square : squareList) {
                 if (square > i) break;
-                dp[i] = Math.min(dp[i], dp[i-square] + 1);
+                dp[i] = Math.min(dp[i], dp[i - square] + 1);
             }
         }
         return dp[n];
@@ -59,15 +59,15 @@ class SolutionDP2 {
 
     public int numSquares2(int n) {
         List<Integer> squareList = geneSquareList(n);
-        int[] dp = new int[n+1];
+        int[] dp = new int[n + 1];
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
         dp[1] = 1;
-        for (int i = 2; i <= n; i ++) {
+        for (int i = 2; i <= n; i++) {
             int min = Integer.MAX_VALUE;
             for (int square : squareList) {
                 if (square > i) break;
-                min = Math.min(min, dp[i-square] + 1);
+                min = Math.min(min, dp[i - square] + 1);
             }
             dp[i] = min;
         }

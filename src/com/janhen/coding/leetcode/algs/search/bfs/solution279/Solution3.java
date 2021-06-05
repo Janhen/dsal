@@ -7,6 +7,12 @@ import java.util.LinkedList;
 
 class Solution3 {
 
+    public static void main(String[] args) {
+
+        System.out.println((new Solution3()).numSquares(12));
+        System.out.println((new Solution3()).numSquares(13));
+    }
+
     // 18 ms, faster than 95.96%
     // 27.5 MB, less than 17.16%
     public int numSquares(int n) {
@@ -32,11 +38,5 @@ class Solution3 {
             }
         }
         throw new IllegalStateException("No SolutionVIO_$.");
-    }
-
-    public static void main(String[] args) {
-
-        System.out.println((new Solution3()).numSquares(12));
-        System.out.println((new Solution3()).numSquares(13));
     }
 }

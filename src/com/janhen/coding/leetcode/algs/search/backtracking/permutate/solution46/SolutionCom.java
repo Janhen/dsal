@@ -12,14 +12,14 @@ class SolutionCom {
         backTracking(nums, new ArrayList<>(), res);
         return res;
     }
- 
+
     private void backTracking(int[] nums, ArrayList<Integer> list, List<List<Integer>> res) {
         if (list.size() == nums.length) {
-            res.add((ArrayList<Integer>)list.clone());
+            res.add((ArrayList<Integer>) list.clone());
             return;
         }
 
-        for (int i = 0; i < nums.length; i ++) {
+        for (int i = 0; i < nums.length; i++) {
             if (list.contains(nums[i]))    // O(N)
                 continue;
             list.add(nums[i]);
